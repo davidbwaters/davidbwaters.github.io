@@ -1824,9 +1824,9 @@ body[data-theme=light] {
   box-shadow: 0 2px 0 var(--color-button-primary-shadow);
   color: var(--color-button-primary-fg);
   cursor: pointer;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  padding: 0.5rem 0.8rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.075em;
+  padding: 0.5rem;
   text-transform: uppercase;
   transition: all 0.25s;
 }
@@ -1844,6 +1844,13 @@ body[data-theme=light] {
   background-color: var(--color-button-primary-bg-hover);
 }
 
+@media (min-width: 45em) {
+  .c-button {
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    padding: 0.5rem 0.8rem;
+  }
+}
 /*
  *  Components - Hero
  */
@@ -1966,8 +1973,8 @@ body[data-theme=light] {
   bottom: 0;
   display: block;
   font-family: var(--font-primary-medium);
-  font-size: 0.7rem;
-  height: 0.7rem;
+  font-size: 0.6rem;
+  height: 0.6rem;
   letter-spacing: 0.1em;
   line-height: 1;
   padding-left: 0.5rem;
@@ -2075,9 +2082,10 @@ c-theme-switch,
   align-items: center;
   column-gap: 1rem;
   display: grid;
+  font-size: 0.8rem;
   grid-template-columns: auto 1fr;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .c-hero__availability i,
@@ -2109,6 +2117,8 @@ c-theme-switch,
 
   .c-hero__name,
 .c-hero__location {
+    font-size: 0.7rem;
+    height: 0.7rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -2130,6 +2140,13 @@ c-theme-switch,
 
   .c-hero__heading > * {
     font-size: 2rem;
+  }
+
+  .c-hero__availability,
+.c-hero__cta {
+    font-size: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 }
 /* Animations */
