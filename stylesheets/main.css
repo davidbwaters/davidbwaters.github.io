@@ -1858,7 +1858,7 @@ body[data-theme=light] {
   display: grid;
   grid-template-rows: 2fr 3fr 4.5rem;
   height: 100vh;
-  min-height: 35rem;
+  min-height: 30rem;
 }
 
 .c-hero__upper {
@@ -2140,7 +2140,7 @@ c-theme-switch,
   }
 
   .c-hero__heading > * {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 
   .c-hero__availability,
