@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "icons";
+  src:url("icons.eot");
+  src:url("icons.eot?#iefix") format("embedded-opentype"),
+      url("icons.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before {
+  font-family: "icons" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="c-icon--"]:before,
+[class*=" c-icon--"]:before {
+  font-family: "icons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.c-icon--twitter:before {
+  content: "\61";
+}
+.c-icon--mail:before {
+  content: "\62";
+}
+.c-icon--github:before {
+  content: "\63";
+}
+.c-icon--dribbble:before {
+  content: "\64";
+}
+.c-icon--switch:before {
+  content: "\65";
+}
+.c-icon--hand:before {
+  content: "\68";
+}
+.c-icon--arrow-down:before {
+  content: "\67";
+}
+.c-icon--hand-alt:before {
+  content: "\6a";
+}

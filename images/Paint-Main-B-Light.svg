@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="800"
+   height="800"
+   viewBox="0 0 800 800"
+   version="1.1"
+   id="svg564"
+   inkscape:version="1.0.1 (c497b03c, 2020-09-10)"
+   sodipodi:docname="Paint-Main-B-Light.svg">
+  <defs
+     id="defs558">
+    <filter
+       id="filter230"
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Thick Acrylic"
+       inkscape:menu="Bumps"
+       inkscape:menu-tooltip="Thick acrylic paint texture with high texture depth"
+       height="1.1"
+       y="-0.050000001"
+       width="1.1"
+       x="-0.050000001">
+      <feTurbulence
+         id="feTurbulence208"
+         seed="0"
+         result="result7"
+         type="fractalNoise"
+         numOctaves="4"
+         baseFrequency="0.02" />
+      <feComposite
+         id="feComposite210"
+         in2="result7"
+         result="result6"
+         operator="out"
+         in="SourceGraphic" />
+      <feGaussianBlur
+         id="feGaussianBlur212"
+         result="result11"
+         stdDeviation="0.01" />
+      <feDisplacementMap
+         in="result7"
+         id="feDisplacementMap214"
+         in2="result11"
+         xChannelSelector="A"
+         yChannelSelector="A"
+         scale="100"
+         result="result4" />
+      <feComposite
+         in2="result4"
+         id="feComposite216"
+         result="result2"
+         operator="out"
+         in="SourceGraphic" />
+      <feComposite
+         id="feComposite218"
+         result="fbSourceGraphic"
+         operator="in"
+         in2="SourceGraphic" />
+      <feBlend
+         id="feBlend220"
+         in2="fbSourceGraphic"
+         result="fbSourceGraphic"
+         mode="normal" />
+      <feDiffuseLighting
+         id="feDiffuseLighting224"
+         result="result10"
+         in="fbSourceGraphic"
+         surfaceScale="4.80000019"
+         diffuseConstant="1"
+         kernelUnitLength="0.01">
+        <fePointLight
+           id="fePointLight82" />
+      </feDiffuseLighting>
+      <feComposite
+         id="feComposite226"
+         in2="fbSourceGraphic"
+         in="result10"
+         result="result2"
+         operator="in" />
+      <feComposite
+         id="feComposite228"
+         in2="result2"
+         in="fbSourceGraphic"
+         result="result4"
+         operator="arithmetic"
+         k2="1"
+         k3="1"
+         k1="1"
+         k4="0" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.1958586"
+     inkscape:cx="53.226965"
+     inkscape:cy="246.0345"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1252"
+     inkscape:window-height="847"
+     inkscape:window-x="0"
+     inkscape:window-y="210"
+     inkscape:window-maximized="0"
+     units="px" />
+  <metadata
+     id="metadata561">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="paint">
+    <rect
+       style="fill:#b3b3e7;stroke-width:0.999999"
+       id="rect28"
+       width="800"
+       height="800"
+       x="0"
+       y="0"
+       inkscape:label="bg" />
+    <rect
+       style="opacity:0.75;mix-blend-mode:luminosity;fill:#aeb2e5;stroke-width:0.264583;filter:url(#filter230)"
+       id="rect615"
+       width="800"
+       height="800"
+       x="0"
+       y="0"
+       inkscape:label="paint-a" />
+  </g>
+</svg>
