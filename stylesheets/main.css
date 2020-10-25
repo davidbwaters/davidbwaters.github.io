@@ -1858,7 +1858,7 @@ body[data-theme=light] {
   display: grid;
   grid-template-rows: 2fr 3fr 4.5rem;
   height: 100vh;
-  min-height: 30rem;
+  min-height: 25rem;
 }
 
 .c-hero__upper {
@@ -2060,7 +2060,7 @@ body[data-theme=light] {
 }
 
 .c-hero__heading > * {
-  font-size: 4.5vw;
+  font-size: 4.75vw;
   line-height: 1.2;
   margin-bottom: 0;
   max-width: 30rem;
@@ -2083,7 +2083,7 @@ c-theme-switch,
   align-items: center;
   column-gap: 1rem;
   display: grid;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   grid-template-columns: auto 1fr;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -2109,6 +2109,7 @@ c-theme-switch,
 @media (min-width: 45em) {
   .c-hero {
     grid-template-rows: calc(70vh - 4.5rem) 1fr 4.5rem;
+    min-height: 30rem;
   }
 
   .c-hero__tagline {
