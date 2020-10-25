@@ -1857,7 +1857,7 @@ body[data-theme=light] {
 .c-hero {
   display: grid;
   grid-template-rows: 2fr 3fr 4.5rem;
-  height: 100vh;
+  height: 90vh;
   min-height: 25rem;
 }
 
@@ -2109,6 +2109,7 @@ c-theme-switch,
 @media (min-width: 45em) {
   .c-hero {
     grid-template-rows: calc(70vh - 4.5rem) 1fr 4.5rem;
+    height: 100vh;
     min-height: 30rem;
   }
 
