@@ -10,8 +10,8 @@ export class ThemeSwitch extends LitElement {
       }
 
       :host {
-        --theme-switch-border: var(--color-fg-subtle-primary);
-        --theme-switch-bg: var(--color-fg-subtle-primary);
+        --theme-switch-border: var(--color-fg-subtle);
+        --theme-switch-bg: var(--color-fg-subtle);
         --theme-switch-switch-border: rgba(0,0,0,.8);
         --theme-switch-switch: white;
 

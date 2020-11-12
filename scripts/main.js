@@ -4,6 +4,7 @@
 import { html, render } from '../modules/lit-html.js';
 import WebFont from '../modules/webfontloader.js';
 import Scrambler from '../modules/scrambling-letters.js';
+import stickybits from '../modules/stickybits.js';
 import { TopBar } from './components/TopBar.js';
 import { ThemeSwitch } from './components/ThemeSwitch.js';
 import { Squiggle } from './components/Squiggle.js';
@@ -116,7 +117,7 @@ render(html`
           </div>
         </div>
         <div class="c-hero__heading">
-          <h2 class="u-text-huge">
+          <h2 class="u-text-large-3">
             Building digital solutions to promote growth.
             <c-squiggle></c-squiggle>
           </h2>
@@ -138,10 +139,124 @@ render(html`
         </div>
         <div class="c-hero__arrow">
         </div>
-        <hr class="u-separator-primary c-hero__bottom">
+        <hr class="u-separator c-hero__bottom">
       </footer>
     </div>
+    <section>
+      <header class="u-padding-top-6 u-padding-bottom-5 u-bg-noise u-text-align-center">
+        <h3 class="u-text-large-4 u-text-display u-text-uppercase u-text-outline">
+          Skills
+        </h3>
+        <c-squiggle></c-squiggle>
+      </header>
+      <div class="u-border-top-accent-alternate u-padding-vertical-3 u-padding-horizontal-3 u-text-align-center u-bg-noise">
+        Skills, tools of the trade, and technologies I enjoy working with.
+      </div>
+      <ul class="c-skill-list">
+        <li class="c-skill-list__skill">
+          <img class="c-skill-list__image" src="images/Elephant.png" alt="elephant">
+          <div class="c-skill-list__text">
+            <h4 class="c-skill-list__title u-text-title">
+              Web Platform
+            </h4>
+            <span class="c-skill-list__gap"></span>
+            <span class="c-skill-list__number u-text-title">01</span>
+            <span class="c-skill-list__description">
+              Web Components, Applications, #UseThePlatform
+            </span>
+          </div>
+        </li>
+        <li class="c-skill-list__skill">
+          <img class="c-skill-list__image" src="images/Lion.png" alt="elephant">
+          <div class="c-skill-list__text">
+            <h4 class="c-skill-list__title u-text-title">
+              Design
+            </h4>
+            <span class="c-skill-list__gap"></span>
+            <span class="c-skill-list__number u-text-title">02</span>
+            <span class="c-skill-list__description">
+              Figma, Sketch, Adobe CS**
+            </span>
+          </div>
+        </li>
+        <li class="c-skill-list__skill">
+          <img class="c-skill-list__image" src="images/Squirrel.png" alt="elephant">
+          <div class="c-skill-list__text">
+            <h4 class="c-skill-list__title u-text-title">
+              Development
+            </h4>
+            <span class="c-skill-list__gap"></span>
+            <span class="c-skill-list__number u-text-title">03</span>
+            <span class="c-skill-list__description">
+              JS/ES*, Node.js, Jamstack
+            </span>
+          </div>
+        </li>
+        <li class="c-skill-list__skill">
+          <img class="c-skill-list__image" src="images/Camel.png" alt="elephant">
+          <div class="c-skill-list__text">
+            <h4 class="c-skill-list__title u-text-title">
+              Consultation
+            </h4>
+            <span class="c-skill-list__gap"></span>
+            <span class="c-skill-list__number u-text-title">04</span>
+            <span class="c-skill-list__description">
+              Not sure where to start? I can help!
+            </span>
+          </div>
+        </li>
+      </ul>
+      <hr class="u-separator-alternate c-hero__bottom">
+    </section>
+    <section>
+      <header class="u-padding-top-6 u-padding-bottom-5 u-text-align-center u-border-bottom-accent-alternate u-bg-noise">
+        <h3 class="u-text-large-4 u-text-display u-text-uppercase u-text-outline">
+          Selected <br>
+          Works
+        </h3>
+        <c-squiggle></c-squiggle>
+      </header>
+      <!--
+      <div class="u-padding-vertical-3 u-padding-horizontal-3 u-text-align-center u-bg-noise">
+        Skills, tools of the trade, and technologies I enjoy working with.
+      </div>
+      -->
+      <ul class="c-work-list">
+        <li class="c-work-list__item">
+          <div data-sticky class="c-work-list__item-info">
+            <h4>Item One</h4>
+            <p>
+              Item infomation and description.
+            </p>
+          </div>
+          <div class="c-work-list__item-preview">
+            <image src="images/Work-DBW-Logos-1.png" alt="Logos Dark BG">
+            </image>
+            <image src="images/Work-DBW-Logos-2.png" alt="Logos Light BG">
+            </image>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <footer class="c-page-footer u-bg-noise">
+      <hr class="u-separator-alternate u-margin-0">
+      <div class="c-page-footer__upper u-text-large-1">
+        Made with <3 by David B Waters in 2020.
+      </div>
+      <div class="c-page-footer__lower">
+        <small class="u-text-bolder">
+          This site's source code is freely available under the MIT license
+          <a href="https://github.com/davidbwaters/dbw-snowpack" alt="repo link">
+            here 
+          </a>
+          .
+          <br/>
+          Stay tuned! It's still very much a work-in-progress.
+        </small>
+      </div>
+    </footer>
   `, document.body);
+stickybits('[data-sticky]');
 Scrambler({
   target: '[data-scrambler]',
   random: [1000, 1000],

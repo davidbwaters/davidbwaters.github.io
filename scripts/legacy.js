@@ -1197,6 +1197,554 @@
     function _slicedToArray(r,e){return _arrayWithHoles(r)||_iterableToArrayLimit(r,e)||_nonIterableRest()}function _toConsumableArray(r){return _arrayWithoutHoles(r)||_iterableToArray(r)||_nonIterableSpread()}function _arrayWithoutHoles(r){if(Array.isArray(r)){for(var e=0,t=new Array(r.length);e<r.length;e++)t[e]=r[e];return t}}function _arrayWithHoles(r){if(Array.isArray(r))return r}function _iterableToArray(r){if(Symbol.iterator in Object(r)||"[object Arguments]"===Object.prototype.toString.call(r))return Array.from(r)}function _iterableToArrayLimit(r,e){var t=[],n=!0,a=!1,i=void 0;try{for(var o,l=r[Symbol.iterator]();!(n=(o=l.next()).done)&&(t.push(o.value),!e||t.length!==e);n=!0);}catch(r){a=!0,i=r;}finally{try{n||null==l.return||l.return();}finally{if(a)throw i}}return t}function _nonIterableSpread(){throw new TypeError("Invalid attempt to spread non-iterable instance")}function _nonIterableRest(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}function Scramble(r,e){return new Promise(function(t,n){if(void 0===r&&n("Target element is undefined"),"true"!==r.getAttribute("data-scramble-active")){e.beforeEach&&e.beforeEach(r),r.setAttribute("data-scramble-active","true"),r.classList.add("scrambling");var a,i=r.innerHTML,o=[],l=e.speed?e.speed:100,c=r.textContent.split(""),u=c,f=r.textContent.split(""),s=!1;isValidString(e.text)?a=defineEndText(e.text):r.getAttribute("data-scramble-text")&&""!==r.getAttribute("data-scramble-text")&&(a=defineEndText(r.getAttribute("data-scramble-text"))),a&&(s=!0,c=a.truth,f=a.newLetters,u=a.startText);var d=function(){if(u.map(function(e,t){return !(" \t\n\r\v".indexOf(e)>-1)&&(f[t]=randomChar(),!0===o[t]&&(f[t]=c[t]),r.textContent=f.join(""),!0)}),killCheck(f,c)){if(r.innerHTML=i,s){var n=r.children[0];n&&""!==n?n.textContent=f.join(""):r.textContent=f.join("");}clearInterval(b),r.setAttribute("data-scramble-active","false"),r.classList.remove("scrambling"),e.afterEach&&e.afterEach(r),t(r);}};!function(r){if(r&&isArray(r))for(var t=0;t<=r.length;t++)!function(r){setTimeout(function(){o[r]=!0;},randomTime(isObject(e),e.random,e.speed));}(t);}(u),d();var b=setInterval(function(){d();},l);}else n("Animation already triggered");})}function ScramblerSetup(r){if(!isValidArgType(r))return !1;var e=setArgs(r,isObject(r)),t=_toConsumableArray(isObject(e)?document.querySelectorAll(e.target):document.querySelectorAll(e)),n=[];if(t.forEach(function(r){var t=Scramble(r,e);n.push(t);}),!(n.length>0))return !1;e.beforeAll&&e.beforeAll(t),Promise.all(n).then(function(r){e.afterAll&&e.afterAll(r);}).catch(function(r){e.errorHandler&&e.errorHandler(r);});}var isObject=function(r){return !!r&&r.constructor===Object},isArray=function(r){return !!r&&r.constructor===Array},isBool=function(r){return "boolean"==typeof r},isFunction=function(r){return "function"==typeof r},isInteger=function(r){return Number.isInteger(r)},isValidString=function(r){return !(!r||""===r||!("string"==typeof r||r instanceof String))},isValidArgType=function(r){return !isArray(r)&&!isBool(r)&&"number"!=typeof r&&"function"!=typeof r&&void 0!==r},randomChar=function(r,e){var t=r||1,n=e||!1,a=Math.random().toString(36).replace(/[^a-z]+/g,"").substr(0,t);return " \t\n\r\v".indexOf(a)<0&&!0!==n&&a},randomTime=function(r,e,t){var n=r||!1,a=t||100;if(n&&isArray(e)&&e.length>1){var i=_slicedToArray(e,2),o=i[0],l=i[1];if((t>=l||a>=l)&&(a=l-1),l-=a,o>l&&(o=l),isInteger(o)&&isInteger(l))return Math.floor(Math.random()*(l-o))+o}return Math.floor(1999*Math.random())+1e3},setArgs=function(r,e){var t=e||!1,n={target:"[data-scrambler]",random:[1e3,3e3],speed:100,text:!1,beforeEach:!1,afterEach:!1,beforeAll:!1,afterAll:!1,errorHandler:!1};return r&&t&&(n.target=void 0!==r.target?r.target:"[data-scrambler]",n.random=void 0!==r.random?r.random:[1e3,3e3],n.speed=void 0!==r.speed?r.speed:100,n.text=void 0!==r.text&&r.text,n.beforeEach=!(void 0===r.beforeEach||!isFunction(r.beforeEach))&&r.beforeEach,n.afterEach=!(void 0===r.afterEach||!isFunction(r.afterEach))&&r.afterEach,n.beforeAll=!(void 0===r.beforeAll||!isFunction(r.beforeAll))&&r.beforeAll,n.afterAll=!(void 0===r.afterAll||!isFunction(r.afterAll))&&r.afterAll,n.errorHandler=!(void 0===r.errorHandler||!isFunction(r.errorHandler))&&r.errorHandler),n},killCheck=function(r,e){return !(r.length!==e.length||!r.every(function(r,t){return r===e[t]}))},defineEndText=function(r){if(!r||void 0===r||!("string"==typeof r||r instanceof String))return !1;var e,t=r,n=t.split(""),a=t.split(""),i=[];return n.forEach(function(r,e){" \t\n\r\v".indexOf(n[e])>-1?i.push(" "):i.push(randomChar());}),e=i,{truth:n,newLetters:a,startText:e}},scrambler=function(){return ScramblerSetup}();
 
     /**
+      stickybits - Stickybits is a lightweight alternative to `position: sticky` polyfills
+      @version v3.7.7
+      @link https://github.com/yowainwright/stickybits#readme
+      @author Jeff Wainwright <yowainwright@gmail.com> (https://jeffry.in)
+      @license MIT
+    **/
+    function _extends() {
+      _extends = Object.assign || function (target) {
+        for (var i = 1; i < arguments.length; i++) {
+          var source = arguments[i];
+
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+
+        return target;
+      };
+
+      return _extends.apply(this, arguments);
+    }
+
+    /*
+      STICKYBITS 💉
+      --------
+      > a lightweight alternative to `position: sticky` polyfills 🍬
+      --------
+      - each method is documented above it our view the readme
+      - Stickybits does not manage polymorphic functionality (position like properties)
+      * polymorphic functionality: (in the context of describing Stickybits)
+        means making things like `position: sticky` be loosely supported with position fixed.
+        It also means that features like `useStickyClasses` takes on styles like `position: fixed`.
+      --------
+      defaults 🔌
+      --------
+      - version = `package.json` version
+      - userAgent = viewer browser agent
+      - target = DOM element selector
+      - noStyles = boolean
+      - offset = number
+      - parentClass = 'string'
+      - scrollEl = window || DOM element selector || DOM element
+      - stickyClass = 'string'
+      - stuckClass = 'string'
+      - useStickyClasses = boolean
+      - useFixed = boolean
+      - useGetBoundingClientRect = boolean
+      - verticalPosition = 'string'
+      - applyStyle = function
+      --------
+      props🔌
+      --------
+      - p = props {object}
+      --------
+      instance note
+      --------
+      - stickybits parent methods return this
+      - stickybits instance methods return an instance item
+      --------
+      nomenclature
+      --------
+      - target => el => e
+      - props => o || p
+      - instance => item => it
+      --------
+      methods
+      --------
+      - .definePosition = defines sticky or fixed
+      - .addInstance = an array of objects for each Stickybits Target
+      - .getClosestParent = gets the parent for non-window scroll
+      - .getTopPosition = gets the element top pixel position from the viewport
+      - .computeScrollOffsets = computes scroll position
+      - .toggleClasses = older browser toggler
+      - .manageState = manages sticky state
+      - .removeInstance = removes an instance
+      - .cleanup = removes all Stickybits instances and cleans up dom from stickybits
+    */
+    var Stickybits = /*#__PURE__*/function () {
+      function Stickybits(target, obj) {
+        var _this = this;
+
+        var o = typeof obj !== 'undefined' ? obj : {};
+        this.version = '3.7.7';
+        this.userAgent = window.navigator.userAgent || 'no `userAgent` provided by the browser';
+        this.props = {
+          customStickyChangeNumber: o.customStickyChangeNumber || null,
+          noStyles: o.noStyles || false,
+          stickyBitStickyOffset: o.stickyBitStickyOffset || 0,
+          parentClass: o.parentClass || 'js-stickybit-parent',
+          scrollEl: typeof o.scrollEl === 'string' ? document.querySelector(o.scrollEl) : o.scrollEl || window,
+          stickyClass: o.stickyClass || 'js-is-sticky',
+          stuckClass: o.stuckClass || 'js-is-stuck',
+          stickyChangeClass: o.stickyChangeClass || 'js-is-sticky--change',
+          useStickyClasses: o.useStickyClasses || false,
+          useFixed: o.useFixed || false,
+          useGetBoundingClientRect: o.useGetBoundingClientRect || false,
+          verticalPosition: o.verticalPosition || 'top',
+          applyStyle: o.applyStyle || function (item, style) {
+            return _this.applyStyle(item, style);
+          }
+        };
+        /*
+          define positionVal after the setting of props, because definePosition looks at the props.useFixed
+          ----
+          -  uses a computed (`.definePosition()`)
+          -  defined the position
+        */
+
+        this.props.positionVal = this.definePosition() || 'fixed';
+        this.instances = [];
+        var _this$props = this.props,
+            positionVal = _this$props.positionVal,
+            verticalPosition = _this$props.verticalPosition,
+            noStyles = _this$props.noStyles,
+            stickyBitStickyOffset = _this$props.stickyBitStickyOffset;
+        var verticalPositionStyle = verticalPosition === 'top' && !noStyles ? stickyBitStickyOffset + "px" : '';
+        var positionStyle = positionVal !== 'fixed' ? positionVal : '';
+        this.els = typeof target === 'string' ? document.querySelectorAll(target) : target;
+        if (!('length' in this.els)) this.els = [this.els];
+
+        for (var i = 0; i < this.els.length; i++) {
+          var _styles;
+
+          var el = this.els[i];
+          var instance = this.addInstance(el, this.props); // set vertical position
+
+          this.props.applyStyle({
+            styles: (_styles = {}, _styles[verticalPosition] = verticalPositionStyle, _styles.position = positionStyle, _styles),
+            classes: {}
+          }, instance);
+          this.manageState(instance); // instances are an array of objects
+
+          this.instances.push(instance);
+        }
+      }
+      /*
+        setStickyPosition ✔️
+        --------
+        —  most basic thing stickybits does
+        => checks to see if position sticky is supported
+        => defined the position to be used
+        => stickybits works accordingly
+      */
+
+
+      var _proto = Stickybits.prototype;
+
+      _proto.definePosition = function definePosition() {
+        var stickyProp;
+
+        if (this.props.useFixed) {
+          stickyProp = 'fixed';
+        } else {
+          var prefix = ['', '-o-', '-webkit-', '-moz-', '-ms-'];
+          var test = document.head.style;
+
+          for (var i = 0; i < prefix.length; i += 1) {
+            test.position = prefix[i] + "sticky";
+          }
+
+          stickyProp = test.position ? test.position : 'fixed';
+          test.position = '';
+        }
+
+        return stickyProp;
+      }
+      /*
+        addInstance ✔️
+        --------
+        — manages instances of items
+        - takes in an el and props
+        - returns an item object
+        ---
+        - target = el
+        - o = {object} = props
+          - scrollEl = 'string' | object
+          - verticalPosition = number
+          - off = boolean
+          - parentClass = 'string'
+          - stickyClass = 'string'
+          - stuckClass = 'string'
+        ---
+        - defined later
+          - parent = dom element
+          - state = 'string'
+          - offset = number
+          - stickyStart = number
+          - stickyStop = number
+        - returns an instance object
+      */
+      ;
+
+      _proto.addInstance = function addInstance(el, props) {
+        var _this2 = this;
+
+        var item = {
+          el: el,
+          parent: el.parentNode,
+          props: props
+        };
+
+        if (props.positionVal === 'fixed' || props.useStickyClasses) {
+          this.isWin = this.props.scrollEl === window;
+          var se = this.isWin ? window : this.getClosestParent(item.el, item.props.scrollEl);
+          this.computeScrollOffsets(item);
+          this.toggleClasses(item.parent, '', props.parentClass);
+          item.state = 'default';
+          item.stateChange = 'default';
+
+          item.stateContainer = function () {
+            return _this2.manageState(item);
+          };
+
+          se.addEventListener('scroll', item.stateContainer);
+        }
+
+        return item;
+      }
+      /*
+        --------
+        getParent 👨‍
+        --------
+        - a helper function that gets the target element's parent selected el
+        - only used for non `window` scroll elements
+        - supports older browsers
+      */
+      ;
+
+      _proto.getClosestParent = function getClosestParent(el, match) {
+        // p = parent element
+        var p = match;
+        var e = el;
+        if (e.parentElement === p) return p; // traverse up the dom tree until we get to the parent
+
+        while (e.parentElement !== p) {
+          e = e.parentElement;
+        } // return parent element
+
+
+        return p;
+      }
+      /*
+        --------
+        getTopPosition
+        --------
+        - a helper function that gets the topPosition of a Stickybit element
+        - from the top level of the DOM
+      */
+      ;
+
+      _proto.getTopPosition = function getTopPosition(el) {
+        if (this.props.useGetBoundingClientRect) {
+          return el.getBoundingClientRect().top + (this.props.scrollEl.pageYOffset || document.documentElement.scrollTop);
+        }
+
+        var topPosition = 0;
+
+        do {
+          topPosition = el.offsetTop + topPosition;
+        } while (el = el.offsetParent);
+
+        return topPosition;
+      }
+      /*
+        computeScrollOffsets 📊
+        ---
+        computeScrollOffsets for Stickybits
+        - defines
+          - offset
+          - start
+          - stop
+      */
+      ;
+
+      _proto.computeScrollOffsets = function computeScrollOffsets(item) {
+        var it = item;
+        var p = it.props;
+        var el = it.el;
+        var parent = it.parent;
+        var isCustom = !this.isWin && p.positionVal === 'fixed';
+        var isTop = p.verticalPosition !== 'bottom';
+        var scrollElOffset = isCustom ? this.getTopPosition(p.scrollEl) : 0;
+        var stickyStart = isCustom ? this.getTopPosition(parent) - scrollElOffset : this.getTopPosition(parent);
+        var stickyChangeOffset = p.customStickyChangeNumber !== null ? p.customStickyChangeNumber : el.offsetHeight;
+        var parentBottom = stickyStart + parent.offsetHeight;
+        it.offset = !isCustom ? scrollElOffset + p.stickyBitStickyOffset : 0;
+        it.stickyStart = isTop ? stickyStart - it.offset : 0;
+        it.stickyChange = it.stickyStart + stickyChangeOffset;
+        it.stickyStop = isTop ? parentBottom - (el.offsetHeight + it.offset) : parentBottom - window.innerHeight;
+      }
+      /*
+        toggleClasses ⚖️
+        ---
+        toggles classes (for older browser support)
+        r = removed class
+        a = added class
+      */
+      ;
+
+      _proto.toggleClasses = function toggleClasses(el, r, a) {
+        var e = el;
+        var cArray = e.className.split(' ');
+        if (a && cArray.indexOf(a) === -1) cArray.push(a);
+        var rItem = cArray.indexOf(r);
+        if (rItem !== -1) cArray.splice(rItem, 1);
+        e.className = cArray.join(' ');
+      }
+      /*
+        manageState 📝
+        ---
+        - defines the state
+          - normal
+          - sticky
+          - stuck
+      */
+      ;
+
+      _proto.manageState = function manageState(item) {
+        var _this3 = this;
+
+        // cache object
+        var it = item;
+        var p = it.props;
+        var state = it.state;
+        var stateChange = it.stateChange;
+        var start = it.stickyStart;
+        var change = it.stickyChange;
+        var stop = it.stickyStop; // cache props
+
+        var pv = p.positionVal;
+        var se = p.scrollEl;
+        var sticky = p.stickyClass;
+        var stickyChange = p.stickyChangeClass;
+        var stuck = p.stuckClass;
+        var vp = p.verticalPosition;
+        var isTop = vp !== 'bottom';
+        var aS = p.applyStyle;
+        var ns = p.noStyles;
+        /*
+          requestAnimationFrame
+          ---
+          - use rAF
+          - or stub rAF
+        */
+
+        var rAFStub = function rAFDummy(f) {
+          f();
+        };
+
+        var rAF = !this.isWin ? rAFStub : window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || rAFStub;
+        /*
+          define scroll vars
+          ---
+          - scroll
+          - notSticky
+          - isSticky
+          - isStuck
+        */
+
+        var scroll = this.isWin ? window.scrollY || window.pageYOffset : se.scrollTop;
+        var notSticky = scroll > start && scroll < stop && (state === 'default' || state === 'stuck');
+        var isSticky = isTop && scroll <= start && (state === 'sticky' || state === 'stuck');
+        var isStuck = scroll >= stop && state === 'sticky';
+        /*
+          Unnamed arrow functions within this block
+          ---
+          - help wanted or discussion
+          - view test.stickybits.js
+            - `stickybits .manageState  `position: fixed` interface` for more awareness 👀
+        */
+
+        if (notSticky) {
+          it.state = 'sticky';
+        } else if (isSticky) {
+          it.state = 'default';
+        } else if (isStuck) {
+          it.state = 'stuck';
+        }
+
+        var isStickyChange = scroll >= change && scroll <= stop;
+        var isNotStickyChange = scroll < change / 2 || scroll > stop;
+
+        if (isNotStickyChange) {
+          it.stateChange = 'default';
+        } else if (isStickyChange) {
+          it.stateChange = 'sticky';
+        } // Only apply new styles if the state has changed
+
+
+        if (state === it.state && stateChange === it.stateChange) return;
+        rAF(function () {
+          var _styles2, _classes, _styles3, _extends2, _classes2, _style$classes;
+
+          var stateStyles = {
+            sticky: {
+              styles: (_styles2 = {
+                position: pv,
+                top: '',
+                bottom: ''
+              }, _styles2[vp] = p.stickyBitStickyOffset + "px", _styles2),
+              classes: (_classes = {}, _classes[sticky] = true, _classes)
+            },
+            default: {
+              styles: (_styles3 = {}, _styles3[vp] = '', _styles3),
+              classes: {}
+            },
+            stuck: {
+              styles: _extends((_extends2 = {}, _extends2[vp] = '', _extends2), pv === 'fixed' && !ns || !_this3.isWin ? {
+                position: 'absolute',
+                top: '',
+                bottom: '0'
+              } : {}),
+              classes: (_classes2 = {}, _classes2[stuck] = true, _classes2)
+            }
+          };
+
+          if (pv === 'fixed') {
+            stateStyles.default.styles.position = '';
+          }
+
+          var style = stateStyles[it.state];
+          style.classes = (_style$classes = {}, _style$classes[stuck] = !!style.classes[stuck], _style$classes[sticky] = !!style.classes[sticky], _style$classes[stickyChange] = isStickyChange, _style$classes);
+          aS(style, item);
+        });
+      }
+      /*
+        applyStyle
+        ---
+        - apply the given styles and classes to the element
+      */
+      ;
+
+      _proto.applyStyle = function applyStyle(_ref, item) {
+        var styles = _ref.styles,
+            classes = _ref.classes;
+        // cache object
+        var it = item;
+        var e = it.el;
+        var p = it.props;
+        var stl = e.style; // cache props
+
+        var ns = p.noStyles;
+        var cArray = e.className.split(' '); // Disable due to bug with old versions of eslint-scope and for ... in
+        // https://github.com/eslint/eslint/issues/12117
+        // eslint-disable-next-line no-unused-vars
+
+        for (var cls in classes) {
+          var addClass = classes[cls];
+
+          if (addClass) {
+            if (cArray.indexOf(cls) === -1) cArray.push(cls);
+          } else {
+            var idx = cArray.indexOf(cls);
+            if (idx !== -1) cArray.splice(idx, 1);
+          }
+        }
+
+        e.className = cArray.join(' ');
+
+        if (styles['position']) {
+          stl['position'] = styles['position'];
+        }
+
+        if (ns) return; // eslint-disable-next-line no-unused-vars
+
+        for (var key in styles) {
+          stl[key] = styles[key];
+        }
+      };
+
+      _proto.update = function update(updatedProps) {
+        var _this4 = this;
+
+        if (updatedProps === void 0) {
+          updatedProps = null;
+        }
+
+        this.instances.forEach(function (instance) {
+          _this4.computeScrollOffsets(instance);
+
+          if (updatedProps) {
+            // eslint-disable-next-line no-unused-vars
+            for (var updatedProp in updatedProps) {
+              instance.props[updatedProp] = updatedProps[updatedProp];
+            }
+          }
+        });
+        return this;
+      }
+      /*
+        removes an instance 👋
+        --------
+        - cleanup instance
+      */
+      ;
+
+      _proto.removeInstance = function removeInstance(instance) {
+        var _styles4, _classes3;
+
+        var e = instance.el;
+        var p = instance.props;
+        this.applyStyle({
+          styles: (_styles4 = {
+            position: ''
+          }, _styles4[p.verticalPosition] = '', _styles4),
+          classes: (_classes3 = {}, _classes3[p.stickyClass] = '', _classes3[p.stuckClass] = '', _classes3)
+        }, instance);
+        this.toggleClasses(e.parentNode, p.parentClass);
+      }
+      /*
+        cleanup 🛁
+        --------
+        - cleans up each instance
+        - clears instance
+      */
+      ;
+
+      _proto.cleanup = function cleanup() {
+        for (var i = 0; i < this.instances.length; i += 1) {
+          var instance = this.instances[i];
+
+          if (instance.stateContainer) {
+            instance.props.scrollEl.removeEventListener('scroll', instance.stateContainer);
+          }
+
+          this.removeInstance(instance);
+        }
+
+        this.manageState = false;
+        this.instances = [];
+      };
+
+      return Stickybits;
+    }();
+    /*
+      export
+      --------
+      exports StickBits to be used 🏁
+    */
+
+
+    function stickybits(target, o) {
+      return new Stickybits(target, o);
+    }
+
+    /**
      * @license
      * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
      * This code may only be used under the BSD style license found at
@@ -2575,6 +3123,7 @@
       :host {
         display: flex;
         justify-content: space-between;
+        max-height: 72px;
         padding: 1.5rem;
         position: fixed;
         width: 100%;
@@ -2604,6 +3153,7 @@
       ::slotted([slot="link"]) {
         padding: 0 .25rem;
         text-align: center;
+        text-decoration: none;
         width: 1.75rem;
       }
 
@@ -2643,8 +3193,8 @@
       }
 
       :host {
-        --theme-switch-border: var(--color-fg-subtle-primary);
-        --theme-switch-bg: var(--color-fg-subtle-primary);
+        --theme-switch-border: var(--color-fg-subtle);
+        --theme-switch-bg: var(--color-fg-subtle);
         --theme-switch-switch-border: rgba(0,0,0,.8);
         --theme-switch-switch: white;
 
@@ -2734,11 +3284,12 @@
       :host {
         display: block;
         height: .5rem;
+        line-height: 0;
         margin-top: 1.0rem;
       }
 
       .c-squiggle__svg {
-        display: block;
+        display: inline-block;
         fill: var(--color-fg-accent);
       }
     `;
@@ -2873,7 +3424,7 @@
           </div>
         </div>
         <div class="c-hero__heading">
-          <h2 class="u-text-huge">
+          <h2 class="u-text-large-3">
             Building digital solutions to promote growth.
             <c-squiggle></c-squiggle>
           </h2>
@@ -2895,10 +3446,124 @@
         </div>
         <div class="c-hero__arrow">
         </div>
-        <hr class="u-separator-primary c-hero__bottom">
+        <hr class="u-separator c-hero__bottom">
       </footer>
     </div>
+    <section>
+      <header class="u-padding-top-6 u-padding-bottom-5 u-bg-noise u-text-align-center">
+        <h3 class="u-text-large-4 u-text-display u-text-uppercase u-text-outline">
+          Skills
+        </h3>
+        <c-squiggle></c-squiggle>
+      </header>
+      <div class="u-border-top-accent-alternate u-padding-vertical-3 u-padding-horizontal-3 u-text-align-center u-bg-noise">
+        Skills, tools of the trade, and technologies I enjoy working with.
+      </div>
+      <ul class="c-skill-list">
+        <li class="c-skill-list__skill">
+          <img class="c-skill-list__image" src="images/Elephant.png" alt="elephant">
+          <div class="c-skill-list__text">
+            <h4 class="c-skill-list__title u-text-title">
+              Web Platform
+            </h4>
+            <span class="c-skill-list__gap"></span>
+            <span class="c-skill-list__number u-text-title">01</span>
+            <span class="c-skill-list__description">
+              Web Components, Applications, #UseThePlatform
+            </span>
+          </div>
+        </li>
+        <li class="c-skill-list__skill">
+          <img class="c-skill-list__image" src="images/Lion.png" alt="elephant">
+          <div class="c-skill-list__text">
+            <h4 class="c-skill-list__title u-text-title">
+              Design
+            </h4>
+            <span class="c-skill-list__gap"></span>
+            <span class="c-skill-list__number u-text-title">02</span>
+            <span class="c-skill-list__description">
+              Figma, Sketch, Adobe CS**
+            </span>
+          </div>
+        </li>
+        <li class="c-skill-list__skill">
+          <img class="c-skill-list__image" src="images/Squirrel.png" alt="elephant">
+          <div class="c-skill-list__text">
+            <h4 class="c-skill-list__title u-text-title">
+              Development
+            </h4>
+            <span class="c-skill-list__gap"></span>
+            <span class="c-skill-list__number u-text-title">03</span>
+            <span class="c-skill-list__description">
+              JS/ES*, Node.js, Jamstack
+            </span>
+          </div>
+        </li>
+        <li class="c-skill-list__skill">
+          <img class="c-skill-list__image" src="images/Camel.png" alt="elephant">
+          <div class="c-skill-list__text">
+            <h4 class="c-skill-list__title u-text-title">
+              Consultation
+            </h4>
+            <span class="c-skill-list__gap"></span>
+            <span class="c-skill-list__number u-text-title">04</span>
+            <span class="c-skill-list__description">
+              Not sure where to start? I can help!
+            </span>
+          </div>
+        </li>
+      </ul>
+      <hr class="u-separator-alternate c-hero__bottom">
+    </section>
+    <section>
+      <header class="u-padding-top-6 u-padding-bottom-5 u-text-align-center u-border-bottom-accent-alternate u-bg-noise">
+        <h3 class="u-text-large-4 u-text-display u-text-uppercase u-text-outline">
+          Selected <br>
+          Works
+        </h3>
+        <c-squiggle></c-squiggle>
+      </header>
+      <!--
+      <div class="u-padding-vertical-3 u-padding-horizontal-3 u-text-align-center u-bg-noise">
+        Skills, tools of the trade, and technologies I enjoy working with.
+      </div>
+      -->
+      <ul class="c-work-list">
+        <li class="c-work-list__item">
+          <div data-sticky class="c-work-list__item-info">
+            <h4>Item One</h4>
+            <p>
+              Item infomation and description.
+            </p>
+          </div>
+          <div class="c-work-list__item-preview">
+            <image src="images/Work-DBW-Logos-1.png" alt="Logos Dark BG">
+            </image>
+            <image src="images/Work-DBW-Logos-2.png" alt="Logos Light BG">
+            </image>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <footer class="c-page-footer u-bg-noise">
+      <hr class="u-separator-alternate u-margin-0">
+      <div class="c-page-footer__upper u-text-large-1">
+        Made with <3 by David B Waters in 2020.
+      </div>
+      <div class="c-page-footer__lower">
+        <small class="u-text-bolder">
+          This site's source code is freely available under the MIT license
+          <a href="https://github.com/davidbwaters/dbw-snowpack" alt="repo link">
+            here 
+          </a>
+          .
+          <br/>
+          Stay tuned! It's still very much a work-in-progress.
+        </small>
+      </div>
+    </footer>
   `, document.body);
+    stickybits('[data-sticky]');
     scrambler({
       target: '[data-scrambler]',
       random: [1000, 1000],

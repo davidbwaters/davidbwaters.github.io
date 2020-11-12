@@ -8,11 +8,12 @@ export class Squiggle extends LitElement {
       :host {
         display: block;
         height: .5rem;
+        line-height: 0;
         margin-top: 1.0rem;
       }
 
       .c-squiggle__svg {
-        display: block;
+        display: inline-block;
         fill: var(--color-fg-accent);
       }
     `;
