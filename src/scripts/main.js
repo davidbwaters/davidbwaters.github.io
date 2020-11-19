@@ -230,107 +230,6 @@ render(
       </ul>
       <hr class="u-separator-alternate c-hero__bottom">
     </section>
-    <section>
-      <header class="
-        u-padding-top-6 
-        u-padding-bottom-5 
-        u-text-align-center 
-        u-border-bottom-accent-alternate 
-        u-bg-noise
-        u-z-index-3
-      ">
-        <h3 class="u-text-large-4 u-text-display u-text-uppercase u-text-outline">
-          Selected <br>
-          Works
-        </h3>
-        <c-squiggle></c-squiggle>
-      </header>
-      <!--
-      <div class="u-padding-vertical-3 u-padding-horizontal-3 u-text-align-center u-bg-noise">
-        Skills, tools of the trade, and technologies I enjoy working with.
-      </div>
-      -->
-      <ul class="c-work-list u-bg-pattern-diagonal">
-        <li class="c-work-list__item">
-          <div data-sticky class="c-work-list__item-info">
-            <div class="c-work-list__item-info-inner">
-              <h4 class="c-work-list__item-info-title" >Item One</h4>
-              
-              <div class="c-work-list__item-info-taglist u-text-title">
-                Techologies: Adobe Illustrator
-              </div>
-              <div class="c-work-list__item-info-description">
-                <p>
-                  Item infomation and description.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="c-work-list__item-preview">
-            <c-glitch-image 
-              src="images/Work-DBW-Logos-1.png" 
-              glitch=2 alt="Logos Dark BG"
-              width=912
-              height=712
-            >
-            </c-glitch-image>
-            <c-glitch-image 
-              src="images/Work-DBW-Logos-2.png" 
-              glitch=2 alt="Logos Light BG"
-              width=912
-              height=712
-            >
-            </c-glitch-image>
-
-          </div>
-          <div class="c-work-list__item-lower">
-            <button 
-              class="c-button c-button--large c-button--block"
-              data-modal-target="modal-logos"
-            >
-              Show More
-            </button>
-            <c-modal 
-              data-modal-trigger="modal-logos"
-            >
-              dialog
-            </c-modal>
-          </div>
-        </li>
-        <li class="c-work-list__item">
-          <div data-sticky class="c-work-list__item-info">
-            <div class="c-work-list__item-info-inner">
-              <h4 class="c-work-list__item-info-title" >Item One</h4>
-              
-              <div class="c-work-list__item-info-taglist u-text-title">
-                Techologies: Adobe Illustrator
-              </div>
-              <div class="c-work-list__item-info-description">
-                <p>
-                  Item infomation and description.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="c-work-list__item-preview">
-            <c-glitch-image 
-              src="images/Work-DBW-Logos-1.png" 
-              glitch=2 alt="Logos Dark BG"
-              width=912
-              height=712
-            >
-            </c-glitch-image>
-            <c-glitch-image 
-              src="images/Work-DBW-Logos-2.png" 
-              glitch=2 alt="Logos Light BG"
-              width=912
-              height=712
-            >
-            </c-glitch-image>
-          </div>
-        </li>
-      </ul>
-    </section>
     <footer class="c-page-footer u-bg-noise">
       <hr class="u-separator-alternate u-margin-0">
       <div class="c-page-footer__upper u-text-large-1">
@@ -339,7 +238,7 @@ render(
       <div class="c-page-footer__lower">
         <small class="u-text-bolder">
           This site's source code is freely available under the MIT license
-          <a href="https://github.com/davidbwaters/dbw-snowpack" alt="repo link">
+          <a href="https://github.com/davidbwaters/davidbwaters.github.io" alt="repo link">
             here 
           </a>
           .

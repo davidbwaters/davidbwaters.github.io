@@ -9,6 +9,7 @@
   "private": false,
   "scripts": {
     "start": "snowpack dev",
+    "deploy": "gh-pages -d build",
     "build": "snowpack build",
     "test": "echo \"This template does not include a test runner by default.\" && exit 1",
     "format": "prettier --write \"src/**/*.js\"",
@@ -51,6 +52,7 @@
     "@substructure/utilities-text-sizing": "^0.1.4",
     "eslint": "^7.13.0",
     "eslint-plugin-import": "^2.22.1",
+    "gh-pages": "^3.1.0",
     "legacy-bundle-snowpack-plugin": "^1.0.1",
     "prettier": "^2.0.5",
     "sass": "^1.26.10",
