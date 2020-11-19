@@ -8,9 +8,15 @@ import stickybits from '../modules/stickybits.js';
 import { TopBar } from './components/TopBar.js';
 import { ThemeSwitch } from './components/ThemeSwitch.js';
 import { Squiggle } from './components/Squiggle.js';
+import { GlitchImage } from './components/GlitchImage.js';
+import { Modal } from './components/Modal.js';
+import { Loader } from './components/Loader.js';
 customElements.define('c-top-bar', TopBar);
 customElements.define('c-theme-switch', ThemeSwitch);
 customElements.define('c-squiggle', Squiggle);
+customElements.define('c-glitch-image', GlitchImage);
+customElements.define('c-modal', Modal);
+customElements.define('c-loader', Loader);
 WebFont.load({
   classes: false,
   custom: {
@@ -128,16 +134,21 @@ render(html`
           <i class="c-icon c-icon--switch"></i>
         </c-theme-switch>
         <div class="c-hero__availability">
-          <i class="c-icon c-icon--hand u-animation-wave"></i>
+          <a class="c-icon c-icon--hand u-animation-wave" href="mailto:mrdavidbwaters@gmail.com"></a>
           <span>
             Available Now!
           </span>
         </div>
         <div class="c-hero__cta">
           <a class="c-button" href="mailto:mrdavidbwaters@gmail.com">Contact</a>
-          <span>Start Your Project!</span>
+          <span>
+            Start 
+            <span class="u-hidden@mobile">Your</span>
+            Project!
+          </span>
         </div>
         <div class="c-hero__arrow">
+          <i class="c-icon c-icon--arrow-down"></i>
         </div>
         <hr class="u-separator c-hero__bottom">
       </footer>
@@ -206,6 +217,7 @@ render(html`
           </div>
         </li>
       </ul>
+      <hr class="u-separator-alternate c-hero__bottom">
     </section>
     <footer class="c-page-footer u-bg-noise">
       <hr class="u-separator-alternate u-margin-0">
@@ -215,7 +227,7 @@ render(html`
       <div class="c-page-footer__lower">
         <small class="u-text-bolder">
           This site's source code is freely available under the MIT license
-          <a href="https://github.com/davidbwaters/dbw-snowpack" alt="repo link">
+          <a href="https://github.com/davidbwaters/davidbwaters.github.io" alt="repo link">
             here 
           </a>
           .
@@ -224,10 +236,22 @@ render(html`
         </small>
       </div>
     </footer>
+    <c-loader>
+      <c-glitch-image
+        src="images/Loader-Image.svg"
+        active
+        glitch=1
+        width=100
+        height=100
+      >
+      </c-glitch-image>
+    </c-loader>
   `, document.body);
-stickybits('[data-sticky]');
-Scrambler({
-  target: '[data-scrambler]',
-  random: [1000, 1000],
-  speed: 60
+window.addEventListener('load', () => {
+  stickybits('[data-sticky]');
+  Scrambler({
+    target: '[data-scrambler]',
+    random: [1000, 1000],
+    speed: 60
+  });
 });
