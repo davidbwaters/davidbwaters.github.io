@@ -12,8 +12,8 @@ export class Loader extends LitElement {
       
       :host {
         align-content: center;
-        background-color: var(--loader-bg-color);
-        background-image: var(--loader-bg-image);
+        background-color: var(--loader-color-bg);
+        background-image: var(--loader-image-bg);
         display: grid;
         grid-template-columns: 100px;
         grid-template-rows: min-content;

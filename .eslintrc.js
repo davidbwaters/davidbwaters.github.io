@@ -8,7 +8,7 @@ module.exports = {
 
   rules: {
 
-    'accessor-pairs': false
+    'accessor-pairs': 0
 
   }
 

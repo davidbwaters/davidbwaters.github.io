@@ -29,6 +29,12 @@ export class Modal extends LitElement {
         visibility: hidden;
       }
 
+      .c-modal__content.is-opening {
+        display: block;
+        opacity: 0;
+        visibility: visible;
+      }
+
       .c-modal__content.is-closing {
         opacity: 0;
       }
@@ -49,41 +55,39 @@ export class Modal extends LitElement {
     super()
 
     this.open = false
-    
 
   }
 
   _setOpen() {
 
-    if (this.open && this._dialog) {
+    this.setAttribute('open', '')
 
+    this._triggerEl.classList.add('is-expanded')
+
+    setTimeout(() => {
+
+      this._dialog.classList.add('is-opening')
       this._dialog.showModal()
-
-    }
-
-  }
-
-  _setClosed() {
-
-    this._dialog.classList.add('is-closing')
-
-    setTimeout( () => {
-
       this._dialog.classList.remove('is-opening')
-      this.removeAttribute('open')
-      this._dialog.close()
-      this._triggerEl.classList.remove('is-expanded')
-      console.log(this._duration)
 
     }, this._duration)
 
   }
 
-  update() {
+  _setClosed() {
 
-    super.update()
+    this.removeAttribute('open')
 
-    this._setOpen()
+    this._dialog.classList.add('is-closing')
+
+    setTimeout(() => {
+
+      this._dialog.close()
+
+      this._dialog.classList.remove('is-closing')
+      this._triggerEl.classList.remove('is-expanded')
+
+    }, this._duration)
 
   }
 
@@ -91,7 +95,7 @@ export class Modal extends LitElement {
 
     const target = this.dataset.modalTrigger
 
-    const triggerSelector = 
+    const triggerSelector =
       '[data-modal-target=' + target + ']'
 
     const hostStyles = window.getComputedStyle(this)
@@ -102,25 +106,21 @@ export class Modal extends LitElement {
 
     this._duration = parseFloat(durationSeconds) * 1000
 
+    this._dialog = this.shadowRoot.querySelector('dialog')
+
     this._triggerEl = document.querySelector(
       triggerSelector
     )
 
-    this._dialog = this.shadowRoot.querySelector('dialog')
-
     if (this._triggerEl) {
 
       this._triggerEl.addEventListener('click', (e) => {
-        
-        this._triggerEl.classList.add('is-expanded')
-        
-        this.setAttribute('open', '')
+
+        this._setOpen()
 
       })
 
     }
-
-    this._setOpen()
 
   }
 

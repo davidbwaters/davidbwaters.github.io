@@ -4,22 +4,15 @@
 
 
 .c-button {
-  --color-button-primary-bg: #5A47B8;
-  --color-button-primary-bg-hover: #5847af;
-  --color-button-primary-fg: #FFFFFF;
-  --color-button-primary-border: #342867;
-  --color-button-primary-border-hover: #46378F;
-  --color-button-primary-shadow: #46378F;
-
-  background-color: var(--color-button-primary-bg);
-  border-color: var(--color-button-primary-border);
+  background-color: var(--button-color-bg);
+  border-color: var(--button-color-border);
   border-radius: 3px;
   border-style: solid;
   border-width: 1px;
-  box-shadow: 0 2px 0 var(--color-button-primary-shadow);
-  color: var(--color-button-primary-fg);
+  box-shadow: 0 2px 0 var(--button-color-shadow);
+  color: var(--button-color-fg);
   cursor: pointer;
-  font-family: var(--font-primary-bolder);
+  font-family: var(--font-normal-bolder);
   font-size: .75rem;
   letter-spacing: .075em;
   padding-bottom: .5rem;
@@ -44,7 +37,7 @@
 }
 
 .c-button:active {
-  box-shadow: 0 0px 0 var(--color-button-primary-shadow);
+  box-shadow: 0 0px 0 var(--button-color-shadow);
   transform: translateY(2px);
 }
 
@@ -53,16 +46,16 @@
 }
 
 .c-button:hover {
-  background-color: var(--color-button-primary-bg-hover);
+  background-color: var(--button-color-bg-hover);
 }
 
 .c-button.is-expanded {
-  background-color: var(--color-button-primary-bg);
+  background-color: var(--button-color-bg);
   box-shadow:
     0 0 0 100vmax
-    var(--color-button-primary-bg);
-  border-color: var(--color-button-primary-bg);
-  color: var(--color-button-primary-bg);
+    var(--button-color-bg);
+  border-color: var(--button-color-bg);
+  color: var(--button-color-bg);
   z-index: 9;
 }
 
