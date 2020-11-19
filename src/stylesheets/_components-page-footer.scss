@@ -1,0 +1,25 @@
+/*
+ *  Components - Page Footer
+ */
+
+
+.c-page-footer {
+  text-align: center;
+}
+
+.c-page-footer__upper,
+.c-page-footer__lower {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.c-page-footer__upper {
+  border-bottom: solid 1px var(--color-fg-subtle-alternate);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.c-page-footer__lower {
+  padding-top: 1.5rem;
+  padding-bottom: 4rem;
+}
