@@ -1,6 +1,10 @@
-# New Project
+# My Site
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+My personal site.
+
+## Built With Snowpack
+
+✨ Bootstrapped with Create Snowpack App (CSA).
 
 ## Available Scripts
 
