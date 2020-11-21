@@ -2,6 +2,11 @@
  *  Elements - Base
  */
 
+*::selection {
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+  -webkit-text-stroke-color: var(--color-bg);
+}
 
 body {
   background-color: var(--color-bg);

@@ -5,6 +5,15 @@
 
 /* Text */
 
+.u-text-large-1,
+.u-text-large-2,
+.u-text-large-3,
+.u-text-large-4,
+.u-text-large-5,
+.u-text-large-6 {
+  line-height: 1.25;
+}
+
 .u-text-title {
   font-family: var(--font-accent);
   font-size: .75rem;

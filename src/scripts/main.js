@@ -254,8 +254,9 @@ render(
         <li class="c-work-list__item">
           <div data-sticky class="c-work-list__item-info">
             <div class="c-work-list__item-info-inner">
-              <h4 class="c-work-list__item-info-title" >Item One</h4>
-              
+              <h4 class="c-work-list__item-info-title" >
+                Personal Branding
+              </h4>
               <div class="c-work-list__item-info-taglist u-text-title">
                 Techologies: Adobe Illustrator
               </div>
@@ -281,7 +282,6 @@ render(
               height=712
             >
             </c-glitch-image>
-
           </div>
           <div class="c-work-list__item-lower">
             <button 
@@ -293,7 +293,30 @@ render(
             <c-modal 
               data-modal-trigger="modal-logos"
             >
-              dialog
+              <header class="
+                u-padding-top-6 
+                u-padding-bottom-5 
+                u-text-align-center 
+                u-border-bottom-accent-alternate 
+                u-bg-noise
+                u-z-index-3
+              ">
+                <h3 class="u-text-large-3">
+                  Personal Branding
+                </h3>
+                <c-squiggle></c-squiggle>
+              </header>
+              <div class="c-media-grid">
+                <div>
+                  <img src="images/Work-DBW-Logos-1.png" alt="Personal Branding Logos">
+                </div>
+                <div>
+                  <img src="images/Work-DBW-Logos-1.png" alt="Personal Branding Logos">
+                </div>
+                <div>
+                  <img src="images/Work-DBW-Logos-1.png" alt="Personal Branding Logos">
+                </div>
+              </div>
             </c-modal>
           </div>
         </li>

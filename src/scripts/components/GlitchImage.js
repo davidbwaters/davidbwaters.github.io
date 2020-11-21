@@ -10,6 +10,9 @@ export class GlitchImage extends LitElement {
 
     return css`
       :host {
+        --glitch-image-height: 100%;
+        --glitch-image-width:  100%;
+        
         display: block;
         min-height: 1px;
         width: 100%;

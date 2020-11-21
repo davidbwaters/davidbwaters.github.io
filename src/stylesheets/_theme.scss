@@ -35,12 +35,6 @@
   --button-color-border-hover: #46378F;
   --button-color-shadow: #46378F;
   --button-transition-duration: var(--transition-duration);
-
-  --glitch-image-height: 100%;
-  --glitch-image-width:  100%;
-
-  --loader-color-bg: var(--color-bg);
-  --loader-image-bg: url('images/Noise-Main-Solid.png');
 }
 
 [data-theme=dark] {
@@ -52,6 +46,7 @@
   --color-bg-pattern: rgba(0,0,0,.20);
   --color-bg-pattern-alternate: rgba(255,255,255,.25);
   --color-bg-overlay: rgba(0,0,0,0.02);
+
   --theme-dark-opacity: 1;
 }
 
@@ -64,5 +59,6 @@
   --color-bg-pattern: rgba(0,0,0,.25);
   --color-bg-pattern-alternate: rgba(0,0,0,.25);
   --color-bg-overlay: rgba(255,255,255,.02);
+
   --theme-light-opacity: 1;
 }

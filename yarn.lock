@@ -1163,9 +1163,9 @@
     "@substructure/tools" "^0.1.15"
 
 "@substructure/generic-initialize@^0.1.2":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@substructure/generic-initialize/-/generic-initialize-0.1.3.tgz#4977fc5d4e021b47c75968cc2eb73838cfe7a431"
-  integrity sha512-wqBKEKxBNB97eEEN0L8yrXwjlR9D6ygPK1Iv0CowEPlHBb8KSWzi7KpYth4FCVXE/96mj5rGMRJCouUX6ilmeQ==
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@substructure/generic-initialize/-/generic-initialize-0.1.4.tgz#a3cf55696bb454edbf6c2fbf1a02a833300ec8f3"
+  integrity sha512-4C3BxZbYgtwuE1giJs6WIBBMqD99O/MxtHM9Pf3MlIKxj4hESl3QPeSTPddp9iMdmEH/g5995aGgRijj26nmaQ==
 
 "@substructure/generic-shared@^0.1.2":
   version "0.1.18"

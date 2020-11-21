@@ -21,7 +21,7 @@
   padding-top: .5rem;
   text-decoration: none;
   text-transform: uppercase;
-  transition: all var(--transition-duration);
+  transition: all var(--button-transition-duration);
 }
 
 
@@ -56,6 +56,7 @@
     var(--button-color-bg);
   border-color: var(--button-color-bg);
   color: var(--button-color-bg);
+  position: relative;
   z-index: 9;
 }
 

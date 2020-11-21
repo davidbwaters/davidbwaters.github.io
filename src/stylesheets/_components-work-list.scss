@@ -3,17 +3,24 @@
  */
 
 
+@media (min-height:35em) and (min-width:45em) {
+
+  .c-work-list {
+    margin-bottom: 0;
+    padding-left:  5rem;
+    padding-right: 5rem;
+  }
+
+}
+
 .c-work-list__item {
   box-shadow: 0 0 0 1px var(--color-fg-subtle-alternate);
   display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
   grid-template-rows: auto 1fr;
   grid-template-columns: 100%;
-}
-
-.c-work-list__item:first-child .c-work-list__item-info {
-  margin-top: -3.5rem;
-  padding-top: 3.5rem;
-  
 }
 
 .c-work-list__item-info,
@@ -25,22 +32,11 @@
   z-index: 1;
 }
 
-.c-work-list__item-info-inner {
-  box-shadow: 0 0 0 1px var(--color-fg-subtle-alternate);
-  padding-bottom: 1.5rem;
-  padding-left:  1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 1.5rem;
+.c-work-list__item:first-child .c-work-list__item-info {
+  margin-top: -3.5rem;
+  padding-top: 3.5rem;
 }
 
-.c-work-list__item-info-taglist {
-  padding-bottom: 1rem;
-}
-
-.c-work-list__item-preview {
-  border-bottom: solid 1px var(--color-fg-subtle-alternate);
-  // padding-bottom: 1rem;
-}
 
 @media (min-height:35em) {
 
@@ -51,6 +47,23 @@
 
 }
 
+@media (min-height:35em) and (min-width:45em) {
+
+  .c-work-list__item:first-child .c-work-list__item-info {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+}
+
+.c-work-list__item-info-inner {
+  box-shadow: 0 0 0 1px var(--color-fg-subtle-alternate);
+  padding-bottom: 1.5rem;
+  padding-left:  1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1.5rem;
+}
+
 @media (min-width:45em) {
 
   .c-work-list__item-info-inner {
@@ -58,27 +71,25 @@
     padding-top: 1rem;
   }
 
+}
+
+.c-work-list__item-info-taglist {
+  padding-bottom: 1rem;
+}
+
+.c-work-list__item-preview {
+  border-bottom: solid 1px var(--color-fg-subtle-alternate);
+}
+
+
+@media (min-width:45em) {
+
   .c-work-list__item-preview {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50%, 33%));
     overflow: hidden;
   }
   
-}
-
-
-@media (min-height:35em) and (min-width:45em) {
-  
-  .c-work-list__item:first-child .c-work-list__item-info {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  .c-work-list__item {
-    margin-left:  5rem;
-    margin-right: 5rem;
-  }
-
 }
 
 .c-work-list__item-lower {
@@ -89,5 +100,4 @@
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 1rem;
-  z-index: 9;
 }

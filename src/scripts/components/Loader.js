@@ -11,9 +11,13 @@ export class Loader extends LitElement {
     return css`
       
       :host {
+        --loader-color-bg: var(--color-bg);
+        --loader-image-bg: url('images/Noise-Main-Solid.png');
+
         align-content: center;
         background-color: var(--loader-color-bg);
         background-image: var(--loader-image-bg);
+        cursor: progress;
         display: grid;
         grid-template-columns: 100px;
         grid-template-rows: min-content;

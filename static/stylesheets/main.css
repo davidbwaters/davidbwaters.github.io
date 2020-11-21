@@ -12,8 +12,8 @@
   box-sizing: border-box;
 }
 
-ul[class],
-ol[class] {
+ul,
+ol {
   padding: 0;
 }
 
@@ -23,8 +23,8 @@ h2,
 h3,
 h4,
 p,
-ul[class],
-ol[class],
+ul,
+ol,
 figure,
 blockquote,
 dl,
@@ -40,15 +40,6 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-}
-
-ul[class],
-ol[class] {
-  list-style: none;
-}
-
-a:not([class]) {
-  text-decoration-skip-ink: auto;
 }
 
 img {
@@ -2345,10 +2336,6 @@ small {
   --button-color-border-hover: #46378F;
   --button-color-shadow: #46378F;
   --button-transition-duration: var(--transition-duration);
-  --glitch-image-height: 100%;
-  --glitch-image-width: 100%;
-  --loader-color-bg: var(--color-bg);
-  --loader-image-bg: url("images/Noise-Main-Solid.png");
 }
 
 [data-theme=dark] {
@@ -2396,7 +2383,7 @@ small {
   padding-top: 0.5rem;
   text-decoration: none;
   text-transform: uppercase;
-  transition: all var(--transition-duration);
+  transition: all var(--button-transition-duration);
 }
 
 @media (min-width: 45em) {
@@ -2425,6 +2412,7 @@ small {
   box-shadow: 0 0 0 100vmax var(--button-color-bg);
   border-color: var(--button-color-bg);
   color: var(--button-color-bg);
+  position: relative;
   z-index: 9;
 }
 
@@ -2821,6 +2809,15 @@ c-theme-switch,
   }
 }
 /*
+ *  Components - Media Grid
+ */
+.c-media-grid {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
+
+/*
  *  Components - Page Footer
  */
 .c-page-footer {
@@ -2895,16 +2892,21 @@ c-theme-switch,
 /*
  *  Components - Work List
  */
+@media (min-height: 35em) and (min-width: 45em) {
+  .c-work-list {
+    margin-bottom: 0;
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
 .c-work-list__item {
   box-shadow: 0 0 0 1px var(--color-fg-subtle-alternate);
   display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
   grid-template-rows: auto 1fr;
   grid-template-columns: 100%;
-}
-
-.c-work-list__item:first-child .c-work-list__item-info {
-  margin-top: -3.5rem;
-  padding-top: 3.5rem;
 }
 
 .c-work-list__item-info,
@@ -2916,20 +2918,9 @@ c-theme-switch,
   z-index: 1;
 }
 
-.c-work-list__item-info-inner {
-  box-shadow: 0 0 0 1px var(--color-fg-subtle-alternate);
-  padding-bottom: 1.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 1.5rem;
-}
-
-.c-work-list__item-info-taglist {
-  padding-bottom: 1rem;
-}
-
-.c-work-list__item-preview {
-  border-bottom: solid 1px var(--color-fg-subtle-alternate);
+.c-work-list__item:first-child .c-work-list__item-info {
+  margin-top: -3.5rem;
+  padding-top: 3.5rem;
 }
 
 @media (min-height: 35em) {
@@ -2938,27 +2929,39 @@ c-theme-switch,
     padding-top: 4.5rem;
   }
 }
-@media (min-width: 45em) {
-  .c-work-list__item-info-inner {
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-  }
-
-  .c-work-list__item-preview {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50%, 33%));
-    overflow: hidden;
-  }
-}
 @media (min-height: 35em) and (min-width: 45em) {
   .c-work-list__item:first-child .c-work-list__item-info {
     margin-top: 0;
     padding-top: 0;
   }
+}
+.c-work-list__item-info-inner {
+  box-shadow: 0 0 0 1px var(--color-fg-subtle-alternate);
+  padding-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1.5rem;
+}
 
-  .c-work-list__item {
-    margin-left: 5rem;
-    margin-right: 5rem;
+@media (min-width: 45em) {
+  .c-work-list__item-info-inner {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+}
+.c-work-list__item-info-taglist {
+  padding-bottom: 1rem;
+}
+
+.c-work-list__item-preview {
+  border-bottom: solid 1px var(--color-fg-subtle-alternate);
+}
+
+@media (min-width: 45em) {
+  .c-work-list__item-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50%, 33%));
+    overflow: hidden;
   }
 }
 .c-work-list__item-lower {
@@ -2969,12 +2972,17 @@ c-theme-switch,
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 1rem;
-  z-index: 9;
 }
 
 /*
  *  Elements - Base
  */
+*::selection {
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+  -webkit-text-stroke-color: var(--color-bg);
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-fg);
@@ -3004,6 +3012,15 @@ strong {
  *  Utilites
  */
 /* Text */
+.u-text-large-1,
+.u-text-large-2,
+.u-text-large-3,
+.u-text-large-4,
+.u-text-large-5,
+.u-text-large-6 {
+  line-height: 1.25;
+}
+
 .u-text-title {
   font-family: var(--font-accent);
   font-size: 0.75rem;
