@@ -1,0 +1,286 @@
+/*
+ *  Utilites
+ */
+
+
+/* Text */
+
+.u-text-title {
+  font-family: var(--font-accent);
+  font-size: .75rem;
+  font-weight: var(--font-accent-weight);
+  text-transform: uppercase;
+}
+
+.u-tex-heading {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+}
+
+.u-text-display {
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight);
+}
+
+.u-text-mono {
+  font-family: var(--font-mono);
+  font-weight: var(--font-mono-weight);
+}
+
+.u-text-bolder {
+  font-family: var(--font-primary-bolder);
+  font-weight: var(--font-primary-bolder-weight);
+}
+
+.u-text-uppercase {
+  text-transform: uppercase;
+}
+
+.u-text-outline {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--color-fg);
+}
+
+
+/* Borders */
+
+.u-border-top-accent-alternate {
+  border-top: solid 1px var(--color-fg-subtle-alternate);
+}
+
+.u-border-bottom-accent-alternate {
+  border-bottom: solid 1px var(--color-fg-subtle-alternate);
+}
+
+.u-border-vertical-accent-alternate {
+  border-bottom: solid 1px var(--color-fg-subtle-alternate);
+  border-top: solid 1px var(--color-fg-subtle-alternate);
+}
+
+
+/* Positioning */
+
+.u-position-relative {
+  position: relative;
+}
+
+
+/* Responsive Visibility */
+
+@media (max-width:35em) {
+
+  .u-hidden\@mobile {
+    display: none;
+    visibility: hidden;
+  }
+
+}
+
+
+/* Theme Fill */
+
+.u-theme-fill {
+  fill: var(--color-fg);
+}
+
+
+/* Separators */
+
+.u-separator,
+.u-separator-alternate {
+  border: none;
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: .225rem .225rem;
+  height: .5rem;
+  width: 100%;
+}
+
+.u-separator {
+  background-image: linear-gradient(
+    -45deg,
+    var(--color-bg-pattern)   0.00%,
+    var(--color-bg-pattern)  12.50%,
+    transparent              12.51%,
+    transparent              37.49%,
+    var(--color-bg-pattern)  37.50%,
+    var(--color-bg-pattern)  62.50%,
+    transparent              62.51%,
+    transparent              87.49%,
+    var(--color-bg-pattern)  87.50%,
+    var(--color-bg-pattern) 100.00%
+  );
+  box-shadow: inset 0 0 0 1px var(--color-fg-subtle);
+}
+
+.u-separator-alternate {
+  background-image: linear-gradient(
+    -45deg,
+    var(--color-bg-pattern-alternate)   0.00%,
+    var(--color-bg-pattern-alternate)  12.50%,
+    transparent                        12.51%,
+    transparent                        37.49%,
+    var(--color-bg-pattern-alternate)  37.50%,
+    var(--color-bg-pattern-alternate)  62.50%,
+    transparent                        62.51%,
+    transparent                        87.49%,
+    var(--color-bg-pattern-alternate)  87.50%,
+    var(--color-bg-pattern-alternate) 100.00%
+  );
+  box-shadow: inset 0 0 0 1px var(--color-fg-subtle-alternate);  
+}
+
+.u-separator-thin,
+.u-separator-thin-alternate {
+  border: none;
+  height: 1px;
+  width: 100%;
+} 
+
+.u-separator-thin {
+  background-color: var(--color-fg-subtle);
+}
+
+.u-separator-thin-alternate {
+  background-color: var(--color-fg-subtle-alternate);
+}
+
+
+/* Backgrounds & Overlays */
+
+.u-bg-pattern-diagonal,
+.u-bg-pattern-diagonal-alternate {
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: .275rem .275rem;
+}
+
+.u-bg-pattern-diagonal {
+  background-image: linear-gradient(
+    -45deg,
+    var(--color-bg-pattern)   0.00%,
+    var(--color-bg-pattern)   6.24%,
+    transparent               6.25%,
+    transparent              43.74%,
+    var(--color-bg-pattern)  43.75%,
+    var(--color-bg-pattern)  56.25%,
+    transparent              56.26%,
+    transparent              93.74%,
+    var(--color-bg-pattern)  93.75%,
+    var(--color-bg-pattern) 100.00%
+  );
+}
+
+.u-bg-pattern-diagonal-alternate {
+  background-image: linear-gradient(
+    -45deg,
+    var(--color-bg-pattern-alternate)   0.00%,
+    var(--color-bg-pattern-alternate)   6.24%,
+    transparent                         6.25%,
+    transparent                        43.74%,
+    var(--color-bg-pattern-alternate)  43.75%,
+    var(--color-bg-pattern-alternate)  56.25%,
+    transparent                        56.26%,
+    transparent                        93.74%,
+    var(--color-bg-pattern-alternate)  93.75%,
+    var(--color-bg-pattern-alternate) 100.00%
+  );
+}
+
+.u-bg-pattern-diagonal-tight,
+.u-bg-pattern-diagonal-tight-alternate {
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: .225rem .225rem;
+}
+
+.u-bg-pattern-diagonal-tight {
+  background-image: linear-gradient(
+    -45deg,
+    var(--color-bg-pattern)   0.00%,
+    var(--color-bg-pattern)  12.50%,
+    transparent              12.51%,
+    transparent              37.49%,
+    var(--color-bg-pattern)  37.50%,
+    var(--color-bg-pattern)  62.50%,
+    transparent              62.51%,
+    transparent              87.49%,
+    var(--color-bg-pattern)  87.50%,
+    var(--color-bg-pattern) 100.00%
+  );
+}
+
+.u-bg-pattern-diagonal-tight-alternate {
+  background-image: linear-gradient(
+    -45deg,
+    var(--color-bg-pattern-alternate)   0.00%,
+    var(--color-bg-pattern-alternate)  12.50%,
+    transparent                        12.51%,
+    transparent                        37.49%,
+    var(--color-bg-pattern-alternate)  37.50%,
+    var(--color-bg-pattern-alternate)  62.50%,
+    transparent                        62.51%,
+    transparent                        87.49%,
+    var(--color-bg-pattern-alternate)  87.50%,
+    var(--color-bg-pattern-alternate) 100.00%
+  );
+}
+
+.u-bg-noise,
+.u-overlay-noise {
+  overflow: hidden;
+  position: relative;
+  
+}
+
+.u-bg-noise::before,
+.u-overlay-noise::before {
+  animation: noise .4s infinite;
+  backface-visibility: hidden;
+  background-image: url("/images/Noise-Main-Clear.svg");
+  background-size: 400px auto;
+  background-repeat: repeat;
+  content: '';
+  height: 200%;
+  left: -50%;
+  mix-blend-mode: multiply;
+  opacity: 0.4;
+  pointer-events: none;
+  position: absolute;
+  top: -50%;
+  width: 200%;
+}
+
+.u-bg-noise::before {
+  background-color: var(--color-bg);
+  z-index: -1;
+}
+
+.u-overlay-noise::before {
+  z-index: 1;
+}
+
+
+/* Animations */
+
+.u-animation-wave {
+  animation: wave ease-in-out 3s infinite;
+  transform-origin: 50% 80%;
+}
+
+
+/* Keyframes */
+
+@keyframes noise {
+   0.00% { transform: translate(0, 0) }
+  49.99% { transform: translate(0, 0) }
+  50.00% { transform: translate(-10%, 10%) }
+  99.99% { transform: translate(-10%, 10%) }
+}
+
+@keyframes wave {
+    0% { transform: rotate( -35deg) }
+   50% { transform: rotate(  35deg) }
+  100% { transform: rotate( -35deg) }
+}
