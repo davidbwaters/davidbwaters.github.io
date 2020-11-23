@@ -182,11 +182,9 @@ render(
         </h3>
         <c-squiggle></c-squiggle>
       </header>
-      <!--
       <div class="u-padding-vertical-3 u-padding-horizontal-3 u-text-align-center u-bg-noise">
-        Skills, tools of the trade, and technologies I enjoy working with.
+        A curated list of projects worked on and things I built.
       </div>
-      -->
       <ul class="c-work-list u-bg-pattern-diagonal">
         <li class="c-work-list__item">
           <div data-sticky class="c-work-list__item-info">
