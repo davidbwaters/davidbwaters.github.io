@@ -6,8 +6,7 @@ import { html, render } from 'lit-html'
 import WebFont from 'webfontloader'
 import Scrambler from 'scrambling-letters'
 import stickybits from 'stickybits'
-import { TopBar } from './components/TopBar'
-import { Hero } from './components/Hero'
+import { TopBar } from './components/TopBar.js'
 import { ThemeSwitch } from './components/ThemeSwitch'
 import { Squiggle } from './components/Squiggle'
 import { GlitchImage } from './components/GlitchImage'
@@ -15,7 +14,6 @@ import { Modal } from './components/Modal'
 import { Loader } from './components/Loader'
 
 customElements.define('c-top-bar', TopBar)
-customElements.define('c-hero', Hero)
 customElements.define('c-theme-switch', ThemeSwitch)
 customElements.define('c-squiggle', Squiggle)
 customElements.define('c-glitch-image', GlitchImage)
@@ -38,7 +36,6 @@ WebFont.load({
 
 render(
   html`
-
     <c-top-bar>
       <a slot="logo" href="/">
         <svg class="u-theme-fill" width="30" height="24">
@@ -61,45 +58,112 @@ render(
         <i class="c-icon c-icon--github"></i>
       </a>
     </c-top-bar>
-
-    <c-hero>
-      <div slot="tagline">            
-        Artist & <br>
-        Designer & <br>
-        Developer
+    <div class="c-hero">
+      <div class="c-hero__upper">
+        <div class="c-hero__paint-dark"></div>
+        <div class="c-hero__paint-light"></div>
+        <div class="c-hero__tagline">
+          <div class="c-hero__tagline-main">
+            <span  data-scrambler="true">
+              Artist & 
+            </span><br/>
+            <span  data-scrambler="true">
+              Designer & 
+            </span><br/>
+            <span  data-scrambler="true">
+              Developer
+            </span>
+          </div>
+          <div class="c-hero__tagline-accent-1">
+            Artist & <br/>
+            Designer & <br/>
+            Developer
+          </div>
+          <div class="c-hero__tagline-accent-2">
+            Artist & <br/>
+            Designer & <br/>
+            Developer
+          </div>
+          <div class="c-hero__tagline-accent-3">
+            Artist & <br/>
+            Designer & <br/>
+            Developer
+          </div>
+        </div>
+        <div class="c-hero__name">David B. Waters</div>
+        <div class="c-hero__location">Charleston, SC</div>
       </div>
-      <div slot="name-stylized">
-        DAVIDBWATERS
+      <div class="c-hero__lower u-overlay-noise ">
+        <div class="c-hero__me"></div>
+        <div class="c-hero__name-stylized u-bg-pattern-diagonal">
+          <div class="c-hero__name-stylized-letter">
+            D
+          </div>
+          <div class="c-hero__name-stylized-letter">
+            A
+          </div>
+          <div class="c-hero__name-stylized-letter">
+            V
+          </div>
+          <div class="c-hero__name-stylized-letter">
+            I
+          </div>
+          <div class="c-hero__name-stylized-letter">
+            D
+          </div>
+          <div class="c-hero__name-stylized-letter">
+            B
+          </div>
+          <div class="c-hero__name-stylized-letter">
+            W
+          </div>
+          <div class="c-hero__name-stylized-letter">
+            A
+          </div>
+          <div class="c-hero__name-stylized-letter">
+            T
+          </div>
+          <div class="c-hero__name-stylized-letter">
+            E
+          </div>
+          <div class="c-hero__name-stylized-letter">
+            R
+          </div>
+          <div class="c-hero__name-stylized-letter">
+            S
+          </div>
+        </div>
+        <div class="c-hero__heading">
+          <h2 class="u-text-large-3">
+            Building digital solutions to promote growth.
+            <c-squiggle></c-squiggle>
+          </h2>
+        </div>
       </div>
-      <div slot="heading">
-        <h2 class="u-text-large-3">
-          Building digital solutions to promote growth.
-          <c-squiggle></c-squiggle>
-        </h2>
-      </div>
-      <c-theme-switch slot="footer-box-left">
-        <i class="c-icon c-icon--switch"></i>
-      </c-theme-switch>
-      <div slot="footer-content-left">
-        <a class="c-icon c-icon--hand u-animation-wave u-text-large-2 u-margin-bottom-0" href="mailto:mrdavidbwaters@gmail.com"></a>
-        <span>
-          Available Now!
-        </span>
-      </div>
-      <div slot="footer-content-right">
-      <a class="c-button" href="mailto:mrdavidbwaters@gmail.com">Contact</a>
-        <span>
-          Start 
-          <span class="u-hidden@mobile">Your</span>
-          Project!
-        </span>
-      </div>
-      <div slot="footer-box-right">
-        <i class="c-icon c-icon--arrow-down u-text-large-2"></i>
-      </div>
-      <hr slot="bottom" class="u-separator">
-    </c-hero>
-    
+      <footer class="c-hero__footer u-bg-noise">
+        <c-theme-switch>
+          <i class="c-icon c-icon--switch"></i>
+        </c-theme-switch>
+        <div class="c-hero__availability">
+          <a class="c-icon c-icon--hand u-animation-wave" href="mailto:mrdavidbwaters@gmail.com"></a>
+          <span>
+            Available Now!
+          </span>
+        </div>
+        <div class="c-hero__cta">
+          <a class="c-button" href="mailto:mrdavidbwaters@gmail.com">Contact</a>
+          <span>
+            Start 
+            <span class="u-hidden@mobile">Your</span>
+            Project!
+          </span>
+        </div>
+        <div class="c-hero__arrow">
+          <i class="c-icon c-icon--arrow-down"></i>
+        </div>
+        <hr class="u-separator c-hero__bottom">
+      </footer>
+    </div>
     <section>
       <header class="u-padding-top-6 u-padding-bottom-5 u-bg-noise u-text-align-center">
         <h3 class="u-text-large-4 u-text-display u-text-uppercase u-text-outline">
@@ -166,7 +230,6 @@ render(
       </ul>
       <hr class="u-separator-alternate c-hero__bottom">
     </section>
-
     <section>
       <header class="
         u-padding-top-6 
@@ -291,7 +354,6 @@ render(
         </li>
       </ul>
     </section>
-
     <footer class="c-page-footer u-bg-noise">
       <hr class="u-separator-alternate u-margin-0">
       <div class="c-page-footer__upper u-text-large-1">
@@ -300,7 +362,7 @@ render(
       <div class="c-page-footer__lower">
         <small class="u-text-bolder">
           This site's source code is freely available under the MIT license
-          <a href="https://github.com/davidbwaters/davidbwaters.github.io" alt="repo link">
+          <a href="https://github.com/davidbwaters/dbw-snowpack" alt="repo link">
             here 
           </a>
           .
@@ -309,7 +371,6 @@ render(
         </small>
       </div>
     </footer>
-
     <c-loader>
       <c-glitch-image
         src="images/Loader-Image.svg"
@@ -326,5 +387,11 @@ render(
 window.addEventListener('load', () => {
 
   stickybits('[data-sticky]')
+
+  Scrambler({
+    target: '[data-scrambler]',
+    random: [1000, 1000],
+    speed: 60
+  })
 
 })

@@ -9,12 +9,6 @@
   font-style: normal;
 }
 
-[data-icon],
-[class^="c-icon--"],
-[class*=" c-icon--"] {
-  text-decoration: none;
-}
-
 [data-icon]:before,
 [class^="c-icon--"]:before,
 [class*=" c-icon--"]:before {

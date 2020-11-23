@@ -2814,7 +2814,7 @@ c-theme-switch,
 .c-media-grid {
   display: grid;
   grid-gap: 1px;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 }
 
 /*
@@ -3019,7 +3019,6 @@ strong {
 .u-text-large-5,
 .u-text-large-6 {
   line-height: 1.25;
-  margin-bottom: 0;
 }
 
 .u-text-title {
