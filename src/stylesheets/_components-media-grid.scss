@@ -7,10 +7,14 @@
   display: grid;
   grid-gap: 1px;
   grid-template-columns: repeat(
-    auto-fit, minmax(30rem, 1fr)
+    auto-fit, minmax(30rem, 100%)
   );
   // padding-bottom: .75rem;
   // padding-left: .75rem;
   // padding-right: .75rem;
   // padding-top: .75rem;
+}
+
+.c-media-grid img {
+  width: 100%;
 }

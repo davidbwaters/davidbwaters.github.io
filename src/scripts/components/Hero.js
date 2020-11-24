@@ -272,6 +272,22 @@ export class Hero extends LitElement {
       }
 
       .c-hero__name-stylized {
+        background-image: linear-gradient(
+          -45deg,
+          var(--color-bg-pattern)   0.00%,
+          var(--color-bg-pattern)   6.24%,
+          transparent               6.25%,
+          transparent              43.74%,
+          var(--color-bg-pattern)  43.75%,
+          var(--color-bg-pattern)  56.25%,
+          transparent              56.26%,
+          transparent              93.74%,
+          var(--color-bg-pattern)  93.75%,
+          var(--color-bg-pattern) 100.00%
+        );
+        background-position: 0 0;
+        background-repeat: repeat;
+        background-size: .275rem .275rem;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
@@ -545,16 +561,15 @@ export class Hero extends LitElement {
       <div class="c-hero__name">David B. Waters</div>
       <div class="c-hero__location">Charleston, SC</div>
     </div>
-    <div class="c-hero__lower u-overlay-noise ">
+    <div class="c-hero__lower">
       <div class="c-hero__me"></div>
-      <div class="c-hero__name-stylized u-bg-pattern-diagonal">
-
+      <div class="c-hero__name-stylized">
       </div>
       <div class="c-hero__heading">
         <slot name="heading"></slot>
       </div>
     </div>
-    <footer class="c-hero__footer u-bg-noise">
+    <footer class="c-hero__footer">
       <slot name="footer-box-left">
       </slot>
       <slot name="footer-content-left">

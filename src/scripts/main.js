@@ -10,6 +10,7 @@ import { TopBar } from './components/TopBar'
 import { Hero } from './components/Hero'
 import { ThemeSwitch } from './components/ThemeSwitch'
 import { Squiggle } from './components/Squiggle'
+import { SectionHeader } from './components/SectionHeader'
 import { GlitchImage } from './components/GlitchImage'
 import { Modal } from './components/Modal'
 import { Loader } from './components/Loader'
@@ -18,6 +19,7 @@ customElements.define('c-top-bar', TopBar)
 customElements.define('c-hero', Hero)
 customElements.define('c-theme-switch', ThemeSwitch)
 customElements.define('c-squiggle', Squiggle)
+customElements.define('c-section-header', SectionHeader)
 customElements.define('c-glitch-image', GlitchImage)
 customElements.define('c-modal', Modal)
 customElements.define('c-loader', Loader)
@@ -62,7 +64,7 @@ render(
       </a>
     </c-top-bar>
 
-    <c-hero>
+    <c-hero class="u-bg-noise">
       <div slot="tagline">            
         Artist & <br>
         Designer & <br>
@@ -101,15 +103,15 @@ render(
     </c-hero>
     
     <section>
-      <header class="u-padding-top-6 u-padding-bottom-5 u-bg-noise u-text-align-center">
-        <h3 class="u-text-large-4 u-text-display u-text-uppercase u-text-outline">
+      <c-section-header class="u-bg-noise">
+        <div slot="title">
           Skills
-        </h3>
-        <c-squiggle></c-squiggle>
-      </header>
-      <div class="u-border-top-accent-alternate u-padding-vertical-3 u-padding-horizontal-3 u-text-align-center u-bg-noise">
-        Skills, tools of the trade, and technologies I enjoy working with.
-      </div>
+          <c-squiggle></c-squiggle>
+        </div>
+        <div slot="description">
+          Skills, tools of the trade, and technologies I enjoy working with.
+        </div>
+      </c-section-header>
       <ul class="c-skill-list">
         <li class="c-skill-list__skill">
           <img class="c-skill-list__image" src="images/Elephant.png" alt="elephant">
@@ -168,24 +170,18 @@ render(
     </section>
 
     <section>
-      <header class="
-        u-padding-top-6 
-        u-padding-bottom-5 
-        u-text-align-center 
-        u-border-bottom-accent-alternate 
-        u-bg-noise
-        u-z-index-3
-      ">
-        <h3 class="u-text-large-4 u-text-display u-text-uppercase u-text-outline">
+      <c-section-header class="u-bg-noise u-z-index-3">
+        <div slot="title">
           Selected <br>
           Works
-        </h3>
-        <c-squiggle></c-squiggle>
-      </header>
-      <div class="u-padding-vertical-3 u-padding-horizontal-3 u-text-align-center u-bg-noise">
-        A curated list of projects worked on and things I built.
-      </div>
+          <c-squiggle></c-squiggle>
+        </div>
+        <div slot="description">
+          A curated list of projects worked on and things I built.
+        </div>
+      </c-section-header>
       <ul class="c-work-list u-bg-pattern-diagonal">
+
         <li class="c-work-list__item">
           <div data-sticky class="c-work-list__item-info">
             <div class="c-work-list__item-info-inner">
@@ -228,19 +224,12 @@ render(
             <c-modal 
               data-modal-trigger="modal-logos"
             >
-              <header class="
-                u-padding-top-6 
-                u-padding-bottom-5 
-                u-text-align-center 
-                u-border-bottom-accent-alternate 
-                u-bg-noise
-                u-z-index-3
-              ">
-                <h3 class="u-text-large-3">
+              <c-section-header class="u-bg-noise u-z-index-3">
+                <div slot="title">
                   Personal Branding
-                </h3>
-                <c-squiggle></c-squiggle>
-              </header>
+                  <c-squiggle></c-squiggle>
+                </div>
+              </c-section-header>
               <div class="c-media-grid">
                 <div>
                   <img src="images/Work-DBW-Logos-1.png" alt="Personal Branding Logos">
@@ -255,38 +244,7 @@ render(
             </c-modal>
           </div>
         </li>
-        <li class="c-work-list__item">
-          <div data-sticky class="c-work-list__item-info">
-            <div class="c-work-list__item-info-inner">
-              <h4 class="c-work-list__item-info-title" >Item One</h4>
-              
-              <div class="c-work-list__item-info-taglist u-text-title">
-                Techologies: Adobe Illustrator
-              </div>
-              <div class="c-work-list__item-info-description">
-                <p>
-                  Item infomation and description.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="c-work-list__item-preview">
-            <c-glitch-image 
-              src="images/Work-DBW-Logos-1.png" 
-              glitch=2 alt="Logos Dark BG"
-              width=912
-              height=712
-            >
-            </c-glitch-image>
-            <c-glitch-image 
-              src="images/Work-DBW-Logos-2.png" 
-              glitch=2 alt="Logos Light BG"
-              width=912
-              height=712
-            >
-            </c-glitch-image>
-          </div>
-        </li>
+
       </ul>
     </section>
 

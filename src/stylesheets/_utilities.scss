@@ -161,8 +161,8 @@
 
 .u-bg-pattern-diagonal,
 .u-bg-pattern-diagonal-alternate {
-  background-repeat: repeat;
   background-position: 0 0;
+  background-repeat: repeat;
   background-size: .275rem .275rem;
 }
 
@@ -254,7 +254,6 @@
   content: '';
   height: 200%;
   left: -50%;
-  mix-blend-mode: multiply;
   opacity: 0.4;
   pointer-events: none;
   position: absolute;

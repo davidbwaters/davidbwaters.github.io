@@ -19,7 +19,7 @@ export class Modal extends LitElement {
         --modal-close-button-color-shadow: var(--button-color-shadow);
         --modal-close-button-font: var(--font-normal-bolder);
         --modal-close-button-font-weight: normal;
-        --modal-close-button-size: 1.5rem;
+        --modal-close-button-size: 1.25rem;
         --modal-close-button-thickness: 1.5px;
         --modal-transition-duration: .33s;
         --modal-trigger-transition-duration: .33s;

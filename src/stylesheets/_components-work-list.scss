@@ -6,6 +6,7 @@
 @media (min-height:35em) and (min-width:45em) {
 
   .c-work-list {
+    box-shadow: 0 0 0 1px var(--color-fg-subtle-alternate);
     margin-bottom: 0;
     padding-left:  5rem;
     padding-right: 5rem;
@@ -95,9 +96,12 @@
 .c-work-list__item-lower {
   background-color: var(--color-bg);
   border-bottom: solid 1px var(--color-fg-subtle-alternate);
-  margin-bottom: 1.5rem;
   padding-bottom: calc(1rem + 2px);
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 1rem;
+}
+
+.c-work-list__item:last-child .c-work-list__item-lower {
+  margin-bottom: 0;
 }
