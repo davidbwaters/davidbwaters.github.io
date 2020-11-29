@@ -9,7 +9,6 @@ export class Loader extends LitElement {
   static get styles() {
 
     return css`
-      
       :host {
         --loader-color-bg: var(--color-bg);
         --loader-image-bg: url('images/Noise-Main-Solid.png');
@@ -29,7 +28,6 @@ export class Loader extends LitElement {
         width: 100vw;
         z-index: 9;
       }
-
     `
 
   }
@@ -40,6 +38,18 @@ export class Loader extends LitElement {
 
     window.addEventListener('load', () => {
 
+      const mainEl = document.querySelector('main')
+
+      const isTransparent = mainEl.classList.contains(
+        'u-transparent'
+      )
+
+      if (isTransparent) {
+
+        mainEl.classList.remove('u-transparent')
+
+      }
+
       this.style.opacity = 0
       this.style.pointerEvents = 'none'
 
@@ -49,18 +59,13 @@ export class Loader extends LitElement {
 
       }, 4000)
 
-
     })
 
   }
 
   render() {
 
-    return html`
-      <slot>
-
-      </slot>
-    `
+    return html` <slot> </slot> `
 
   }
 

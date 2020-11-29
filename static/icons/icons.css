@@ -1,34 +1,47 @@
+/* 
+ * Icons
+ */
+
 @charset "UTF-8";
 
 @font-face {
-  font-family: "icons";
-  src:url("icons.eot");
-  src:url("icons.eot?#iefix") format("embedded-opentype"),
-      url("icons.woff") format("woff");
+  font-family: 'icons';
+  src: url('icons.eot');
+  src: url('icons.eot?#iefix') format('embedded-opentype'),
+    url('icons.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
-[data-icon],
-[class^="c-icon--"],
-[class*=" c-icon--"] {
+.c-icon,
+[data-icon] {
+  display: inline-block;
+  height: 1em;
+  line-height: 1;
   text-decoration: none;
+  vertical-align: middle;
 }
 
-[data-icon]:before,
-[class^="c-icon--"]:before,
-[class*=" c-icon--"]:before {
-  font-family: "icons" !important;
+.c-icon:before,
+[data-icon]:before {
+  font-family: 'icons' !important;
   content: attr(data-icon);
+  display: inline-block;
   font-style: normal !important;
   font-weight: normal !important;
   font-variant: normal !important;
   text-transform: none !important;
-  speak: none;
   line-height: 1;
+  margin-top: -.02em;
+  height: 1em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+[data-icon]:before {
+  content: attr(data-icon);
+}
+
 
 .c-icon--twitter:before {
   content: "\61";
@@ -53,4 +66,19 @@
 }
 .c-icon--hand-alt:before {
   content: "\6a";
+}
+.c-icon--npm-alt:before {
+  content: "\76";
+}
+.c-icon--expand:before {
+  content: "\7a";
+}
+.c-icon--plus:before {
+  content: "\70";
+}
+.c-icon--npm:before {
+  content: "\6e";
+}
+.c-icon--microsoft:before {
+  content: "\6d";
 }

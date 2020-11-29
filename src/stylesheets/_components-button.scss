@@ -4,6 +4,17 @@
 
 
 .c-button {
+  --button-color-bg: #5A47B8;
+  --button-color-bg-hover: #5847af;
+  --button-color-fg: #FFFFFF;
+  --button-color-border: #342867;
+  --button-color-border-hover: var(--color-subtle);
+  --button-color-shadow: var(--color-subtle);
+  --button-color-alternate-bg: #5947A5;
+  --button-color-alternate-bg-hover: #54449c;
+  --button-transition-duration: var(--transition-duration);
+
+  align-items: center;
   background-color: var(--button-color-bg);
   border-color: var(--button-color-border);
   border-radius: 3px;
@@ -12,26 +23,31 @@
   box-shadow: 0 2px 0 var(--button-color-shadow);
   color: var(--button-color-fg);
   cursor: pointer;
-  font-family: var(--font-normal-bolder);
-  font-size: .75rem;
-  letter-spacing: .075em;
-  padding-bottom: .5rem;
+  display: inline-grid;
+  font-family: var(--font-main-regular);
+  font-size: .7rem;
+  grid-auto-flow: column;
+  grid-gap: .5rem;
+  justify-content: center;
+  letter-spacing: .05em;
+  line-height: 1.2;
+  padding-bottom: .75rem;
   padding-left: .5rem;
   padding-right: .5rem;
-  padding-top: .5rem;
+  padding-top: .75rem;
   text-decoration: none;
   text-transform: uppercase;
   transition: all var(--button-transition-duration);
 }
 
 
-@media (min-width:45em) {
+@media (min-width:55em) {
 
   .c-button {
-    font-size: .85rem;
+    font-size: .75rem;
     letter-spacing: .1em;
-    padding-left: .8rem;
-    padding-right: .8rem;
+    padding-left: .9rem;
+    padding-right: .9rem;
   }
 
 }
@@ -61,15 +77,33 @@
 }
 
 .c-button--large {
-  font-size: .9rem;
+  font-size: .85rem;
   padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   padding-top: 1rem;
 }
-
 
 .c-button--block {
   width: 100%;
 }
 
+.c-button--alternate {
+  background-color: var(--button-color-alternate-bg);
+}
 
+.c-button--alternate:hover {
+  background-color: var(--button-color-alternate-bg-hover);
+}
+
+.c-button--github {
+  border-color: #888;
+  box-shadow: 0 2px 0 rgba(220,220,220,.2);
+  background-color: #2c2c2c;
+}
+
+.c-button--github:hover {
+  background-color: #2a2a2a;
+  box-shadow: 0 2px 1px rgba(220,220,220,.4);
+}
 

@@ -12,17 +12,24 @@ export class Modal extends LitElement {
       :host {
         --modal-color-fg: var(--color-fg);
         --modal-color-bg: var(--color-bg);
-        --modal-padding: 1.5rem;
+        --modal-spacing: 1.5rem;
         --modal-close-button-color-fg: var(--color-fg);
         --modal-close-button-color-bg: var(--color-bg);
         --modal-close-button-color-border: var(--color-fg);
-        --modal-close-button-color-shadow: var(--button-color-shadow);
-        --modal-close-button-font: var(--font-normal-bolder);
+        --modal-close-button-color-shadow: var(
+          --color-opaque
+        );
+        --modal-close-button-color-shadow-hover: var(
+          --color-opaque-alternate
+        );
+        --modal-close-button-font: var(--font-main-regular);
         --modal-close-button-font-weight: normal;
-        --modal-close-button-size: 1.25rem;
+        --modal-close-button-size: 1.2rem;
         --modal-close-button-thickness: 1.5px;
-        --modal-transition-duration: .33s;
-        --modal-trigger-transition-duration: .33s;
+        --modal-transition-duration: 0.15s;
+        --modal-trigger-transition-duration: 0.33s;
+
+        position: absolute;
       }
 
       .c-modal__body {
@@ -40,12 +47,12 @@ export class Modal extends LitElement {
         padding-right: 0;
         padding-top: 0;
         position: fixed;
-        transition: all var(--modal-transition-duration);
+        transition: var(--modal-transition-duration);
         top: 0;
         width: 100vw;
         z-index: 9;
       }
-      
+
       .c-modal__body:not([open]) {
         display: block;
         opacity: 0;
@@ -61,7 +68,7 @@ export class Modal extends LitElement {
       .c-modal__body.is-closing {
         opacity: 0;
       }
-      
+
       .c-modal__body.-is-closed {
         display: none;
         visibility: hidden;
@@ -69,51 +76,59 @@ export class Modal extends LitElement {
 
       .c-modal__close-button,
       .c-modal__close-button:focus {
-        border: solid 1px var(--modal-close-button-color-border);
+        border: solid 1px
+          var(--modal-close-button-color-border);
         outline: none;
       }
 
       .c-modal__close-button {
         align-items: center;
-        background-color: var(--modal-close-button-color-bg);
-        box-shadow: 0 2px 0 var(--modal-close-button-color-shadow);
+        background-color: var(
+          --modal-close-button-color-bg
+        );
         color: inherit;
         cursor: pointer;
         display: grid;
         float: right;
         font-family: var(--modal-close-button-font);
+        font-size: 0.7rem;
         font-weight: var(--modal-close-button-font-weight);
-        grid-template-columns: var(--modal-close-button-size);
+        grid-template-columns: var(
+          --modal-close-button-size
+        );
         grid-template-rows: var(--modal-close-button-size);
-        letter-spacing: .05em;
-        margin-right: calc(var(--modal-padding)/2);
-        padding-bottom: calc(var(--modal-padding)/2);
-        padding-left: calc(var(--modal-padding)/2);
-        padding-right: calc(var(--modal-padding)/2);
-        padding-top: calc(var(--modal-padding)/2);
+        letter-spacing: 0.025em;
+        margin-right: calc(var(--modal-spacing) / 2);
+        margin-top: calc(var(--modal-spacing) / 2);
+        padding-bottom: calc(var(--modal-spacing) / 3);
+        padding-left: calc(var(--modal-spacing) / 3);
+        padding-right: calc(var(--modal-spacing) / 3);
+        padding-top: calc(var(--modal-spacing) / 3);
         position: sticky;
+        top: calc(var(--modal-spacing) / 2);
         text-transform: uppercase;
-        transition-duration: all var(
+        transition-duration: var(
           --modal-transition-duration
         );
-        top: calc(var(--modal-padding)/2);
         z-index: 9;
       }
 
       @media (min-width: 45em) {
-
         .c-modal__close-button {
-          grid-gap: .5rem;
+          grid-gap: 0.25rem;
           grid-template-columns: 1fr var(
-            --modal-close-button-size
-          );
+              --modal-close-button-size
+            );
         }
-
       }
 
       .c-modal__close-button:active {
-        box-shadow: 0 0px 0 var(--modal-close-button-color-shadow);
         transform: translateY(2px);
+      }
+
+      .c-modal__close-button:hover {
+        box-shadow: 0 0 1px 1px
+          var(--modal-close-button-color-shadow-hover);
       }
 
       .c-modal__close-button span {
@@ -121,11 +136,10 @@ export class Modal extends LitElement {
       }
 
       @media (min-width: 45em) {
-
         .c-modal__close-button span {
-          display: inline;
+          display: inline-block;
+          margin-top: 1px;
         }
-
       }
 
       .c-modal__close-button i {
@@ -136,7 +150,9 @@ export class Modal extends LitElement {
 
       .c-modal__close-button i::before,
       .c-modal__close-button i::after {
-        background-color: var(--modal-close-button-color-fg);
+        background-color: var(
+          --modal-close-button-color-fg
+        );
         content: '';
         height: 100%;
         margin: auto;
@@ -181,32 +197,43 @@ export class Modal extends LitElement {
 
     this._setup()
 
-    if (this._triggerEl) {
+    window.addEventListener(
+      'click',
+      e => {
 
-      this._triggerEl.addEventListener('click', () => {
+        const target = e.target.closest(
+          '[data-modal-target=' + this._triggerData + ']'
+        )
 
-        this.showModal()
+        if (target) {
 
-      })
+          this.showModal()
 
-    }
+        }
+
+      },
+      true
+    )
+
+    this.shadowRoot.addEventListener('click', e => {
+
+      if (e.target.closest('.c-modal__close-button')) {
+
+        this.close()
+
+      }
+
+    })
 
     this._dialogEl.addEventListener('close', () => {
 
       this._handleClose()
 
     })
-
+    this._dialogEl.classList.add('is-closed')
     this.open
       ? this.showModal()
       : this._dialogEl.classList.add('is-closed')
-
-
-    this._closeButtonEl.addEventListener('click', () => {
-
-      this.close()
-
-    })
 
   }
 
@@ -226,31 +253,35 @@ export class Modal extends LitElement {
 
     const styles = window.getComputedStyle(this)
 
-    this._triggerEl = document.querySelector(
-      '[data-modal-target=' +
-      this.dataset.modalTrigger +
-      ']'
-    )
-
     this._documentEl = document.documentElement
 
-    this._dialogEl = this.shadowRoot
-      .querySelector('dialog')
+    this._triggerData = this.dataset.modalTrigger
 
-    this._closeButtonEl = this._dialogEl
-      .querySelector('.c-modal__close-button')
+    this._triggerEl = document.querySelector(
+      '[data-modal-target=' +
+        this._triggerData +
+        ']' +
+        '[data-modal-trigger-primary]'
+    )
+    this._dialogEl = this.shadowRoot.querySelector('dialog')
 
-    this._triggerDuration = parseFloat(
-      styles.getPropertyValue(
-        '--modal-trigger-transition-duration'
-      )
-    ) * 1000
+    this._closeButtonEl = this._dialogEl.querySelector(
+      '.c-modal__close-button'
+    )
 
-    this._modalDuration = parseFloat(
-      styles.getPropertyValue(
-        '--modal-transition-duration'
-      )
-    ) * 1000
+    this._triggerDuration =
+      parseFloat(
+        styles.getPropertyValue(
+          '--modal-trigger-transition-duration'
+        )
+      ) * 1000
+
+    this._modalDuration =
+      parseFloat(
+        styles.getPropertyValue(
+          '--modal-transition-duration'
+        )
+      ) * 1000
 
   }
 
@@ -293,21 +324,13 @@ export class Modal extends LitElement {
   render() {
 
     return html`
-      <dialog 
-        class="c-modal__body"
-      >
-        <button 
-          class="c-modal__close-button"
-        >
-          <span>
-            Close
-          </span>
+      <dialog class="c-modal__body">
+        <button class="c-modal__close-button">
+          <span> Close </span>
           <i></i>
         </button>
         <section class="c-modal__content">
-          <slot>
-
-          </slot>
+          <slot> </slot>
         </section>
       </dialog>
     `

@@ -3,25 +3,6 @@
  */
 
 
-/*
-@font-face {
-  font-family: "gangster_grotesklight";
-  src: url("gangstergrotesk-light-webfont.woff2") format("woff2"),
-       url("gangstergrotesk-light-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "gangster_groteskregular";
-  src: url("gangstergrotesk-regular-webfont.woff2") format("woff2"),
-       url("gangstergrotesk-regular-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-*/
-
-
 @font-face {
   font-family: 'work_sanslight';
   src: url('worksans-light.woff2') format('woff2'),
@@ -50,7 +31,7 @@
 
 }
 
-/*
+
 @font-face {
   font-family: 'work_sanssemibold';
   src: url('worksans-semibold.woff2') format('woff2'),
@@ -59,7 +40,7 @@
   font-style: normal;
 
 }
-*/
+
 
 @font-face {
   font-family: "league_monoregular";

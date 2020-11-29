@@ -20,7 +20,7 @@
 
 .c-hero__upper {
   align-content: center;
-  border-bottom: solid 1px var(--color-fg-accent);
+  border-bottom: solid 1px var(--color-accent);
   display: grid;
   justify-content: center;
   overflow: hidden;
@@ -33,8 +33,8 @@
   background-image:
     linear-gradient(
       0deg,
-      var(--color-bg-overlay) 000.00%,
-      var(--color-bg-overlay) 050.00%,
+      var(--color-opaque-overlay) 000.00%,
+      var(--color-opaque-overlay) 050.00%,
       rgba(0,0,0,0.00) 050.01%,
       rgba(0,0,0,0.00) 100.00%
     ),
@@ -164,9 +164,9 @@
 .c-hero__location {
   bottom: 0;
   display: block;
-  font-family: var(--font-normal-bolder);
+  font-family: var(--font-main-regular);
   font-size: .6rem;
-  font-weight: var(--font-normal-bolder-weight);
+  font-weight: var(--font-main-regular-weight);
   height: .6rem;
   letter-spacing: .1em;
   line-height: 1;
@@ -245,7 +245,7 @@
 
 .c-hero__me {
   background-image: url('/images/Me-Dark.jpg');
-  border-right: solid 1px var(--color-fg-accent);
+  border-right: solid 1px var(--color-accent);
   position: relative;
 }
 
@@ -278,7 +278,7 @@
 
   .c-hero__name-stylized {
     border-right: solid 1px var(
-      --color-fg-accent
+      --color-accent
     );
   }
 
@@ -295,7 +295,7 @@
 
 .c-hero__heading {
   align-content: center;
-  border-top: solid 1px var(--color-fg-accent);
+  border-top: solid 1px var(--color-accent);
   display: grid;
   grid-column-end: 3;
   grid-column-start: 1;
@@ -326,7 +326,7 @@
 }
 
 .c-hero__footer {
-  border-top: solid 1px var(--color-fg-accent);
+  border-top: solid 1px var(--color-accent);
   display: grid;
   grid-template-columns: 4rem 1fr 1fr 4rem;
   grid-template-rows: 1fr .5rem;
@@ -335,7 +335,7 @@
 c-theme-switch,
 .c-hero__availability, 
 .c-hero__cta {
-  border-right: solid 1px var(--color-fg-subtle);
+  border-right: solid 1px var(--color-subtle);
 }
 
 .c-hero__availability,

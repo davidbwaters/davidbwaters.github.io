@@ -5,6 +5,7 @@
 
 .c-skill-list {
   display: grid;
+  margin-bottom: 0;
   grid-template-columns: 100%;
 }
 
@@ -18,7 +19,7 @@
 
 .c-skill-list__skill {
   align-items: flex-end;
-  border-top: solid 1px var(--color-fg-subtle-alternate);
+  box-shadow: 0 1px 0 0 var(--color-subtle-alternate);
   display: grid;
   grid-template-columns: 2fr 3fr;
 }
@@ -26,7 +27,7 @@
 @media (min-width:45em) {
 
   .c-skill-list__skill:nth-child(odd) {
-    border-right: solid 1px var(--color-fg-subtle-alternate);
+    border-right: solid 1px var(--color-subtle-alternate);
   }
 
 }

@@ -11,7 +11,17 @@
 body {
   background-color: var(--color-bg);
   color: var(--color-fg);
-  font-family: var(--font-normal);
-  font-weight: var(--font-normal-weight);
+  font-family: var(--font-main-light);
+  font-weight: var(--font-main-weight);
   height: 100%;
+}
+
+main {
+  height: 100%;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
 }

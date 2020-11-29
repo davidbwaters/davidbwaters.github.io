@@ -10,10 +10,14 @@
   --spacing-responsive-x: calc(.25rem + 1vw);
   --spacing-responsive-y: calc(.25rem + 1vh);
 
-  --font-normal: 'work_sanslight';
-  --font-normal-weight: 'normal';
-  --font-normal-bolder: 'work_sansregular';
-  --font-normal-bolder-weight: 'normal';
+  --font-main-light: 'work_sanslight';
+  --font-main-light-weight: 'normal';
+  --font-main-regular: 'work_sansregular';
+  --font-main-regular-weight: 'normal';
+  --font-main-medium: 'work_sansmedium';
+  --font-main-medium-weight: 'normal';
+  --font-main-semibold: 'work_sanssemibold';
+  --font-main-semibold-weight: 'normal';
   --font-accent: 'league_monoregular';
   --font-accent-weight: 'normal';
   --font-display: 'syneextrabold';
@@ -28,24 +32,19 @@
   --theme-dark-opacity:  0;
   --theme-light-opacity: 0;
 
-  --button-color-bg: #5A47B8;
-  --button-color-bg-hover: #5847af;
-  --button-color-fg: #FFFFFF;
-  --button-color-border: #342867;
-  --button-color-border-hover: #46378F;
-  --button-color-shadow: #46378F;
-  --button-transition-duration: var(--transition-duration);
 }
 
 [data-theme=dark] {
   --color-bg: #6E4ECE;
   --color-fg: #F1EDFF;
-  --color-fg-accent: #95D6EB;
-  --color-fg-subtle: #46378F;
-  --color-fg-subtle-alternate: #897DD1;
-  --color-bg-pattern: rgba(0,0,0,.20);
-  --color-bg-pattern-alternate: rgba(255,255,255,.25);
-  --color-bg-overlay: rgba(0,0,0,0.02);
+  --color-accent: #95D6EB;
+  --color-subtle: #46378F;
+  --color-subtle-alternate: #897DD1;
+  --color-muted: #B9BAD6;
+  --color-opaque: rgba(0,0,0,.2);
+  --color-opaque-alternate: rgba(255,255,255,.175);
+  --color-opaque-overlay: rgba(0,0,0,0.02);
+  --color-opaque-shadow: rgba(0,0,0,.1);
 
   --theme-dark-opacity: 1;
 }
@@ -53,12 +52,14 @@
 [data-theme=light] {
   --color-bg: #B3B3E7;
   --color-fg: #342469;
-  --color-fg-accent: #6E4ECE;
-  --color-fg-subtle: #46378F;
-  --color-fg-subtle-alternate: #46378F;
-  --color-bg-pattern: rgba(0,0,0,.25);
-  --color-bg-pattern-alternate: rgba(0,0,0,.25);
-  --color-bg-overlay: rgba(255,255,255,.02);
+  --color-accent: #6E4ECE;
+  --color-subtle: #46378F;
+  --color-subtle-alternate: #46378F;
+  --color-muted: #9694bd;
+  --color-opaque: rgba(0,0,0,.2);
+  --color-opaque-alternate: rgba(0,0,0,.175);
+  --color-opaque-overlay: rgba(255,255,255,.02);
+  --color-opaque-shadow: rgba(0,0,0,.1);
 
   --theme-light-opacity: 1;
 }
