@@ -29,9 +29,14 @@ export class Loader extends LitElement {
 
   constructor() {
     super();
-    document.body.style.opacity = 0;
     window.addEventListener('load', () => {
-      document.body.style.opacity = '';
+      const mainEl = document.querySelector('main');
+      const isTransparent = mainEl.classList.contains('u-transparent');
+
+      if (isTransparent) {
+        mainEl.classList.remove('u-transparent');
+      }
+
       this.style.opacity = 0;
       this.style.pointerEvents = 'none';
       setTimeout(() => {

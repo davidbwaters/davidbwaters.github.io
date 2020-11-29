@@ -3148,6 +3148,7 @@ c-theme-switch,
   display: grid;
   grid-gap: 1px;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  justify-items: center;
   overflow: hidden;
 }
 
@@ -3198,6 +3199,10 @@ body {
   color: var(--color-fg);
   font-family: var(--font-main-light);
   font-weight: var(--font-main-weight);
+  height: 100%;
+}
+
+main {
   height: 100%;
 }
 
@@ -3314,13 +3319,13 @@ strong {
 }
 
 /* Visibility */
-.u-hidden\@mobile {
-  display: none !important;
-  visibility: hidden !important;
-}
-
 .u-transparent {
   opacity: 0 !important;
+}
+
+.u-hidden {
+  display: none !important;
+  visibility: hidden !important;
 }
 
 @media (max-width: 35em) {
