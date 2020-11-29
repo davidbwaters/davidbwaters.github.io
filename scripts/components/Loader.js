@@ -29,7 +29,9 @@ export class Loader extends LitElement {
 
   constructor() {
     super();
+    document.body.style.opacity = 0;
     window.addEventListener('load', () => {
+      document.body.style.opacity = '';
       this.style.opacity = 0;
       this.style.pointerEvents = 'none';
       setTimeout(() => {

@@ -3313,7 +3313,16 @@ strong {
   mix-blend-mode: luminosity !important;
 }
 
-/* Responsive Visibility */
+/* Visibility */
+.u-hidden\@mobile {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.u-transparent {
+  opacity: 0 !important;
+}
+
 @media (max-width: 35em) {
   .u-hidden\@mobile {
     display: none !important;
