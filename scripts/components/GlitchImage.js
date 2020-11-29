@@ -6,27 +6,17 @@ export class GlitchImage extends LitElement {
   static get styles() {
     return css`
       :host {
+        --glitch-image-height: 100%;
+        --glitch-image-width: 100%;
+
         display: block;
         min-height: 1px;
         width: 100%;
       }
 
-      .c-glitch-image {
-        height: 1px;
-        margin: 0 auto;
-        max-width: 100%;
-        min-height: 1px;
-        overflow: hidden;
-        padding-bottom: calc(
-          100% / var(--glitch-aspect-ratio) - 1px
-        );
-        position: relative;
-        width: var(--glitch-image-width);
-      }
-
-      .c-glitch-image--style-1 {
-        --glitch-image-gap-horizontal: 20px;
-        --glitch-image-gap-vertical: 2px;
+      :host(.c-glitch-image--style-1) {
+        --glitch-image-gap-horizontal: 0px;
+        --glitch-image-gap-vertical: 0px;
         --glitch-image-time-anim: 2.25s;
         --glitch-image-blend-mode-1: none;
         --glitch-image-blend-mode-2: none;
@@ -40,7 +30,7 @@ export class GlitchImage extends LitElement {
         --glitch-image-blend-color-5: transparent;
       }
 
-      .c-glitch-image--style-2 {
+      :host(.c-glitch-image--style-2) {
         --glitch-image-gap-horizontal: 5px;
         --glitch-image-gap-vertical: 10px;
         --glitch-image-time-anim: 2s;
@@ -51,12 +41,12 @@ export class GlitchImage extends LitElement {
         --glitch-image-blend-mode-5: none;
         --glitch-image-blend-color-1: transparent;
         --glitch-image-blend-color-2: transparent;
-        --glitch-image-blend-color-3: #95D6EB;
+        --glitch-image-blend-color-3: #95d6eb;
         --glitch-image-blend-color-4: transparent;
-        --glitch-image-blend-color-5: #95D6EB;
+        --glitch-image-blend-color-5: #95d6eb;
       }
 
-      .c-glitch-image--style-3 {
+      :host(.c-glitch-image--style-3) {
         --glitch-image-gap-horizontal: 20px;
         --glitch-image-gap-vertical: 2px;
         --glitch-image-time-anim: 2.25s;
@@ -72,7 +62,7 @@ export class GlitchImage extends LitElement {
         --glitch-image-blend-color-5: transparent;
       }
 
-      .c-glitch-image--style-4 {
+      :host(.c-glitch-image--style-4) {
         --glitch-image-gap-horizontal: 5px;
         --glitch-image-gap-vertical: 20px;
         --glitch-image-time-anim: 5s;
@@ -88,7 +78,7 @@ export class GlitchImage extends LitElement {
         --glitch-image-blend-color-5: transparent;
       }
 
-      .c-glitch-image--style-5 {
+      :host(.c-glitch-image--style-5) {
         --glitch-image-gap-horizontal: 50px;
         --glitch-image-gap-vertical: 100px;
         --glitch-image-time-anim: 2.25s;
@@ -104,7 +94,7 @@ export class GlitchImage extends LitElement {
         --glitch-image-blend-color-5: #8d16f2;
       }
 
-      .c-glitch-image--style-6 {
+      :host(.c-glitch-image--style-6) {
         --glitch-image-gap-horizontal: 3px;
         --glitch-image-gap-vertical: 70px;
         --glitch-image-time-anim: 2.25s;
@@ -125,6 +115,19 @@ export class GlitchImage extends LitElement {
         --glitch-image-blend-color-5: transparent;
       }
 
+      .c-glitch-image__inner {
+        height: 1px;
+        margin: 0 auto;
+        max-width: 100%;
+        min-height: 1px;
+        overflow: hidden;
+        padding-bottom: calc(
+          100% / var(--glitch-aspect-ratio) - 1px
+        );
+        position: relative;
+        width: var(--glitch-image-width);
+      }
+
       .c-glitch-image__image {
         background-blend-mode: var(
           --glitch-image-blend-mode-1
@@ -134,12 +137,12 @@ export class GlitchImage extends LitElement {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        height: calc( 100% + var(--glitch-image-gap-vertical) * 2 );
+        height: calc(
+          100% + var(--glitch-image-gap-vertical) * 2
+        );
         left: calc(-1 * var(--glitch-image-gap-horizontal));
         position: absolute;
-        top: calc(
-          var(--glitch-image-gap-vertical) * -1
-        );
+        top: calc(var(--glitch-image-gap-vertical) * -1);
         transform: translate3d(0, 0, 0);
         width: calc(
           100% + var(--glitch-image-gap-horizontal) * 2
@@ -178,17 +181,15 @@ export class GlitchImage extends LitElement {
         opacity: 0;
       }
 
-      .c-glitch-image:hover
+      .c-glitch-image__inner:hover
         .c-glitch-image__image:nth-child(n + 2),
-      .c-glitch-image.is-glitching
-        .c-glitch-image__image:nth-child(n + 2) {
+      .c-glitch-image__image.is-glitching:nth-child(n + 2) {
         opacity: 1;
       }
 
-      .c-glitch-image:hover
+      .c-glitch-image__inner:hover
         .c-glitch-image__image:nth-child(2),
-      .c-glitch-image.is-glitching
-        .c-glitch-image__image:nth-child(2) {
+      .c-glitch-image__image.is-glitching:nth-child(2) {
         transform: translate3d(
           var(--glitch-image-gap-horizontal),
           0,
@@ -199,9 +200,9 @@ export class GlitchImage extends LitElement {
           alternate;
       }
 
-      .c-glitch-image:hover
+      .c-glitch-image__inner:hover
         > .c-glitch-image__image:nth-child(3),
-      .c-glitch-image.is-glitching
+      .c-glitch-image__inner.is-glitching
         > .c-glitch-image__image:nth-child(3) {
         transform: translate3d(
           calc(-1 * var(--glitch-image-gap-horizontal)),
@@ -213,9 +214,9 @@ export class GlitchImage extends LitElement {
           alternate;
       }
 
-      .c-glitch-image:hover
+      .c-glitch-image__inner:hover
         > .c-glitch-image__image:nth-child(4),
-      .c-glitch-image.is-glitching
+      .c-glitch-image__inner.is-glitching
         > .c-glitch-image__image:nth-child(4) {
         transform: translate3d(
             0,
@@ -229,9 +230,9 @@ export class GlitchImage extends LitElement {
       }
 
       /* Hover flash animation on last image */
-      .c-glitch-image:hover
+      .c-glitch-image__inner:hover
         > .c-glitch-image__image:nth-child(5),
-      .c-glitch-image.is-glitching
+      .c-glitch-image__inner.is-glitching
         > .c-glitch-image__image:nth-child(5) {
         animation: glitch-anim-flash 0.5s steps(1, end)
           infinite;
@@ -847,11 +848,15 @@ export class GlitchImage extends LitElement {
     const hasWidth = this.hasAttribute('width');
     const hasHeight = this.hasAttribute('height');
     const hasDimensions = hasWidth && hasHeight;
-    this.wrapper = this.shadowRoot.querySelector('.c-glitch-image');
+    this._wrapper = this.shadowRoot.querySelector('.c-glitch-image__inner');
 
     if (this.active) {
-      this.wrapper.classList.add('is-glitching');
+      this._wrapper.querySelectorAll('.c-glitch-image__image').forEach(el => {
+        el.classList.add('is-glitching');
+      });
     }
+
+    this.classList.add('c-glitch-image--style-' + this.glitch);
 
     if (hasDimensions) {
       const imgWidth = this.getAttribute('width');
@@ -859,14 +864,15 @@ export class GlitchImage extends LitElement {
       this.aspectRatio = imgWidth / imgHeight;
     }
 
-    this.wrapper.style.setProperty('--glitch-aspect-ratio', this.aspectRatio);
-    this.wrapper.style.setProperty('--glitch-image', 'url(' + this.src + ')');
+    this._wrapper.style.setProperty('--glitch-aspect-ratio', this.aspectRatio);
+
+    this._wrapper.style.setProperty('--glitch-image', 'url("' + this.src + '")');
   }
 
   render() {
     return html`
       <div
-        class="c-glitch-image c-glitch-image--style-${this.glitch}"
+        class="c-glitch-image__inner"
       >
         <div
           class="c-glitch-image__image"

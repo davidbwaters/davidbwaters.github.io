@@ -1194,556 +1194,6 @@
     g,0<d.length&&(d=za[d[0]])&&(a.c[e]=d));}a.c[e]||(d=za[e])&&(a.c[e]=d);for(d=0;d<f.length;d+=1)a.a.push(new G(e,f[d]));}}function Ea(a,b){this.c=a;this.a=b;}var Fa={Arimo:!0,Cousine:!0,Tinos:!0};Ea.prototype.load=function(a){var b=new B,c=this.c,d=new ta(this.a.api,this.a.text),e=this.a.families;va(d,e);var f=new ya(e);Da(f);z(c,wa(d),C(b));E(b,function(){a(f.a,f.c,Fa);});};function Ga(a,b){this.c=a;this.a=b;}Ga.prototype.load=function(a){var b=this.a.id,c=this.c.o;b?A(this.c,(this.a.api||"https://use.typekit.net")+"/"+b+".js",function(b){if(b)a([]);else if(c.Typekit&&c.Typekit.config&&c.Typekit.config.fn){b=c.Typekit.config.fn;for(var e=[],f=0;f<b.length;f+=2)for(var g=b[f],m=b[f+1],h=0;h<m.length;h++)e.push(new G(g,m[h]));try{c.Typekit.load({events:!1,classes:!1,async:!0});}catch(l){}a(e);}},2E3):a([]);};function Ha(a,b){this.c=a;this.f=b;this.a=[];}Ha.prototype.load=function(a){var b=this.f.id,c=this.c.o,d=this;b?(c.__webfontfontdeckmodule__||(c.__webfontfontdeckmodule__={}),c.__webfontfontdeckmodule__[b]=function(b,c){for(var g=0,m=c.fonts.length;g<m;++g){var h=c.fonts[g];d.a.push(new G(h.name,ga("font-weight:"+h.weight+";font-style:"+h.style)));}a(d.a);},A(this.c,(this.f.api||"https://f.fontdeck.com/s/css/js/")+ea(this.c)+"/"+b+".js",function(b){b&&a([]);})):a([]);};var Y=new oa(window);Y.a.c.custom=function(a,b){return new sa(b,a)};Y.a.c.fontdeck=function(a,b){return new Ha(b,a)};Y.a.c.monotype=function(a,b){return new ra(b,a)};Y.a.c.typekit=function(a,b){return new Ga(b,a)};Y.a.c.google=function(a,b){return new Ea(b,a)};var Z={load:p(Y.load,Y)};module.exports?module.exports=Z:(window.WebFont=Z,window.WebFontConfig&&Y.load(window.WebFontConfig));}());
     });
 
-    function _slicedToArray(r,e){return _arrayWithHoles(r)||_iterableToArrayLimit(r,e)||_nonIterableRest()}function _toConsumableArray(r){return _arrayWithoutHoles(r)||_iterableToArray(r)||_nonIterableSpread()}function _arrayWithoutHoles(r){if(Array.isArray(r)){for(var e=0,t=new Array(r.length);e<r.length;e++)t[e]=r[e];return t}}function _arrayWithHoles(r){if(Array.isArray(r))return r}function _iterableToArray(r){if(Symbol.iterator in Object(r)||"[object Arguments]"===Object.prototype.toString.call(r))return Array.from(r)}function _iterableToArrayLimit(r,e){var t=[],n=!0,a=!1,i=void 0;try{for(var o,l=r[Symbol.iterator]();!(n=(o=l.next()).done)&&(t.push(o.value),!e||t.length!==e);n=!0);}catch(r){a=!0,i=r;}finally{try{n||null==l.return||l.return();}finally{if(a)throw i}}return t}function _nonIterableSpread(){throw new TypeError("Invalid attempt to spread non-iterable instance")}function _nonIterableRest(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}function Scramble(r,e){return new Promise(function(t,n){if(void 0===r&&n("Target element is undefined"),"true"!==r.getAttribute("data-scramble-active")){e.beforeEach&&e.beforeEach(r),r.setAttribute("data-scramble-active","true"),r.classList.add("scrambling");var a,i=r.innerHTML,o=[],l=e.speed?e.speed:100,c=r.textContent.split(""),u=c,f=r.textContent.split(""),s=!1;isValidString(e.text)?a=defineEndText(e.text):r.getAttribute("data-scramble-text")&&""!==r.getAttribute("data-scramble-text")&&(a=defineEndText(r.getAttribute("data-scramble-text"))),a&&(s=!0,c=a.truth,f=a.newLetters,u=a.startText);var d=function(){if(u.map(function(e,t){return !(" \t\n\r\v".indexOf(e)>-1)&&(f[t]=randomChar(),!0===o[t]&&(f[t]=c[t]),r.textContent=f.join(""),!0)}),killCheck(f,c)){if(r.innerHTML=i,s){var n=r.children[0];n&&""!==n?n.textContent=f.join(""):r.textContent=f.join("");}clearInterval(b),r.setAttribute("data-scramble-active","false"),r.classList.remove("scrambling"),e.afterEach&&e.afterEach(r),t(r);}};!function(r){if(r&&isArray(r))for(var t=0;t<=r.length;t++)!function(r){setTimeout(function(){o[r]=!0;},randomTime(isObject(e),e.random,e.speed));}(t);}(u),d();var b=setInterval(function(){d();},l);}else n("Animation already triggered");})}function ScramblerSetup(r){if(!isValidArgType(r))return !1;var e=setArgs(r,isObject(r)),t=_toConsumableArray(isObject(e)?document.querySelectorAll(e.target):document.querySelectorAll(e)),n=[];if(t.forEach(function(r){var t=Scramble(r,e);n.push(t);}),!(n.length>0))return !1;e.beforeAll&&e.beforeAll(t),Promise.all(n).then(function(r){e.afterAll&&e.afterAll(r);}).catch(function(r){e.errorHandler&&e.errorHandler(r);});}var isObject=function(r){return !!r&&r.constructor===Object},isArray=function(r){return !!r&&r.constructor===Array},isBool=function(r){return "boolean"==typeof r},isFunction=function(r){return "function"==typeof r},isInteger=function(r){return Number.isInteger(r)},isValidString=function(r){return !(!r||""===r||!("string"==typeof r||r instanceof String))},isValidArgType=function(r){return !isArray(r)&&!isBool(r)&&"number"!=typeof r&&"function"!=typeof r&&void 0!==r},randomChar=function(r,e){var t=r||1,n=e||!1,a=Math.random().toString(36).replace(/[^a-z]+/g,"").substr(0,t);return " \t\n\r\v".indexOf(a)<0&&!0!==n&&a},randomTime=function(r,e,t){var n=r||!1,a=t||100;if(n&&isArray(e)&&e.length>1){var i=_slicedToArray(e,2),o=i[0],l=i[1];if((t>=l||a>=l)&&(a=l-1),l-=a,o>l&&(o=l),isInteger(o)&&isInteger(l))return Math.floor(Math.random()*(l-o))+o}return Math.floor(1999*Math.random())+1e3},setArgs=function(r,e){var t=e||!1,n={target:"[data-scrambler]",random:[1e3,3e3],speed:100,text:!1,beforeEach:!1,afterEach:!1,beforeAll:!1,afterAll:!1,errorHandler:!1};return r&&t&&(n.target=void 0!==r.target?r.target:"[data-scrambler]",n.random=void 0!==r.random?r.random:[1e3,3e3],n.speed=void 0!==r.speed?r.speed:100,n.text=void 0!==r.text&&r.text,n.beforeEach=!(void 0===r.beforeEach||!isFunction(r.beforeEach))&&r.beforeEach,n.afterEach=!(void 0===r.afterEach||!isFunction(r.afterEach))&&r.afterEach,n.beforeAll=!(void 0===r.beforeAll||!isFunction(r.beforeAll))&&r.beforeAll,n.afterAll=!(void 0===r.afterAll||!isFunction(r.afterAll))&&r.afterAll,n.errorHandler=!(void 0===r.errorHandler||!isFunction(r.errorHandler))&&r.errorHandler),n},killCheck=function(r,e){return !(r.length!==e.length||!r.every(function(r,t){return r===e[t]}))},defineEndText=function(r){if(!r||void 0===r||!("string"==typeof r||r instanceof String))return !1;var e,t=r,n=t.split(""),a=t.split(""),i=[];return n.forEach(function(r,e){" \t\n\r\v".indexOf(n[e])>-1?i.push(" "):i.push(randomChar());}),e=i,{truth:n,newLetters:a,startText:e}},scrambler=function(){return ScramblerSetup}();
-
-    /**
-      stickybits - Stickybits is a lightweight alternative to `position: sticky` polyfills
-      @version v3.7.7
-      @link https://github.com/yowainwright/stickybits#readme
-      @author Jeff Wainwright <yowainwright@gmail.com> (https://jeffry.in)
-      @license MIT
-    **/
-    function _extends() {
-      _extends = Object.assign || function (target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = arguments[i];
-
-          for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key];
-            }
-          }
-        }
-
-        return target;
-      };
-
-      return _extends.apply(this, arguments);
-    }
-
-    /*
-      STICKYBITS 💉
-      --------
-      > a lightweight alternative to `position: sticky` polyfills 🍬
-      --------
-      - each method is documented above it our view the readme
-      - Stickybits does not manage polymorphic functionality (position like properties)
-      * polymorphic functionality: (in the context of describing Stickybits)
-        means making things like `position: sticky` be loosely supported with position fixed.
-        It also means that features like `useStickyClasses` takes on styles like `position: fixed`.
-      --------
-      defaults 🔌
-      --------
-      - version = `package.json` version
-      - userAgent = viewer browser agent
-      - target = DOM element selector
-      - noStyles = boolean
-      - offset = number
-      - parentClass = 'string'
-      - scrollEl = window || DOM element selector || DOM element
-      - stickyClass = 'string'
-      - stuckClass = 'string'
-      - useStickyClasses = boolean
-      - useFixed = boolean
-      - useGetBoundingClientRect = boolean
-      - verticalPosition = 'string'
-      - applyStyle = function
-      --------
-      props🔌
-      --------
-      - p = props {object}
-      --------
-      instance note
-      --------
-      - stickybits parent methods return this
-      - stickybits instance methods return an instance item
-      --------
-      nomenclature
-      --------
-      - target => el => e
-      - props => o || p
-      - instance => item => it
-      --------
-      methods
-      --------
-      - .definePosition = defines sticky or fixed
-      - .addInstance = an array of objects for each Stickybits Target
-      - .getClosestParent = gets the parent for non-window scroll
-      - .getTopPosition = gets the element top pixel position from the viewport
-      - .computeScrollOffsets = computes scroll position
-      - .toggleClasses = older browser toggler
-      - .manageState = manages sticky state
-      - .removeInstance = removes an instance
-      - .cleanup = removes all Stickybits instances and cleans up dom from stickybits
-    */
-    var Stickybits = /*#__PURE__*/function () {
-      function Stickybits(target, obj) {
-        var _this = this;
-
-        var o = typeof obj !== 'undefined' ? obj : {};
-        this.version = '3.7.7';
-        this.userAgent = window.navigator.userAgent || 'no `userAgent` provided by the browser';
-        this.props = {
-          customStickyChangeNumber: o.customStickyChangeNumber || null,
-          noStyles: o.noStyles || false,
-          stickyBitStickyOffset: o.stickyBitStickyOffset || 0,
-          parentClass: o.parentClass || 'js-stickybit-parent',
-          scrollEl: typeof o.scrollEl === 'string' ? document.querySelector(o.scrollEl) : o.scrollEl || window,
-          stickyClass: o.stickyClass || 'js-is-sticky',
-          stuckClass: o.stuckClass || 'js-is-stuck',
-          stickyChangeClass: o.stickyChangeClass || 'js-is-sticky--change',
-          useStickyClasses: o.useStickyClasses || false,
-          useFixed: o.useFixed || false,
-          useGetBoundingClientRect: o.useGetBoundingClientRect || false,
-          verticalPosition: o.verticalPosition || 'top',
-          applyStyle: o.applyStyle || function (item, style) {
-            return _this.applyStyle(item, style);
-          }
-        };
-        /*
-          define positionVal after the setting of props, because definePosition looks at the props.useFixed
-          ----
-          -  uses a computed (`.definePosition()`)
-          -  defined the position
-        */
-
-        this.props.positionVal = this.definePosition() || 'fixed';
-        this.instances = [];
-        var _this$props = this.props,
-            positionVal = _this$props.positionVal,
-            verticalPosition = _this$props.verticalPosition,
-            noStyles = _this$props.noStyles,
-            stickyBitStickyOffset = _this$props.stickyBitStickyOffset;
-        var verticalPositionStyle = verticalPosition === 'top' && !noStyles ? stickyBitStickyOffset + "px" : '';
-        var positionStyle = positionVal !== 'fixed' ? positionVal : '';
-        this.els = typeof target === 'string' ? document.querySelectorAll(target) : target;
-        if (!('length' in this.els)) this.els = [this.els];
-
-        for (var i = 0; i < this.els.length; i++) {
-          var _styles;
-
-          var el = this.els[i];
-          var instance = this.addInstance(el, this.props); // set vertical position
-
-          this.props.applyStyle({
-            styles: (_styles = {}, _styles[verticalPosition] = verticalPositionStyle, _styles.position = positionStyle, _styles),
-            classes: {}
-          }, instance);
-          this.manageState(instance); // instances are an array of objects
-
-          this.instances.push(instance);
-        }
-      }
-      /*
-        setStickyPosition ✔️
-        --------
-        —  most basic thing stickybits does
-        => checks to see if position sticky is supported
-        => defined the position to be used
-        => stickybits works accordingly
-      */
-
-
-      var _proto = Stickybits.prototype;
-
-      _proto.definePosition = function definePosition() {
-        var stickyProp;
-
-        if (this.props.useFixed) {
-          stickyProp = 'fixed';
-        } else {
-          var prefix = ['', '-o-', '-webkit-', '-moz-', '-ms-'];
-          var test = document.head.style;
-
-          for (var i = 0; i < prefix.length; i += 1) {
-            test.position = prefix[i] + "sticky";
-          }
-
-          stickyProp = test.position ? test.position : 'fixed';
-          test.position = '';
-        }
-
-        return stickyProp;
-      }
-      /*
-        addInstance ✔️
-        --------
-        — manages instances of items
-        - takes in an el and props
-        - returns an item object
-        ---
-        - target = el
-        - o = {object} = props
-          - scrollEl = 'string' | object
-          - verticalPosition = number
-          - off = boolean
-          - parentClass = 'string'
-          - stickyClass = 'string'
-          - stuckClass = 'string'
-        ---
-        - defined later
-          - parent = dom element
-          - state = 'string'
-          - offset = number
-          - stickyStart = number
-          - stickyStop = number
-        - returns an instance object
-      */
-      ;
-
-      _proto.addInstance = function addInstance(el, props) {
-        var _this2 = this;
-
-        var item = {
-          el: el,
-          parent: el.parentNode,
-          props: props
-        };
-
-        if (props.positionVal === 'fixed' || props.useStickyClasses) {
-          this.isWin = this.props.scrollEl === window;
-          var se = this.isWin ? window : this.getClosestParent(item.el, item.props.scrollEl);
-          this.computeScrollOffsets(item);
-          this.toggleClasses(item.parent, '', props.parentClass);
-          item.state = 'default';
-          item.stateChange = 'default';
-
-          item.stateContainer = function () {
-            return _this2.manageState(item);
-          };
-
-          se.addEventListener('scroll', item.stateContainer);
-        }
-
-        return item;
-      }
-      /*
-        --------
-        getParent 👨‍
-        --------
-        - a helper function that gets the target element's parent selected el
-        - only used for non `window` scroll elements
-        - supports older browsers
-      */
-      ;
-
-      _proto.getClosestParent = function getClosestParent(el, match) {
-        // p = parent element
-        var p = match;
-        var e = el;
-        if (e.parentElement === p) return p; // traverse up the dom tree until we get to the parent
-
-        while (e.parentElement !== p) {
-          e = e.parentElement;
-        } // return parent element
-
-
-        return p;
-      }
-      /*
-        --------
-        getTopPosition
-        --------
-        - a helper function that gets the topPosition of a Stickybit element
-        - from the top level of the DOM
-      */
-      ;
-
-      _proto.getTopPosition = function getTopPosition(el) {
-        if (this.props.useGetBoundingClientRect) {
-          return el.getBoundingClientRect().top + (this.props.scrollEl.pageYOffset || document.documentElement.scrollTop);
-        }
-
-        var topPosition = 0;
-
-        do {
-          topPosition = el.offsetTop + topPosition;
-        } while (el = el.offsetParent);
-
-        return topPosition;
-      }
-      /*
-        computeScrollOffsets 📊
-        ---
-        computeScrollOffsets for Stickybits
-        - defines
-          - offset
-          - start
-          - stop
-      */
-      ;
-
-      _proto.computeScrollOffsets = function computeScrollOffsets(item) {
-        var it = item;
-        var p = it.props;
-        var el = it.el;
-        var parent = it.parent;
-        var isCustom = !this.isWin && p.positionVal === 'fixed';
-        var isTop = p.verticalPosition !== 'bottom';
-        var scrollElOffset = isCustom ? this.getTopPosition(p.scrollEl) : 0;
-        var stickyStart = isCustom ? this.getTopPosition(parent) - scrollElOffset : this.getTopPosition(parent);
-        var stickyChangeOffset = p.customStickyChangeNumber !== null ? p.customStickyChangeNumber : el.offsetHeight;
-        var parentBottom = stickyStart + parent.offsetHeight;
-        it.offset = !isCustom ? scrollElOffset + p.stickyBitStickyOffset : 0;
-        it.stickyStart = isTop ? stickyStart - it.offset : 0;
-        it.stickyChange = it.stickyStart + stickyChangeOffset;
-        it.stickyStop = isTop ? parentBottom - (el.offsetHeight + it.offset) : parentBottom - window.innerHeight;
-      }
-      /*
-        toggleClasses ⚖️
-        ---
-        toggles classes (for older browser support)
-        r = removed class
-        a = added class
-      */
-      ;
-
-      _proto.toggleClasses = function toggleClasses(el, r, a) {
-        var e = el;
-        var cArray = e.className.split(' ');
-        if (a && cArray.indexOf(a) === -1) cArray.push(a);
-        var rItem = cArray.indexOf(r);
-        if (rItem !== -1) cArray.splice(rItem, 1);
-        e.className = cArray.join(' ');
-      }
-      /*
-        manageState 📝
-        ---
-        - defines the state
-          - normal
-          - sticky
-          - stuck
-      */
-      ;
-
-      _proto.manageState = function manageState(item) {
-        var _this3 = this;
-
-        // cache object
-        var it = item;
-        var p = it.props;
-        var state = it.state;
-        var stateChange = it.stateChange;
-        var start = it.stickyStart;
-        var change = it.stickyChange;
-        var stop = it.stickyStop; // cache props
-
-        var pv = p.positionVal;
-        var se = p.scrollEl;
-        var sticky = p.stickyClass;
-        var stickyChange = p.stickyChangeClass;
-        var stuck = p.stuckClass;
-        var vp = p.verticalPosition;
-        var isTop = vp !== 'bottom';
-        var aS = p.applyStyle;
-        var ns = p.noStyles;
-        /*
-          requestAnimationFrame
-          ---
-          - use rAF
-          - or stub rAF
-        */
-
-        var rAFStub = function rAFDummy(f) {
-          f();
-        };
-
-        var rAF = !this.isWin ? rAFStub : window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || rAFStub;
-        /*
-          define scroll vars
-          ---
-          - scroll
-          - notSticky
-          - isSticky
-          - isStuck
-        */
-
-        var scroll = this.isWin ? window.scrollY || window.pageYOffset : se.scrollTop;
-        var notSticky = scroll > start && scroll < stop && (state === 'default' || state === 'stuck');
-        var isSticky = isTop && scroll <= start && (state === 'sticky' || state === 'stuck');
-        var isStuck = scroll >= stop && state === 'sticky';
-        /*
-          Unnamed arrow functions within this block
-          ---
-          - help wanted or discussion
-          - view test.stickybits.js
-            - `stickybits .manageState  `position: fixed` interface` for more awareness 👀
-        */
-
-        if (notSticky) {
-          it.state = 'sticky';
-        } else if (isSticky) {
-          it.state = 'default';
-        } else if (isStuck) {
-          it.state = 'stuck';
-        }
-
-        var isStickyChange = scroll >= change && scroll <= stop;
-        var isNotStickyChange = scroll < change / 2 || scroll > stop;
-
-        if (isNotStickyChange) {
-          it.stateChange = 'default';
-        } else if (isStickyChange) {
-          it.stateChange = 'sticky';
-        } // Only apply new styles if the state has changed
-
-
-        if (state === it.state && stateChange === it.stateChange) return;
-        rAF(function () {
-          var _styles2, _classes, _styles3, _extends2, _classes2, _style$classes;
-
-          var stateStyles = {
-            sticky: {
-              styles: (_styles2 = {
-                position: pv,
-                top: '',
-                bottom: ''
-              }, _styles2[vp] = p.stickyBitStickyOffset + "px", _styles2),
-              classes: (_classes = {}, _classes[sticky] = true, _classes)
-            },
-            default: {
-              styles: (_styles3 = {}, _styles3[vp] = '', _styles3),
-              classes: {}
-            },
-            stuck: {
-              styles: _extends((_extends2 = {}, _extends2[vp] = '', _extends2), pv === 'fixed' && !ns || !_this3.isWin ? {
-                position: 'absolute',
-                top: '',
-                bottom: '0'
-              } : {}),
-              classes: (_classes2 = {}, _classes2[stuck] = true, _classes2)
-            }
-          };
-
-          if (pv === 'fixed') {
-            stateStyles.default.styles.position = '';
-          }
-
-          var style = stateStyles[it.state];
-          style.classes = (_style$classes = {}, _style$classes[stuck] = !!style.classes[stuck], _style$classes[sticky] = !!style.classes[sticky], _style$classes[stickyChange] = isStickyChange, _style$classes);
-          aS(style, item);
-        });
-      }
-      /*
-        applyStyle
-        ---
-        - apply the given styles and classes to the element
-      */
-      ;
-
-      _proto.applyStyle = function applyStyle(_ref, item) {
-        var styles = _ref.styles,
-            classes = _ref.classes;
-        // cache object
-        var it = item;
-        var e = it.el;
-        var p = it.props;
-        var stl = e.style; // cache props
-
-        var ns = p.noStyles;
-        var cArray = e.className.split(' '); // Disable due to bug with old versions of eslint-scope and for ... in
-        // https://github.com/eslint/eslint/issues/12117
-        // eslint-disable-next-line no-unused-vars
-
-        for (var cls in classes) {
-          var addClass = classes[cls];
-
-          if (addClass) {
-            if (cArray.indexOf(cls) === -1) cArray.push(cls);
-          } else {
-            var idx = cArray.indexOf(cls);
-            if (idx !== -1) cArray.splice(idx, 1);
-          }
-        }
-
-        e.className = cArray.join(' ');
-
-        if (styles['position']) {
-          stl['position'] = styles['position'];
-        }
-
-        if (ns) return; // eslint-disable-next-line no-unused-vars
-
-        for (var key in styles) {
-          stl[key] = styles[key];
-        }
-      };
-
-      _proto.update = function update(updatedProps) {
-        var _this4 = this;
-
-        if (updatedProps === void 0) {
-          updatedProps = null;
-        }
-
-        this.instances.forEach(function (instance) {
-          _this4.computeScrollOffsets(instance);
-
-          if (updatedProps) {
-            // eslint-disable-next-line no-unused-vars
-            for (var updatedProp in updatedProps) {
-              instance.props[updatedProp] = updatedProps[updatedProp];
-            }
-          }
-        });
-        return this;
-      }
-      /*
-        removes an instance 👋
-        --------
-        - cleanup instance
-      */
-      ;
-
-      _proto.removeInstance = function removeInstance(instance) {
-        var _styles4, _classes3;
-
-        var e = instance.el;
-        var p = instance.props;
-        this.applyStyle({
-          styles: (_styles4 = {
-            position: ''
-          }, _styles4[p.verticalPosition] = '', _styles4),
-          classes: (_classes3 = {}, _classes3[p.stickyClass] = '', _classes3[p.stuckClass] = '', _classes3)
-        }, instance);
-        this.toggleClasses(e.parentNode, p.parentClass);
-      }
-      /*
-        cleanup 🛁
-        --------
-        - cleans up each instance
-        - clears instance
-      */
-      ;
-
-      _proto.cleanup = function cleanup() {
-        for (var i = 0; i < this.instances.length; i += 1) {
-          var instance = this.instances[i];
-
-          if (instance.stateContainer) {
-            instance.props.scrollEl.removeEventListener('scroll', instance.stateContainer);
-          }
-
-          this.removeInstance(instance);
-        }
-
-        this.manageState = false;
-        this.instances = [];
-      };
-
-      return Stickybits;
-    }();
-    /*
-      export
-      --------
-      exports StickBits to be used 🏁
-    */
-
-
-    function stickybits(target, o) {
-      return new Stickybits(target, o);
-    }
-
     /**
      * @license
      * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -3119,7 +2569,6 @@
     class TopBar extends LitElement {
       static get styles() {
         return css`
-      
       :host {
         align-items: flex-start;
         display: grid;
@@ -3134,51 +2583,548 @@
         width: 100%;
         z-index: 9;
       }
-      
-      @media (min-height:35em) {
 
+      @media (min-height: 35em) {
         :host {
           padding-bottom: 1.5rem;
           padding-top: 1.5rem;
         }
-
       }
 
       .c-top-bar__nav {
         display: grid;
         font-size: 125%;
         grid-auto-flow: column;
-        grid-gap: .25rem;
+        grid-gap: 0.25rem;
         transform: translatex(0);
       }
 
-      @media (min-width:45em) and (min-height:35em) {
-
+      @media (min-width: 45em) and (min-height: 35em) {
         .c-top-bar__nav {
           grid-auto-flow: row;
           grid-gap: 0;
-          transform: translatex(.25rem);
+          transform: translatex(0.25rem);
         }
-        
       }
-      
-      ::slotted([slot="link"]) {
-        padding: 0 .25rem;
+
+      ::slotted([slot='link']) {
+        padding: 0 0.25rem;
         text-align: center;
         text-decoration: none;
       }
-      
     `;
       }
 
       render() {
         return html`
-      <slot name="logo">
-      </slot>
+      <slot name="logo"> </slot>
       <nav class="c-top-bar__nav">
-        <slot name="link">
-        </slot>
+        <slot name="link"> </slot>
       </nav>
+    `;
+      }
+
+    }
+
+    function _slicedToArray(r,e){return _arrayWithHoles(r)||_iterableToArrayLimit(r,e)||_nonIterableRest()}function _toConsumableArray(r){return _arrayWithoutHoles(r)||_iterableToArray(r)||_nonIterableSpread()}function _arrayWithoutHoles(r){if(Array.isArray(r)){for(var e=0,t=new Array(r.length);e<r.length;e++)t[e]=r[e];return t}}function _arrayWithHoles(r){if(Array.isArray(r))return r}function _iterableToArray(r){if(Symbol.iterator in Object(r)||"[object Arguments]"===Object.prototype.toString.call(r))return Array.from(r)}function _iterableToArrayLimit(r,e){var t=[],n=!0,a=!1,i=void 0;try{for(var o,l=r[Symbol.iterator]();!(n=(o=l.next()).done)&&(t.push(o.value),!e||t.length!==e);n=!0);}catch(r){a=!0,i=r;}finally{try{n||null==l.return||l.return();}finally{if(a)throw i}}return t}function _nonIterableSpread(){throw new TypeError("Invalid attempt to spread non-iterable instance")}function _nonIterableRest(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}function Scramble(r,e){return new Promise(function(t,n){if(void 0===r&&n("Target element is undefined"),"true"!==r.getAttribute("data-scramble-active")){e.beforeEach&&e.beforeEach(r),r.setAttribute("data-scramble-active","true"),r.classList.add("scrambling");var a,i=r.innerHTML,o=[],l=e.speed?e.speed:100,c=r.textContent.split(""),u=c,f=r.textContent.split(""),s=!1;isValidString(e.text)?a=defineEndText(e.text):r.getAttribute("data-scramble-text")&&""!==r.getAttribute("data-scramble-text")&&(a=defineEndText(r.getAttribute("data-scramble-text"))),a&&(s=!0,c=a.truth,f=a.newLetters,u=a.startText);var d=function(){if(u.map(function(e,t){return !(" \t\n\r\v".indexOf(e)>-1)&&(f[t]=randomChar(),!0===o[t]&&(f[t]=c[t]),r.textContent=f.join(""),!0)}),killCheck(f,c)){if(r.innerHTML=i,s){var n=r.children[0];n&&""!==n?n.textContent=f.join(""):r.textContent=f.join("");}clearInterval(b),r.setAttribute("data-scramble-active","false"),r.classList.remove("scrambling"),e.afterEach&&e.afterEach(r),t(r);}};!function(r){if(r&&isArray(r))for(var t=0;t<=r.length;t++)!function(r){setTimeout(function(){o[r]=!0;},randomTime(isObject(e),e.random,e.speed));}(t);}(u),d();var b=setInterval(function(){d();},l);}else n("Animation already triggered");})}function ScramblerSetup(r){if(!isValidArgType(r))return !1;var e=setArgs(r,isObject(r)),t=_toConsumableArray(isObject(e)?document.querySelectorAll(e.target):document.querySelectorAll(e)),n=[];if(t.forEach(function(r){var t=Scramble(r,e);n.push(t);}),!(n.length>0))return !1;e.beforeAll&&e.beforeAll(t),Promise.all(n).then(function(r){e.afterAll&&e.afterAll(r);}).catch(function(r){e.errorHandler&&e.errorHandler(r);});}var isObject=function(r){return !!r&&r.constructor===Object},isArray=function(r){return !!r&&r.constructor===Array},isBool=function(r){return "boolean"==typeof r},isFunction=function(r){return "function"==typeof r},isInteger=function(r){return Number.isInteger(r)},isValidString=function(r){return !(!r||""===r||!("string"==typeof r||r instanceof String))},isValidArgType=function(r){return !isArray(r)&&!isBool(r)&&"number"!=typeof r&&"function"!=typeof r&&void 0!==r},randomChar=function(r,e){var t=r||1,n=e||!1,a=Math.random().toString(36).replace(/[^a-z]+/g,"").substr(0,t);return " \t\n\r\v".indexOf(a)<0&&!0!==n&&a},randomTime=function(r,e,t){var n=r||!1,a=t||100;if(n&&isArray(e)&&e.length>1){var i=_slicedToArray(e,2),o=i[0],l=i[1];if((t>=l||a>=l)&&(a=l-1),l-=a,o>l&&(o=l),isInteger(o)&&isInteger(l))return Math.floor(Math.random()*(l-o))+o}return Math.floor(1999*Math.random())+1e3},setArgs=function(r,e){var t=e||!1,n={target:"[data-scrambler]",random:[1e3,3e3],speed:100,text:!1,beforeEach:!1,afterEach:!1,beforeAll:!1,afterAll:!1,errorHandler:!1};return r&&t&&(n.target=void 0!==r.target?r.target:"[data-scrambler]",n.random=void 0!==r.random?r.random:[1e3,3e3],n.speed=void 0!==r.speed?r.speed:100,n.text=void 0!==r.text&&r.text,n.beforeEach=!(void 0===r.beforeEach||!isFunction(r.beforeEach))&&r.beforeEach,n.afterEach=!(void 0===r.afterEach||!isFunction(r.afterEach))&&r.afterEach,n.beforeAll=!(void 0===r.beforeAll||!isFunction(r.beforeAll))&&r.beforeAll,n.afterAll=!(void 0===r.afterAll||!isFunction(r.afterAll))&&r.afterAll,n.errorHandler=!(void 0===r.errorHandler||!isFunction(r.errorHandler))&&r.errorHandler),n},killCheck=function(r,e){return !(r.length!==e.length||!r.every(function(r,t){return r===e[t]}))},defineEndText=function(r){if(!r||void 0===r||!("string"==typeof r||r instanceof String))return !1;var e,t=r,n=t.split(""),a=t.split(""),i=[];return n.forEach(function(r,e){" \t\n\r\v".indexOf(n[e])>-1?i.push(" "):i.push(randomChar());}),e=i,{truth:n,newLetters:a,startText:e}},scrambler=function(){return ScramblerSetup}();
+
+    /*
+     *  Components - Hero
+     */
+    class Hero extends LitElement {
+      static get styles() {
+        return css`
+      * {
+        box-sizing: border-box;
+      }
+
+      :host {
+        display: grid;
+        grid-template-rows: 4fr 5fr 4.5rem;
+        height: 100%;
+        min-height: 30rem;
+      }
+
+      @media (min-width: 45em) {
+        :host {
+          grid-template-rows: 2fr 1fr 4.5rem;
+          min-height: 30rem;
+        }
+      }
+
+      .c-hero__upper {
+        align-content: center;
+        border-bottom: solid 1px var(--color-accent);
+        display: grid;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .c-hero__upper::after {
+        backface-visibility: hidden;
+        background-image: linear-gradient(
+            0deg,
+            var(--color-opaque-overlay) 000%,
+            var(--color-opaque-overlay) 050%,
+            rgba(0, 0, 0, 0) 050.01%,
+            rgba(0, 0, 0, 0) 100%
+          ),
+          linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0) 000%,
+            rgba(0, 0, 0, 0.02) 030%,
+            rgba(0, 0, 0, 0.02) 070%,
+            rgba(0, 0, 0, 0) 100%
+          );
+        background-repeat: repeat, no-repeat;
+        background-size: 100% 4px, 100% 20%;
+        content: '';
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        z-index: 0;
+      }
+
+      .c-hero__paint-dark,
+      .c-hero__paint-light,
+      .c-hero__paint-dark::before,
+      .c-hero__paint-light::before {
+        backface-visibility: hidden;
+        background-position: top left;
+        background-size: 100% auto;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transition: all 0.25s;
+        width: 100%;
+      }
+
+      .c-hero__paint-dark::before,
+      .c-hero__paint-light::before {
+        animation: hero-paint 6s infinite;
+        content: '';
+      }
+
+      .c-hero__paint-dark {
+        background-image: url('/images/Paint-Main-A-Dark.jpg');
+        opacity: var(--theme-dark-opacity);
+      }
+
+      .c-hero__paint-dark::before {
+        background-image: url('/images/Paint-Main-B-Dark.jpg');
+      }
+
+      .c-hero__paint-light {
+        backface-visibility: hidden;
+        background-image: url('/images/Paint-Main-A-Light.jpg');
+        opacity: var(--theme-light-opacity);
+      }
+
+      .c-hero__paint-light::before {
+        background-image: url('/images/Paint-Main-B-Light.jpg');
+      }
+
+      .c-hero__tagline,
+      .c-hero__name,
+      .c-hero__location {
+        position: relative;
+        z-index: 1;
+      }
+
+      .c-hero__tagline {
+        font-family: 'syneextrabold';
+        font-size: clamp(2.5rem, 6vw, 4.25rem);
+        line-height: 1.05;
+        text-transform: uppercase;
+        width: auto;
+      }
+
+      @media (min-height: 35em) {
+        .c-hero__tagline {
+          margin-top: 0.5rem;
+          line-height: 1.1;
+        }
+      }
+
+      .c-hero__tagline-main {
+        position: relative;
+        z-index: 1;
+      }
+
+      .c-hero__tagline-accent-1,
+      .c-hero__tagline-accent-2,
+      .c-hero__tagline-accent-3 {
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: var(--color-fg);
+        opacity: 0.05;
+        position: absolute;
+        top: 0;
+        z-index: 0;
+      }
+
+      .c-hero__tagline-accent-1 {
+        animation: hero-tagline-accent-fade-in-1 0.5s 1s
+          forwards;
+        transform: translateY(0.4vw);
+      }
+
+      .c-hero__tagline-accent-2 {
+        animation: hero-tagline-accent-fade-in-2 0.5s 1s
+          forwards;
+        transform: translateY(0.8vw);
+      }
+
+      .c-hero__tagline-accent-3 {
+        animation: hero-tagline-accent-fade-in-3 0.5s 1s
+          forwards;
+        transform: translateY(1.2vw);
+      }
+
+      .c-hero__name,
+      .c-hero__location {
+        bottom: 0;
+        display: block;
+        font-family: var(--font-main-regular);
+        font-size: 0.6rem;
+        font-weight: var(--font-main-regular-weight);
+        height: 0.6rem;
+        letter-spacing: 0.1em;
+        line-height: 1;
+        padding-bottom: 1.25rem;
+        position: absolute;
+        text-transform: uppercase;
+      }
+
+      .c-hero__name {
+        text-align: right;
+        transform-origin: top left;
+        padding-left: 1.5rem;
+      }
+
+      .c-hero__location {
+        right: 0;
+        text-align: left;
+        transform-origin: top right;
+        padding-right: 1.5rem;
+      }
+
+      @media (min-width: 45em) {
+        .c-hero__name,
+        .c-hero__location {
+          font-size: 0.7rem;
+          height: 0.7rem;
+          padding-bottom: 0;
+          padding-left: 1rem;
+          padding-right: 1rem;
+          width: 40vh;
+        }
+
+        .c-hero__name {
+          left: 1.5rem;
+          text-align: right;
+          transform: rotate(90deg) translateY(-0.6rem)
+            translateX(-100%);
+          transform-origin: top left;
+        }
+
+        .c-hero__location {
+          right: 1.5rem;
+          text-align: left;
+          transform: rotate(-90deg) translateY(-0.6rem)
+            translateX(100%);
+          transform-origin: top right;
+        }
+      }
+
+      .c-hero__lower {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 5fr 4fr;
+      }
+
+      @media (min-width: 45em) {
+        .c-hero__lower {
+          grid-template-columns: 1fr 1fr 2fr;
+          grid-template-rows: auto;
+        }
+      }
+
+      .c-hero__me,
+      .c-hero__me::before {
+        background-position: center;
+        background-size: cover;
+      }
+
+      .c-hero__me {
+        background-image: url('/images/Me-Dark.jpg');
+        border-right: solid 1px var(--color-accent);
+        position: relative;
+      }
+
+      .c-hero__me::before {
+        background-blend-mode: luminosity;
+        background-color: var(--color-bg-primary);
+        background-image: url('/images/Me-Light.jpg');
+        content: '';
+        height: 100%;
+        opacity: var(--theme-light-opacity);
+        position: absolute;
+        width: 100%;
+      }
+
+      .c-hero__name-stylized {
+        background-image: linear-gradient(
+          -45deg,
+          var(--color-opaque) 0%,
+          var(--color-opaque) 6.24%,
+          transparent 6.25%,
+          transparent 43.74%,
+          var(--color-opaque) 43.75%,
+          var(--color-opaque) 56.25%,
+          transparent 56.26%,
+          transparent 93.74%,
+          var(--color-opaque) 93.75%,
+          var(--color-opaque) 100%
+        );
+        background-position: 0 0;
+        background-repeat: repeat;
+        background-size: 0.275rem 0.275rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        height: 100%;
+        justify-items: center;
+        padding-bottom: var(--spacing-responsive-y);
+        padding-left: var(--spacing-responsive-x);
+        padding-right: var(--spacing-responsive-x);
+        padding-top: var(--spacing-responsive-y);
+        text-align: center;
+        width: 100%;
+      }
+
+      @media (min-width: 45em) {
+        .c-hero__name-stylized {
+          border-right: solid 1px var(--color-accent);
+        }
+      }
+
+      .c-hero__name-stylized-letter {
+        font-family: var(--font-accent);
+        font-weight: var(--font-accent-weight);
+        margin-bottom: auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: auto;
+      }
+
+      .c-hero__heading {
+        align-content: center;
+        border-top: solid 1px var(--color-accent);
+        display: grid;
+        grid-column-end: 3;
+        grid-column-start: 1;
+        justify-content: center;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+      .c-hero__heading > * {
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        line-height: 1;
+        margin-bottom: 0;
+        max-width: 30rem;
+      }
+
+      @media (min-width: 45em) {
+        .c-hero__heading {
+          border-top: none;
+          grid-column-end: 4;
+          grid-column-start: 3;
+        }
+
+        .c-hero__heading > * {
+          line-height: 1.1;
+        }
+      }
+
+      .c-hero__footer {
+        border-top: solid 1px var(--color-accent);
+        display: grid;
+        grid-template-columns: 4rem 1fr 1fr 4rem;
+        grid-template-rows: 1fr 0.5rem;
+      }
+
+      ::slotted([slot='footer-box-left']),
+      ::slotted([slot='footer-content-left']),
+      ::slotted([slot='footer-content-right']) {
+        border-right: solid 1px var(--color-subtle);
+      }
+
+      ::slotted([slot='footer-content-left']),
+      ::slotted([slot='footer-content-right']) {
+        align-items: center;
+        column-gap: 1rem;
+        display: grid;
+        font-size: 0.75rem;
+        grid-template-columns: auto 1fr;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      @media (min-width: 45em) {
+        ::slotted([slot='footer-content-left']),
+        ::slotted([slot='footer-content-right']) {
+          font-size: 1rem;
+          padding-left: 1.25rem;
+          padding-right: 1.25rem;
+        }
+      }
+
+      ::slotted([slot='footer-box-right']) {
+        align-items: center;
+        display: grid;
+        justify-content: center;
+      }
+
+      ::slotted([slot='bottom']) {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      /* Animations */
+
+      @keyframes hero-paint {
+        0% {
+          opacity: 0.04;
+        }
+        10% {
+          opacity: 0.04;
+        }
+        50% {
+          opacity: 0.96;
+        }
+        60% {
+          opacity: 0.96;
+        }
+        100% {
+          opacity: 0.04;
+        }
+      }
+
+      @keyframes hero-scanlines {
+        0% {
+          background-position: 0 0, 0 -100%;
+        }
+        50% {
+          background-position: 0 0, 0 200%;
+        }
+        100% {
+          background-position: 0 0, 0 200%;
+        }
+      }
+
+      @keyframes hero-tagline-accent-fade-in-1 {
+        0% {
+          opacity: 0.04;
+        }
+        100% {
+          opacity: 0.6;
+        }
+      }
+
+      @keyframes hero-tagline-accent-fade-in-2 {
+        0% {
+          opacity: 0.04;
+        }
+        100% {
+          opacity: 0.4;
+        }
+      }
+
+      @keyframes hero-tagline-accent-fade-in-3 {
+        0% {
+          opacity: 0.04;
+        }
+        100% {
+          opacity: 0.2;
+        }
+      }
+    `;
+      }
+
+      firstUpdated() {
+        this._taglineSetup();
+
+        this._nameStylizedSetup();
+
+        window.addEventListener('load', () => {
+          scrambler({
+            target: '[data-scrambler]',
+            random: [1000, 1000],
+            speed: 60
+          });
+        });
+      }
+
+      _taglineSetup() {
+        const taglineHTML = this.querySelector('[slot=tagline]').innerHTML.replaceAll('  ', '').replaceAll('\n', '');
+        const taglineSplit = taglineHTML.split('<br>');
+        const taglineMain = taglineSplit.map((value, index) => {
+          const inner = '<span data-scrambler>' + value + '</span>';
+          const isLast = taglineSplit.length - 1 === index;
+          return isLast ? inner : inner + '<br>';
+        }).join('');
+        const taglineAccentEls = [this.shadowRoot.querySelector('.c-hero__tagline-accent-1'), this.shadowRoot.querySelector('.c-hero__tagline-accent-2'), this.shadowRoot.querySelector('.c-hero__tagline-accent-3')];
+        this.innerHTML += '<div slot="tagline-main">' + taglineMain + '</div>';
+        taglineAccentEls.map(el => {
+          el.innerHTML = taglineHTML;
+        });
+      }
+
+      _nameStylizedSetup() {
+        const name = this.querySelector('[slot="name-stylized"').innerHTML.replaceAll(' ', '').replaceAll('\n', '').split('');
+        const nameStylizedEl = this.shadowRoot.querySelector('.c-hero__name-stylized');
+        nameStylizedEl.innerHTML = name.map(value => {
+          const nameDiv = '<div class="c-hero__name-stylized-letter">' + value + '</div>';
+          return nameDiv;
+        }).join('');
+      }
+
+      render() {
+        return html`
+      <div class="c-hero__upper">
+        <div class="c-hero__paint-dark"></div>
+        <div class="c-hero__paint-light"></div>
+        <div class="c-hero__tagline">
+          <div class="c-hero__tagline-main">
+            <slot name="tagline-main"></slot>
+          </div>
+          <div class="c-hero__tagline-accent-1"></div>
+          <div class="c-hero__tagline-accent-2"></div>
+          <div class="c-hero__tagline-accent-3"></div>
+        </div>
+        <div class="c-hero__name">David B. Waters</div>
+        <div class="c-hero__location">Charleston, SC</div>
+      </div>
+      <div class="c-hero__lower">
+        <div class="c-hero__me"></div>
+        <div class="c-hero__name-stylized"></div>
+        <div class="c-hero__heading">
+          <slot name="heading"></slot>
+        </div>
+      </div>
+      <footer class="c-hero__footer">
+        <slot name="footer-box-left"> </slot>
+        <slot name="footer-content-left"> </slot>
+        <slot name="footer-content-right"> </slot>
+        <slot name="footer-box-right"> </slot>
+        <slot name="bottom"> </slot>
+      </footer>
     `;
       }
 
@@ -3195,18 +3141,19 @@
       }
 
       :host {
-        --theme-switch-border: var(--color-fg-subtle);
-        --theme-switch-bg: var(--color-fg-subtle);
-        --theme-switch-switch-border: rgba(0,0,0,.8);
+        --theme-switch-border: var(--color-subtle);
+        --theme-switch-bg: var(--color-subtle);
+        --theme-switch-switch-border: rgba(0, 0, 0, 0.8);
         --theme-switch-switch: white;
 
-        align-content: center;
+        align-items: center;
         border-right: solid 1px var(--theme-switch-border);
         display: grid;
-        grid-template-columns: 1rem 1.25rem;
-        grid-template-rows: 2rem;
+        grid-auto-flow: column;
+        grid-gap: 0.5rem;
         height: 100%;
         justify-content: center;
+        justify-items: center;
         width: 100%;
       }
 
@@ -3214,21 +3161,20 @@
         cursor: pointer;
         position: relative;
       }
-      
+
       .c-theme-switch__input {
+        position: absolute;
         height: 0;
         opacity: 0;
         width: 0;
       }
-      
+
       .c-theme-switch__switch {
         background: var(--theme-switch-bg);
-        border: solid var(
-            --theme-switch-switch-border
-          ) 1px;
+        border: solid var(--theme-switch-switch-border) 1px;
+        display: block;
         height: 2rem;
         left: 0;
-        position: absolute;
         width: 1rem;
       }
 
@@ -3237,18 +3183,18 @@
         content: '';
         display: block;
         height: 50%;
-        transition: all .25s;
+        transition: all 0.25s;
       }
 
-      .c-theme-switch__input:checked + 
-      .c-theme-switch__switch::before {
+      .c-theme-switch__input:checked
+        + .c-theme-switch__switch::before {
         transform: translateY(100%);
       }
 
       ::slotted(i) {
         align-items: center;
         display: grid;
-        font-size: .75rem;
+        font-size: 0.75rem;
         justify-content: right;
       }
     `;
@@ -3261,14 +3207,12 @@
 
       render() {
         return html`
-      <label
-        class="c-theme-switch__label"
-      >
-        <input 
+      <label class="c-theme-switch__label">
+        <input
           type="checkbox"
           class="c-theme-switch__input"
           @change=${this._handleChange}
-        >
+        />
         <span class="c-theme-switch__switch"></span>
       </label>
       <slot></slot>
@@ -3285,14 +3229,14 @@
         return css`
       :host {
         display: block;
-        height: .5rem;
+        height: 0.5rem;
         line-height: 0;
-        margin-top: 1.0rem;
+        margin-top: 1rem;
       }
 
       .c-squiggle__svg {
         display: inline-block;
-        fill: var(--color-fg-accent);
+        fill: var(--color-accent);
       }
     `;
       }
@@ -3315,33 +3259,92 @@
     }
 
     /*
+     *  Components - Section Header
+     */
+    class SectionHeader extends LitElement {
+      static get styles() {
+        return css`
+      :host {
+        --title-font: var(--font-display);
+        --title-font-weight: var(--font-display-weight);
+
+        box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05);
+        display: block;
+        text-align: center;
+      }
+
+      ::slotted([slot='title']),
+      ::slotted([slot='description']) {
+        border-bottom: solid 1px
+          var(--color-subtle-alternate);
+        box-sizing: border-box;
+        display: block;
+      }
+
+      ::slotted([slot='title']) {
+        font-size: 2.0736rem;
+        font-size: clamp(
+          2.0736rem,
+          32.832px + 0.108vw,
+          2.16rem
+        );
+        font-family: var(--title-font);
+        font-weight: var(--title-font-weight);
+        line-height: 1.25;
+        padding-bottom: 3rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 4rem;
+        text-transform: uppercase;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: var(--color-fg);
+      }
+
+      @media (min-width: 45em) {
+        ::slotted([slot='title']) {
+          padding-left: 6rem;
+          padding-right: 6rem;
+        }
+      }
+
+      ::slotted([slot='description']) {
+        box-shadow: 0 0 0 1px var(--color-subtle-alternate);
+        padding-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 1.5rem;
+      }
+    `;
+      }
+
+      render() {
+        return html`
+      <slot name="title"> </slot>
+      <slot name="description"> </slot>
+    `;
+      }
+
+    }
+
+    /*
      *  Components - Glitch Image
      */
     class GlitchImage extends LitElement {
       static get styles() {
         return css`
       :host {
+        --glitch-image-height: 100%;
+        --glitch-image-width: 100%;
+
         display: block;
         min-height: 1px;
         width: 100%;
       }
 
-      .c-glitch-image {
-        height: 1px;
-        margin: 0 auto;
-        max-width: 100%;
-        min-height: 1px;
-        overflow: hidden;
-        padding-bottom: calc(
-          100% / var(--glitch-aspect-ratio) - 1px
-        );
-        position: relative;
-        width: var(--glitch-image-width);
-      }
-
-      .c-glitch-image--style-1 {
-        --glitch-image-gap-horizontal: 20px;
-        --glitch-image-gap-vertical: 2px;
+      :host(.c-glitch-image--style-1) {
+        --glitch-image-gap-horizontal: 0px;
+        --glitch-image-gap-vertical: 0px;
         --glitch-image-time-anim: 2.25s;
         --glitch-image-blend-mode-1: none;
         --glitch-image-blend-mode-2: none;
@@ -3355,7 +3358,7 @@
         --glitch-image-blend-color-5: transparent;
       }
 
-      .c-glitch-image--style-2 {
+      :host(.c-glitch-image--style-2) {
         --glitch-image-gap-horizontal: 5px;
         --glitch-image-gap-vertical: 10px;
         --glitch-image-time-anim: 2s;
@@ -3366,12 +3369,12 @@
         --glitch-image-blend-mode-5: none;
         --glitch-image-blend-color-1: transparent;
         --glitch-image-blend-color-2: transparent;
-        --glitch-image-blend-color-3: #95D6EB;
+        --glitch-image-blend-color-3: #95d6eb;
         --glitch-image-blend-color-4: transparent;
-        --glitch-image-blend-color-5: #95D6EB;
+        --glitch-image-blend-color-5: #95d6eb;
       }
 
-      .c-glitch-image--style-3 {
+      :host(.c-glitch-image--style-3) {
         --glitch-image-gap-horizontal: 20px;
         --glitch-image-gap-vertical: 2px;
         --glitch-image-time-anim: 2.25s;
@@ -3387,7 +3390,7 @@
         --glitch-image-blend-color-5: transparent;
       }
 
-      .c-glitch-image--style-4 {
+      :host(.c-glitch-image--style-4) {
         --glitch-image-gap-horizontal: 5px;
         --glitch-image-gap-vertical: 20px;
         --glitch-image-time-anim: 5s;
@@ -3403,7 +3406,7 @@
         --glitch-image-blend-color-5: transparent;
       }
 
-      .c-glitch-image--style-5 {
+      :host(.c-glitch-image--style-5) {
         --glitch-image-gap-horizontal: 50px;
         --glitch-image-gap-vertical: 100px;
         --glitch-image-time-anim: 2.25s;
@@ -3419,7 +3422,7 @@
         --glitch-image-blend-color-5: #8d16f2;
       }
 
-      .c-glitch-image--style-6 {
+      :host(.c-glitch-image--style-6) {
         --glitch-image-gap-horizontal: 3px;
         --glitch-image-gap-vertical: 70px;
         --glitch-image-time-anim: 2.25s;
@@ -3440,6 +3443,19 @@
         --glitch-image-blend-color-5: transparent;
       }
 
+      .c-glitch-image__inner {
+        height: 1px;
+        margin: 0 auto;
+        max-width: 100%;
+        min-height: 1px;
+        overflow: hidden;
+        padding-bottom: calc(
+          100% / var(--glitch-aspect-ratio) - 1px
+        );
+        position: relative;
+        width: var(--glitch-image-width);
+      }
+
       .c-glitch-image__image {
         background-blend-mode: var(
           --glitch-image-blend-mode-1
@@ -3449,12 +3465,12 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        height: calc( 100% + var(--glitch-image-gap-vertical) * 2 );
+        height: calc(
+          100% + var(--glitch-image-gap-vertical) * 2
+        );
         left: calc(-1 * var(--glitch-image-gap-horizontal));
         position: absolute;
-        top: calc(
-          var(--glitch-image-gap-vertical) * -1
-        );
+        top: calc(var(--glitch-image-gap-vertical) * -1);
         transform: translate3d(0, 0, 0);
         width: calc(
           100% + var(--glitch-image-gap-horizontal) * 2
@@ -3493,17 +3509,15 @@
         opacity: 0;
       }
 
-      .c-glitch-image:hover
+      .c-glitch-image__inner:hover
         .c-glitch-image__image:nth-child(n + 2),
-      .c-glitch-image.is-glitching
-        .c-glitch-image__image:nth-child(n + 2) {
+      .c-glitch-image__image.is-glitching:nth-child(n + 2) {
         opacity: 1;
       }
 
-      .c-glitch-image:hover
+      .c-glitch-image__inner:hover
         .c-glitch-image__image:nth-child(2),
-      .c-glitch-image.is-glitching
-        .c-glitch-image__image:nth-child(2) {
+      .c-glitch-image__image.is-glitching:nth-child(2) {
         transform: translate3d(
           var(--glitch-image-gap-horizontal),
           0,
@@ -3514,9 +3528,9 @@
           alternate;
       }
 
-      .c-glitch-image:hover
+      .c-glitch-image__inner:hover
         > .c-glitch-image__image:nth-child(3),
-      .c-glitch-image.is-glitching
+      .c-glitch-image__inner.is-glitching
         > .c-glitch-image__image:nth-child(3) {
         transform: translate3d(
           calc(-1 * var(--glitch-image-gap-horizontal)),
@@ -3528,9 +3542,9 @@
           alternate;
       }
 
-      .c-glitch-image:hover
+      .c-glitch-image__inner:hover
         > .c-glitch-image__image:nth-child(4),
-      .c-glitch-image.is-glitching
+      .c-glitch-image__inner.is-glitching
         > .c-glitch-image__image:nth-child(4) {
         transform: translate3d(
             0,
@@ -3544,9 +3558,9 @@
       }
 
       /* Hover flash animation on last image */
-      .c-glitch-image:hover
+      .c-glitch-image__inner:hover
         > .c-glitch-image__image:nth-child(5),
-      .c-glitch-image.is-glitching
+      .c-glitch-image__inner.is-glitching
         > .c-glitch-image__image:nth-child(5) {
         animation: glitch-anim-flash 0.5s steps(1, end)
           infinite;
@@ -4162,11 +4176,15 @@
         const hasWidth = this.hasAttribute('width');
         const hasHeight = this.hasAttribute('height');
         const hasDimensions = hasWidth && hasHeight;
-        this.wrapper = this.shadowRoot.querySelector('.c-glitch-image');
+        this._wrapper = this.shadowRoot.querySelector('.c-glitch-image__inner');
 
         if (this.active) {
-          this.wrapper.classList.add('is-glitching');
+          this._wrapper.querySelectorAll('.c-glitch-image__image').forEach(el => {
+            el.classList.add('is-glitching');
+          });
         }
+
+        this.classList.add('c-glitch-image--style-' + this.glitch);
 
         if (hasDimensions) {
           const imgWidth = this.getAttribute('width');
@@ -4174,14 +4192,15 @@
           this.aspectRatio = imgWidth / imgHeight;
         }
 
-        this.wrapper.style.setProperty('--glitch-aspect-ratio', this.aspectRatio);
-        this.wrapper.style.setProperty('--glitch-image', 'url(' + this.src + ')');
+        this._wrapper.style.setProperty('--glitch-aspect-ratio', this.aspectRatio);
+
+        this._wrapper.style.setProperty('--glitch-image', 'url("' + this.src + '")');
       }
 
       render() {
         return html`
       <div
-        class="c-glitch-image c-glitch-image--style-${this.glitch}"
+        class="c-glitch-image__inner"
       >
         <div
           class="c-glitch-image__image"
@@ -4216,27 +4235,168 @@
       static get styles() {
         return css`
       :host {
-        --modal-transition-duration: var(--transition-duration);
+        --modal-color-fg: var(--color-fg);
+        --modal-color-bg: var(--color-bg);
+        --modal-spacing: 1.5rem;
+        --modal-close-button-color-fg: var(--color-fg);
+        --modal-close-button-color-bg: var(--color-bg);
+        --modal-close-button-color-border: var(--color-fg);
+        --modal-close-button-color-shadow: var(
+          --color-opaque
+        );
+        --modal-close-button-color-shadow-hover: var(
+          --color-opaque-alternate
+        );
+        --modal-close-button-font: var(--font-main-regular);
+        --modal-close-button-font-weight: normal;
+        --modal-close-button-size: 1.2rem;
+        --modal-close-button-thickness: 1.5px;
+        --modal-transition-duration: 0.15s;
+        --modal-trigger-transition-duration: 0.33s;
+
+        position: absolute;
       }
 
-      .c-modal__content {
+      .c-modal__body {
+        background-color: var(--modal-color-bg);
+        border: none;
+        box-sizing: border-box;
+        color: var(--modal-color-fg);
         height: 100vh;
         left: 0;
+        max-height: none;
+        max-width: none;
+        overflow-y: scroll;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
         position: fixed;
-        transition: all var(--modal-transition-duration);
+        transition: var(--modal-transition-duration);
         top: 0;
         width: 100vw;
         z-index: 9;
       }
-      
-      .c-modal__content:not([open]) {
-        display: none;
+
+      .c-modal__body:not([open]) {
+        display: block;
         opacity: 0;
+        pointer-events: none;
+      }
+
+      .c-modal__body.is-opening {
+        display: block;
+        opacity: 0;
+        visibility: visible;
+      }
+
+      .c-modal__body.is-closing {
+        opacity: 0;
+      }
+
+      .c-modal__body.-is-closed {
+        display: none;
         visibility: hidden;
       }
 
-      .c-modal__content.is-closing {
-        opacity: 0;
+      .c-modal__close-button,
+      .c-modal__close-button:focus {
+        border: solid 1px
+          var(--modal-close-button-color-border);
+        outline: none;
+      }
+
+      .c-modal__close-button {
+        align-items: center;
+        background-color: var(
+          --modal-close-button-color-bg
+        );
+        color: inherit;
+        cursor: pointer;
+        display: grid;
+        float: right;
+        font-family: var(--modal-close-button-font);
+        font-size: 0.7rem;
+        font-weight: var(--modal-close-button-font-weight);
+        grid-template-columns: var(
+          --modal-close-button-size
+        );
+        grid-template-rows: var(--modal-close-button-size);
+        letter-spacing: 0.025em;
+        margin-right: calc(var(--modal-spacing) / 2);
+        margin-top: calc(var(--modal-spacing) / 2);
+        padding-bottom: calc(var(--modal-spacing) / 3);
+        padding-left: calc(var(--modal-spacing) / 3);
+        padding-right: calc(var(--modal-spacing) / 3);
+        padding-top: calc(var(--modal-spacing) / 3);
+        position: sticky;
+        top: calc(var(--modal-spacing) / 2);
+        text-transform: uppercase;
+        transition-duration: var(
+          --modal-transition-duration
+        );
+        z-index: 9;
+      }
+
+      @media (min-width: 45em) {
+        .c-modal__close-button {
+          grid-gap: 0.25rem;
+          grid-template-columns: 1fr var(
+              --modal-close-button-size
+            );
+        }
+      }
+
+      .c-modal__close-button:active {
+        transform: translateY(2px);
+      }
+
+      .c-modal__close-button:hover {
+        box-shadow: 0 0 1px 1px
+          var(--modal-close-button-color-shadow-hover);
+      }
+
+      .c-modal__close-button span {
+        display: none;
+      }
+
+      @media (min-width: 45em) {
+        .c-modal__close-button span {
+          display: inline-block;
+          margin-top: 1px;
+        }
+      }
+
+      .c-modal__close-button i {
+        height: var(--modal-close-button-size);
+        position: relative;
+        text-align: center;
+      }
+
+      .c-modal__close-button i::before,
+      .c-modal__close-button i::after {
+        background-color: var(
+          --modal-close-button-color-fg
+        );
+        content: '';
+        height: 100%;
+        margin: auto;
+        position: absolute;
+        transform-origin: center;
+        width: var(--modal-close-button-thickness);
+      }
+
+      .c-modal__close-button i::before {
+        transform: rotate(-45deg);
+      }
+
+      .c-modal__close-button i::after {
+        transform: rotate(45deg);
+      }
+
+      .c-modal__content {
+        position: absolute;
+        width: 100%;
       }
     `;
       }
@@ -4255,66 +4415,98 @@
         this.open = false;
       }
 
-      _setOpen() {
-        if (this.open && this._dialog) {
-          this._dialog.showModal();
-        }
+      firstUpdated() {
+        this._setup();
+
+        window.addEventListener('click', e => {
+          const target = e.target.closest('[data-modal-target=' + this._triggerData + ']');
+
+          if (target) {
+            this.showModal();
+          }
+        }, true);
+        this.shadowRoot.addEventListener('click', e => {
+          if (e.target.closest('.c-modal__close-button')) {
+            this.close();
+          }
+        });
+
+        this._dialogEl.addEventListener('close', () => {
+          this._handleClose();
+        });
+
+        this._dialogEl.classList.add('is-closed');
+
+        this.open ? this.showModal() : this._dialogEl.classList.add('is-closed');
       }
 
-      _setClosed() {
-        this._dialog.classList.add('is-closing');
+      showModal() {
+        this._open();
+      }
+
+      close() {
+        this._dialogEl.close();
+      }
+
+      _setup() {
+        const styles = window.getComputedStyle(this);
+        this._documentEl = document.documentElement;
+        this._triggerData = this.dataset.modalTrigger;
+        this._triggerEl = document.querySelector('[data-modal-target=' + this._triggerData + ']' + '[data-modal-trigger-primary]');
+        this._dialogEl = this.shadowRoot.querySelector('dialog');
+        this._closeButtonEl = this._dialogEl.querySelector('.c-modal__close-button');
+        this._triggerDuration = parseFloat(styles.getPropertyValue('--modal-trigger-transition-duration')) * 1000;
+        this._modalDuration = parseFloat(styles.getPropertyValue('--modal-transition-duration')) * 1000;
+      }
+
+      _open() {
+        this._triggerEl.classList.add('is-expanded');
 
         setTimeout(() => {
-          this._dialog.classList.remove('is-opening');
+          this.setAttribute('open', '');
 
-          this.removeAttribute('open');
+          this._dialogEl.showModal();
 
-          this._dialog.close();
+          this._dialogEl.classList.remove('is-closed');
+
+          this._dialogEl.classList.add('is-opening');
+
+          this._documentEl.style.overflow = 'hidden';
+
+          this._dialogEl.classList.remove('is-opening');
+
+          this._dialogEl.classList.add('is-open');
+        }, this._triggerDuration);
+      }
+
+      _handleClose() {
+        this.removeAttribute('open');
+
+        this._dialogEl.classList.remove('is-open');
+
+        this._dialogEl.classList.add('is-closing');
+
+        setTimeout(() => {
+          this._documentEl.style.overflow = '';
+
+          this._dialogEl.classList.remove('is-closing');
+
+          this._dialogEl.classList.add('is-closed');
 
           this._triggerEl.classList.remove('is-expanded');
-
-          console.log(this._duration);
-        }, this._duration);
-      }
-
-      update() {
-        super.update();
-
-        this._setOpen();
-      }
-
-      firstUpdated() {
-        const target = this.dataset.modalTrigger;
-        const triggerSelector = '[data-modal-target=' + target + ']';
-        const hostStyles = window.getComputedStyle(this);
-        const durationSeconds = hostStyles.getPropertyValue('--modal-transition-duration');
-        this._duration = parseFloat(durationSeconds) * 1000;
-        this._triggerEl = document.querySelector(triggerSelector);
-        this._dialog = this.shadowRoot.querySelector('dialog');
-
-        if (this._triggerEl) {
-          this._triggerEl.addEventListener('click', e => {
-            this._triggerEl.classList.add('is-expanded');
-
-            this.setAttribute('open', '');
-          });
-        }
-
-        this._setOpen();
+        }, this._modalDuration);
       }
 
       render() {
         return html`
-      <dialog class="c-modal__content">
-        <button 
-          class="c-modal__close-button"
-          @click=${this._setClosed}
-        >
-          X
+      <dialog class="c-modal__body">
+        <button class="c-modal__close-button">
+          <span> Close </span>
+          <i></i>
         </button>
-        <slot>
-
-        </slot>
+        <section class="c-modal__content">
+          <slot> </slot>
+        </section>
       </dialog>
     `;
       }
@@ -4327,11 +4519,14 @@
     class Loader extends LitElement {
       static get styles() {
         return css`
-      
       :host {
+        --loader-color-bg: var(--color-bg);
+        --loader-image-bg: url('images/Noise-Main-Solid.png');
+
         align-content: center;
-        background-color: var(--loader-bg-color);
-        background-image: var(--loader-bg-image);
+        background-color: var(--loader-color-bg);
+        background-image: var(--loader-image-bg);
+        cursor: progress;
         display: grid;
         grid-template-columns: 100px;
         grid-template-rows: min-content;
@@ -4343,7 +4538,6 @@
         width: 100vw;
         z-index: 9;
       }
-
     `;
       }
 
@@ -4359,11 +4553,7 @@
       }
 
       render() {
-        return html`
-      <slot>
-
-      </slot>
-    `;
+        return html` <slot> </slot> `;
       }
 
     }
@@ -4372,8 +4562,10 @@
      *  Scripts - Main
      */
     customElements.define('c-top-bar', TopBar);
+    customElements.define('c-hero', Hero);
     customElements.define('c-theme-switch', ThemeSwitch);
     customElements.define('c-squiggle', Squiggle);
+    customElements.define('c-section-header', SectionHeader);
     customElements.define('c-glitch-image', GlitchImage);
     customElements.define('c-modal', Modal);
     customElements.define('c-loader', Loader);
@@ -4397,223 +4589,679 @@
       <a slot="link" href="mailto:mrdavidbwaters@gmail.com">
         <i class="c-icon c-icon--mail"></i>
       </a>
-      <a slot="link" href="https://twitter.com/dbwatersdesigns">
+      <a
+        slot="link"
+        href="https://twitter.com/dbwatersdesigns"
+      >
         <i class="c-icon c-icon--twitter"></i>
       </a>
-      <a slot="link" href="https://dribbble.com/dbwatersdesigns">
+      <a
+        slot="link"
+        href="https://dribbble.com/dbwatersdesigns"
+      >
         <i class="c-icon c-icon--dribbble"></i>
       </a>
       <a slot="link" href="https://github.com/davidbwaters">
         <i class="c-icon c-icon--github"></i>
       </a>
+      <a
+        slot="link"
+        href="https://www.npmjs.com/~davidbwaters"
+      >
+        <i class="c-icon c-icon--npm"></i>
+      </a>
     </c-top-bar>
-    <div class="c-hero">
-      <div class="c-hero__upper">
-        <div class="c-hero__paint-dark"></div>
-        <div class="c-hero__paint-light"></div>
-        <div class="c-hero__tagline">
-          <div class="c-hero__tagline-main">
-            <span  data-scrambler="true">
-              Artist & 
-            </span><br/>
-            <span  data-scrambler="true">
-              Designer & 
-            </span><br/>
-            <span  data-scrambler="true">
-              Developer
-            </span>
-          </div>
-          <div class="c-hero__tagline-accent-1">
-            Artist & <br/>
-            Designer & <br/>
-            Developer
-          </div>
-          <div class="c-hero__tagline-accent-2">
-            Artist & <br/>
-            Designer & <br/>
-            Developer
-          </div>
-          <div class="c-hero__tagline-accent-3">
-            Artist & <br/>
-            Designer & <br/>
-            Developer
-          </div>
-        </div>
-        <div class="c-hero__name">David B. Waters</div>
-        <div class="c-hero__location">Charleston, SC</div>
+
+    <c-hero class="u-bg-noise">
+      <div slot="tagline">
+        Artist & <br />
+        Designer & <br />
+        Developer
       </div>
-      <div class="c-hero__lower u-overlay-noise ">
-        <div class="c-hero__me"></div>
-        <div class="c-hero__name-stylized u-bg-pattern-diagonal">
-          <div class="c-hero__name-stylized-letter">
-            D
-          </div>
-          <div class="c-hero__name-stylized-letter">
-            A
-          </div>
-          <div class="c-hero__name-stylized-letter">
-            V
-          </div>
-          <div class="c-hero__name-stylized-letter">
-            I
-          </div>
-          <div class="c-hero__name-stylized-letter">
-            D
-          </div>
-          <div class="c-hero__name-stylized-letter">
-            B
-          </div>
-          <div class="c-hero__name-stylized-letter">
-            W
-          </div>
-          <div class="c-hero__name-stylized-letter">
-            A
-          </div>
-          <div class="c-hero__name-stylized-letter">
-            T
-          </div>
-          <div class="c-hero__name-stylized-letter">
-            E
-          </div>
-          <div class="c-hero__name-stylized-letter">
-            R
-          </div>
-          <div class="c-hero__name-stylized-letter">
-            S
-          </div>
-        </div>
-        <div class="c-hero__heading">
-          <h2 class="u-text-large-3">
-            Building digital solutions to promote growth.
-            <c-squiggle></c-squiggle>
-          </h2>
-        </div>
+      <div slot="name-stylized">DAVIDBWATERS</div>
+      <div slot="heading">
+        <h2 class="u-text-large-3">
+          Building digital solutions to promote growth.
+          <c-squiggle></c-squiggle>
+        </h2>
       </div>
-      <footer class="c-hero__footer u-bg-noise">
-        <c-theme-switch>
-          <i class="c-icon c-icon--switch"></i>
-        </c-theme-switch>
-        <div class="c-hero__availability">
-          <a class="c-icon c-icon--hand u-animation-wave" href="mailto:mrdavidbwaters@gmail.com"></a>
-          <span>
-            Available Now!
-          </span>
-        </div>
-        <div class="c-hero__cta">
-          <a class="c-button" href="mailto:mrdavidbwaters@gmail.com">Contact</a>
-          <span>
-            Start 
-            <span class="u-hidden@mobile">Your</span>
-            Project!
-          </span>
-        </div>
-        <div class="c-hero__arrow">
-          <i class="c-icon c-icon--arrow-down"></i>
-        </div>
-        <hr class="u-separator c-hero__bottom">
-      </footer>
-    </div>
+      <c-theme-switch slot="footer-box-left">
+        <i class="c-icon c-icon--switch"></i>
+      </c-theme-switch>
+      <div slot="footer-content-left">
+        <a
+          class="c-icon c-icon--hand u-animation-wave u-text-large-2 u-margin-bottom-0"
+          href="mailto:mrdavidbwaters@gmail.com"
+        ></a>
+        <span> Available Now! </span>
+      </div>
+      <div slot="footer-content-right">
+        <a
+          class="c-button"
+          href="mailto:mrdavidbwaters@gmail.com"
+          >Contact</a
+        >
+        <span>
+          Start
+          <span class="u-hidden@mobile">Your</span>
+          Project!
+        </span>
+      </div>
+      <div slot="footer-box-right">
+        <i
+          class="c-icon c-icon--arrow-down u-text-large-2"
+        ></i>
+      </div>
+      <hr slot="bottom" class="u-separator" />
+    </c-hero>
+
     <section>
-      <header class="u-padding-top-6 u-padding-bottom-5 u-bg-noise u-text-align-center">
-        <h3 class="u-text-large-4 u-text-display u-text-uppercase u-text-outline">
+      <c-section-header class="u-bg-noise">
+        <div slot="title">
           Skills
-        </h3>
-        <c-squiggle></c-squiggle>
-      </header>
-      <div class="u-border-top-accent-alternate u-padding-vertical-3 u-padding-horizontal-3 u-text-align-center u-bg-noise">
-        Skills, tools of the trade, and technologies I enjoy working with.
-      </div>
+          <c-squiggle></c-squiggle>
+        </div>
+        <div slot="description">
+          Skills, tools of the trade, and technologies I
+          enjoy working with.
+        </div>
+      </c-section-header>
       <ul class="c-skill-list">
         <li class="c-skill-list__skill">
-          <img class="c-skill-list__image" src="images/Elephant.png" alt="elephant">
+          <img
+            class="c-skill-list__image"
+            src="images/Elephant.png"
+            alt="elephant"
+          />
           <div class="c-skill-list__text">
             <h4 class="c-skill-list__title u-text-title">
               Web Platform
             </h4>
             <span class="c-skill-list__gap"></span>
-            <span class="c-skill-list__number u-text-title">01</span>
+            <span class="c-skill-list__number u-text-title"
+              >01</span
+            >
             <span class="c-skill-list__description">
               Web Components, Applications, #UseThePlatform
             </span>
           </div>
         </li>
         <li class="c-skill-list__skill">
-          <img class="c-skill-list__image" src="images/Lion.png" alt="elephant">
+          <img
+            class="c-skill-list__image"
+            src="images/Lion.png"
+            alt="elephant"
+          />
           <div class="c-skill-list__text">
             <h4 class="c-skill-list__title u-text-title">
               Design
             </h4>
             <span class="c-skill-list__gap"></span>
-            <span class="c-skill-list__number u-text-title">02</span>
+            <span class="c-skill-list__number u-text-title"
+              >02</span
+            >
             <span class="c-skill-list__description">
               Figma, Sketch, Adobe CS**
             </span>
           </div>
         </li>
         <li class="c-skill-list__skill">
-          <img class="c-skill-list__image" src="images/Squirrel.png" alt="elephant">
+          <img
+            class="c-skill-list__image"
+            src="images/Squirrel.png"
+            alt="elephant"
+          />
           <div class="c-skill-list__text">
             <h4 class="c-skill-list__title u-text-title">
               Development
             </h4>
             <span class="c-skill-list__gap"></span>
-            <span class="c-skill-list__number u-text-title">03</span>
+            <span class="c-skill-list__number u-text-title"
+              >03</span
+            >
             <span class="c-skill-list__description">
               JS/ES*, Node.js, Jamstack
             </span>
           </div>
         </li>
         <li class="c-skill-list__skill">
-          <img class="c-skill-list__image" src="images/Camel.png" alt="elephant">
+          <img
+            class="c-skill-list__image"
+            src="images/Camel.png"
+            alt="elephant"
+          />
           <div class="c-skill-list__text">
             <h4 class="c-skill-list__title u-text-title">
               Consultation
             </h4>
             <span class="c-skill-list__gap"></span>
-            <span class="c-skill-list__number u-text-title">04</span>
+            <span class="c-skill-list__number u-text-title"
+              >04</span
+            >
             <span class="c-skill-list__description">
               Not sure where to start? I can help!
             </span>
           </div>
         </li>
       </ul>
-      <hr class="u-separator-alternate c-hero__bottom">
+      <hr class="u-separator-alternate c-hero__bottom" />
     </section>
+
+    <section>
+      <c-section-header class="u-bg-noise u-z-index-3">
+        <div slot="title">
+          Selected <br />
+          Works
+          <c-squiggle></c-squiggle>
+        </div>
+        <div slot="description">
+          A curated list of projects worked on and things I
+          built.
+        </div>
+      </c-section-header>
+
+      <ul
+        class="
+        c-work-list
+        u-bg-pattern-diagonal
+      "
+      >
+
+
+        <li class="c-work-list__item">
+          <div data-sticky class="c-work-list__item-info">
+            <div class="c-work-list__item-info-inner">
+              <h4 class="c-work-list__item-info-title">
+                macOS Modern
+              </h4>
+              <div
+                class="
+                c-work-list__item-info-taglist 
+                u-text-title"
+              >
+                Techologies Used: Frontend Development
+              </div>
+              <div
+                class="
+                  c-work-list__item-info-description
+                "
+              >
+                <p>
+                  A popular Visual Studio Code theme to match 
+                  native macOS.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="
+              c-work-list__item-preview 
+              u-bg-color-muted
+              u-padding-horizontal-2
+              u-padding-vertical-1
+              u-cursor-zoom-in"
+            data-modal-target="modal-macos-modern"
+          >
+            <c-glitch-image
+              src="images/Work/macOS Modern Light 1.jpg"
+              class="
+                u-max-width-30
+              "
+              alt="Logos Dark BG"
+              width="800"
+              height="600"
+            >
+            </c-glitch-image>
+            <c-glitch-image
+              src="images/Work/macOS Modern Dark 1.jpg"
+              class="
+                u-max-width-30 
+                u-hidden@mobile
+              "
+              alt="Logos Dark BG"
+              width="800"
+              height="600"
+            >
+            </c-glitch-image>
+          </div>
+          <div class="c-work-list__item-lower-three">
+            <a
+              class="c-button"
+              href="https://github.com/davidbwaters/macos-modern-vscode-theme"
+              alt="Github Repo Link"
+            >
+              <i
+                class="
+                c-icon 
+                c-icon--github 
+                u-text-large-1
+              "
+              ></i>
+              Star on Github
+            </a>
+
+            <button
+              class="c-button"
+              data-modal-target="modal-macos-modern"
+              data-modal-trigger-primary
+            >
+              <i
+                class="
+                c-icon 
+                c-icon--expand 
+                u-text-large-1
+              "
+              ></i>
+              Show More
+            </button>
+
+            <a
+              class="c-button"
+              href="https://marketplace.visualstudio.com/items?itemName=davidbwaters.macos-modern-theme"
+              alt="VSCode Market Link"
+            >
+              <i
+                class="c-icon c-icon--microsoft u-text-large-1"
+              ></i>
+              VSC Market Link
+            </a>
+
+            <c-modal
+              data-modal-trigger="modal-macos-modern"
+            >
+              <c-section-header
+                class="u-bg-noise u-z-index-3"
+              >
+                <div slot="title">
+                  macOS Modern
+                  <c-squiggle></c-squiggle>
+                </div>
+                <div slot="description" class="u-text-title">
+                    Techologies Used: Frontend Development
+                </div>
+              </c-section-header>
+
+              <div
+                class="
+                c-media-grid 
+                u-bg-pattern-diagonal-alternate
+              "
+              >
+                <article
+                  class="c-media-grid__text-item-wide"
+                >
+                  <p>
+                    I created the macOS Modern Visual Studio
+                    Code theme to enable users to experience
+                    the best code editor while maintaining a
+                    native-like look and feel.
+                  </p>
+                  <p>
+                    The theme includes multiple icon sets
+                    and a matching light and dark app icon.
+                  </p>
+                  <p>
+                    At the time of this writing, it has over
+                    22 thousand installs.
+                  </p>
+                </article>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/macOS Modern All.jpg"
+                    alt="macOS Modern All Themes Shot"
+                  />
+                </div>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/macOS Modern Light 1.jpg"
+                    alt="macOS Modern Light Shot 1"
+                  />
+                </div>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/macOS Modern Dark 1.jpg"
+                    alt="macOS Modern Light Shot 2"
+                  />
+                </div>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/macOS Modern Light 2.jpg"
+                    alt="macOS Modern Dark Shot 1"
+                  />
+                </div>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/macOS Modern Dark 2.jpg"
+                    alt="macOS Modern Dark Shot 2"
+                  />
+                </div>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/macOS Modern Icons.jpg"
+                    alt="macOS Modern Dark Shot 2"
+                  />
+                </div>
+              </div>
+            </c-modal>
+          </div>
+        </li>
+
+        <li class="c-work-list__item">
+          <div data-sticky class="c-work-list__item-info">
+            <div class="c-work-list__item-info-inner">
+              <h4 class="c-work-list__item-info-title">
+                Map Dashboard
+              </h4>
+              <div
+                class="c-work-list__item-info-taglist u-text-title"
+              >
+                Techologies Used: Figma, Javascript, React
+              </div>
+              <div
+                class="c-work-list__item-info-description"
+              >
+                <p>
+                  UI created for an in-development web and 
+                  mobile app for land developers.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="
+              c-work-list__item-preview 
+              u-cursor-zoom-in
+            "
+            data-modal-target="modal-map-dashboard"
+          >
+            <c-glitch-image
+              src="images/Work/Map Browser.jpg"
+              alt="Logos Light BG"
+              glitch="1"
+              width="912"
+              height="712"
+            >
+            </c-glitch-image>
+            <c-glitch-image
+              src="images/Work/Map Figma.jpg"
+              alt="Logos Light BG"
+              glitch="1"
+              width="912"
+              height="712"
+            >
+            </c-glitch-image>
+          </div>
+
+          <div class="c-work-list__item-lower">
+            <button
+              class="c-button c-button--large c-button--block"
+              data-modal-target="modal-map-dashboard"
+              data-modal-trigger-primary
+            >
+              <i
+                class="c-icon c-icon--expand u-text-large-1"
+              ></i>
+              Show More
+            </button>
+
+            <c-modal data-modal-trigger="modal-map-dashboard">
+              <c-section-header
+                class="u-bg-noise u-z-index-3"
+              >
+                <div slot="title">
+                  Map Dashboard
+                  <c-squiggle></c-squiggle>
+                </div>
+                <div slot="description" class="u-text-title">
+                    Techologies Used: Figma, Javascript, React
+                </div>
+              </c-section-header>
+              <div
+                class="c-media-grid u-bg-pattern-diagonal-alternate"
+              >
+                <article
+                  class="c-media-grid__text-item"
+                >
+                  <p>
+                    These shots were created for an 
+                    in-development web and mobile app
+                    for land developers.
+                  </p>
+                  <p>
+                    I was recruited to improve the overall
+                    user experience and help design the map
+                    interface. I used Figma to create 
+                    wireframes, mockups, and a component
+                    system.
+                  </p>
+                  <p>
+                    I also helped the team refine the 
+                    React-based frontend durning a sprint
+                    before a deadline.
+                  </p>
+                </article>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Map Browser.jpg"
+                    alt="Map Dashboard in Browser"
+                  />
+                </div>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Map Components.jpg"
+                    alt="Map Dashboard Components"
+                  />
+                </div>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Map Figma.jpg"
+                    alt="Map Dashboard Figma Project"
+                  />
+                </div>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Map Wireframe.jpg"
+                    alt="Map Dashboard Mockup"
+                  />
+                </div>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Map Mockup.jpg"
+                    alt="Map Dashboard Mockup"
+                  />
+                </div>
+              </div>
+            </c-modal>
+          </div>
+        </li>
+        
+        <li class="c-work-list__item">
+          <div></div>
+          <div data-sticky class="c-work-list__item-info">
+            <div class="c-work-list__item-info-inner">
+              <h4 class="c-work-list__item-info-title">
+                Personal Branding
+              </h4>
+              <div
+                class="c-work-list__item-info-taglist u-text-title"
+              >
+                Techologies Used: Adobe Illustrator
+              </div>
+              <div
+                class="c-work-list__item-info-description"
+              >
+                <p>
+                  Collection of logo variations created as
+                  part of a personal branding update.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="c-work-list__item-preview u-cursor-zoom-in"
+            data-modal-target="modal-logos"
+          >
+            <c-glitch-image
+              src="images/Work/Personal Branding All 1.jpg"
+              alt="Logos Dark BG"
+              glitch="2"
+              width="912"
+              height="712"
+            >
+            </c-glitch-image>
+            <c-glitch-image
+              src="images/Work/Personal Branding All 2.jpg"
+              alt="Logos Light BG"
+              glitch="2"
+              width="912"
+              height="712"
+            >
+            </c-glitch-image>
+          </div>
+
+          <div class="c-work-list__item-lower">
+            <button
+              class="c-button c-button--large c-button--block"
+              data-modal-target="modal-logos"
+              data-modal-trigger-primary
+            >
+              <i
+                class="c-icon c-icon--expand u-text-large-1"
+              ></i>
+              Show More
+            </button>
+
+            <c-modal data-modal-trigger="modal-logos">
+              <c-section-header
+                class="u-bg-noise u-z-index-3"
+              >
+                <div slot="title">
+                  Personal Branding
+                  <c-squiggle></c-squiggle>
+                </div>
+                <div slot="description" class="u-text-title">
+                    Techologies Used: Adobe Illustrator
+                </div>
+              </c-section-header>
+              <div
+                class="c-media-grid u-bg-pattern-diagonal-alternate"
+              >
+                <article
+                  class="c-media-grid__text-item-wide"
+                >
+                  <p>
+                    This is a collection of logo variations
+                    created as part of a personal branding
+                    update.
+                  </p>
+                  <p>
+                    This project was a great exercise in
+                    using the process of rapid iteration to
+                    develop a final product.
+                  </p>
+                </article>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Personal Branding All 1.jpg"
+                    alt="Personal Branding Logos"
+                  />
+                </div>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Personal Branding All 2.jpg"
+                    alt="Personal Branding Logos"
+                  />
+                </div>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Personal Branding Logo 1.jpg"
+                    alt="Personal Branding Logo"
+                  />
+                  <span
+                    class="c-media-grid__image-caption-alternate"
+                  >
+                    This was the version I ended up using.
+                  </span>
+                </div>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Personal Branding Logo 2.jpg"
+                    alt="Personal Branding Logo"
+                  />
+                </div>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Personal Branding Logo 3.jpg"
+                    alt="Personal Branding Logo"
+                  />
+                </div>
+                <div class="c-media-grid__image-item">
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Personal Branding Logo 4.jpg"
+                    alt="Personal Branding Logo"
+                  />
+                </div>
+              </div>
+            </c-modal>
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
     <footer class="c-page-footer u-bg-noise">
-      <hr class="u-separator-alternate u-margin-0">
+      <hr class="u-separator-alternate u-margin-0" />
       <div class="c-page-footer__upper u-text-large-1">
         Made with <3 by David B Waters in 2020.
       </div>
       <div class="c-page-footer__lower">
         <small class="u-text-bolder">
-          This site's source code is freely available under the MIT license
-          <a href="https://github.com/davidbwaters/davidbwaters.github.io" alt="repo link">
-            here 
+          This site's source code is freely available under
+          the MIT license
+          <a
+            href="https://github.com/davidbwaters/davidbwaters.github.io"
+            alt="repo link"
+          >
+            here
           </a>
           .
-          <br/>
-          Stay tuned! It's still very much a work-in-progress.
+          <br />
+          Stay tuned! It's still very much a
+          work-in-progress.
         </small>
       </div>
     </footer>
+
     <c-loader>
       <c-glitch-image
         src="images/Loader-Image.svg"
         active
-        glitch=1
-        width=100
-        height=100
+        glitch="1"
+        width="100"
+        height="100"
       >
       </c-glitch-image>
     </c-loader>
   `, document.body);
-    window.addEventListener('load', () => {
-      stickybits('[data-sticky]');
-      scrambler({
-        target: '[data-scrambler]',
-        random: [1000, 1000],
-        speed: 60
-      });
-    });
 
 }());

@@ -7,14 +7,14 @@ export class Squiggle extends LitElement {
     return css`
       :host {
         display: block;
-        height: .5rem;
+        height: 0.5rem;
         line-height: 0;
-        margin-top: 1.0rem;
+        margin-top: 1rem;
       }
 
       .c-squiggle__svg {
         display: inline-block;
-        fill: var(--color-fg-accent);
+        fill: var(--color-accent);
       }
     `;
   }

@@ -5,11 +5,14 @@ import { LitElement, html, css } from '../../modules/lit-element.js';
 export class Loader extends LitElement {
   static get styles() {
     return css`
-      
       :host {
+        --loader-color-bg: var(--color-bg);
+        --loader-image-bg: url('images/Noise-Main-Solid.png');
+
         align-content: center;
-        background-color: var(--loader-bg-color);
-        background-image: var(--loader-bg-image);
+        background-color: var(--loader-color-bg);
+        background-image: var(--loader-image-bg);
+        cursor: progress;
         display: grid;
         grid-template-columns: 100px;
         grid-template-rows: min-content;
@@ -21,7 +24,6 @@ export class Loader extends LitElement {
         width: 100vw;
         z-index: 9;
       }
-
     `;
   }
 
@@ -37,11 +39,7 @@ export class Loader extends LitElement {
   }
 
   render() {
-    return html`
-      <slot>
-
-      </slot>
-    `;
+    return html` <slot> </slot> `;
   }
 
 }

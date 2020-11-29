@@ -3,7 +3,6 @@
     "lit-element": "./lit-element.js",
     "lit-html": "./lit-html.js",
     "scrambling-letters": "./scrambling-letters.js",
-    "stickybits": "./stickybits.js",
     "webfontloader": "./webfontloader.js"
   }
 }
