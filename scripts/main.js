@@ -569,7 +569,7 @@ render(html`
               data-modal-target="modal-logos"
             >
               <c-glitch-image
-                src="images/Work/Personal Branding All 1.jpg"
+                src="images/Work/Personal Branding All 2.jpg"
                 alt="Logos Dark BG"
                 glitch="2"
                 width="912"
@@ -577,7 +577,7 @@ render(html`
               >
               </c-glitch-image>
               <c-glitch-image
-                src="images/Work/Personal Branding All 2.jpg"
+                src="images/Work/Personal Branding Mockup.jpg"
                 alt="Logos Light BG"
                 glitch="2"
                 width="912"
@@ -614,7 +614,7 @@ render(html`
                   class="c-media-grid u-bg-pattern-diagonal-alternate"
                 >
                   <article
-                    class="c-media-grid__text-item-wide"
+                    class="c-media-grid__text-item"
                   >
                     <p>
                       This is a collection of logo variations
@@ -674,7 +674,15 @@ render(html`
                       alt="Personal Branding Logo"
                     />
                   </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Personal Branding Mockup.jpg"
+                      alt="Personal Branding Logo"
+                    />
+                  </div>
                 </div>
+                
               </c-modal>
             </div>
           </li>
