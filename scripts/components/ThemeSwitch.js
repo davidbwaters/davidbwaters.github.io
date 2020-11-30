@@ -9,6 +9,10 @@ export class ThemeSwitch extends LitElement {
         box-sizing: border-box;
       }
 
+      *::selection {
+        background-color: transparent;
+      }
+
       :host {
         --theme-switch-border: var(--color-subtle);
         --theme-switch-bg: var(--color-subtle);
@@ -18,17 +22,26 @@ export class ThemeSwitch extends LitElement {
         align-items: center;
         border-right: solid 1px var(--theme-switch-border);
         display: grid;
-        grid-auto-flow: column;
-        grid-gap: 0.5rem;
         height: 100%;
-        justify-content: center;
-        justify-items: center;
         width: 100%;
       }
 
       .c-theme-switch__label {
+        align-items: center;
+        column-gap: .4rem;
         cursor: pointer;
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: center;
         position: relative;
+      }
+
+      @media (min-width:35em) {
+
+        .c-theme-switch__label {
+          column-gap: .5rem;
+        }
+
       }
 
       .c-theme-switch__input {
@@ -41,10 +54,17 @@ export class ThemeSwitch extends LitElement {
       .c-theme-switch__switch {
         background: var(--theme-switch-bg);
         border: solid var(--theme-switch-switch-border) 1px;
-        display: block;
-        height: 2rem;
-        left: 0;
-        width: 1rem;
+        height: 1.8rem;
+        width: .9rem;
+      }
+
+      @media (min-width:35em) {
+
+        .c-theme-switch__switch {
+          height: 2rem;
+          width: 1rem;
+        }
+
       }
 
       .c-theme-switch__switch::before {
@@ -61,10 +81,15 @@ export class ThemeSwitch extends LitElement {
       }
 
       ::slotted(i) {
-        align-items: center;
-        display: grid;
-        font-size: 0.75rem;
-        justify-content: right;
+        font-size: 0.66rem;
+      }
+
+      @media (min-width:35em) {
+
+        ::slotted(i) {
+          font-size: 0.75rem;
+        }
+
       }
     `;
   }
@@ -83,8 +108,9 @@ export class ThemeSwitch extends LitElement {
           @change=${this._handleChange}
         />
         <span class="c-theme-switch__switch"></span>
+        <slot></slot>
       </label>
-      <slot></slot>
+      
     `;
   }
 

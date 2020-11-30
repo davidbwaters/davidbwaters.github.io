@@ -74,10 +74,8 @@ render(html`
         </div>
         <div slot="name-stylized">DAVIDBWATERS</div>
         <div slot="heading">
-          <h2 class="u-text-large-3">
-            Building digital solutions to promote growth.
-            <c-squiggle></c-squiggle>
-          </h2>
+          Building digital solutions to promote growth.
+          <c-squiggle></c-squiggle>
         </div>
         <c-theme-switch slot="footer-box-left">
           <i class="c-icon c-icon--switch"></i>
@@ -97,13 +95,13 @@ render(html`
           >
           <span>
             Start
-            <span class="u-hidden@tablet">Your</span>
+            <span class="u-hidden@mobile">Your</span>
             Project!
           </span>
         </div>
         <div slot="footer-box-right">
           <i
-            class="c-icon c-icon--arrow-down u-text-large-2"
+            class="c-icon c-icon--arrow-down"
           ></i>
         </div>
         <hr slot="bottom" class="u-separator" />
@@ -279,10 +277,9 @@ render(html`
               >
                 <i
                   class="
-                  c-icon 
-                  c-icon--github 
-                  u-text-large-1
-                "
+                    c-icon 
+                    c-icon--github
+                  "
                 ></i>
                 Star on Github
               </a>
@@ -294,10 +291,9 @@ render(html`
               >
                 <i
                   class="
-                  c-icon 
-                  c-icon--expand 
-                  u-text-large-1
-                "
+                    c-icon 
+                    c-icon--expand
+                  "
                 ></i>
                 Show More
               </button>
@@ -308,7 +304,10 @@ render(html`
                 alt="VSCode Market Link"
               >
                 <i
-                  class="c-icon c-icon--microsoft u-text-large-1"
+                  class="
+                    c-icon 
+                    c-icon--microsoft
+                  "
                 ></i>
                 VSC Market Link
               </a>
@@ -461,8 +460,7 @@ render(html`
                 <i
                   class="
                     c-icon 
-                    c-icon--expand 
-                    u-text-large-1
+                    c-icon--expand
                   "
                 ></i>
                 Show More
@@ -592,12 +590,15 @@ render(html`
 
             <div class="c-work-list__item-lower">
               <button
-                class="c-button c-button--large c-button--block"
+                class="c-button c-button--block"
                 data-modal-target="modal-map-dashboard"
                 data-modal-trigger-primary
               >
                 <i
-                  class="c-icon c-icon--expand u-text-large-1"
+                  class="
+                    c-icon 
+                    c-icon--expand 
+                  "
                 ></i>
                 Show More
               </button>
@@ -728,12 +729,15 @@ render(html`
 
             <div class="c-work-list__item-lower">
               <button
-                class="c-button c-button--large c-button--block"
+                class="c-button c-button--block"
                 data-modal-target="modal-logos"
                 data-modal-trigger-primary
               >
                 <i
-                  class="c-icon c-icon--expand u-text-large-1"
+                  class="
+                    c-icon 
+                    c-icon--expand
+                  "
                 ></i>
                 Show More
               </button>
@@ -890,8 +894,7 @@ render(html`
                 <i
                   class="
                   c-icon 
-                  c-icon--github 
-                  u-text-large-1
+                  c-icon--github
                 "
                 ></i>
                 Star on Github
@@ -904,8 +907,7 @@ render(html`
                 <i
                   class="
                   c-icon 
-                  c-icon--npm 
-                  u-text-large-1
+                  c-icon--npm
                 "
                 ></i>
                 NPM Packages

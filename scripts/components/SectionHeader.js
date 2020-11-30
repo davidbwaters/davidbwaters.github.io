@@ -23,23 +23,40 @@ export class SectionHeader extends LitElement {
       }
 
       ::slotted([slot='title']) {
-        font-size: 2.0736rem;
-        font-size: clamp(
-          2.0736rem,
-          32.832px + 0.108vw,
-          2.16rem
-        );
+        font-size: 1.4rem;
         font-family: var(--title-font);
         font-weight: var(--title-font-weight);
         line-height: 1.25;
         padding-bottom: 3rem;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-left: .5rem;
+        padding-right: .5rem;
         padding-top: 4rem;
         text-transform: uppercase;
-        -webkit-text-fill-color: transparent;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: var(--color-fg);
+      }
+
+      @media (min-width: 16em) {
+
+        ::slotted([slot='title']) {
+          font-size: 1.5rem;
+          padding-left: 1rem;
+          padding-right: 1rem;
+          -webkit-text-fill-color: transparent;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: var(--color-fg);
+        }
+      }
+
+      @media (min-width: 25em) {
+
+        ::slotted([slot='title']) {
+          font-size: 2.0736rem;
+          font-size: clamp(
+            2.0736rem,
+            32.832px + 0.108vw,
+            2.16rem
+          );
+        }
+
       }
 
       @media (min-width: 45em) {

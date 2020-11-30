@@ -2735,17 +2735,19 @@
 
       .c-hero__tagline {
         font-family: 'syneextrabold';
-        font-size: clamp(2.5rem, 6vw, 4.25rem);
+        font-size: clamp(1.5rem, 7vw, 4.25rem);
         line-height: 1.05;
         text-transform: uppercase;
         width: auto;
       }
 
       @media (min-height: 35em) {
+        
         .c-hero__tagline {
           margin-top: 0.5rem;
           line-height: 1.1;
         }
+
       }
 
       .c-hero__tagline-main {
@@ -2913,6 +2915,7 @@
 
       .c-hero__name-stylized-letter {
         font-family: var(--font-accent);
+        font-size: .8rem;
         font-weight: var(--font-accent-weight);
         margin-bottom: auto;
         margin-left: auto;
@@ -2920,21 +2923,29 @@
         margin-top: auto;
       }
 
+      @media (min-width: 35em) {
+
+        .c-hero__name-stylized-letter {
+          font-size: 1rem;
+        }
+
+      }
+
       .c-hero__heading {
         align-content: center;
         border-top: solid 1px var(--color-accent);
         display: grid;
+        font-family: var(--font-heading);
+        font-size: clamp(1.5rem, 3vw, 2.25rem);
         grid-column-end: 3;
         grid-column-start: 1;
         justify-content: center;
+        line-height: 1;
         padding-left: 2rem;
         padding-right: 2rem;
       }
 
-      .c-hero__heading > * {
-        font-size: clamp(1.75rem, 3vw, 2.25rem);
-        line-height: 1;
-        margin-bottom: 0;
+      ::slotted([slot='heading']) {
         max-width: 30rem;
       }
 
@@ -2953,8 +2964,24 @@
       .c-hero__footer {
         border-top: solid 1px var(--color-accent);
         display: grid;
-        grid-template-columns: 4rem 1fr 1fr 4rem;
+        grid-template-columns: 
+            3.2rem 
+            auto
+            auto
+            2.1rem;
         grid-template-rows: 1fr 0.5rem;
+      }
+
+      @media (min-width: 35em) {
+
+        .c-hero__footer {
+          grid-template-columns: 
+            4rem 
+            calc(50% - 4rem) 
+            calc(50% - 4rem) 
+            4rem;
+        }
+
       }
 
       ::slotted([slot='footer-box-left']),
@@ -2966,27 +2993,69 @@
       ::slotted([slot='footer-content-left']),
       ::slotted([slot='footer-content-right']) {
         align-items: center;
-        column-gap: 1rem;
+        column-gap: .5rem;
         display: grid;
-        font-size: 0.75rem;
-        grid-template-columns: auto 1fr;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        font-family: var(--font-main-regular);
+        font-size: 0.6rem;
+        justify-content: center;
+        padding-left: .5rem;
+        padding-right: .5rem;
+      }
+
+      @media (min-width: 25em) {
+
+        ::slotted([slot='footer-content-left']),
+        ::slotted([slot='footer-content-right']) {
+          column-gap: .75rem;
+          font-family: var(--font-main-light);
+          font-size: .8rem;
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
       }
 
       @media (min-width: 45em) {
+
         ::slotted([slot='footer-content-left']),
         ::slotted([slot='footer-content-right']) {
+          column-gap: 1rem;
           font-size: 1rem;
           padding-left: 1.25rem;
           padding-right: 1.25rem;
         }
+      
+      }
+      
+      ::slotted([slot='footer-content-left']) {
+        grid-template-columns: auto 1fr;
+      }
+
+      
+      ::slotted([slot='footer-content-right']) {
+        grid-template-columns: auto 1fr;
+      }
+
+      @media (min-width: 45em) {
+
+        ::slotted([slot='footer-content-right']) {
+          grid-template-columns: auto 1fr;
+        }
+
       }
 
       ::slotted([slot='footer-box-right']) {
         align-items: center;
         display: grid;
+        font-size: 1.2rem;
         justify-content: center;
+      }
+
+      @media (min-width: 35em) {
+
+        ::slotted([slot='footer-box-right']) {
+          font-size: 1.33rem;
+        }
+
       }
 
       ::slotted([slot='bottom']) {
@@ -2995,6 +3064,7 @@
         margin-bottom: 0;
         margin-top: 0;
       }
+
 
       /* Animations */
 
@@ -3140,6 +3210,10 @@
         box-sizing: border-box;
       }
 
+      *::selection {
+        background-color: transparent;
+      }
+
       :host {
         --theme-switch-border: var(--color-subtle);
         --theme-switch-bg: var(--color-subtle);
@@ -3149,17 +3223,26 @@
         align-items: center;
         border-right: solid 1px var(--theme-switch-border);
         display: grid;
-        grid-auto-flow: column;
-        grid-gap: 0.5rem;
         height: 100%;
-        justify-content: center;
-        justify-items: center;
         width: 100%;
       }
 
       .c-theme-switch__label {
+        align-items: center;
+        column-gap: .4rem;
         cursor: pointer;
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: center;
         position: relative;
+      }
+
+      @media (min-width:35em) {
+
+        .c-theme-switch__label {
+          column-gap: .5rem;
+        }
+
       }
 
       .c-theme-switch__input {
@@ -3172,10 +3255,17 @@
       .c-theme-switch__switch {
         background: var(--theme-switch-bg);
         border: solid var(--theme-switch-switch-border) 1px;
-        display: block;
-        height: 2rem;
-        left: 0;
-        width: 1rem;
+        height: 1.8rem;
+        width: .9rem;
+      }
+
+      @media (min-width:35em) {
+
+        .c-theme-switch__switch {
+          height: 2rem;
+          width: 1rem;
+        }
+
       }
 
       .c-theme-switch__switch::before {
@@ -3192,10 +3282,15 @@
       }
 
       ::slotted(i) {
-        align-items: center;
-        display: grid;
-        font-size: 0.75rem;
-        justify-content: right;
+        font-size: 0.66rem;
+      }
+
+      @media (min-width:35em) {
+
+        ::slotted(i) {
+          font-size: 0.75rem;
+        }
+
       }
     `;
       }
@@ -3214,8 +3309,9 @@
           @change=${this._handleChange}
         />
         <span class="c-theme-switch__switch"></span>
+        <slot></slot>
       </label>
-      <slot></slot>
+      
     `;
       }
 
@@ -3282,23 +3378,40 @@
       }
 
       ::slotted([slot='title']) {
-        font-size: 2.0736rem;
-        font-size: clamp(
-          2.0736rem,
-          32.832px + 0.108vw,
-          2.16rem
-        );
+        font-size: 1.4rem;
         font-family: var(--title-font);
         font-weight: var(--title-font-weight);
         line-height: 1.25;
         padding-bottom: 3rem;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-left: .5rem;
+        padding-right: .5rem;
         padding-top: 4rem;
         text-transform: uppercase;
-        -webkit-text-fill-color: transparent;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: var(--color-fg);
+      }
+
+      @media (min-width: 16em) {
+
+        ::slotted([slot='title']) {
+          font-size: 1.5rem;
+          padding-left: 1rem;
+          padding-right: 1rem;
+          -webkit-text-fill-color: transparent;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: var(--color-fg);
+        }
+      }
+
+      @media (min-width: 25em) {
+
+        ::slotted([slot='title']) {
+          font-size: 2.0736rem;
+          font-size: clamp(
+            2.0736rem,
+            32.832px + 0.108vw,
+            2.16rem
+          );
+        }
+
       }
 
       @media (min-width: 45em) {
@@ -4631,10 +4744,8 @@
         </div>
         <div slot="name-stylized">DAVIDBWATERS</div>
         <div slot="heading">
-          <h2 class="u-text-large-3">
-            Building digital solutions to promote growth.
-            <c-squiggle></c-squiggle>
-          </h2>
+          Building digital solutions to promote growth.
+          <c-squiggle></c-squiggle>
         </div>
         <c-theme-switch slot="footer-box-left">
           <i class="c-icon c-icon--switch"></i>
@@ -4654,13 +4765,13 @@
           >
           <span>
             Start
-            <span class="u-hidden@tablet">Your</span>
+            <span class="u-hidden@mobile">Your</span>
             Project!
           </span>
         </div>
         <div slot="footer-box-right">
           <i
-            class="c-icon c-icon--arrow-down u-text-large-2"
+            class="c-icon c-icon--arrow-down"
           ></i>
         </div>
         <hr slot="bottom" class="u-separator" />
@@ -4836,10 +4947,9 @@
               >
                 <i
                   class="
-                  c-icon 
-                  c-icon--github 
-                  u-text-large-1
-                "
+                    c-icon 
+                    c-icon--github
+                  "
                 ></i>
                 Star on Github
               </a>
@@ -4851,10 +4961,9 @@
               >
                 <i
                   class="
-                  c-icon 
-                  c-icon--expand 
-                  u-text-large-1
-                "
+                    c-icon 
+                    c-icon--expand
+                  "
                 ></i>
                 Show More
               </button>
@@ -4865,7 +4974,10 @@
                 alt="VSCode Market Link"
               >
                 <i
-                  class="c-icon c-icon--microsoft u-text-large-1"
+                  class="
+                    c-icon 
+                    c-icon--microsoft
+                  "
                 ></i>
                 VSC Market Link
               </a>
@@ -5018,8 +5130,7 @@
                 <i
                   class="
                     c-icon 
-                    c-icon--expand 
-                    u-text-large-1
+                    c-icon--expand
                   "
                 ></i>
                 Show More
@@ -5149,12 +5260,15 @@
 
             <div class="c-work-list__item-lower">
               <button
-                class="c-button c-button--large c-button--block"
+                class="c-button c-button--block"
                 data-modal-target="modal-map-dashboard"
                 data-modal-trigger-primary
               >
                 <i
-                  class="c-icon c-icon--expand u-text-large-1"
+                  class="
+                    c-icon 
+                    c-icon--expand 
+                  "
                 ></i>
                 Show More
               </button>
@@ -5285,12 +5399,15 @@
 
             <div class="c-work-list__item-lower">
               <button
-                class="c-button c-button--large c-button--block"
+                class="c-button c-button--block"
                 data-modal-target="modal-logos"
                 data-modal-trigger-primary
               >
                 <i
-                  class="c-icon c-icon--expand u-text-large-1"
+                  class="
+                    c-icon 
+                    c-icon--expand
+                  "
                 ></i>
                 Show More
               </button>
@@ -5447,8 +5564,7 @@
                 <i
                   class="
                   c-icon 
-                  c-icon--github 
-                  u-text-large-1
+                  c-icon--github
                 "
                 ></i>
                 Star on Github
@@ -5461,8 +5577,7 @@
                 <i
                   class="
                   c-icon 
-                  c-icon--npm 
-                  u-text-large-1
+                  c-icon--npm
                 "
                 ></i>
                 NPM Packages
