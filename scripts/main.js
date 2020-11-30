@@ -97,7 +97,7 @@ render(html`
           >
           <span>
             Start
-            <span class="u-hidden@mobile">Your</span>
+            <span class="u-hidden@tablet">Your</span>
             Project!
           </span>
         </div>
@@ -249,18 +249,12 @@ render(html`
 
             <div
               class="
-                c-work-list__item-preview 
-                u-bg-color-muted
-                u-padding-horizontal-2
-                u-padding-vertical-1
+                c-work-list__item-preview
                 u-cursor-zoom-in"
               data-modal-target="modal-macos-modern"
             >
               <c-glitch-image
-                src="images/Work/macOS Modern Light 1.jpg"
-                class="
-                  u-max-width-30
-                "
+                src="images/Work/macOS Modern All.jpg"
                 alt="Screenshot Light Theme"
                 width="800"
                 height="600"
@@ -269,8 +263,7 @@ render(html`
               <c-glitch-image
                 src="images/Work/macOS Modern Dark 1.jpg"
                 class="
-                  u-max-width-30 
-                  u-hidden@mobile
+                  u-hidden@tablet
                 "
                 alt="Screenshot Dark Theme"
                 width="800"
@@ -410,6 +403,147 @@ render(html`
             <div data-sticky class="c-work-list__item-info">
               <div class="c-work-list__item-info-inner">
                 <h4 class="c-work-list__item-info-title">
+                  Limber Logic Brand Identity
+                </h4>
+                <div
+                  class="
+                  c-work-list__item-info-taglist 
+                  u-text-title"
+                >
+                  Techologies Used: Adobe Illustrator
+                </div>
+                <div
+                  class="
+                    c-work-list__item-info-description
+                  "
+                >
+                  <p>
+                    I created the brand identity for Limber
+                    Logic, a digital product design company
+                    in Charleston. 
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="
+                c-work-list__item-preview 
+                u-cursor-zoom-in"
+              data-modal-target="modal-limber-logic"
+            >
+              <c-glitch-image
+                src="images/Work/Limber Logic Mockup Dark.jpg"
+                alt="Logo Mockup Dark"
+                width="800"
+                height="600"
+              >
+              </c-glitch-image>
+              <c-glitch-image
+                  src="images/Work/Limber Logic Both.svg"
+                  class="
+                    u-hidden@tablet
+                    u-bg-color-white
+                  "
+                  alt="Logo in Black"
+                  width="800"
+                  height="600"
+                >
+              </c-glitch-image>
+            </div>
+            <div class="c-work-list__item-lower">
+
+              <button
+                class="c-button"
+                data-modal-target="modal-limber-logic"
+                data-modal-trigger-primary
+              >
+                <i
+                  class="
+                    c-icon 
+                    c-icon--expand 
+                    u-text-large-1
+                  "
+                ></i>
+                Show More
+              </button>
+
+              <c-modal
+                data-modal-trigger="modal-limber-logic"
+              >
+                <c-section-header
+                  class="u-bg-noise u-z-index-3"
+                >
+                  <div slot="title">
+                    Limber Logic Identity
+                    <c-squiggle></c-squiggle>
+                  </div>
+                  <div slot="description" class="u-text-title">
+                    Techologies Used: Adobe Illustrator
+                  </div>
+                </c-section-header>
+
+                <div
+                  class="
+                  c-media-grid 
+                  u-bg-pattern-diagonal-alternate
+                "
+                >
+                  <article
+                    class="c-media-grid__text-item-wide"
+                  >
+                    <p>
+                      I created the brand identity for 
+                      Limber Logic, a digital product design
+                      company in Charleston. I wanted the 
+                      branding to have a sleek, techy,
+                      aesthetic.
+                    </p>
+                    <p>
+                      Limber Logic was the collaboration of
+                      my friend as Lead Developer and me as
+                      Lead Designer. We worked on various 
+                      projects and I learned a lot in my 
+                      time there.
+                    </p>
+                  </article>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Limber Logic Light.jpg"
+                      alt="Limber Logic Logo Light"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Limber Logic Dark.jpg"
+                      alt="Limber Logic Logo Dark"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Limber Logic Mockup Dark.jpg"
+                      alt="Limber Logic Mockup Dark"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Limber Logic Mockup Light.jpg"
+                      alt="Limber Logic Mockup Light"
+                    />
+                  </div>
+                </div>
+              </c-modal>
+            </div>
+          </li>
+
+          <li class="c-work-list__item">
+            <div data-sticky class="c-work-list__item-info">
+              <div class="c-work-list__item-info-inner">
+                <h4 class="c-work-list__item-info-title">
                   Map Dashboard
                 </h4>
                 <div
@@ -446,6 +580,9 @@ render(html`
               <c-glitch-image
                 src="images/Work/Map Figma.jpg"
                 alt="Logos Light BG"
+                class="
+                  u-hidden@tablet
+                "
                 glitch="1"
                 width="912"
                 height="712"
@@ -569,16 +706,19 @@ render(html`
               data-modal-target="modal-logos"
             >
               <c-glitch-image
-                src="images/Work/Personal Branding All 2.jpg"
-                alt="Logos Dark BG"
+                src="images/Work/Personal Branding Mockup.jpg"
+                alt="Logos Light BG"
+                class="
+                  u-hidden@tablet
+                "
                 glitch="2"
                 width="912"
                 height="712"
               >
               </c-glitch-image>
               <c-glitch-image
-                src="images/Work/Personal Branding Mockup.jpg"
-                alt="Logos Light BG"
+                src="images/Work/Personal Branding All 2.jpg"
+                alt="Logos Dark BG"
                 glitch="2"
                 width="912"
                 height="712"
@@ -684,6 +824,92 @@ render(html`
                 </div>
                 
               </c-modal>
+            </div>
+          </li>
+
+          <li class="c-work-list__item">
+            <div data-sticky class="c-work-list__item-info">
+              <div class="c-work-list__item-info-inner">
+                <h4 class="c-work-list__item-info-title">
+                  Substructure ITCSS Framework
+                </h4>
+                <div
+                  class="
+                  c-work-list__item-info-taglist 
+                  u-text-title"
+                >
+                  Techologies Used: CSS/SASS, BEM, ITCSS, Lerna
+                </div>
+                <div
+                  class="
+                    c-work-list__item-info-description
+                  "
+                >
+                  <p>
+                    My modular CSS boilerplate inspired by 
+                    the work of Harry Roberts and others
+                    with modern features sprinkled in.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="
+                c-work-list__item-preview
+                u-bg-color-muted"
+            >
+              <c-glitch-image
+                src="images/Work/Substructure Text.svg"
+                class="
+                  u-hidden@tablet
+                  u-max-width-30
+                "
+                alt="Screenshot Dark Theme"
+                width="800"
+                height="600"
+              >
+              </c-glitch-image>
+              <c-glitch-image
+                src="images/Work/Substructure Shot.jpg"
+                class="
+                  u-max-width-30
+                "
+                alt="Screenshot Dark Theme"
+                width="800"
+                height="600"
+              >
+              </c-glitch-image>
+            </div>
+            <div class="c-work-list__item-lower">
+              <a
+                class="c-button"
+                href="https://github.com/davidbwaters/substructure"
+                alt="Github Repo Link"
+              >
+                <i
+                  class="
+                  c-icon 
+                  c-icon--github 
+                  u-text-large-1
+                "
+                ></i>
+                Star on Github
+              </a>
+              <a
+                class="c-button"
+                href="https://www.npmjs.com/settings/substructure/packages"
+                alt="NPM Link"
+              >
+                <i
+                  class="
+                  c-icon 
+                  c-icon--npm 
+                  u-text-large-1
+                "
+                ></i>
+                NPM Packages
+              </a>
             </div>
           </li>
 

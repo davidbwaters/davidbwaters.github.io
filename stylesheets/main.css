@@ -2378,7 +2378,7 @@ small {
   --color-accent: #95D6EB;
   --color-subtle: #46378F;
   --color-subtle-alternate: #897DD1;
-  --color-muted: #B9BAD6;
+  --color-muted: #9E9ECA;
   --color-opaque: rgba(0,0,0,.2);
   --color-opaque-alternate: rgba(255,255,255,.175);
   --color-opaque-overlay: rgba(0,0,0,0.02);
@@ -2392,7 +2392,7 @@ small {
   --color-accent: #6E4ECE;
   --color-subtle: #46378F;
   --color-subtle-alternate: #46378F;
-  --color-muted: #9694bd;
+  --color-muted: #9E9ECA;
   --color-opaque: rgba(0,0,0,.2);
   --color-opaque-alternate: rgba(0,0,0,.175);
   --color-opaque-overlay: rgba(255,255,255,.02);
@@ -3139,6 +3139,11 @@ c-theme-switch,
     padding-top: 1rem;
   }
 }
+.c-work-list__item-info-description {
+  font-size: 1.25rem;
+  max-width: 55rem;
+}
+
 .c-work-list__item-info-taglist {
   padding-bottom: 1rem;
 }
@@ -3299,9 +3304,29 @@ strong {
   position: relative !important;
 }
 
-/* Max Width */
+/* Max Dimensions */
 .u-max-width-30 {
   max-width: 30rem !important;
+}
+
+.u-max-width-40 {
+  max-width: 40rem !important;
+}
+
+.u-max-width-50 {
+  max-width: 50rem !important;
+}
+
+.u-max-height-30 {
+  max-height: 30rem !important;
+}
+
+.u-max-height-40 {
+  max-height: 40rem !important;
+}
+
+.u-max-height-50 {
+  max-height: 50rem !important;
 }
 
 /* Cursor */
@@ -3328,8 +3353,14 @@ strong {
   visibility: hidden !important;
 }
 
-@media (max-width: 35em) {
+@media (max-width: 45em) {
   .u-hidden\@mobile {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+@media (max-width: 55em) {
+  .u-hidden\@tablet {
     display: none !important;
     visibility: hidden !important;
   }
@@ -3406,6 +3437,14 @@ strong {
 
 .u-bg-color-opaque-alternate {
   background-color: var(--color-opaque-alternate) !important;
+}
+
+.u-bg-color-white {
+  background-color: #FFFFFF !important;
+}
+
+.u-bg-color-black {
+  background-color: #000000 !important;
 }
 
 .u-bg-color-gray {
