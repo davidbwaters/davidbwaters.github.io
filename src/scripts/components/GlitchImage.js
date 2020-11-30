@@ -13,7 +13,8 @@ export class GlitchImage extends LitElement {
         --glitch-image-height: 100%;
         --glitch-image-width: 100%;
 
-        display: block;
+        align-items: center;
+        display: grid;
         min-height: 1px;
         width: 100%;
       }

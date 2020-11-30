@@ -25,21 +25,44 @@
   cursor: pointer;
   display: inline-grid;
   font-family: var(--font-main-regular);
-  font-size: .7rem;
+  font-size: .6rem;
   grid-auto-flow: column;
   grid-gap: .5rem;
   justify-content: center;
   letter-spacing: .05em;
   line-height: 1.2;
-  padding-bottom: .75rem;
-  padding-left: .5rem;
-  padding-right: .5rem;
-  padding-top: .75rem;
+  padding-bottom: .7rem;
+  padding-left: .4rem;
+  padding-right: .4rem;
+  padding-top: .7rem;
   text-decoration: none;
   text-transform: uppercase;
   transition: all var(--button-transition-duration);
 }
 
+@media (min-width:25em) {
+
+  .c-button {
+    font-size: .66rem;
+    padding-bottom: .75rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    padding-top: .75rem;
+  }
+
+}
+
+@media (min-width:45em) {
+
+  .c-button {
+    font-size: .7rem;
+    padding-bottom: .75rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    padding-top: .75rem;
+  }
+
+}
 
 @media (min-width:55em) {
 
@@ -74,6 +97,18 @@
   color: var(--button-color-bg);
   position: relative;
   z-index: 9;
+}
+
+.c-button i {
+  font-size: 1rem;
+}
+
+@media (min-width:35em) {
+
+  .c-button i {
+    font-size: 1.2rem;
+  }
+
 }
 
 .c-button--large {

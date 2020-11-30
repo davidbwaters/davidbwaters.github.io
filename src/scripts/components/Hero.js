@@ -111,17 +111,19 @@ export class Hero extends LitElement {
 
       .c-hero__tagline {
         font-family: 'syneextrabold';
-        font-size: clamp(2.5rem, 6vw, 4.25rem);
+        font-size: clamp(1.5rem, 7vw, 4.25rem);
         line-height: 1.05;
         text-transform: uppercase;
         width: auto;
       }
 
       @media (min-height: 35em) {
+        
         .c-hero__tagline {
           margin-top: 0.5rem;
           line-height: 1.1;
         }
+
       }
 
       .c-hero__tagline-main {
@@ -289,6 +291,7 @@ export class Hero extends LitElement {
 
       .c-hero__name-stylized-letter {
         font-family: var(--font-accent);
+        font-size: .8rem;
         font-weight: var(--font-accent-weight);
         margin-bottom: auto;
         margin-left: auto;
@@ -296,21 +299,29 @@ export class Hero extends LitElement {
         margin-top: auto;
       }
 
+      @media (min-width: 35em) {
+
+        .c-hero__name-stylized-letter {
+          font-size: 1rem;
+        }
+
+      }
+
       .c-hero__heading {
         align-content: center;
         border-top: solid 1px var(--color-accent);
         display: grid;
+        font-family: var(--font-heading);
+        font-size: clamp(1.5rem, 3vw, 2.25rem);
         grid-column-end: 3;
         grid-column-start: 1;
         justify-content: center;
+        line-height: 1;
         padding-left: 2rem;
         padding-right: 2rem;
       }
 
-      .c-hero__heading > * {
-        font-size: clamp(1.75rem, 3vw, 2.25rem);
-        line-height: 1;
-        margin-bottom: 0;
+      ::slotted([slot='heading']) {
         max-width: 30rem;
       }
 
@@ -329,8 +340,24 @@ export class Hero extends LitElement {
       .c-hero__footer {
         border-top: solid 1px var(--color-accent);
         display: grid;
-        grid-template-columns: 4rem 1fr 1fr 4rem;
+        grid-template-columns: 
+            3.2rem 
+            auto
+            auto
+            2.1rem;
         grid-template-rows: 1fr 0.5rem;
+      }
+
+      @media (min-width: 35em) {
+
+        .c-hero__footer {
+          grid-template-columns: 
+            4rem 
+            calc(50% - 4rem) 
+            calc(50% - 4rem) 
+            4rem;
+        }
+
       }
 
       ::slotted([slot='footer-box-left']),
@@ -342,27 +369,69 @@ export class Hero extends LitElement {
       ::slotted([slot='footer-content-left']),
       ::slotted([slot='footer-content-right']) {
         align-items: center;
-        column-gap: 1rem;
+        column-gap: .5rem;
         display: grid;
-        font-size: 0.75rem;
-        grid-template-columns: auto 1fr;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        font-family: var(--font-main-regular);
+        font-size: 0.6rem;
+        justify-content: center;
+        padding-left: .5rem;
+        padding-right: .5rem;
+      }
+
+      @media (min-width: 25em) {
+
+        ::slotted([slot='footer-content-left']),
+        ::slotted([slot='footer-content-right']) {
+          column-gap: .75rem;
+          font-family: var(--font-main-light);
+          font-size: .8rem;
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
       }
 
       @media (min-width: 45em) {
+
         ::slotted([slot='footer-content-left']),
         ::slotted([slot='footer-content-right']) {
+          column-gap: 1rem;
           font-size: 1rem;
           padding-left: 1.25rem;
           padding-right: 1.25rem;
         }
+      
+      }
+      
+      ::slotted([slot='footer-content-left']) {
+        grid-template-columns: auto 1fr;
+      }
+
+      
+      ::slotted([slot='footer-content-right']) {
+        grid-template-columns: auto 1fr;
+      }
+
+      @media (min-width: 45em) {
+
+        ::slotted([slot='footer-content-right']) {
+          grid-template-columns: auto 1fr;
+        }
+
       }
 
       ::slotted([slot='footer-box-right']) {
         align-items: center;
         display: grid;
+        font-size: 1.2rem;
         justify-content: center;
+      }
+
+      @media (min-width: 35em) {
+
+        ::slotted([slot='footer-box-right']) {
+          font-size: 1.33rem;
+        }
+
       }
 
       ::slotted([slot='bottom']) {
@@ -371,6 +440,7 @@ export class Hero extends LitElement {
         margin-bottom: 0;
         margin-top: 0;
       }
+
 
       /* Animations */
 

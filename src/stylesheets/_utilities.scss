@@ -75,11 +75,33 @@
   position: relative !important;
 }
 
-/* Max Width */
+
+/* Max Dimensions */
 
 .u-max-width-30 {
   max-width: 30rem !important;
 }
+
+.u-max-width-40 {
+  max-width: 40rem !important;
+}
+
+.u-max-width-50 {
+  max-width: 50rem !important;
+}
+
+.u-max-height-30 {
+  max-height: 30rem !important;
+}
+
+.u-max-height-40 {
+  max-height: 40rem !important;
+}
+
+.u-max-height-50 {
+  max-height: 50rem !important;
+}
+
 
 /* Cursor */
 
@@ -109,9 +131,18 @@
   visibility: hidden !important;
 }
 
-@media (max-width:35em) {
+@media (max-width:25em) {
 
   .u-hidden\@mobile {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+}
+
+@media (max-width:30em) {
+
+  .u-hidden\@tablet {
     display: none !important;
     visibility: hidden !important;
   }
@@ -220,6 +251,14 @@
 
 .u-bg-color-opaque-alternate {
   background-color: var(--color-opaque-alternate) !important;
+}
+
+.u-bg-color-white {
+  background-color: #FFFFFF !important;
+}
+
+.u-bg-color-black {
+  background-color: #000000 !important;
 }
 
 .u-bg-color-gray {
@@ -338,11 +377,11 @@
 }
 
 [data-theme=light] .u-bg-noise::before {
-  opacity: 0.3 !important;
+  opacity: 0.25 !important;
 }
 
 [data-theme=light] .u-overlay-noise::before {
-  opacity: 0.3 !important;
+  opacity: 0.25 !important;
 }
 
 

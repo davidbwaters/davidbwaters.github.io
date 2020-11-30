@@ -85,10 +85,8 @@ render(
         </div>
         <div slot="name-stylized">DAVIDBWATERS</div>
         <div slot="heading">
-          <h2 class="u-text-large-3">
-            Building digital solutions to promote growth.
-            <c-squiggle></c-squiggle>
-          </h2>
+          Building digital solutions to promote growth.
+          <c-squiggle></c-squiggle>
         </div>
         <c-theme-switch slot="footer-box-left">
           <i class="c-icon c-icon--switch"></i>
@@ -114,7 +112,7 @@ render(
         </div>
         <div slot="footer-box-right">
           <i
-            class="c-icon c-icon--arrow-down u-text-large-2"
+            class="c-icon c-icon--arrow-down"
           ></i>
         </div>
         <hr slot="bottom" class="u-separator" />
@@ -260,18 +258,12 @@ render(
 
             <div
               class="
-                c-work-list__item-preview 
-                u-bg-color-muted
-                u-padding-horizontal-2
-                u-padding-vertical-1
+                c-work-list__item-preview
                 u-cursor-zoom-in"
               data-modal-target="modal-macos-modern"
             >
               <c-glitch-image
-                src="images/Work/macOS Modern Light 1.jpg"
-                class="
-                  u-max-width-30
-                "
+                src="images/Work/macOS Modern All.jpg"
                 alt="Screenshot Light Theme"
                 width="800"
                 height="600"
@@ -280,8 +272,7 @@ render(
               <c-glitch-image
                 src="images/Work/macOS Modern Dark 1.jpg"
                 class="
-                  u-max-width-30 
-                  u-hidden@mobile
+                  u-hidden@tablet
                 "
                 alt="Screenshot Dark Theme"
                 width="800"
@@ -297,10 +288,9 @@ render(
               >
                 <i
                   class="
-                  c-icon 
-                  c-icon--github 
-                  u-text-large-1
-                "
+                    c-icon 
+                    c-icon--github
+                  "
                 ></i>
                 Star on Github
               </a>
@@ -312,10 +302,9 @@ render(
               >
                 <i
                   class="
-                  c-icon 
-                  c-icon--expand 
-                  u-text-large-1
-                "
+                    c-icon 
+                    c-icon--expand
+                  "
                 ></i>
                 Show More
               </button>
@@ -326,7 +315,10 @@ render(
                 alt="VSCode Market Link"
               >
                 <i
-                  class="c-icon c-icon--microsoft u-text-large-1"
+                  class="
+                    c-icon 
+                    c-icon--microsoft
+                  "
                 ></i>
                 VSC Market Link
               </a>
@@ -421,6 +413,146 @@ render(
             <div data-sticky class="c-work-list__item-info">
               <div class="c-work-list__item-info-inner">
                 <h4 class="c-work-list__item-info-title">
+                  Limber Logic Brand Identity
+                </h4>
+                <div
+                  class="
+                  c-work-list__item-info-taglist 
+                  u-text-title"
+                >
+                  Techologies Used: Adobe Illustrator
+                </div>
+                <div
+                  class="
+                    c-work-list__item-info-description
+                  "
+                >
+                  <p>
+                    I created the brand identity for Limber
+                    Logic, a digital product design company
+                    in Charleston. 
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="
+                c-work-list__item-preview 
+                u-cursor-zoom-in"
+              data-modal-target="modal-limber-logic"
+            >
+              <c-glitch-image
+                src="images/Work/Limber Logic Mockup Dark.jpg"
+                alt="Logo Mockup Dark"
+                width="800"
+                height="600"
+              >
+              </c-glitch-image>
+              <c-glitch-image
+                  src="images/Work/Limber Logic Both.svg"
+                  class="
+                    u-hidden@tablet
+                    u-bg-color-white
+                  "
+                  alt="Logo in Black"
+                  width="800"
+                  height="600"
+                >
+              </c-glitch-image>
+            </div>
+            <div class="c-work-list__item-lower">
+
+              <button
+                class="c-button"
+                data-modal-target="modal-limber-logic"
+                data-modal-trigger-primary
+              >
+                <i
+                  class="
+                    c-icon 
+                    c-icon--expand
+                  "
+                ></i>
+                Show More
+              </button>
+
+              <c-modal
+                data-modal-trigger="modal-limber-logic"
+              >
+                <c-section-header
+                  class="u-bg-noise u-z-index-3"
+                >
+                  <div slot="title">
+                    Limber Logic Identity
+                    <c-squiggle></c-squiggle>
+                  </div>
+                  <div slot="description" class="u-text-title">
+                    Techologies Used: Adobe Illustrator
+                  </div>
+                </c-section-header>
+
+                <div
+                  class="
+                  c-media-grid 
+                  u-bg-pattern-diagonal-alternate
+                "
+                >
+                  <article
+                    class="c-media-grid__text-item-wide"
+                  >
+                    <p>
+                      I created the brand identity for 
+                      Limber Logic, a digital product design
+                      company in Charleston. I wanted the 
+                      branding to have a sleek, techy,
+                      aesthetic.
+                    </p>
+                    <p>
+                      Limber Logic was the collaboration of
+                      my friend as Lead Developer and me as
+                      Lead Designer. We worked on various 
+                      projects and I learned a lot in my 
+                      time there.
+                    </p>
+                  </article>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Limber Logic Light.jpg"
+                      alt="Limber Logic Logo Light"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Limber Logic Dark.jpg"
+                      alt="Limber Logic Logo Dark"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Limber Logic Mockup Dark.jpg"
+                      alt="Limber Logic Mockup Dark"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Limber Logic Mockup Light.jpg"
+                      alt="Limber Logic Mockup Light"
+                    />
+                  </div>
+                </div>
+              </c-modal>
+            </div>
+          </li>
+
+          <li class="c-work-list__item">
+            <div data-sticky class="c-work-list__item-info">
+              <div class="c-work-list__item-info-inner">
+                <h4 class="c-work-list__item-info-title">
                   Map Dashboard
                 </h4>
                 <div
@@ -457,6 +589,9 @@ render(
               <c-glitch-image
                 src="images/Work/Map Figma.jpg"
                 alt="Logos Light BG"
+                class="
+                  u-hidden@tablet
+                "
                 glitch="1"
                 width="912"
                 height="712"
@@ -466,12 +601,15 @@ render(
 
             <div class="c-work-list__item-lower">
               <button
-                class="c-button c-button--large c-button--block"
+                class="c-button c-button--block"
                 data-modal-target="modal-map-dashboard"
                 data-modal-trigger-primary
               >
                 <i
-                  class="c-icon c-icon--expand u-text-large-1"
+                  class="
+                    c-icon 
+                    c-icon--expand 
+                  "
                 ></i>
                 Show More
               </button>
@@ -580,8 +718,11 @@ render(
               data-modal-target="modal-logos"
             >
               <c-glitch-image
-                src="images/Work/Personal Branding All 1.jpg"
-                alt="Logos Dark BG"
+                src="images/Work/Personal Branding Mockup.jpg"
+                alt="Logos Light BG"
+                class="
+                  u-hidden@tablet
+                "
                 glitch="2"
                 width="912"
                 height="712"
@@ -589,7 +730,7 @@ render(
               </c-glitch-image>
               <c-glitch-image
                 src="images/Work/Personal Branding All 2.jpg"
-                alt="Logos Light BG"
+                alt="Logos Dark BG"
                 glitch="2"
                 width="912"
                 height="712"
@@ -599,12 +740,15 @@ render(
 
             <div class="c-work-list__item-lower">
               <button
-                class="c-button c-button--large c-button--block"
+                class="c-button c-button--block"
                 data-modal-target="modal-logos"
                 data-modal-trigger-primary
               >
                 <i
-                  class="c-icon c-icon--expand u-text-large-1"
+                  class="
+                    c-icon 
+                    c-icon--expand
+                  "
                 ></i>
                 Show More
               </button>
@@ -625,7 +769,7 @@ render(
                   class="c-media-grid u-bg-pattern-diagonal-alternate"
                 >
                   <article
-                    class="c-media-grid__text-item-wide"
+                    class="c-media-grid__text-item"
                   >
                     <p>
                       This is a collection of logo variations
@@ -685,8 +829,100 @@ render(
                       alt="Personal Branding Logo"
                     />
                   </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Personal Branding Mockup.jpg"
+                      alt="Personal Branding Logo"
+                    />
+                  </div>
                 </div>
+                
               </c-modal>
+            </div>
+          </li>
+
+          <li class="c-work-list__item">
+            <div data-sticky class="c-work-list__item-info">
+              <div class="c-work-list__item-info-inner">
+                <h4 class="c-work-list__item-info-title">
+                  Substructure ITCSS Framework
+                </h4>
+                <div
+                  class="
+                  c-work-list__item-info-taglist 
+                  u-text-title"
+                >
+                  Techologies Used: CSS/SASS, BEM, ITCSS, Lerna
+                </div>
+                <div
+                  class="
+                    c-work-list__item-info-description
+                  "
+                >
+                  <p>
+                    My modular CSS boilerplate inspired by 
+                    the work of Harry Roberts and others
+                    with modern features sprinkled in.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="
+                c-work-list__item-preview
+                u-bg-color-muted"
+            >
+              <c-glitch-image
+                src="images/Work/Substructure Text.svg"
+                class="
+                  u-hidden@tablet
+                  u-max-width-30
+                "
+                alt="Screenshot Dark Theme"
+                width="800"
+                height="600"
+              >
+              </c-glitch-image>
+              <c-glitch-image
+                src="images/Work/Substructure Shot.jpg"
+                class="
+                  u-max-width-30
+                "
+                alt="Screenshot Dark Theme"
+                width="800"
+                height="600"
+              >
+              </c-glitch-image>
+            </div>
+            <div class="c-work-list__item-lower">
+              <a
+                class="c-button"
+                href="https://github.com/davidbwaters/substructure"
+                alt="Github Repo Link"
+              >
+                <i
+                  class="
+                  c-icon 
+                  c-icon--github
+                "
+                ></i>
+                Star on Github
+              </a>
+              <a
+                class="c-button"
+                href="https://www.npmjs.com/settings/substructure/packages"
+                alt="NPM Link"
+              >
+                <i
+                  class="
+                  c-icon 
+                  c-icon--npm
+                "
+                ></i>
+                NPM Packages
+              </a>
             </div>
           </li>
 
