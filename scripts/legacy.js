@@ -3473,8 +3473,8 @@
       }
 
       :host(.c-glitch-image--style-2) {
-        --glitch-image-gap-horizontal: 5px;
-        --glitch-image-gap-vertical: 10px;
+        --glitch-image-gap-horizontal: 0px;
+        --glitch-image-gap-vertical: 0px;
         --glitch-image-time-anim: 2s;
         --glitch-image-blend-mode-1: none;
         --glitch-image-blend-mode-2: none;
@@ -4567,6 +4567,7 @@
         this._documentEl = document.documentElement;
         this._triggerData = this.dataset.modalTrigger;
         this._triggerEl = document.querySelector('[data-modal-target=' + this._triggerData + ']' + '[data-modal-trigger-primary]');
+        this._triggerParent = this._triggerEl.parentElement;
         this._dialogEl = this.shadowRoot.querySelector('dialog');
         this._closeButtonEl = this._dialogEl.querySelector('.c-modal__close-button');
         this._triggerDuration = parseFloat(styles.getPropertyValue('--modal-trigger-transition-duration')) * 1000;
@@ -4576,6 +4577,7 @@
       _open() {
         this._triggerEl.classList.add('is-expanded');
 
+        this._triggerParent.style.zIndex = '9';
         setTimeout(() => {
           this.setAttribute('open', '');
 
@@ -4608,6 +4610,8 @@
           this._dialogEl.classList.add('is-closed');
 
           this._triggerEl.classList.remove('is-expanded');
+
+          this._triggerParent.style.zIndex = '';
         }, this._modalDuration);
       }
 
@@ -4693,8 +4697,23 @@
     webfontloader.load({
       classes: false,
       custom: {
-        families: ['gangster_grotesklight', 'gangster_groteskregular', 'league_monoregular', 'synebold', 'syneextrabold'],
-        timeout: 4000
+        families: ['work_sanslight', 'work_sansregular', 'work_sansmedium', 'work_sanssemibold', 'league_monoregular', 'syneextrabold', 'synebold'],
+        timeout: 4000,
+        active: () => {
+          const mainEl = document.querySelector('main');
+          const loaderEl = document.querySelector('c-loader');
+          const isTransparent = mainEl.classList.contains('u-transparent');
+
+          if (isTransparent) {
+            mainEl.classList.remove('u-transparent');
+          }
+
+          loaderEl.style.opacity = 0;
+          loaderEl.style.pointerEvents = 'none';
+          setTimeout(() => {
+            loaderEl.style.display = 'none';
+          }, 4000);
+        }
       }
     });
     render(html`
@@ -4702,7 +4721,11 @@
     <main class="u-transparent">
 
       <c-top-bar>
-        <a slot="logo" href="/">
+        <a 
+          slot="logo" 
+          href="/"
+          title="Home"
+        >
           <svg class="u-theme-fill" width="30" height="24">
             <title>David B. Waters Logo</title>
             <path
@@ -4710,27 +4733,38 @@
             />
           </svg>
         </a>
-        <a slot="link" href="mailto:mrdavidbwaters@gmail.com">
+        <a 
+          slot="link" 
+          href="mailto:mrdavidbwaters@gmail.com"
+          title="Email"
+        >
           <i class="c-icon c-icon--mail"></i>
         </a>
         <a
           slot="link"
           href="https://twitter.com/dbwatersdesigns"
+          title="Twitter"
         >
           <i class="c-icon c-icon--twitter"></i>
         </a>
         <a
           slot="link"
           href="https://dribbble.com/dbwatersdesigns"
+          title="Dribbble"
         >
           <i class="c-icon c-icon--dribbble"></i>
         </a>
-        <a slot="link" href="https://github.com/davidbwaters">
+        <a 
+          slot="link" 
+          href="https://github.com/davidbwaters"
+          title="Github"
+        >
           <i class="c-icon c-icon--github"></i>
         </a>
         <a
           slot="link"
           href="https://www.npmjs.com/~davidbwaters"
+          title="NPM"
         >
           <i class="c-icon c-icon--npm"></i>
         </a>
@@ -4754,6 +4788,7 @@
           <a
             class="c-icon c-icon--hand u-animation-wave u-text-large-2 u-margin-bottom-0"
             href="mailto:mrdavidbwaters@gmail.com"
+            title="Get in Touch!"
           ></a>
           <span> Available Now! </span>
         </div>
@@ -4761,8 +4796,9 @@
           <a
             class="c-button"
             href="mailto:mrdavidbwaters@gmail.com"
-            >Contact</a
           >
+            Contact
+          </a>
           <span>
             Start
             <span class="u-hidden@mobile">Your</span>
@@ -4793,7 +4829,7 @@
             <img
               class="c-skill-list__image"
               src="images/Elephant.png"
-              alt="elephant"
+              alt="Elephant"
             />
             <div class="c-skill-list__text">
               <h4 class="c-skill-list__title u-text-title">
@@ -4812,7 +4848,7 @@
             <img
               class="c-skill-list__image"
               src="images/Lion.png"
-              alt="elephant"
+              alt="Lion"
             />
             <div class="c-skill-list__text">
               <h4 class="c-skill-list__title u-text-title">
@@ -4831,7 +4867,7 @@
             <img
               class="c-skill-list__image"
               src="images/Squirrel.png"
-              alt="elephant"
+              alt="Squirrel"
             />
             <div class="c-skill-list__text">
               <h4 class="c-skill-list__title u-text-title">
@@ -4850,7 +4886,7 @@
             <img
               class="c-skill-list__image"
               src="images/Camel.png"
-              alt="elephant"
+              alt="Camel"
             />
             <div class="c-skill-list__text">
               <h4 class="c-skill-list__title u-text-title">
@@ -4924,16 +4960,18 @@
               <c-glitch-image
                 src="images/Work/macOS Modern All.jpg"
                 alt="Screenshot Light Theme"
+                glitch=2
                 width="800"
                 height="600"
               >
               </c-glitch-image>
               <c-glitch-image
                 src="images/Work/macOS Modern Dark 1.jpg"
+                alt="Screenshot Dark Theme"
                 class="
                   u-hidden@tablet
                 "
-                alt="Screenshot Dark Theme"
+                glitch=2
                 width="800"
                 height="600"
               >
@@ -4943,7 +4981,7 @@
               <a
                 class="c-button"
                 href="https://github.com/davidbwaters/macos-modern-vscode-theme"
-                alt="Github Repo Link"
+                title="Github Repo Link"
               >
                 <i
                   class="
@@ -4971,7 +5009,7 @@
               <a
                 class="c-button"
                 href="https://marketplace.visualstudio.com/items?itemName=davidbwaters.macos-modern-theme"
-                alt="VSCode Market Link"
+                title="VSCode Market Link"
               >
                 <i
                   class="
@@ -5025,42 +5063,42 @@
                     <img
                       class="c-media-grid__image"
                       src="images/Work/macOS Modern All.jpg"
-                      alt="macOS Modern All Themes Shot"
+                      alt="macOS Modern All Color Schemes"
                     />
                   </div>
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
                       src="images/Work/macOS Modern Light 1.jpg"
-                      alt="macOS Modern Light Shot 1"
+                      alt="macOS Modern Light 1"
                     />
                   </div>
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
                       src="images/Work/macOS Modern Dark 1.jpg"
-                      alt="macOS Modern Light Shot 2"
+                      alt="macOS Modern Dark 1"
                     />
                   </div>
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
                       src="images/Work/macOS Modern Light 2.jpg"
-                      alt="macOS Modern Dark Shot 1"
+                      alt="macOS Modern Light 2"
                     />
                   </div>
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
                       src="images/Work/macOS Modern Dark 2.jpg"
-                      alt="macOS Modern Dark Shot 2"
+                      alt="macOS Modern Dark 2"
                     />
                   </div>
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
                       src="images/Work/macOS Modern Icons.jpg"
-                      alt="macOS Modern Dark Shot 2"
+                      alt="macOS Modern App Icons"
                     />
                   </div>
                 </div>
@@ -5103,18 +5141,20 @@
             >
               <c-glitch-image
                 src="images/Work/Limber Logic Mockup Dark.jpg"
-                alt="Logo Mockup Dark"
+                alt="Limber Logic Logo Mockup Dark"
+                glitch=2
                 width="800"
                 height="600"
               >
               </c-glitch-image>
               <c-glitch-image
                   src="images/Work/Limber Logic Both.svg"
+                  alt="Limber Logic Logo Dark and Light Versions"
                   class="
                     u-hidden@tablet
                     u-bg-color-white
                   "
-                  alt="Logo in Black"
+                  glitch=2
                   width="800"
                   height="600"
                 >
@@ -5239,19 +5279,19 @@
             >
               <c-glitch-image
                 src="images/Work/Map Browser.jpg"
-                alt="Logos Light BG"
-                glitch="1"
+                alt="Map Dashboard in a Browser"
+                glitch=2
                 width="912"
                 height="712"
               >
               </c-glitch-image>
               <c-glitch-image
                 src="images/Work/Map Figma.jpg"
-                alt="Logos Light BG"
+                alt="Map Dashboard in Figma"
                 class="
                   u-hidden@tablet
                 "
-                glitch="1"
+                glitch=2
                 width="912"
                 height="712"
               >
@@ -5289,7 +5329,7 @@
                   class="c-media-grid u-bg-pattern-diagonal-alternate"
                 >
                   <article
-                    class="c-media-grid__text-item"
+                    class="c-media-grid__text-item-wide"
                   >
                     <p>
                       These shots were created for an 
@@ -5337,13 +5377,6 @@
                       alt="Map Dashboard Mockup"
                     />
                   </div>
-                  <div class="c-media-grid__image-item">
-                    <img
-                      class="c-media-grid__image"
-                      src="images/Work/Map Mockup.jpg"
-                      alt="Map Dashboard Mockup"
-                    />
-                  </div>
                 </div>
               </c-modal>
             </div>
@@ -5377,20 +5410,20 @@
               data-modal-target="modal-logos"
             >
               <c-glitch-image
-                src="images/Work/Personal Branding Mockup.jpg"
-                alt="Logos Light BG"
+                src="images/Work/Personal Branding Mockup 1.jpg"
+                alt="Personal Branding VHS Mockup"
                 class="
                   u-hidden@tablet
                 "
-                glitch="2"
+                glitch=2
                 width="912"
                 height="712"
               >
               </c-glitch-image>
               <c-glitch-image
                 src="images/Work/Personal Branding All 2.jpg"
-                alt="Logos Dark BG"
-                glitch="2"
+                alt="Personal Branding Logos Dark BG"
+                glitch=2
                 width="912"
                 height="712"
               >
@@ -5428,7 +5461,7 @@
                   class="c-media-grid u-bg-pattern-diagonal-alternate"
                 >
                   <article
-                    class="c-media-grid__text-item"
+                    class="c-media-grid__text-item-wide"
                   >
                     <p>
                       This is a collection of logo variations
@@ -5444,22 +5477,36 @@
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
+                      src="images/Work/Personal Branding Mockup 1.jpg"
+                      alt="Personal Branding VHS Mockup"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Personal Branding Mockup 2.jpg"
+                      alt="Personal Branding Stamp Mockup"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
                       src="images/Work/Personal Branding All 1.jpg"
-                      alt="Personal Branding Logos"
+                      alt="All Personal Branding Logos Dark"
                     />
                   </div>
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
                       src="images/Work/Personal Branding All 2.jpg"
-                      alt="Personal Branding Logos"
+                      alt="All Personal Branding Logos Light"
                     />
                   </div>
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
                       src="images/Work/Personal Branding Logo 1.jpg"
-                      alt="Personal Branding Logo"
+                      alt="Selected Personal Branding Logo"
                     />
                     <span
                       class="c-media-grid__image-caption-alternate"
@@ -5470,29 +5517,22 @@
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
-                      src="images/Work/Personal Branding Logo 2.jpg"
-                      alt="Personal Branding Logo"
+                      src="images/Work/Personal Branding Logo Alt 1.jpg"
+                      alt="Personal Branding Alternate Logo 1"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Personal Branding Logo Alt 2.jpg"
+                      alt="Personal Branding Alternate Logo 2"
                     />
                   </div>
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
                       src="images/Work/Personal Branding Logo 3.jpg"
-                      alt="Personal Branding Logo"
-                    />
-                  </div>
-                  <div class="c-media-grid__image-item">
-                    <img
-                      class="c-media-grid__image"
-                      src="images/Work/Personal Branding Logo 4.jpg"
-                      alt="Personal Branding Logo"
-                    />
-                  </div>
-                  <div class="c-media-grid__image-item">
-                    <img
-                      class="c-media-grid__image"
-                      src="images/Work/Personal Branding Mockup.jpg"
-                      alt="Personal Branding Logo"
+                      alt="Personal Branding Alternate Logo 3"
                     />
                   </div>
                 </div>
@@ -5535,21 +5575,23 @@
             >
               <c-glitch-image
                 src="images/Work/Substructure Text.svg"
+                alt="Substructure Text Logo"
                 class="
                   u-hidden@tablet
                   u-max-width-30
                 "
-                alt="Screenshot Dark Theme"
+                glitch=2
                 width="800"
                 height="600"
               >
               </c-glitch-image>
               <c-glitch-image
                 src="images/Work/Substructure Shot.jpg"
+                alt="Substructure Code Editor Screenshot"
                 class="
                   u-max-width-30
                 "
-                alt="Screenshot Dark Theme"
+                glitch=2
                 width="800"
                 height="600"
               >
@@ -5559,7 +5601,7 @@
               <a
                 class="c-button"
                 href="https://github.com/davidbwaters/substructure"
-                alt="Github Repo Link"
+                title="Substructure Github Repo Link"
               >
                 <i
                   class="
@@ -5572,7 +5614,7 @@
               <a
                 class="c-button"
                 href="https://www.npmjs.com/settings/substructure/packages"
-                alt="NPM Link"
+                title="Substructure NPM Link"
               >
                 <i
                   class="
@@ -5599,12 +5641,10 @@
             the MIT license
             <a
               href="https://github.com/davidbwaters/davidbwaters.github.io"
-              alt="repo link"
-            >
-              here
-            </a>
+              title="Github Repo Link"
+            >here</a>
             .
-            <br />
+            <br class="u-hidden@tablet">
             Stay tuned! It's still very much a
             work-in-progress.
           </small>
@@ -5616,7 +5656,7 @@
       <c-glitch-image
         src="images/Loader-Image.svg"
         active
-        glitch="1"
+        glitch=1
         width="100"
         height="100"
       >

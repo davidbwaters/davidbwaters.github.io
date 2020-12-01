@@ -32,8 +32,8 @@ export class GlitchImage extends LitElement {
       }
 
       :host(.c-glitch-image--style-2) {
-        --glitch-image-gap-horizontal: 5px;
-        --glitch-image-gap-vertical: 10px;
+        --glitch-image-gap-horizontal: 0px;
+        --glitch-image-gap-vertical: 0px;
         --glitch-image-time-anim: 2s;
         --glitch-image-blend-mode-1: none;
         --glitch-image-blend-mode-2: none;

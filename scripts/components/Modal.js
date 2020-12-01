@@ -224,6 +224,7 @@ export class Modal extends LitElement {
     this._documentEl = document.documentElement;
     this._triggerData = this.dataset.modalTrigger;
     this._triggerEl = document.querySelector('[data-modal-target=' + this._triggerData + ']' + '[data-modal-trigger-primary]');
+    this._triggerParent = this._triggerEl.parentElement;
     this._dialogEl = this.shadowRoot.querySelector('dialog');
     this._closeButtonEl = this._dialogEl.querySelector('.c-modal__close-button');
     this._triggerDuration = parseFloat(styles.getPropertyValue('--modal-trigger-transition-duration')) * 1000;
@@ -233,6 +234,7 @@ export class Modal extends LitElement {
   _open() {
     this._triggerEl.classList.add('is-expanded');
 
+    this._triggerParent.style.zIndex = '9';
     setTimeout(() => {
       this.setAttribute('open', '');
 
@@ -265,6 +267,8 @@ export class Modal extends LitElement {
       this._dialogEl.classList.add('is-closed');
 
       this._triggerEl.classList.remove('is-expanded');
+
+      this._triggerParent.style.zIndex = '';
     }, this._modalDuration);
   }
 
