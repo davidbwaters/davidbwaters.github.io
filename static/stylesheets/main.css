@@ -2947,10 +2947,17 @@ c-theme-switch,
   font-size: 1.1rem;
   padding-bottom: 1.5rem;
   padding-left: 2rem;
-  padding-right: 2rem;
   padding-top: 1.5rem;
   text-align: left;
   overflow-y: auto;
+}
+
+.c-media-grid__text-item {
+  padding-right: 2.5rem;
+}
+
+.c-media-grid__text-item-wide {
+  padding-right: 2rem;
 }
 
 @media (min-width: 45em) {
@@ -3142,6 +3149,10 @@ c-theme-switch,
   padding-bottom: 1rem;
 }
 
+.c-work-list__item:last-child {
+  padding-bottom: 0rem;
+}
+
 .c-work-list__item-info {
   margin-top: -4.5rem;
   position: sticky;
@@ -3250,7 +3261,7 @@ c-theme-switch,
   padding-top: 1.25rem;
   position: relative;
   text-align: center;
-  z-index: 4;
+  z-index: 9;
 }
 
 @media (min-width: 25em) {

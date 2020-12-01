@@ -263,6 +263,9 @@ export class Modal extends LitElement {
         ']' +
         '[data-modal-trigger-primary]'
     )
+
+    this._triggerParent = this._triggerEl.parentElement
+
     this._dialogEl = this.shadowRoot.querySelector('dialog')
 
     this._closeButtonEl = this._dialogEl.querySelector(
@@ -288,6 +291,7 @@ export class Modal extends LitElement {
   _open() {
 
     this._triggerEl.classList.add('is-expanded')
+    this._triggerParent.style.zIndex = '9'
 
     setTimeout(() => {
 
@@ -316,6 +320,7 @@ export class Modal extends LitElement {
       this._dialogEl.classList.remove('is-closing')
       this._dialogEl.classList.add('is-closed')
       this._triggerEl.classList.remove('is-expanded')
+      this._triggerParent.style.zIndex = ''
 
     }, this._modalDuration)
 

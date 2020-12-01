@@ -37,6 +37,10 @@
   padding-bottom: 1rem;
 }
 
+.c-work-list__item:last-child {
+  padding-bottom: 0rem;
+}
+
 .c-work-list__item-info {
   margin-top: -4.5rem;
   position: sticky;
@@ -168,7 +172,7 @@
   padding-top: 1.25rem;
   position: relative;
   text-align: center;
-  z-index: 4;
+  z-index: 9;
 }
 
 @media (min-width:25em) {
