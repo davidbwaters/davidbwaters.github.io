@@ -27,13 +27,41 @@ WebFont.load({
   classes: false,
   custom: {
     families: [
-      'gangster_grotesklight',
-      'gangster_groteskregular',
+      'work_sanslight',
+      'work_sansregular',
+      'work_sansmedium',
+      'work_sanssemibold',
       'league_monoregular',
-      'synebold',
-      'syneextrabold'
+      'syneextrabold',
+      'synebold'
     ],
-    timeout: 4000
+    timeout: 4000,
+    active: () => {
+
+      const mainEl = document.querySelector('main')
+      const loaderEl = document.querySelector('c-loader')
+
+      const isTransparent = mainEl.classList.contains(
+        'u-transparent'
+      )
+
+      if (isTransparent) {
+
+        mainEl.classList.remove('u-transparent')
+
+      }
+
+      loaderEl.style.opacity = 0
+      loaderEl.style.pointerEvents = 'none'
+
+      setTimeout(() => {
+
+        loaderEl.style.display = 'none'
+
+      }, 4000)
+
+    }
+
   }
 })
 
