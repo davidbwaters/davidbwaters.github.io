@@ -4611,7 +4611,9 @@
 
           this._triggerEl.classList.remove('is-expanded');
 
-          this._triggerParent.style.zIndex = '';
+          setTimeout(() => {
+            this._triggerParent.style.zIndex = '';
+          }, this._triggerDuration);
         }, this._modalDuration);
       }
 
