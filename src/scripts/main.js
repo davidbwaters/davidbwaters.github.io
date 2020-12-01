@@ -992,11 +992,9 @@ render(
             <a
               href="https://github.com/davidbwaters/davidbwaters.github.io"
               title="Github Repo Link"
-            >
-              here
-            </a>
+            >here</a>
             .
-            <br />
+            <br class="u-hidden@tablet">
             Stay tuned! It's still very much a
             work-in-progress.
           </small>

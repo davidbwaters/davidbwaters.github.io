@@ -230,6 +230,7 @@ export class Modal extends LitElement {
       this._handleClose()
 
     })
+
     this._dialogEl.classList.add('is-closed')
     this.open
       ? this.showModal()
@@ -320,7 +321,12 @@ export class Modal extends LitElement {
       this._dialogEl.classList.remove('is-closing')
       this._dialogEl.classList.add('is-closed')
       this._triggerEl.classList.remove('is-expanded')
-      this._triggerParent.style.zIndex = ''
+
+      setTimeout(() => {
+
+        this._triggerParent.style.zIndex = ''
+
+      }, this._triggerDuration)
 
     }, this._modalDuration)
 

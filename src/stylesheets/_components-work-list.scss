@@ -37,6 +37,14 @@
   padding-bottom: 1rem;
 }
 
+@media (min-height:35em) and (min-width:45em) {
+
+  .c-work-list__item {
+    padding-bottom: 1.25rem;
+  }
+
+}
+
 .c-work-list__item:last-child {
   padding-bottom: 0rem;
 }
@@ -97,20 +105,21 @@
   padding-bottom: .5rem;
   padding-left:  1.5rem;
   padding-right: 1.5rem;
-  padding-top: 1rem;
+  padding-top: .8rem;
 }
 
 @media (min-width:45em) {
 
   .c-work-list__item-info-inner {
-    padding-bottom: 1.2rem;
-    padding-top: 1.2rem;
+    padding-bottom: 1.25rem;
+    padding-top: 1.25rem;
   }
 
 }
 
 
 .c-work-list__item-info-title {
+  font-size: clamp(1.66rem, 3vw, 2rem);
   line-height: 1.1;
 }
 
@@ -142,7 +151,7 @@
 @media (min-width:35em) {
 
   .c-work-list__item-info-taglist {
-    padding-top: .25rem;
+    padding-top: .33rem;
     padding-bottom: .66rem;
   }
 
@@ -172,7 +181,7 @@
   padding-top: 1.25rem;
   position: relative;
   text-align: center;
-  z-index: 9;
+  z-index: 0;
 }
 
 @media (min-width:25em) {
