@@ -26,11 +26,14 @@ WebFont.load({
     families: ['work_sanslight', 'work_sansregular', 'work_sansmedium', 'work_sanssemibold', 'league_monoregular', 'syneextrabold', 'synebold'],
     timeout: 4000
   },
-  inactive: console.log('webfonts inactive'),
+  inactive: function () {
+    console.log('Webfonts Inactive');
+  },
   active: function () {
     const mainEl = document.querySelector('main');
     const loaderEl = document.querySelector('c-loader');
     const isTransparent = mainEl.classList.contains('u-transparent');
+    console.log('Webfonts Active');
 
     if (isTransparent) {
       mainEl.classList.remove('u-transparent');

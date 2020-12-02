@@ -507,6 +507,8 @@ export class Hero extends LitElement {
   }
 
   firstUpdated() {
+    this._preloadImages();
+
     this._taglineSetup();
 
     this._nameStylizedSetup();
@@ -517,6 +519,14 @@ export class Hero extends LitElement {
         random: [1000, 1000],
         speed: 60
       });
+    });
+  }
+
+  _preloadImages() {
+    const imageLinks = ['/images/Me-Dark.jpg', '/images/Me-Light.jpg', '/images/Hero-Paint-1-Dark.jpg', '/images/Hero-Paint-1-Light.jpg', '/images/Hero-Paint-2-Dark.jpg', '/images/Hero-Paint-2-Light.jpg'];
+    imageLinks.forEach(link => {
+      const image = new Image();
+      image.src = link;
     });
   }
 
