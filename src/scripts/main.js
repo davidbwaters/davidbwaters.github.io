@@ -37,47 +37,61 @@ WebFont.load({
     ],
     timeout: 4000
   },
-  inactive: console.log('webfonts inactive'),
-  active: function() {
+  inactive: () => { handleFontLoadFailure() },
+  active: () => { handleFontLoad() }
 
-    const mainEl = document.querySelector('main')
+})
+
+function handleFontLoad() {
+
+  console.log('Webfonts loaded ...')
+
+  const documentEl = document.documentElement
+
+  documentEl.dataset.fontsLoaded = 'true'
+
+}
+
+function handleFontLoadFailure() {
+
+  console.log('Webfonts didn\'t load ...')
+
+  const documentEl = document.documentElement
+  documentEl.dataset.fontsLoaded = 'false'
+
+}
+
+function handleElLoad() {
+
+  const documentEl = document.documentElement
+  const count = documentEl.dataset.preloaded
+
+  documentEl.dataset.preloaded = count
+    ? parseInt(count) + 1
+    : 1
+
+  if (count) {
+
     const loaderEl = document.querySelector('c-loader')
 
-    const isTransparent = mainEl.classList.contains(
-      'u-transparent'
-    )
+    if (loaderEl) {
 
-    setTimeout(() => {
+      loaderEl.check()
 
-      if (isTransparent) {
-
-        mainEl.classList.remove('u-transparent')
-
-      }
-
-      loaderEl.style.opacity = 0
-      loaderEl.style.pointerEvents = 'none'
-
-      setTimeout(() => {
-
-        loaderEl.style.display = 'none'
-
-      }, 4000)
-
-    }, 1200)
+    }
 
   }
 
-})
+}
 
 render(
   html`
 
     <main class="u-transparent">
 
-      <c-top-bar>
-        <a 
-          slot="logo" 
+      <c-top-bar data-preload @load=${handleElLoad()}>
+        <a
+          slot="logo"
           href="/"
           title="Home"
         >
@@ -88,8 +102,8 @@ render(
             />
           </svg>
         </a>
-        <a 
-          slot="link" 
+        <a
+          slot="link"
           href="mailto:mrdavidbwaters@gmail.com"
           title="Email"
         >
@@ -109,8 +123,8 @@ render(
         >
           <i class="c-icon c-icon--dribbble"></i>
         </a>
-        <a 
-          slot="link" 
+        <a
+          slot="link"
           href="https://github.com/davidbwaters"
           title="Github"
         >
@@ -125,7 +139,11 @@ render(
         </a>
       </c-top-bar>
 
-      <c-hero class="u-bg-noise">
+      <c-hero
+        class="u-bg-noise"
+        @load=${handleElLoad()}
+        data-preload
+      >
         <div slot="tagline">
           Artist & <br />
           Designer & <br />
@@ -288,7 +306,7 @@ render(
                 </h4>
                 <div
                   class="
-                  c-work-list__item-info-taglist 
+                  c-work-list__item-info-taglist
                   u-text-title"
                 >
                   Techologies Used: Frontend Development
@@ -299,7 +317,7 @@ render(
                   "
                 >
                   <p>
-                    A popular Visual Studio Code theme to match 
+                    A popular Visual Studio Code theme to match
                     native macOS.
                   </p>
                 </div>
@@ -340,7 +358,7 @@ render(
               >
                 <i
                   class="
-                    c-icon 
+                    c-icon
                     c-icon--github
                   "
                 ></i>
@@ -354,7 +372,7 @@ render(
               >
                 <i
                   class="
-                    c-icon 
+                    c-icon
                     c-icon--expand
                   "
                 ></i>
@@ -368,7 +386,7 @@ render(
               >
                 <i
                   class="
-                    c-icon 
+                    c-icon
                     c-icon--microsoft
                   "
                 ></i>
@@ -392,7 +410,7 @@ render(
 
                 <div
                   class="
-                  c-media-grid 
+                  c-media-grid
                   u-bg-pattern-diagonal-alternate
                 "
                 >
@@ -469,7 +487,7 @@ render(
                 </h4>
                 <div
                   class="
-                  c-work-list__item-info-taglist 
+                  c-work-list__item-info-taglist
                   u-text-title"
                 >
                   Techologies Used: Adobe Illustrator
@@ -482,7 +500,7 @@ render(
                   <p>
                     I created the brand identity for Limber
                     Logic, a digital product design company
-                    in Charleston. 
+                    in Charleston.
                   </p>
                 </div>
               </div>
@@ -490,7 +508,7 @@ render(
 
             <div
               class="
-                c-work-list__item-preview 
+                c-work-list__item-preview
                 u-cursor-zoom-in"
               data-modal-target="modal-limber-logic"
             >
@@ -524,7 +542,7 @@ render(
               >
                 <i
                   class="
-                    c-icon 
+                    c-icon
                     c-icon--expand
                   "
                 ></i>
@@ -548,7 +566,7 @@ render(
 
                 <div
                   class="
-                  c-media-grid 
+                  c-media-grid
                   u-bg-pattern-diagonal-alternate
                 "
                 >
@@ -556,17 +574,17 @@ render(
                     class="c-media-grid__text-item-wide"
                   >
                     <p>
-                      I created the brand identity for 
+                      I created the brand identity for
                       Limber Logic, a digital product design
-                      company in Charleston. I wanted the 
+                      company in Charleston. I wanted the
                       branding to have a sleek, techy,
                       aesthetic.
                     </p>
                     <p>
                       Limber Logic was the collaboration of
                       my friend as Lead Developer and me as
-                      Lead Designer. We worked on various 
-                      projects and I learned a lot in my 
+                      Lead Designer. We worked on various
+                      projects and I learned a lot in my
                       time there.
                     </p>
                   </article>
@@ -618,7 +636,7 @@ render(
                   class="c-work-list__item-info-description"
                 >
                   <p>
-                    UI created for an in-development web and 
+                    UI created for an in-development web and
                     mobile app for land developers.
                   </p>
                 </div>
@@ -627,7 +645,7 @@ render(
 
             <div
               class="
-                c-work-list__item-preview 
+                c-work-list__item-preview
                 u-cursor-zoom-in
               "
               data-modal-target="modal-map-dashboard"
@@ -661,8 +679,8 @@ render(
               >
                 <i
                   class="
-                    c-icon 
-                    c-icon--expand 
+                    c-icon
+                    c-icon--expand
                   "
                 ></i>
                 Show More
@@ -687,19 +705,19 @@ render(
                     class="c-media-grid__text-item-wide"
                   >
                     <p>
-                      These shots were created for an 
+                      These shots were created for an
                       in-development web and mobile app
                       for land developers.
                     </p>
                     <p>
                       I was recruited to improve the overall
                       user experience and help design the map
-                      interface. I used Figma to create 
+                      interface. I used Figma to create
                       wireframes, mockups, and a component
                       system.
                     </p>
                     <p>
-                      I also helped the team refine the 
+                      I also helped the team refine the
                       React-based frontend durning a sprint
                       before a deadline.
                     </p>
@@ -736,7 +754,7 @@ render(
               </c-modal>
             </div>
           </li>
-          
+
           <li class="c-work-list__item">
             <div></div>
             <div data-sticky class="c-work-list__item-info">
@@ -793,7 +811,7 @@ render(
               >
                 <i
                   class="
-                    c-icon 
+                    c-icon
                     c-icon--expand
                   "
                 ></i>
@@ -860,7 +878,7 @@ render(
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
-                      src="images/Work/Personal Branding Final.jpg"
+                      src="images/Work/Personal Branding Logo Final.jpg"
                       alt="Selected Personal Branding Logo"
                     />
                     <span
@@ -886,12 +904,12 @@ render(
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
-                      src="images/Work/Personal Branding Logo 3.jpg"
+                      src="images/Work/Personal Branding Logo Alt 3.jpg"
                       alt="Personal Branding Alternate Logo 3"
                     />
                   </div>
                 </div>
-                
+
               </c-modal>
             </div>
           </li>
@@ -904,7 +922,7 @@ render(
                 </h4>
                 <div
                   class="
-                  c-work-list__item-info-taglist 
+                  c-work-list__item-info-taglist
                   u-text-title"
                 >
                   Techologies Used: CSS/SASS, BEM, ITCSS, Lerna
@@ -915,7 +933,7 @@ render(
                   "
                 >
                   <p>
-                    My modular CSS boilerplate inspired by 
+                    My modular CSS boilerplate inspired by
                     the work of Harry Roberts and others
                     with modern features sprinkled in.
                   </p>
@@ -960,7 +978,7 @@ render(
               >
                 <i
                   class="
-                  c-icon 
+                  c-icon
                   c-icon--github
                 "
                 ></i>
@@ -973,7 +991,7 @@ render(
               >
                 <i
                   class="
-                  c-icon 
+                  c-icon
                   c-icon--npm
                 "
                 ></i>
@@ -990,7 +1008,7 @@ render(
                 </h4>
                 <div
                   class="
-                  c-work-list__item-info-taglist 
+                  c-work-list__item-info-taglist
                   u-text-title"
                 >
                   Techologies Used: Figma, Adobe Illustrator
@@ -1001,8 +1019,8 @@ render(
                   "
                 >
                   <p>
-                    I contributed app and UI icons to an 
-                    open-source clipboard manager for macOS 
+                    I contributed app and UI icons to an
+                    open-source clipboard manager for macOS
                     made by Matt Davidson.
                   </p>
                 </div>
@@ -1035,7 +1053,7 @@ render(
               >
               </c-glitch-image>
             </div>
-            <div class="c-work-list__item-lower-three">
+            <div class="c-work-list__item-lower">
               <a
                 class="c-button"
                 href="https://github.com/mattDavo/Yippy"
@@ -1043,7 +1061,7 @@ render(
               >
                 <i
                   class="
-                    c-icon 
+                    c-icon
                     c-icon--github
                   "
                 ></i>
@@ -1056,7 +1074,7 @@ render(
               >
                 <i
                   class="
-                    c-icon 
+                    c-icon
                     c-icon--expand
                   "
                 ></i>
@@ -1080,7 +1098,7 @@ render(
 
                 <div
                   class="
-                  c-media-grid 
+                  c-media-grid
                   u-bg-pattern-diagonal-alternate
                 "
                 >
@@ -1088,14 +1106,14 @@ render(
                     class="c-media-grid__text-item-wide"
                   >
                     <p>
-                      I contributed icons to an 
-                      open-source clipboard manager for 
+                      I contributed icons to an
+                      open-source clipboard manager for
                       macOS made by Matt Davidson.
                     </p>
                     <p>
                       I created a menu bar icon and three
                       reversions of the app icon, included an
-                      updated version for macOS Big Sur. 
+                      updated version for macOS Big Sur.
                       This project adheres to Apple's design
                       guidelines.
                     </p>
@@ -1132,158 +1150,159 @@ render(
               </c-modal>
             </div>
           </li>
-          
-          <li class="c-work-list__item">
-            <div data-sticky class="c-work-list__item-info">
-              <div class="c-work-list__item-info-inner">
-                <h4 class="c-work-list__item-info-title">
-                  Artwork
-                </h4>
-                <div
-                  class="
-                  c-work-list__item-info-taglist 
-                  u-text-title"
-                >
-                  Techologies Used: Adobe Photoshop, Adobe Illustrator, Figma, Blender
-                </div>
-                <div
-                  class="
-                    c-work-list__item-info-description
-                  "
-                >
-                  <p>
-                    Miscellaneous digital art.
-                  </p>
+
+          <!--
+            <li class="c-work-list__item">
+              <div data-sticky class="c-work-list__item-info">
+                <div class="c-work-list__item-info-inner">
+                  <h4 class="c-work-list__item-info-title">
+                    Artwork
+                  </h4>
+                  <div
+                    class="
+                    c-work-list__item-info-taglist
+                    u-text-title"
+                  >
+                    Techologies Used: Adobe Photoshop, Adobe Illustrator, Figma, Blender
+                  </div>
+                  <div
+                    class="
+                      c-work-list__item-info-description
+                    "
+                  >
+                    <p>
+                      Miscellaneous digital art.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div
-              class="
-                c-work-list__item-preview
-                u-cursor-zoom"
-              data-modal-target="modal-artwork"
-            >
-              <c-glitch-image
-                src="images/Work/Art Me.jpg"
-                alt="Artwork Me"
+              <div
                 class="
-                  u-hidden@mobile
-                  u-max-width-30
-                "
-                glitch=2
-                width="1024"
-                height="1024"
-              >
-              </c-glitch-image>
-              <c-glitch-image
-                src="images/Work/Art Melted.jpg"
-                alt="Artwork Melted"
-                glitch=2
-                width="1024"
-                height="1024"
-              >
-              </c-glitch-image>
-            </div>
-            <div class="c-work-list__item-lower">
-              <button
-                class="c-button"
+                  c-work-list__item-preview
+                  u-cursor-zoom"
                 data-modal-target="modal-artwork"
-                data-modal-trigger-primary
               >
-                <i
+                <c-glitch-image
+                  src="images/Work/Art Me.jpg"
+                  alt="Artwork Me"
                   class="
-                    c-icon 
-                    c-icon--expand
+                    u-hidden@mobile
+                    u-max-width-30
                   "
-                ></i>
-                Show More
-              </button>
-
-              <c-modal
-                data-modal-trigger="modal-artwork"
-              >
-                <c-section-header
-                  class="u-bg-noise u-z-index-3"
+                  glitch=2
+                  width="1024"
+                  height="1024"
                 >
-                  <div slot="title">
-                    Artwork
-                    <c-squiggle></c-squiggle>
-                  </div>
-                  <div slot="description" class="u-text-title">
-                    Techologies Used: Adobe Photoshop, 
-                    Adobe Illustrator, Figma, Blender
-                  </div>
-                </c-section-header>
-
-                <div
-                  class="
-                  c-media-grid 
-                  u-bg-pattern-diagonal-alternate
-                "
+                </c-glitch-image>
+                <c-glitch-image
+                  src="images/Work/Art Melted.jpg"
+                  alt="Artwork Melted"
+                  glitch=2
+                  width="1024"
+                  height="1024"
                 >
-                  <div class="c-media-grid__image-item">
-                    <img
-                      class="c-media-grid__image"
-                      src="images/Work/Art Chuck 1.jpg"
-                      alt="Artwork Charleston 1"
-                    />
-                  </div>
-                  <div class="c-media-grid__image-item">
-                    <img
-                      class="c-media-grid__image"
-                      src="images/Work/Art Chuck 2.jpg"
-                      alt="Artwork Charleston 2"
-                    />
-                  </div>
-                  <div class="c-media-grid__image-item">
-                    <img
-                      class="c-media-grid__image"
-                      src="images/Work/Art Melted.jpg"
-                      alt="Artwork Abstract Melted"
-                    />
-                  </div>
-                  <div class="c-media-grid__image-item">
-                    <img
-                      class="c-media-grid__image"
-                      src="images/Work/Art Me.jpg"
-                      alt="Artwork Me Abstract"
-                    />
-                  </div>
-                  <div class="c-media-grid__image-item">
-                    <img
-                      class="c-media-grid__image"
-                      src="images/Work/Art Statue.jpg"
-                      alt="Artwork Statue"
-                    />
-                  </div>
-                  <div class="c-media-grid__image-item">
-                    <img
-                      class="c-media-grid__image"
-                      src="images/Work/Art Pyramids.jpg"
-                      alt="Artwork Pyramics"
-                    />
-                  </div>
-                  <div class="c-media-grid__image-item">
-                    <img
-                      class="c-media-grid__image"
-                      src="images/Work/Art Vapor.jpg"
-                      alt="Artwork Vaporwave"
-                    />
-                  </div>
-                  <div class="c-media-grid__image-item">
-                    <img
-                      class="c-media-grid__image"
-                      src="images/Work/Art Church.jpg"
-                      alt="Artwork Church"
-                    />
-                  </div>
-                </div>
-              </c-modal>
+                </c-glitch-image>
+              </div>
+              <div class="c-work-list__item-lower">
+                <button
+                  class="c-button"
+                  data-modal-target="modal-artwork"
+                  data-modal-trigger-primary
+                >
+                  <i
+                    class="
+                      c-icon
+                      c-icon--expand
+                    "
+                  ></i>
+                  Show More
+                </button>
 
-            </div>
-          </li>
+                <c-modal
+                  data-modal-trigger="modal-artwork"
+                >
+                  <c-section-header
+                    class="u-bg-noise u-z-index-3"
+                  >
+                    <div slot="title">
+                      Artwork
+                      <c-squiggle></c-squiggle>
+                    </div>
+                    <div slot="description" class="u-text-title">
+                      Techologies Used: Adobe Photoshop,
+                      Adobe Illustrator, Figma, Blender
+                    </div>
+                  </c-section-header>
 
+                  <div
+                    class="
+                    c-media-grid
+                    u-bg-pattern-diagonal-alternate
+                  "
+                  >
+                    <div class="c-media-grid__image-item">
+                      <img
+                        class="c-media-grid__image"
+                        src="images/Work/Art Chuck 1.jpg"
+                        alt="Artwork Charleston 1"
+                      />
+                    </div>
+                    <div class="c-media-grid__image-item">
+                      <img
+                        class="c-media-grid__image"
+                        src="images/Work/Art Chuck 2.jpg"
+                        alt="Artwork Charleston 2"
+                      />
+                    </div>
+                    <div class="c-media-grid__image-item">
+                      <img
+                        class="c-media-grid__image"
+                        src="images/Work/Art Melted.jpg"
+                        alt="Artwork Abstract Melted"
+                      />
+                    </div>
+                    <div class="c-media-grid__image-item">
+                      <img
+                        class="c-media-grid__image"
+                        src="images/Work/Art Me.jpg"
+                        alt="Artwork Me Abstract"
+                      />
+                    </div>
+                    <div class="c-media-grid__image-item">
+                      <img
+                        class="c-media-grid__image"
+                        src="images/Work/Art Statue.jpg"
+                        alt="Artwork Statue"
+                      />
+                    </div>
+                    <div class="c-media-grid__image-item">
+                      <img
+                        class="c-media-grid__image"
+                        src="images/Work/Art Pyramids.jpg"
+                        alt="Artwork Pyramics"
+                      />
+                    </div>
+                    <div class="c-media-grid__image-item">
+                      <img
+                        class="c-media-grid__image"
+                        src="images/Work/Art Vapor.jpg"
+                        alt="Artwork Vaporwave"
+                      />
+                    </div>
+                    <div class="c-media-grid__image-item">
+                      <img
+                        class="c-media-grid__image"
+                        src="images/Work/Art Church.jpg"
+                        alt="Artwork Church"
+                      />
+                    </div>
+                  </div>
+                </c-modal>
+
+              </div>
+            </li>
+          -->
         </ul>
       </section>
 
@@ -1299,8 +1318,7 @@ render(
             <a
               href="https://github.com/davidbwaters/davidbwaters.github.io"
               title="This Site's Github Repo Link"
-            >here</a>
-            .
+            >here</a>.
             <br class="u-hidden@tablet">
             Stay tuned! It's still very much a
             work in progress.
@@ -1322,3 +1340,4 @@ render(
   `,
   document.body
 )
+
