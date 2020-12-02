@@ -2639,6 +2639,13 @@
       }
 
       :host {
+        --image-me-dark:       url('/images/Me-Dark.jpg');
+        --image-me-light:      url('/images/Me-Light.jpg');
+        --image-paint-1-dark:  url('/images/Hero-Paint-1-Dark.jpg');
+        --image-paint-1-light: url('/images/Hero-Paint-1-Light.jpg');
+        --image-paint-2-dark:  url('/images/Hero-Paint-2-Dark.jpg');
+        --image-paint-2-light: url('/images/Hero-Paint-2-Light.jpg');
+
         display: grid;
         grid-template-rows: 4fr 5fr 4.5rem;
         height: 100%;
@@ -2708,22 +2715,22 @@
       }
 
       .c-hero__paint-dark {
-        background-image: url('/images/Paint-Main-A-Dark.jpg');
+        background-image: var(--image-paint-1-dark);
         opacity: var(--theme-dark-opacity);
       }
 
       .c-hero__paint-dark::before {
-        background-image: url('/images/Paint-Main-B-Dark.jpg');
+        background-image: var(--image-paint-2-dark);
       }
 
       .c-hero__paint-light {
         backface-visibility: hidden;
-        background-image: url('/images/Paint-Main-A-Light.jpg');
+        background-image: var(--image-paint-1-light);
         opacity: var(--theme-light-opacity);
       }
 
       .c-hero__paint-light::before {
-        background-image: url('/images/Paint-Main-B-Light.jpg');
+        background-image: var(--image-paint-1-light);
       }
 
       .c-hero__tagline,
@@ -2861,7 +2868,7 @@
       }
 
       .c-hero__me {
-        background-image: url('/images/Me-Dark.jpg');
+        background-image: var(--image-me-dark);
         border-right: solid 1px var(--color-accent);
         position: relative;
       }
@@ -2869,7 +2876,7 @@
       .c-hero__me::before {
         background-blend-mode: luminosity;
         background-color: var(--color-bg-primary);
-        background-image: url('/images/Me-Light.jpg');
+        background-image: var(--image-me-light);
         content: '';
         height: 100%;
         opacity: var(--theme-light-opacity);
