@@ -4715,17 +4715,17 @@
         const mainEl = document.querySelector('main');
         const loaderEl = document.querySelector('c-loader');
         const isTransparent = mainEl.classList.contains('u-transparent');
-        console.log(isTransparent);
-
-        if (isTransparent) {
-          mainEl.classList.remove('u-transparent');
-        }
-
-        loaderEl.style.opacity = 0;
-        loaderEl.style.pointerEvents = 'none';
         setTimeout(() => {
-          loaderEl.style.display = 'none';
-        }, 4000);
+          if (isTransparent) {
+            mainEl.classList.remove('u-transparent');
+          }
+
+          loaderEl.style.opacity = 0;
+          loaderEl.style.pointerEvents = 'none';
+          setTimeout(() => {
+            loaderEl.style.display = 'none';
+          }, 4000);
+        }, 500);
       }
     });
     render(html`
