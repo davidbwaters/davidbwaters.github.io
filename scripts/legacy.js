@@ -4731,20 +4731,22 @@
         console.log('Webfonts Inactive');
       },
       active: function () {
-        const mainEl = document.querySelector('main');
-        const loaderEl = document.querySelector('c-loader');
-        const isTransparent = mainEl.classList.contains('u-transparent');
-        console.log('Webfonts Active');
-
-        if (isTransparent) {
-          mainEl.classList.remove('u-transparent');
-        }
-
-        loaderEl.style.opacity = 0;
-        loaderEl.style.pointerEvents = 'none';
-        setTimeout(() => {
-          loaderEl.style.display = 'none';
-        }, 4000);
+        /*
+        const mainEl = document.querySelector('main')
+        const loaderEl = document.querySelector('c-loader')
+          const isTransparent = mainEl.classList.contains(
+          'u-transparent'
+        )
+          console.log('Webfonts Active')
+          if (isTransparent) {
+            mainEl.classList.remove('u-transparent')
+          }
+          loaderEl.style.opacity = 0
+        loaderEl.style.pointerEvents = 'none'
+          setTimeout(() => {
+            loaderEl.style.display = 'none'
+          }, 4000)
+        */
       }
     });
     render(html`
