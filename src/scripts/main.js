@@ -47,21 +47,24 @@ WebFont.load({
       'u-transparent'
     )
 
-    console.log(isTransparent)
-    if (isTransparent) {
-
-      mainEl.classList.remove('u-transparent')
-
-    }
-
-    loaderEl.style.opacity = 0
-    loaderEl.style.pointerEvents = 'none'
-
     setTimeout(() => {
 
-      loaderEl.style.display = 'none'
+      if (isTransparent) {
 
-    }, 4000)
+        mainEl.classList.remove('u-transparent')
+
+      }
+
+      loaderEl.style.opacity = 0
+      loaderEl.style.pointerEvents = 'none'
+
+      setTimeout(() => {
+
+        loaderEl.style.display = 'none'
+
+      }, 4000)
+
+    }, 1200)
 
   }
 
