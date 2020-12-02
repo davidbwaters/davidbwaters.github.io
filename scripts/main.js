@@ -41,7 +41,7 @@ WebFont.load({
       setTimeout(() => {
         loaderEl.style.display = 'none';
       }, 4000);
-    }, 500);
+    }, 1200);
   }
 });
 render(html`
