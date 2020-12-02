@@ -31,17 +31,16 @@ WebFont.load({
     const mainEl = document.querySelector('main');
     const loaderEl = document.querySelector('c-loader');
     const isTransparent = mainEl.classList.contains('u-transparent');
-    setTimeout(() => {
-      if (isTransparent) {
-        mainEl.classList.remove('u-transparent');
-      }
 
-      loaderEl.style.opacity = 0;
-      loaderEl.style.pointerEvents = 'none';
-      setTimeout(() => {
-        loaderEl.style.display = 'none';
-      }, 4000);
-    }, 1200);
+    if (isTransparent) {
+      mainEl.classList.remove('u-transparent');
+    }
+
+    loaderEl.style.opacity = 0;
+    loaderEl.style.pointerEvents = 'none';
+    setTimeout(() => {
+      loaderEl.style.display = 'none';
+    }, 4000);
   }
 });
 render(html`
@@ -833,7 +832,7 @@ render(html`
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
-                      src="images/Work/Personal Branding Final.jpg"
+                      src="images/Work/Personal Branding Logo Final.jpg"
                       alt="Selected Personal Branding Logo"
                     />
                     <span
@@ -859,7 +858,7 @@ render(html`
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
-                      src="images/Work/Personal Branding Logo 3.jpg"
+                      src="images/Work/Personal Branding Logo Alt 3.jpg"
                       alt="Personal Branding Alternate Logo 3"
                     />
                   </div>
