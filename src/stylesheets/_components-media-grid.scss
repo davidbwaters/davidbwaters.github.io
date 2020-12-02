@@ -80,6 +80,8 @@
 }
 
 .c-media-grid__image-item {
+  align-content: center;
+  background-color: var(--color-muted);
   border: solid 1px var(--color-subtle-alternate);
   box-shadow: 0 0 0 1px rgba(120,120,120,.8);  
   display: grid;

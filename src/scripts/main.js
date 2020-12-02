@@ -35,34 +35,36 @@ WebFont.load({
       'syneextrabold',
       'synebold'
     ],
-    timeout: 4000,
-    active: () => {
+    timeout: 4000
+  },
+  inactive: console.log('webfonts inactive'),
+  active: function() {
 
-      const mainEl = document.querySelector('main')
-      const loaderEl = document.querySelector('c-loader')
+    const mainEl = document.querySelector('main')
+    const loaderEl = document.querySelector('c-loader')
 
-      const isTransparent = mainEl.classList.contains(
-        'u-transparent'
-      )
+    const isTransparent = mainEl.classList.contains(
+      'u-transparent'
+    )
 
-      if (isTransparent) {
+    console.log(isTransparent)
+    if (isTransparent) {
 
-        mainEl.classList.remove('u-transparent')
-
-      }
-
-      loaderEl.style.opacity = 0
-      loaderEl.style.pointerEvents = 'none'
-
-      setTimeout(() => {
-
-        loaderEl.style.display = 'none'
-
-      }, 4000)
+      mainEl.classList.remove('u-transparent')
 
     }
 
+    loaderEl.style.opacity = 0
+    loaderEl.style.pointerEvents = 'none'
+
+    setTimeout(() => {
+
+      loaderEl.style.display = 'none'
+
+    }, 4000)
+
   }
+
 })
 
 render(
@@ -151,7 +153,7 @@ render(
           </a>
           <span>
             Start
-            <span class="u-hidden@mobile">Your</span>
+            <span class="u-hidden@small">Your</span>
             Project!
           </span>
         </div>
@@ -309,7 +311,7 @@ render(
             >
               <c-glitch-image
                 src="images/Work/macOS Modern All.jpg"
-                alt="Screenshot Light Theme"
+                alt="macOS Modern Light Theme Screenshot"
                 glitch=2
                 width="800"
                 height="600"
@@ -317,9 +319,9 @@ render(
               </c-glitch-image>
               <c-glitch-image
                 src="images/Work/macOS Modern Dark 1.jpg"
-                alt="Screenshot Dark Theme"
+                alt="macOS Modern Dark Theme Screenshot"
                 class="
-                  u-hidden@tablet
+                  u-hidden@mobile
                 "
                 glitch=2
                 width="800"
@@ -331,7 +333,7 @@ render(
               <a
                 class="c-button"
                 href="https://github.com/davidbwaters/macos-modern-vscode-theme"
-                title="Github Repo Link"
+                title="macOS Modern Github Repo Link"
               >
                 <i
                   class="
@@ -501,7 +503,7 @@ render(
                   src="images/Work/Limber Logic Both.svg"
                   alt="Limber Logic Logo Dark and Light Versions"
                   class="
-                    u-hidden@tablet
+                    u-hidden@mobile
                     u-bg-color-white
                   "
                   glitch=2
@@ -639,7 +641,7 @@ render(
                 src="images/Work/Map Figma.jpg"
                 alt="Map Dashboard in Figma"
                 class="
-                  u-hidden@tablet
+                  u-hidden@mobile
                 "
                 glitch=2
                 width="912"
@@ -763,7 +765,7 @@ render(
                 src="images/Work/Personal Branding Mockup 1.jpg"
                 alt="Personal Branding VHS Mockup"
                 class="
-                  u-hidden@tablet
+                  u-hidden@mobile
                 "
                 glitch=2
                 width="912"
@@ -855,7 +857,7 @@ render(
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
-                      src="images/Work/Personal Branding Logo 1.jpg"
+                      src="images/Work/Personal Branding Final.jpg"
                       alt="Selected Personal Branding Logo"
                     />
                     <span
@@ -927,7 +929,7 @@ render(
                 src="images/Work/Substructure Text.svg"
                 alt="Substructure Text Logo"
                 class="
-                  u-hidden@tablet
+                  u-hidden@mobile
                   u-max-width-30
                 "
                 glitch=2
@@ -977,6 +979,308 @@ render(
             </div>
           </li>
 
+          <li class="c-work-list__item">
+            <div data-sticky class="c-work-list__item-info">
+              <div class="c-work-list__item-info-inner">
+                <h4 class="c-work-list__item-info-title">
+                  Yippy Clipboard Manager
+                </h4>
+                <div
+                  class="
+                  c-work-list__item-info-taglist 
+                  u-text-title"
+                >
+                  Techologies Used: Figma, Adobe Illustrator
+                </div>
+                <div
+                  class="
+                    c-work-list__item-info-description
+                  "
+                >
+                  <p>
+                    I contributed app and UI icons to an 
+                    open-source clipboard manager for macOS 
+                    made by Matt Davidson.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="
+                c-work-list__item-preview
+                u-cursor-zoom-in"
+              data-modal-target="modal-yippy"
+            >
+              <c-glitch-image
+                src="images/Work/Yippy 1.jpg"
+                alt="Yippy Icon for macOS Big Sur"
+                glitch=2
+                width="800"
+                height="600"
+              >
+              </c-glitch-image>
+              <c-glitch-image
+                src="images/Work/Yippy Menu Bar.jpg"
+                alt="Yippy Menu Bar Icon"
+                class="
+                  u-hidden@mobile
+                "
+                glitch=2
+                width="800"
+                height="600"
+              >
+              </c-glitch-image>
+            </div>
+            <div class="c-work-list__item-lower-three">
+              <a
+                class="c-button"
+                href="https://github.com/mattDavo/Yippy"
+                title="Yippy Github Repo Link"
+              >
+                <i
+                  class="
+                    c-icon 
+                    c-icon--github
+                  "
+                ></i>
+                Star on Github
+              </a>
+              <button
+                class="c-button"
+                data-modal-target="modal-yippy"
+                data-modal-trigger-primary
+              >
+                <i
+                  class="
+                    c-icon 
+                    c-icon--expand
+                  "
+                ></i>
+                Show More
+              </button>
+
+              <c-modal
+                data-modal-trigger="modal-yippy"
+              >
+                <c-section-header
+                  class="u-bg-noise u-z-index-3"
+                >
+                  <div slot="title">
+                    macOS Modern
+                    <c-squiggle></c-squiggle>
+                  </div>
+                  <div slot="description" class="u-text-title">
+                    Techologies Used: Figma, Adobe Illustrator
+                  </div>
+                </c-section-header>
+
+                <div
+                  class="
+                  c-media-grid 
+                  u-bg-pattern-diagonal-alternate
+                "
+                >
+                  <article
+                    class="c-media-grid__text-item-wide"
+                  >
+                    <p>
+                      I contributed icons to an 
+                      open-source clipboard manager for 
+                      macOS made by Matt Davidson.
+                    </p>
+                    <p>
+                      I created a menu bar icon and three
+                      reversions of the app icon, included an
+                      updated version for macOS Big Sur. 
+                      This project adheres to Apple's design
+                      guidelines.
+                    </p>
+                  </article>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Yippy 1.jpg"
+                      alt="Yippy Big Sur Icon"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Yippy Menu Bar.jpg"
+                      alt="Yippy Menu Bar Icon"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Yippy 2.jpg"
+                      alt="Yippy Updated Icon"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Yippy 3.jpg"
+                      alt="Yippy Original Icon"
+                    />
+                  </div>
+                </div>
+              </c-modal>
+            </div>
+          </li>
+          
+          <li class="c-work-list__item">
+            <div data-sticky class="c-work-list__item-info">
+              <div class="c-work-list__item-info-inner">
+                <h4 class="c-work-list__item-info-title">
+                  Artwork
+                </h4>
+                <div
+                  class="
+                  c-work-list__item-info-taglist 
+                  u-text-title"
+                >
+                  Techologies Used: Adobe Photoshop, Adobe Illustrator, Figma, Blender
+                </div>
+                <div
+                  class="
+                    c-work-list__item-info-description
+                  "
+                >
+                  <p>
+                    Miscellaneous digital art.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="
+                c-work-list__item-preview
+                u-cursor-zoom"
+              data-modal-target="modal-artwork"
+            >
+              <c-glitch-image
+                src="images/Work/Art Me.jpg"
+                alt="Artwork Me"
+                class="
+                  u-hidden@mobile
+                  u-max-width-30
+                "
+                glitch=2
+                width="1024"
+                height="1024"
+              >
+              </c-glitch-image>
+              <c-glitch-image
+                src="images/Work/Art Melted.jpg"
+                alt="Artwork Melted"
+                glitch=2
+                width="1024"
+                height="1024"
+              >
+              </c-glitch-image>
+            </div>
+            <div class="c-work-list__item-lower">
+              <button
+                class="c-button"
+                data-modal-target="modal-artwork"
+                data-modal-trigger-primary
+              >
+                <i
+                  class="
+                    c-icon 
+                    c-icon--expand
+                  "
+                ></i>
+                Show More
+              </button>
+
+              <c-modal
+                data-modal-trigger="modal-artwork"
+              >
+                <c-section-header
+                  class="u-bg-noise u-z-index-3"
+                >
+                  <div slot="title">
+                    Artwork
+                    <c-squiggle></c-squiggle>
+                  </div>
+                  <div slot="description" class="u-text-title">
+                    Techologies Used: Adobe Photoshop, 
+                    Adobe Illustrator, Figma, Blender
+                  </div>
+                </c-section-header>
+
+                <div
+                  class="
+                  c-media-grid 
+                  u-bg-pattern-diagonal-alternate
+                "
+                >
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Art Chuck 1.jpg"
+                      alt="Artwork Charleston 1"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Art Chuck 2.jpg"
+                      alt="Artwork Charleston 2"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Art Melted.jpg"
+                      alt="Artwork Abstract Melted"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Art Me.jpg"
+                      alt="Artwork Me Abstract"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Art Statue.jpg"
+                      alt="Artwork Statue"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Art Pyramids.jpg"
+                      alt="Artwork Pyramics"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Art Vapor.jpg"
+                      alt="Artwork Vaporwave"
+                    />
+                  </div>
+                  <div class="c-media-grid__image-item">
+                    <img
+                      class="c-media-grid__image"
+                      src="images/Work/Art Church.jpg"
+                      alt="Artwork Church"
+                    />
+                  </div>
+                </div>
+              </c-modal>
+
+            </div>
+          </li>
+
         </ul>
       </section>
 
@@ -991,12 +1295,12 @@ render(
             the MIT license
             <a
               href="https://github.com/davidbwaters/davidbwaters.github.io"
-              title="Github Repo Link"
+              title="This Site's Github Repo Link"
             >here</a>
             .
             <br class="u-hidden@tablet">
             Stay tuned! It's still very much a
-            work-in-progress.
+            work in progress.
           </small>
         </div>
       </footer>

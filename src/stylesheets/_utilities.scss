@@ -120,6 +120,7 @@
   mix-blend-mode: luminosity !important;
 }
 
+
 /* Visibility */
 
 .u-transparent {
@@ -140,7 +141,7 @@
 
 }
 
-@media (max-width:30em) {
+@media (max-width:35em) {
 
   .u-hidden\@tablet {
     display: none !important;
