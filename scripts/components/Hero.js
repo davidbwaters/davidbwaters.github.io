@@ -513,12 +513,17 @@ export class Hero extends LitElement {
 
     this._nameStylizedSetup();
 
-    window.addEventListener('load', () => {
-      Scrambler({
-        target: '[data-scrambler]',
-        random: [1000, 1000],
-        speed: 60
-      });
+    const documentEl = document.documentElement;
+    documentEl.addEventListener('change', () => {
+      const isLoaded = documentEl.dataset.loaded === true;
+
+      if (isLoaded) {
+        Scrambler({
+          target: '[data-scrambler]',
+          random: [1000, 1000],
+          speed: 60
+        });
+      }
     });
   }
 
