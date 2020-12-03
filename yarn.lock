@@ -2029,6 +2029,11 @@ detect-port@^1.3.0:
     address "^1.0.1"
     debug "^2.6.0"
 
+dialog-polyfill@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/dialog-polyfill/-/dialog-polyfill-0.5.4.tgz#e43bc54794a7fc605852352649bdd4d03cfb59e5"
+  integrity sha512-LqQvIky9+qIFD7MCESOXdMZc4ObCdEbzbuvnPJVCiRXKQMzMjpQKK50UI+2sj0bJBPKn6ugPpMRpuLrgYc4RjA==
+
 dir-glob@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/dir-glob/-/dir-glob-3.0.1.tgz#56dbf73d992a4a93ba1584f4534063fd2e41717f"

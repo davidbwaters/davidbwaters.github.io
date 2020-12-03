@@ -3,6 +3,7 @@
  */
 
 import { LitElement, html, css } from 'lit-element'
+import dialogPolyfill from 'dialog-polyfill'
 
 export class Modal extends LitElement {
 
@@ -63,6 +64,12 @@ export class Modal extends LitElement {
         display: block;
         opacity: 0;
         visibility: visible;
+      }
+
+      .c-modal__body.is-open {
+        display: block;
+        opacity: 1;
+        pointer-events: initial;
       }
 
       .c-modal__body.is-closing {
@@ -196,6 +203,8 @@ export class Modal extends LitElement {
   firstUpdated() {
 
     this._setup()
+
+    dialogPolyfill.registerDialog(this._dialogEl)
 
     window.addEventListener(
       'click',

@@ -5,6 +5,7 @@
 import { html, render } from 'lit-html'
 import WebFont from 'webfontloader'
 // import stickybits from 'stickybits'
+
 import { TopBar } from './components/TopBar'
 import { Hero } from './components/Hero'
 import { ThemeSwitch } from './components/ThemeSwitch'
@@ -13,6 +14,7 @@ import { SectionHeader } from './components/SectionHeader'
 import { GlitchImage } from './components/GlitchImage'
 import { Modal } from './components/Modal'
 import { Loader } from './components/Loader'
+
 
 customElements.define('c-top-bar', TopBar)
 customElements.define('c-hero', Hero)
@@ -143,6 +145,7 @@ render(
         class="u-bg-noise"
         @load=${handleElLoad()}
         data-preload
+        id="hero"
       >
         <div slot="tagline">
           Artist & <br />
@@ -179,14 +182,18 @@ render(
           </span>
         </div>
         <div slot="footer-box-right">
-          <i
-            class="c-icon c-icon--arrow-down"
-          ></i>
+          <a
+            class="
+              c-icon
+              c-icon--arrow-down
+            "
+            href="#skills"
+          ></a>
         </div>
         <hr slot="bottom" class="u-separator" />
       </c-hero>
 
-      <section>
+      <section id="skills">
         <c-section-header class="u-bg-noise">
           <div slot="title">
             Skills
@@ -278,7 +285,7 @@ render(
         <hr class="u-separator-alternate c-hero__bottom" />
       </section>
 
-      <section>
+      <section id="work">
         <c-section-header class="u-bg-noise u-z-index-3">
           <div slot="title">
             Selected <br />
