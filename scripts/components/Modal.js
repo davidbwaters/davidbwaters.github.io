@@ -2,6 +2,7 @@
  *  Components - Modal
  */
 import { LitElement, html, css } from '../../modules/lit-element.js';
+import dialogPolyfill from '../../modules/dialog-polyfill.js';
 export class Modal extends LitElement {
   static get styles() {
     return css`
@@ -59,6 +60,12 @@ export class Modal extends LitElement {
         display: block;
         opacity: 0;
         visibility: visible;
+      }
+
+      .c-modal__body.is-open {
+        display: block;
+        opacity: 1;
+        pointer-events: initial;
       }
 
       .c-modal__body.is-closing {
@@ -189,6 +196,7 @@ export class Modal extends LitElement {
   firstUpdated() {
     this._setup();
 
+    dialogPolyfill.registerDialog(this._dialogEl);
     window.addEventListener('click', e => {
       const target = e.target.closest('[data-modal-target=' + this._triggerData + ']');
 

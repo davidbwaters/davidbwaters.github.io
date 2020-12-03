@@ -121,7 +121,7 @@ export class Hero extends LitElement {
       }
 
       @media (min-height: 35em) {
-        
+
         .c-hero__tagline {
           margin-top: 0.5rem;
           line-height: 1.1;
@@ -272,7 +272,7 @@ export class Hero extends LitElement {
         );
         background-position: 0 0;
         background-repeat: repeat;
-        background-size: 0.275rem 0.275rem;
+        background-size: 0.25rem 0.25rem;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
@@ -343,8 +343,8 @@ export class Hero extends LitElement {
       .c-hero__footer {
         border-top: solid 1px var(--color-accent);
         display: grid;
-        grid-template-columns: 
-            3.2rem 
+        grid-template-columns:
+            3.2rem
             auto
             auto
             2.1rem;
@@ -354,10 +354,10 @@ export class Hero extends LitElement {
       @media (min-width: 35em) {
 
         .c-hero__footer {
-          grid-template-columns: 
-            4rem 
-            calc(50% - 4rem) 
-            calc(50% - 4rem) 
+          grid-template-columns:
+            4rem
+            calc(50% - 4rem)
+            calc(50% - 4rem)
             4rem;
         }
 
@@ -402,14 +402,14 @@ export class Hero extends LitElement {
           padding-left: 1.25rem;
           padding-right: 1.25rem;
         }
-      
+
       }
-      
+
       ::slotted([slot='footer-content-left']) {
         grid-template-columns: auto 1fr;
       }
 
-      
+
       ::slotted([slot='footer-content-right']) {
         grid-template-columns: auto 1fr;
       }

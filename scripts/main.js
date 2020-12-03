@@ -118,6 +118,7 @@ render(html`
         class="u-bg-noise"
         @load=${handleElLoad()}
         data-preload
+        id="hero"
       >
         <div slot="tagline">
           Artist & <br />
@@ -154,14 +155,18 @@ render(html`
           </span>
         </div>
         <div slot="footer-box-right">
-          <i
-            class="c-icon c-icon--arrow-down"
-          ></i>
+          <a
+            class="
+              c-icon
+              c-icon--arrow-down
+            "
+            href="#skills"
+          ></a>
         </div>
         <hr slot="bottom" class="u-separator" />
       </c-hero>
 
-      <section>
+      <section id="skills">
         <c-section-header class="u-bg-noise">
           <div slot="title">
             Skills
@@ -253,7 +258,7 @@ render(html`
         <hr class="u-separator-alternate c-hero__bottom" />
       </section>
 
-      <section>
+      <section id="work">
         <c-section-header class="u-bg-noise u-z-index-3">
           <div slot="title">
             Selected <br />

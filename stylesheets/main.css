@@ -3459,12 +3459,18 @@ strong {
 }
 
 @media (max-width: 25em) {
-  .u-hidden\@mobile {
+  .u-hidden\@small {
     display: none !important;
     visibility: hidden !important;
   }
 }
 @media (max-width: 35em) {
+  .u-hidden\@mobile {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+@media (max-width: 45em) {
   .u-hidden\@tablet {
     display: none !important;
     visibility: hidden !important;
@@ -3481,7 +3487,7 @@ strong {
   border: none !important;
   background-repeat: repeat !important;
   background-position: 0 0 !important;
-  background-size: 0.225rem 0.225rem !important;
+  background-size: 0.25rem 0.25rem !important;
   height: 0.5rem !important;
   width: 100% !important;
 }
@@ -3560,7 +3566,7 @@ strong {
 .u-bg-pattern-diagonal-alternate {
   background-position: 0 0 !important;
   background-repeat: repeat !important;
-  background-size: 0.275rem 0.275rem !important;
+  background-size: 0.25rem 0.25rem !important;
 }
 
 .u-bg-pattern-diagonal {
