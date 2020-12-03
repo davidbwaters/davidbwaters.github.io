@@ -35,7 +35,8 @@ WebFont.load({
       'work_sanssemibold',
       'league_monoregular',
       'syneextrabold',
-      'synebold'
+      'synebold',
+      'icons'
     ],
     timeout: 4000
   },
