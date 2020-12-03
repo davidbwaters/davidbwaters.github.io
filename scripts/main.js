@@ -23,7 +23,7 @@ customElements.define('c-loader', Loader);
 WebFont.load({
   classes: false,
   custom: {
-    families: ['work_sanslight', 'work_sansregular', 'work_sansmedium', 'work_sanssemibold', 'league_monoregular', 'syneextrabold', 'synebold'],
+    families: ['work_sanslight', 'work_sansregular', 'work_sansmedium', 'work_sanssemibold', 'league_monoregular', 'syneextrabold', 'synebold', 'icons'],
     timeout: 4000
   },
   inactive: () => {

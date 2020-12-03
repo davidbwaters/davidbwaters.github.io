@@ -5223,19 +5223,19 @@
         --modal-color-fg: var(--color-fg);
         --modal-color-bg: var(--color-bg);
         --modal-spacing: 1.5rem;
-        --modal-close-button-color-fg: var(--color-fg);
-        --modal-close-button-color-bg: var(--color-bg);
-        --modal-close-button-color-border: var(--color-fg);
-        --modal-close-button-color-shadow: var(
+        --modal-button-color-fg: var(--color-fg);
+        --modal-button-color-bg: var(--color-bg);
+        --modal-button-color-border: var(--color-fg);
+        --modal-button-color-shadow: var(
           --color-opaque
         );
-        --modal-close-button-color-shadow-hover: var(
+        --modal-button-color-shadow-hover: var(
           --color-opaque-alternate
         );
-        --modal-close-button-font: var(--font-main-regular);
-        --modal-close-button-font-weight: normal;
-        --modal-close-button-size: 1.2rem;
-        --modal-close-button-thickness: 1.5px;
+        --modal-button-font: var(--font-main-regular);
+        --modal-button-font-weight: normal;
+        --modal-button-size: 1.2rem;
+        --modal-button-thickness: 1.5px;
         --modal-transition-duration: 0.15s;
         --modal-trigger-transition-duration: 0.33s;
 
@@ -5290,35 +5290,33 @@
         visibility: hidden;
       }
 
+      .c-modal__back-button,
+      .c-modal__back-button:focus,
       .c-modal__close-button,
       .c-modal__close-button:focus {
         border: solid 1px
-          var(--modal-close-button-color-border);
+          var(--modal-button-color-border);
         outline: none;
       }
 
+      .c-modal__back-button,
       .c-modal__close-button {
         align-items: center;
         background-color: var(
-          --modal-close-button-color-bg
+          --modal-button-color-bg
         );
         color: inherit;
         cursor: pointer;
         display: grid;
-        float: right;
-        font-family: var(--modal-close-button-font);
+        font-family: var(--modal-button-font);
         font-size: 0.7rem;
-        font-weight: var(--modal-close-button-font-weight);
+        font-weight: var(--modal-button-font-weight);
         grid-template-columns: var(
-          --modal-close-button-size
+          --modal-button-size
         );
-        grid-template-rows: var(--modal-close-button-size);
+        grid-template-rows: var(--modal-button-size);
         letter-spacing: 0.025em;
-        margin-right: calc(var(--modal-spacing) / 2);
-        margin-top: calc(var(--modal-spacing) / 2);
         padding-bottom: calc(var(--modal-spacing) / 3);
-        padding-left: calc(var(--modal-spacing) / 3);
-        padding-right: calc(var(--modal-spacing) / 3);
         padding-top: calc(var(--modal-spacing) / 3);
         position: sticky;
         top: calc(var(--modal-spacing) / 2);
@@ -5329,22 +5327,54 @@
         z-index: 9;
       }
 
-      @media (min-width: 45em) {
-        .c-modal__close-button {
-          grid-gap: 0.25rem;
-          grid-template-columns: 1fr var(
-              --modal-close-button-size
-            );
-        }
-      }
-
+      .c-modal__back-button:active,
       .c-modal__close-button:active {
         transform: translateY(2px);
       }
 
+      .c-modal__back-button:hover,
       .c-modal__close-button:hover {
         box-shadow: 0 0 1px 1px
-          var(--modal-close-button-color-shadow-hover);
+          var(--modal-button-color-shadow-hover);
+      }
+
+      .c-modal__back-button {
+        border-radius: 100%;
+        float: left;
+        justify-items: center;
+        margin-left: calc(var(--modal-spacing) / 2);
+        width: calc(
+          var(--modal-button-size) +
+          (var(--modal-spacing) / 3 * 2)
+        );
+      }
+
+      .c-modal__back-button i {
+        font-family: 'icons';
+        font-size: 1.4rem;
+        font-style: normal;
+        left: .025em;
+        position: relative;
+        text-transform: none;
+      }
+
+      .c-modal__close-button {
+        float: right;
+        margin-right: calc(var(--modal-spacing) / 2);
+        margin-top: calc(var(--modal-spacing) / 2);
+        padding-left: calc(var(--modal-spacing) / 3);
+        padding-right: calc(var(--modal-spacing) / 3);
+      }
+
+      @media (min-width: 45em) {
+
+        .c-modal__close-button {
+          grid-gap: 0.25rem;
+          grid-template-columns: 1fr var(
+            --modal-button-size
+          );
+        }
+
       }
 
       .c-modal__close-button span {
@@ -5352,14 +5382,16 @@
       }
 
       @media (min-width: 45em) {
+
         .c-modal__close-button span {
           display: inline-block;
           margin-top: 1px;
         }
+
       }
 
       .c-modal__close-button i {
-        height: var(--modal-close-button-size);
+        height: var(--modal-button-size);
         position: relative;
         text-align: center;
       }
@@ -5367,14 +5399,14 @@
       .c-modal__close-button i::before,
       .c-modal__close-button i::after {
         background-color: var(
-          --modal-close-button-color-fg
+          --modal-button-color-fg
         );
         content: '';
         height: 100%;
         margin: auto;
         position: absolute;
         transform-origin: center;
-        width: var(--modal-close-button-thickness);
+        width: var(--modal-button-thickness);
       }
 
       .c-modal__close-button i::before {
@@ -5418,6 +5450,10 @@
           }
         }, true);
         this.shadowRoot.addEventListener('click', e => {
+          if (e.target.closest('.c-modal__back-button')) {
+            this.close();
+          }
+
           if (e.target.closest('.c-modal__close-button')) {
             this.close();
           }
@@ -5498,6 +5534,9 @@
       render() {
         return html`
       <dialog class="c-modal__body">
+        <button class="c-modal__back-button">
+          <i>l</i>
+        </button>
         <button class="c-modal__close-button">
           <span> Close </span>
           <i></i>
@@ -5624,7 +5663,7 @@
     webfontloader.load({
       classes: false,
       custom: {
-        families: ['work_sanslight', 'work_sansregular', 'work_sansmedium', 'work_sanssemibold', 'league_monoregular', 'syneextrabold', 'synebold'],
+        families: ['work_sanslight', 'work_sansregular', 'work_sansmedium', 'work_sanssemibold', 'league_monoregular', 'syneextrabold', 'synebold', 'icons'],
         timeout: 4000
       },
       inactive: () => {

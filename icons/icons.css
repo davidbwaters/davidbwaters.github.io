@@ -1,4 +1,4 @@
-/* 
+/*
  * Icons
  */
 
@@ -42,43 +42,45 @@
   content: attr(data-icon);
 }
 
-
-.c-icon--twitter:before {
-  content: "\61";
+.c-icon--arrow-down:before {
+  content: "\73";
 }
-.c-icon--mail:before {
-  content: "\62";
-}
-.c-icon--github:before {
-  content: "\63";
+.c-icon--arrow-left:before {
+  content: "\6c";
 }
 .c-icon--dribbble:before {
   content: "\64";
 }
-.c-icon--switch:before {
-  content: "\65";
+.c-icon--expand:before {
+  content: "\7a";
+}
+.c-icon--github:before {
+  content: "\63";
 }
 .c-icon--hand:before {
   content: "\68";
 }
-.c-icon--arrow-down:before {
-  content: "\67";
-}
 .c-icon--hand-alt:before {
   content: "\6a";
 }
-.c-icon--npm-alt:before {
-  content: "\76";
+.c-icon--mail:before {
+  content: "\62";
 }
-.c-icon--expand:before {
-  content: "\7a";
-}
-.c-icon--plus:before {
-  content: "\70";
+.c-icon--microsoft:before {
+  content: "\6d";
 }
 .c-icon--npm:before {
   content: "\6e";
 }
-.c-icon--microsoft:before {
-  content: "\6d";
+.c-icon--npm-alt:before {
+  content: "\76";
+}
+.c-icon--plus:before {
+  content: "\70";
+}
+.c-icon--switch:before {
+  content: "\65";
+}
+.c-icon--twitter:before {
+  content: "\61";
 }
