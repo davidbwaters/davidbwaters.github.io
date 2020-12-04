@@ -174,7 +174,9 @@
   border: none !important;
   background-repeat: repeat !important;
   background-position: 0 0 !important;
-  background-size: .25rem .25rem !important;
+  background-size:
+    var(--bg-pattern-diagonal-tight-size)
+    var(--bg-pattern-diagonal-tight-size) !important;
   height: .5rem !important;
   width: 100% !important;
 }
@@ -184,12 +186,12 @@
     -45deg,
     var(--color-opaque)   0.00%,
     var(--color-opaque)  12.50%,
-    transparent              12.51%,
-    transparent              37.49%,
+    transparent          12.51%,
+    transparent          37.49%,
     var(--color-opaque)  37.50%,
     var(--color-opaque)  62.50%,
-    transparent              62.51%,
-    transparent              87.49%,
+    transparent          62.51%,
+    transparent          87.49%,
     var(--color-opaque)  87.50%,
     var(--color-opaque) 100.00%
   ) !important;
@@ -201,12 +203,12 @@
     -45deg,
     var(--color-opaque-alternate)   0.00%,
     var(--color-opaque-alternate)  12.50%,
-    transparent                        12.51%,
-    transparent                        37.49%,
+    transparent                    12.51%,
+    transparent                    37.49%,
     var(--color-opaque-alternate)  37.50%,
     var(--color-opaque-alternate)  62.50%,
-    transparent                        62.51%,
-    transparent                        87.49%,
+    transparent                    62.51%,
+    transparent                    87.49%,
     var(--color-opaque-alternate)  87.50%,
     var(--color-opaque-alternate) 100.00%
   ) !important;
@@ -279,7 +281,9 @@
 .u-bg-pattern-diagonal-alternate {
   background-position: 0 0 !important;
   background-repeat: repeat !important;
-  background-size: .25rem .25rem !important;
+  background-size:
+    var(--bg-pattern-diagonal-size)
+    var(--bg-pattern-diagonal-size) !important;
 }
 
 .u-bg-pattern-diagonal {
@@ -287,12 +291,12 @@
     -45deg,
     var(--color-opaque-heavy)   0.00%,
     var(--color-opaque-heavy)   6.24%,
-    transparent           6.25%,
-    transparent          43.74%,
+    transparent                 6.25%,
+    transparent                43.74%,
     var(--color-opaque-heavy)  43.75%,
     var(--color-opaque-heavy)  56.25%,
-    transparent          56.26%,
-    transparent          93.74%,
+    transparent                56.26%,
+    transparent                93.74%,
     var(--color-opaque-heavy)  93.75%,
     var(--color-opaque-heavy) 100.00%
   ) !important;
@@ -318,7 +322,9 @@
 .u-bg-pattern-diagonal-tight-alternate {
   background-repeat: repeat !important;
   background-position: 0 0 !important;
-  background-size: .25rem .25rem !important;
+  background-size:
+    var(--bg-pattern-diagonal-tight-size)
+    var(--bg-pattern-diagonal-tight-size) !important;
 }
 
 .u-bg-pattern-diagonal-tight {

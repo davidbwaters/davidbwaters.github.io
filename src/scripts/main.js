@@ -227,7 +227,7 @@ function handlePreload() {
 
       scramble()
 
-    }, 500)
+    }, 250)
 
   }
 

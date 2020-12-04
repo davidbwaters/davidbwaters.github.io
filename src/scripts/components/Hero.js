@@ -15,12 +15,24 @@ export class Hero extends LitElement {
       }
 
       :host {
-        --image-me-dark:       url('/images/Me-Dark.jpg');
-        --image-me-light:      url('/images/Me-Light.jpg');
-        --image-paint-1-dark:  url('/images/Hero-Paint-1-Dark.jpg');
-        --image-paint-1-light: url('/images/Hero-Paint-1-Light.jpg');
-        --image-paint-2-dark:  url('/images/Hero-Paint-2-Dark.jpg');
-        --image-paint-2-light: url('/images/Hero-Paint-2-Light.jpg');
+        --hero-image-me-dark:       url(
+          '/images/Me-Dark.jpg'
+        );
+        --hero-image-me-light: url(
+          '/images/Me-Light.jpg'
+        );
+        --hero-image-paint-1-dark: url(
+          '/images/Hero-Paint-1-Dark.jpg'
+        );
+        --hero-image-paint-1-light: url(
+          '/images/Hero-Paint-1-Light.jpg'
+        );
+        --hero-image-paint-2-dark: url(
+          '/images/Hero-Paint-2-Dark.jpg'
+        );
+        --hero-image-paint-2-light: url(
+          '/images/Hero-Paint-2-Light.jpg'
+        );
 
         display: grid;
         grid-template-rows: 4fr 5fr 4.5rem;
@@ -91,22 +103,22 @@ export class Hero extends LitElement {
       }
 
       .c-hero__paint-dark {
-        background-image: var(--image-paint-1-dark);
+        background-image: var(--hero-image-paint-1-dark);
         opacity: var(--theme-dark-opacity);
       }
 
       .c-hero__paint-dark::before {
-        background-image: var(--image-paint-2-dark);
+        background-image: var(--hero-image-paint-2-dark);
       }
 
       .c-hero__paint-light {
         backface-visibility: hidden;
-        background-image: var(--image-paint-1-light);
+        background-image: var(--hero-image-paint-1-light);
         opacity: var(--theme-light-opacity);
       }
 
       .c-hero__paint-light::before {
-        background-image: var(--image-paint-1-light);
+        background-image: var(--hero-image-paint-1-light);
       }
 
       .c-hero__tagline,
@@ -244,7 +256,7 @@ export class Hero extends LitElement {
       }
 
       .c-hero__me {
-        background-image: var(--image-me-dark);
+        background-image: var(--hero-image-me-dark);
         border-right: solid 1px var(--color-accent);
         position: relative;
       }
@@ -252,7 +264,7 @@ export class Hero extends LitElement {
       .c-hero__me::before {
         background-blend-mode: luminosity;
         background-color: var(--color-bg-primary);
-        background-image: var(--image-me-light);
+        background-image: var(--hero-image-me-light);
         content: '';
         height: 100%;
         opacity: var(--theme-light-opacity);
@@ -265,18 +277,20 @@ export class Hero extends LitElement {
           -45deg,
           var(--color-opaque-heavy) 0%,
           var(--color-opaque-heavy) 6.24%,
-          transparent         6.25%,
-          transparent         43.74%,
+          transparent               6.25%,
+          transparent               43.74%,
           var(--color-opaque-heavy) 43.75%,
           var(--color-opaque-heavy) 56.25%,
-          transparent         56.26%,
-          transparent         93.74%,
+          transparent               56.26%,
+          transparent               93.74%,
           var(--color-opaque-heavy) 93.75%,
           var(--color-opaque-heavy) 100%
         );
         background-position: 0 0;
         background-repeat: repeat;
-        background-size: .25rem .25rem;
+        background-size:
+          var(--bg-pattern-diagonal-size)
+          var(--bg-pattern-diagonal-size);
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
@@ -301,7 +315,7 @@ export class Hero extends LitElement {
         background-color: var(--color-bg);
         content: '';
         height: 100%;
-        opacity: .2;
+        opacity: .05;
         position: absolute;
         width: 100%;
         z-index: -1;
