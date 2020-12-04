@@ -3394,6 +3394,12 @@ strong {
   -webkit-text-stroke-color: var(--color-fg) !important;
 }
 
+/* Wrapper Full */
+.u-wrapper-full {
+  height: 100%;
+  width: 100%;
+}
+
 /* Borders */
 .u-border-top-accent-alternate {
   border-top: solid 1px var(--color-subtle-alternate) !important;
