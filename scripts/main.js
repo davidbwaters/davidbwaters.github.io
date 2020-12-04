@@ -21,7 +21,7 @@ customElements.define('c-section-header', SectionHeader);
 customElements.define('c-glitch-image', GlitchImage);
 customElements.define('c-modal', Modal);
 customElements.define('c-loader', Loader);
-const preloadingImages = ['/images/Me-Dark.jpg', '/images/Me-Light.jpg', '/images/Hero-Paint-1-Dark.jpg', '/images/Hero-Paint-1-Light.jpg', '/images/Hero-Paint-2-Dark.jpg', '/images/Hero-Paint-2-Light.jpg', '/images/Noise-Main-Clear.svg'];
+const preloadingImages = ['/images/Loader.svg', '/images/Me-Dark.jpg', '/images/Me-Light.jpg', '/images/Hero-Paint-1-Dark.jpg', '/images/Hero-Paint-1-Light.jpg', '/images/Hero-Paint-2-Dark.jpg', '/images/Hero-Paint-2-Light.jpg', '/images/Noise-Clear.svg'];
 WebFont.load({
   classes: false,
   custom: {
@@ -1393,7 +1393,7 @@ render(html`
     <c-loader>
       <div class="u-bg-noise-heavy">
         <c-glitch-image
-          src="images/Loader-Image.svg"
+          src="images/Loader.svg"
           active
           glitch=1
           width="100"

@@ -3606,7 +3606,7 @@ strong {
 .u-overlay-noise::before {
   animation: noise 0.4s infinite !important;
   backface-visibility: hidden !important;
-  background-image: url("/images/Noise-Main-Clear.svg") !important;
+  background-image: url("/images/Noise-Clear.svg") !important;
   background-size: 400px auto !important;
   background-repeat: repeat !important;
   content: "" !important;
