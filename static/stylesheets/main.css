@@ -37,7 +37,7 @@ html {
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100%;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -3308,16 +3308,18 @@ c-theme-switch,
   -webkit-text-stroke-color: var(--color-bg);
 }
 
+:root,
+body,
+main {
+  height: 100% !important;
+  max-height: 100% !important;
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-fg);
   font-family: var(--font-main-light);
   font-weight: var(--font-main-weight);
-  height: 100%;
-}
-
-main {
-  height: 100%;
 }
 
 img {
@@ -3392,6 +3394,12 @@ strong {
   -webkit-text-fill-color: transparent !important;
   -webkit-text-stroke-width: 1px !important;
   -webkit-text-stroke-color: var(--color-fg) !important;
+}
+
+/* Wrapper Full */
+.u-wrapper-full {
+  height: 100%;
+  width: 100%;
 }
 
 /* Borders */

@@ -29,8 +29,6 @@ export class Modal extends LitElement {
         --modal-button-thickness: 1.5px;
         --modal-transition-duration: 0.15s;
         --modal-trigger-transition-duration: 0.33s;
-
-        position: absolute;
       }
 
       .c-modal__body {
@@ -38,7 +36,7 @@ export class Modal extends LitElement {
         border: none;
         box-sizing: border-box;
         color: var(--modal-color-fg);
-        height: 100vh;
+        height: 100%;
         left: 0;
         max-height: none;
         max-width: none;
@@ -50,12 +48,12 @@ export class Modal extends LitElement {
         position: fixed;
         transition: var(--modal-transition-duration);
         top: 0;
-        width: 100vw;
+        width: 100%;
         z-index: 9;
       }
 
       .c-modal__body:not([open]) {
-        display: block;
+        display: none;
         opacity: 0;
         pointer-events: none;
       }
