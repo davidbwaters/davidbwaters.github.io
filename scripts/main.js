@@ -129,7 +129,7 @@ function handlePreload() {
     documentEl.dataset.preloaded = true;
     setTimeout(() => {
       scramble();
-    }, 500);
+    }, 250);
   }
 }
 
