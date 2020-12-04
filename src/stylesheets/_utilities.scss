@@ -279,22 +279,22 @@
 .u-bg-pattern-diagonal-alternate {
   background-position: 0 0 !important;
   background-repeat: repeat !important;
-  background-size: 0.25rem 0.25rem !important;
+  background-size: .25rem .25rem !important;
 }
 
 .u-bg-pattern-diagonal {
   background-image: linear-gradient(
     -45deg,
-    var(--color-opaque)   0.00%,
-    var(--color-opaque)   6.24%,
-    transparent               6.25%,
-    transparent              43.74%,
-    var(--color-opaque)  43.75%,
-    var(--color-opaque)  56.25%,
-    transparent              56.26%,
-    transparent              93.74%,
-    var(--color-opaque)  93.75%,
-    var(--color-opaque) 100.00%
+    var(--color-opaque-heavy)   0.00%,
+    var(--color-opaque-heavy)   6.24%,
+    transparent           6.25%,
+    transparent          43.74%,
+    var(--color-opaque-heavy)  43.75%,
+    var(--color-opaque-heavy)  56.25%,
+    transparent          56.26%,
+    transparent          93.74%,
+    var(--color-opaque-heavy)  93.75%,
+    var(--color-opaque-heavy) 100.00%
   ) !important;
 }
 
@@ -303,12 +303,12 @@
     -45deg,
     var(--color-opaque-alternate)   0.00%,
     var(--color-opaque-alternate)   6.24%,
-    transparent                         6.25%,
-    transparent                        43.74%,
+    transparent                     6.25%,
+    transparent                    43.74%,
     var(--color-opaque-alternate)  43.75%,
     var(--color-opaque-alternate)  56.25%,
-    transparent                        56.26%,
-    transparent                        93.74%,
+    transparent                    56.26%,
+    transparent                    93.74%,
     var(--color-opaque-alternate)  93.75%,
     var(--color-opaque-alternate) 100.00%
   ) !important;
@@ -318,7 +318,7 @@
 .u-bg-pattern-diagonal-tight-alternate {
   background-repeat: repeat !important;
   background-position: 0 0 !important;
-  background-size: .225rem .225rem !important;
+  background-size: .25rem .25rem !important;
 }
 
 .u-bg-pattern-diagonal-tight {
@@ -326,12 +326,12 @@
     -45deg,
     var(--color-opaque)   0.00%,
     var(--color-opaque)  12.50%,
-    transparent              12.51%,
-    transparent              37.49%,
+    transparent          12.51%,
+    transparent          37.49%,
     var(--color-opaque)  37.50%,
     var(--color-opaque)  62.50%,
-    transparent              62.51%,
-    transparent              87.49%,
+    transparent          62.51%,
+    transparent          87.49%,
     var(--color-opaque)  87.50%,
     var(--color-opaque) 100.00%
   ) !important;
@@ -342,28 +342,32 @@
     -45deg,
     var(--color-opaque-alternate)   0.00%,
     var(--color-opaque-alternate)  12.50%,
-    transparent                        12.51%,
-    transparent                        37.49%,
+    transparent                    12.51%,
+    transparent                    37.49%,
     var(--color-opaque-alternate)  37.50%,
     var(--color-opaque-alternate)  62.50%,
-    transparent                        62.51%,
-    transparent                        87.49%,
+    transparent                    62.51%,
+    transparent                    87.49%,
     var(--color-opaque-alternate)  87.50%,
     var(--color-opaque-alternate) 100.00%
   ) !important;
 }
 
 .u-bg-noise,
+.u-bg-noise-heavy,
 .u-overlay-noise {
   overflow: hidden !important;
   position: relative !important;
 }
 
 .u-bg-noise::before,
+.u-bg-noise-heavy::before,
 .u-overlay-noise::before {
   animation: noise .4s infinite !important;
   backface-visibility: hidden !important;
-  background-image: url("/images/Noise-Main-Clear.svg") !important;
+  background-image: url(
+    "/images/Noise-Main-Clear.svg"
+  ) !important;
   background-size: 400px auto !important;
   background-repeat: repeat !important;
   content: '' !important;
@@ -374,20 +378,35 @@
   width: 200% !important;
 }
 
-.u-bg-noise::before {
+.u-bg-noise::before,
+.u-bg-noise-heavy::before {
   background-color: var(--color-bg) !important;
-  opacity: 0.4 !important;
   z-index: -1 !important;
 }
 
 .u-overlay-noise::before {
-  opacity: 0.4 !important;
   pointer-events: none !important;
   z-index: 1 !important;
 }
 
+.u-bg-noise::before {
+  opacity: 0.4 !important;
+}
+
+.u-bg-noise-heavy::before {
+  opacity: 0.6 !important;
+}
+
+.u-overlay-noise::before {
+  opacity: 0.4 !important;
+}
+
 [data-theme=light] .u-bg-noise::before {
   opacity: 0.25 !important;
+}
+
+[data-theme=light] .u-bg-noise-heavy::before {
+  opacity: 0.4 !important;
 }
 
 [data-theme=light] .u-overlay-noise::before {

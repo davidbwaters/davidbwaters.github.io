@@ -56,8 +56,8 @@
   z-index: 5;
 }
 
-@media (min-width:45em) {
-  
+@media (min-height:35em) and (min-width:45em) {
+
   .c-work-list__item-info {
     margin-top: 0;
     top: 0;
@@ -77,8 +77,8 @@
   z-index: 1;
 }
 
-@media (min-width:45em) {
-  
+@media (min-height:35em) and (min-width:45em) {
+
   .c-work-list__item::before {
     display: none;
   }
@@ -116,7 +116,6 @@
   }
 
 }
-
 
 .c-work-list__item-info-title {
   font-size: clamp(1.66rem, 3vw, 2rem);
@@ -190,7 +189,7 @@
   .c-work-list__item-lower-three {
     grid-auto-flow: column;
   }
-  
+
 }
 
 @media (min-width:35em) {

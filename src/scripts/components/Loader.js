@@ -9,46 +9,43 @@ export class Loader extends LitElement {
   static get styles() {
 
     return css`
+
       :host {
         --loader-color-bg: var(--color-bg);
-        --loader-image-bg: url('images/Noise-Main-Clear.svg');
+      }
 
+      :host,
+      ::slotted(*) {
+        height: 100vh;
+        left: 0;
+        top: 0;
+        transition: opacity var(--transition-duration);
+        width: 100%;
+        z-index: 9;
+      }
+
+      :host {
+        background-color: var(--loader-color-bg);
+        position: fixed;
+      }
+
+      ::slotted(*) {
         align-content: center;
         cursor: progress;
         display: grid;
         grid-template-columns: 100px;
         grid-template-rows: min-content;
-        height: 100vh;
         justify-content: center;
-        position: fixed;
-        top: 0;
-        transition: opacity var(--transition-duration);
-        width: 100vw;
-        z-index: 9;
+        position: absolute;
       }
 
-      :host::before {
-        background-color: var(--loader-color-bg);
-        background-image: var(--loader-image-bg);
-        content: '';
-        height: 100%;
-        opacity: .33;
-        position: absolute;
-        width: 100%;
-      }
     `
 
   }
 
-  static get properties() {
+  constructor() {
 
-    return {
-      open: { type: Boolean, attribute: true }
-    }
-
-  }
-
-  firstUpdated() {
+    super()
 
     this.check()
 
@@ -73,6 +70,18 @@ export class Loader extends LitElement {
 
   }
 
+  check() {
+
+    const isPreloaded = document.documentElement
+      .dataset.preloaded
+
+    if (isPreloaded) {
+
+      this.disable()
+
+    }
+
+  }
   disable() {
 
     const mainEl = document.querySelector('main')
@@ -86,46 +95,18 @@ export class Loader extends LitElement {
       mainEl.classList.remove('u-transparent')
 
     }
+    setTimeout(() => {
 
-    this.style.opacity = 0
-    this.style.pointerEvents = 'none'
+      this.style.opacity = 0
+      this.style.pointerEvents = 'none'
+
+    }, 600)
 
     setTimeout(() => {
 
       this.style.display = 'none'
 
-    }, 4000)
-
-  }
-
-  check() {
-
-    const documentEl = document.documentElement
-    const preloadElCount = document.querySelectorAll(
-      '[data-preload]'
-    ).length
-
-    const preloadedCount = parseInt(
-      documentEl.dataset.preloaded
-    )
-
-    const elsLoaded = preloadedCount === preloadElCount
-
-    if (elsLoaded) {
-
-      documentEl.dataset.preloaded = 'true'
-      console.log('Elements preloaded ...')
-
-    }
-
-    const fontStatus = documentEl.dataset.fontsLoaded
-    const fontsLoaded = fontStatus === 'true' || 'false'
-
-    if (elsLoaded && fontsLoaded) {
-
-      this.disable()
-
-    }
+    }, 2000)
 
   }
 
