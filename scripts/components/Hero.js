@@ -33,6 +33,7 @@ export class Hero extends LitElement {
         display: grid;
         grid-template-rows: 4fr 5fr 4.5rem;
         height: 100%;
+        max-height: 100%;
         min-height: 30rem;
       }
 
@@ -83,7 +84,7 @@ export class Hero extends LitElement {
       .c-hero__paint-light::before {
         backface-visibility: hidden;
         background-position: top left;
-        background-size: 100% auto;
+        background-size: auto 100%;
         height: 100%;
         left: 0;
         position: absolute;
