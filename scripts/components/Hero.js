@@ -84,7 +84,7 @@ export class Hero extends LitElement {
       .c-hero__paint-light::before {
         backface-visibility: hidden;
         background-position: top left;
-        background-size: auto 100%;
+        background-size: cover;
         height: 100%;
         left: 0;
         position: absolute;

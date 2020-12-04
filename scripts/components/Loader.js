@@ -23,6 +23,8 @@ export class Loader extends LitElement {
       :host {
         background-color: var(--loader-color-bg);
         position: fixed;
+        height: 100%;
+        width: 100%;
       }
 
       ::slotted(*) {
@@ -63,9 +65,9 @@ export class Loader extends LitElement {
 
   disable() {
     const mainEl = document.querySelector('main');
-    const isTransparent = mainEl.classList.contains('u-transparent');
+    const mainIsTransparent = mainEl.classList.contains('u-transparent');
 
-    if (isTransparent) {
+    if (mainIsTransparent) {
       mainEl.classList.remove('u-transparent');
     }
 

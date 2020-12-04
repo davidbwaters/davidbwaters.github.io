@@ -2712,7 +2712,7 @@
       .c-hero__paint-light::before {
         backface-visibility: hidden;
         background-position: top left;
-        background-size: auto 100%;
+        background-size: cover;
         height: 100%;
         left: 0;
         position: absolute;
@@ -5251,8 +5251,6 @@
         --modal-button-thickness: 1.5px;
         --modal-transition-duration: 0.15s;
         --modal-trigger-transition-duration: 0.33s;
-
-        position: absolute;
       }
 
       .c-modal__body {
@@ -5260,7 +5258,7 @@
         border: none;
         box-sizing: border-box;
         color: var(--modal-color-fg);
-        height: 100vh;
+        height: 100%;
         left: 0;
         max-height: none;
         max-width: none;
@@ -5272,12 +5270,12 @@
         position: fixed;
         transition: var(--modal-transition-duration);
         top: 0;
-        width: 100vw;
+        width: 100%;
         z-index: 9;
       }
 
       .c-modal__body:not([open]) {
-        display: block;
+        display: none;
         opacity: 0;
         pointer-events: none;
       }
@@ -5587,6 +5585,8 @@
       :host {
         background-color: var(--loader-color-bg);
         position: fixed;
+        height: 100%;
+        width: 100%;
       }
 
       ::slotted(*) {
@@ -5627,9 +5627,9 @@
 
       disable() {
         const mainEl = document.querySelector('main');
-        const isTransparent = mainEl.classList.contains('u-transparent');
+        const mainIsTransparent = mainEl.classList.contains('u-transparent');
 
-        if (isTransparent) {
+        if (mainIsTransparent) {
           mainEl.classList.remove('u-transparent');
         }
 
@@ -5835,59 +5835,57 @@
         </a>
       </c-top-bar>
 
-      <div class="u-wrapper-full">
-        <c-hero
-          class="u-bg-noise"
-          @load=${handleElPreload()}
-          data-preload
-          id="hero"
-        >
-          <div slot="tagline">
-            Artist & <br />
-            Designer & <br />
-            Developer
-          </div>
-          <div slot="name-stylized">DAVIDBWATERS</div>
-          <div slot="heading">
-            Building digital solutions to promote growth.
-            <c-squiggle></c-squiggle>
-          </div>
-          <c-theme-switch slot="footer-box-left">
-            <i class="c-icon c-icon--switch"></i>
-          </c-theme-switch>
-          <div slot="footer-content-left">
-            <a
-              class="c-icon c-icon--hand u-animation-wave u-text-large-2 u-margin-bottom-0"
-              href="mailto:mrdavidbwaters@gmail.com"
-              title="Get in Touch!"
-            ></a>
-            <span> Available Now! </span>
-          </div>
-          <div slot="footer-content-right">
-            <a
-              class="c-button"
-              href="mailto:mrdavidbwaters@gmail.com"
-            >
-              Contact
-            </a>
-            <span>
-              Start
-              <span class="u-hidden@small">Your</span>
-              Project!
-            </span>
-          </div>
-          <div slot="footer-box-right">
-            <a
-              class="
-                c-icon
-                c-icon--arrow-down
-              "
-              href="#skills"
-            ></a>
-          </div>
-          <hr slot="bottom" class="u-separator" />
-        </c-hero>
-      </div>
+      <c-hero
+        class="u-bg-noise"
+        @load=${handleElPreload()}
+        data-preload
+        id="hero"
+      >
+        <div slot="tagline">
+          Artist & <br />
+          Designer & <br />
+          Developer
+        </div>
+        <div slot="name-stylized">DAVIDBWATERS</div>
+        <div slot="heading">
+          Building digital solutions to promote growth.
+          <c-squiggle></c-squiggle>
+        </div>
+        <c-theme-switch slot="footer-box-left">
+          <i class="c-icon c-icon--switch"></i>
+        </c-theme-switch>
+        <div slot="footer-content-left">
+          <a
+            class="c-icon c-icon--hand u-animation-wave u-text-large-2 u-margin-bottom-0"
+            href="mailto:mrdavidbwaters@gmail.com"
+            title="Get in Touch!"
+          ></a>
+          <span> Available Now! </span>
+        </div>
+        <div slot="footer-content-right">
+          <a
+            class="c-button"
+            href="mailto:mrdavidbwaters@gmail.com"
+          >
+            Contact
+          </a>
+          <span>
+            Start
+            <span class="u-hidden@small">Your</span>
+            Project!
+          </span>
+        </div>
+        <div slot="footer-box-right">
+          <a
+            class="
+              c-icon
+              c-icon--arrow-down
+            "
+            href="#skills"
+          ></a>
+        </div>
+        <hr slot="bottom" class="u-separator" />
+      </c-hero>
 
       <section id="skills">
         <c-section-header class="u-bg-noise">

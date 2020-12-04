@@ -197,59 +197,57 @@ render(html`
         </a>
       </c-top-bar>
 
-      <div class="u-wrapper-full">
-        <c-hero
-          class="u-bg-noise"
-          @load=${handleElPreload()}
-          data-preload
-          id="hero"
-        >
-          <div slot="tagline">
-            Artist & <br />
-            Designer & <br />
-            Developer
-          </div>
-          <div slot="name-stylized">DAVIDBWATERS</div>
-          <div slot="heading">
-            Building digital solutions to promote growth.
-            <c-squiggle></c-squiggle>
-          </div>
-          <c-theme-switch slot="footer-box-left">
-            <i class="c-icon c-icon--switch"></i>
-          </c-theme-switch>
-          <div slot="footer-content-left">
-            <a
-              class="c-icon c-icon--hand u-animation-wave u-text-large-2 u-margin-bottom-0"
-              href="mailto:mrdavidbwaters@gmail.com"
-              title="Get in Touch!"
-            ></a>
-            <span> Available Now! </span>
-          </div>
-          <div slot="footer-content-right">
-            <a
-              class="c-button"
-              href="mailto:mrdavidbwaters@gmail.com"
-            >
-              Contact
-            </a>
-            <span>
-              Start
-              <span class="u-hidden@small">Your</span>
-              Project!
-            </span>
-          </div>
-          <div slot="footer-box-right">
-            <a
-              class="
-                c-icon
-                c-icon--arrow-down
-              "
-              href="#skills"
-            ></a>
-          </div>
-          <hr slot="bottom" class="u-separator" />
-        </c-hero>
-      </div>
+      <c-hero
+        class="u-bg-noise"
+        @load=${handleElPreload()}
+        data-preload
+        id="hero"
+      >
+        <div slot="tagline">
+          Artist & <br />
+          Designer & <br />
+          Developer
+        </div>
+        <div slot="name-stylized">DAVIDBWATERS</div>
+        <div slot="heading">
+          Building digital solutions to promote growth.
+          <c-squiggle></c-squiggle>
+        </div>
+        <c-theme-switch slot="footer-box-left">
+          <i class="c-icon c-icon--switch"></i>
+        </c-theme-switch>
+        <div slot="footer-content-left">
+          <a
+            class="c-icon c-icon--hand u-animation-wave u-text-large-2 u-margin-bottom-0"
+            href="mailto:mrdavidbwaters@gmail.com"
+            title="Get in Touch!"
+          ></a>
+          <span> Available Now! </span>
+        </div>
+        <div slot="footer-content-right">
+          <a
+            class="c-button"
+            href="mailto:mrdavidbwaters@gmail.com"
+          >
+            Contact
+          </a>
+          <span>
+            Start
+            <span class="u-hidden@small">Your</span>
+            Project!
+          </span>
+        </div>
+        <div slot="footer-box-right">
+          <a
+            class="
+              c-icon
+              c-icon--arrow-down
+            "
+            href="#skills"
+          ></a>
+        </div>
+        <hr slot="bottom" class="u-separator" />
+      </c-hero>
 
       <section id="skills">
         <c-section-header class="u-bg-noise">
