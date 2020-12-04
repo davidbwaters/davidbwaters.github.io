@@ -28,13 +28,14 @@ customElements.define('c-loader', Loader)
 
 
 const preloadingImages = [
+  '/images/Loader.svg',
   '/images/Me-Dark.jpg',
   '/images/Me-Light.jpg',
   '/images/Hero-Paint-1-Dark.jpg',
   '/images/Hero-Paint-1-Light.jpg',
   '/images/Hero-Paint-2-Dark.jpg',
   '/images/Hero-Paint-2-Light.jpg',
-  '/images/Noise-Main-Clear.svg'
+  '/images/Noise-Clear.svg'
 ]
 
 
@@ -1497,7 +1498,7 @@ render(
     <c-loader>
       <div class="u-bg-noise-heavy">
         <c-glitch-image
-          src="images/Loader-Image.svg"
+          src="images/Loader.svg"
           active
           glitch=1
           width="100"
@@ -1509,5 +1510,4 @@ render(
   `,
   document.body
 )
-
 
