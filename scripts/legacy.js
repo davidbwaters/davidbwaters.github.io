@@ -1194,6 +1194,8 @@
     g,0<d.length&&(d=za[d[0]])&&(a.c[e]=d));}a.c[e]||(d=za[e])&&(a.c[e]=d);for(d=0;d<f.length;d+=1)a.a.push(new G(e,f[d]));}}function Ea(a,b){this.c=a;this.a=b;}var Fa={Arimo:!0,Cousine:!0,Tinos:!0};Ea.prototype.load=function(a){var b=new B,c=this.c,d=new ta(this.a.api,this.a.text),e=this.a.families;va(d,e);var f=new ya(e);Da(f);z(c,wa(d),C(b));E(b,function(){a(f.a,f.c,Fa);});};function Ga(a,b){this.c=a;this.a=b;}Ga.prototype.load=function(a){var b=this.a.id,c=this.c.o;b?A(this.c,(this.a.api||"https://use.typekit.net")+"/"+b+".js",function(b){if(b)a([]);else if(c.Typekit&&c.Typekit.config&&c.Typekit.config.fn){b=c.Typekit.config.fn;for(var e=[],f=0;f<b.length;f+=2)for(var g=b[f],m=b[f+1],h=0;h<m.length;h++)e.push(new G(g,m[h]));try{c.Typekit.load({events:!1,classes:!1,async:!0});}catch(l){}a(e);}},2E3):a([]);};function Ha(a,b){this.c=a;this.f=b;this.a=[];}Ha.prototype.load=function(a){var b=this.f.id,c=this.c.o,d=this;b?(c.__webfontfontdeckmodule__||(c.__webfontfontdeckmodule__={}),c.__webfontfontdeckmodule__[b]=function(b,c){for(var g=0,m=c.fonts.length;g<m;++g){var h=c.fonts[g];d.a.push(new G(h.name,ga("font-weight:"+h.weight+";font-style:"+h.style)));}a(d.a);},A(this.c,(this.f.api||"https://f.fontdeck.com/s/css/js/")+ea(this.c)+"/"+b+".js",function(b){b&&a([]);})):a([]);};var Y=new oa(window);Y.a.c.custom=function(a,b){return new sa(b,a)};Y.a.c.fontdeck=function(a,b){return new Ha(b,a)};Y.a.c.monotype=function(a,b){return new ra(b,a)};Y.a.c.typekit=function(a,b){return new Ga(b,a)};Y.a.c.google=function(a,b){return new Ea(b,a)};var Z={load:p(Y.load,Y)};module.exports?module.exports=Z:(window.WebFont=Z,window.WebFontConfig&&Y.load(window.WebFontConfig));}());
     });
 
+    function _slicedToArray(r,e){return _arrayWithHoles(r)||_iterableToArrayLimit(r,e)||_nonIterableRest()}function _toConsumableArray(r){return _arrayWithoutHoles(r)||_iterableToArray(r)||_nonIterableSpread()}function _arrayWithoutHoles(r){if(Array.isArray(r)){for(var e=0,t=new Array(r.length);e<r.length;e++)t[e]=r[e];return t}}function _arrayWithHoles(r){if(Array.isArray(r))return r}function _iterableToArray(r){if(Symbol.iterator in Object(r)||"[object Arguments]"===Object.prototype.toString.call(r))return Array.from(r)}function _iterableToArrayLimit(r,e){var t=[],n=!0,a=!1,i=void 0;try{for(var o,l=r[Symbol.iterator]();!(n=(o=l.next()).done)&&(t.push(o.value),!e||t.length!==e);n=!0);}catch(r){a=!0,i=r;}finally{try{n||null==l.return||l.return();}finally{if(a)throw i}}return t}function _nonIterableSpread(){throw new TypeError("Invalid attempt to spread non-iterable instance")}function _nonIterableRest(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}function Scramble(r,e){return new Promise(function(t,n){if(void 0===r&&n("Target element is undefined"),"true"!==r.getAttribute("data-scramble-active")){e.beforeEach&&e.beforeEach(r),r.setAttribute("data-scramble-active","true"),r.classList.add("scrambling");var a,i=r.innerHTML,o=[],l=e.speed?e.speed:100,c=r.textContent.split(""),u=c,f=r.textContent.split(""),s=!1;isValidString(e.text)?a=defineEndText(e.text):r.getAttribute("data-scramble-text")&&""!==r.getAttribute("data-scramble-text")&&(a=defineEndText(r.getAttribute("data-scramble-text"))),a&&(s=!0,c=a.truth,f=a.newLetters,u=a.startText);var d=function(){if(u.map(function(e,t){return !(" \t\n\r\v".indexOf(e)>-1)&&(f[t]=randomChar(),!0===o[t]&&(f[t]=c[t]),r.textContent=f.join(""),!0)}),killCheck(f,c)){if(r.innerHTML=i,s){var n=r.children[0];n&&""!==n?n.textContent=f.join(""):r.textContent=f.join("");}clearInterval(b),r.setAttribute("data-scramble-active","false"),r.classList.remove("scrambling"),e.afterEach&&e.afterEach(r),t(r);}};!function(r){if(r&&isArray(r))for(var t=0;t<=r.length;t++)!function(r){setTimeout(function(){o[r]=!0;},randomTime(isObject(e),e.random,e.speed));}(t);}(u),d();var b=setInterval(function(){d();},l);}else n("Animation already triggered");})}function ScramblerSetup(r){if(!isValidArgType(r))return !1;var e=setArgs(r,isObject(r)),t=_toConsumableArray(isObject(e)?document.querySelectorAll(e.target):document.querySelectorAll(e)),n=[];if(t.forEach(function(r){var t=Scramble(r,e);n.push(t);}),!(n.length>0))return !1;e.beforeAll&&e.beforeAll(t),Promise.all(n).then(function(r){e.afterAll&&e.afterAll(r);}).catch(function(r){e.errorHandler&&e.errorHandler(r);});}var isObject=function(r){return !!r&&r.constructor===Object},isArray=function(r){return !!r&&r.constructor===Array},isBool=function(r){return "boolean"==typeof r},isFunction=function(r){return "function"==typeof r},isInteger=function(r){return Number.isInteger(r)},isValidString=function(r){return !(!r||""===r||!("string"==typeof r||r instanceof String))},isValidArgType=function(r){return !isArray(r)&&!isBool(r)&&"number"!=typeof r&&"function"!=typeof r&&void 0!==r},randomChar=function(r,e){var t=r||1,n=e||!1,a=Math.random().toString(36).replace(/[^a-z]+/g,"").substr(0,t);return " \t\n\r\v".indexOf(a)<0&&!0!==n&&a},randomTime=function(r,e,t){var n=r||!1,a=t||100;if(n&&isArray(e)&&e.length>1){var i=_slicedToArray(e,2),o=i[0],l=i[1];if((t>=l||a>=l)&&(a=l-1),l-=a,o>l&&(o=l),isInteger(o)&&isInteger(l))return Math.floor(Math.random()*(l-o))+o}return Math.floor(1999*Math.random())+1e3},setArgs=function(r,e){var t=e||!1,n={target:"[data-scrambler]",random:[1e3,3e3],speed:100,text:!1,beforeEach:!1,afterEach:!1,beforeAll:!1,afterAll:!1,errorHandler:!1};return r&&t&&(n.target=void 0!==r.target?r.target:"[data-scrambler]",n.random=void 0!==r.random?r.random:[1e3,3e3],n.speed=void 0!==r.speed?r.speed:100,n.text=void 0!==r.text&&r.text,n.beforeEach=!(void 0===r.beforeEach||!isFunction(r.beforeEach))&&r.beforeEach,n.afterEach=!(void 0===r.afterEach||!isFunction(r.afterEach))&&r.afterEach,n.beforeAll=!(void 0===r.beforeAll||!isFunction(r.beforeAll))&&r.beforeAll,n.afterAll=!(void 0===r.afterAll||!isFunction(r.afterAll))&&r.afterAll,n.errorHandler=!(void 0===r.errorHandler||!isFunction(r.errorHandler))&&r.errorHandler),n},killCheck=function(r,e){return !(r.length!==e.length||!r.every(function(r,t){return r===e[t]}))},defineEndText=function(r){if(!r||void 0===r||!("string"==typeof r||r instanceof String))return !1;var e,t=r,n=t.split(""),a=t.split(""),i=[];return n.forEach(function(r,e){" \t\n\r\v".indexOf(n[e])>-1?i.push(" "):i.push(randomChar());}),e=i,{truth:n,newLetters:a,startText:e}},scrambler=function(){return ScramblerSetup}();
+
     /**
      * @license
      * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -2626,8 +2628,6 @@
 
     }
 
-    function _slicedToArray(r,e){return _arrayWithHoles(r)||_iterableToArrayLimit(r,e)||_nonIterableRest()}function _toConsumableArray(r){return _arrayWithoutHoles(r)||_iterableToArray(r)||_nonIterableSpread()}function _arrayWithoutHoles(r){if(Array.isArray(r)){for(var e=0,t=new Array(r.length);e<r.length;e++)t[e]=r[e];return t}}function _arrayWithHoles(r){if(Array.isArray(r))return r}function _iterableToArray(r){if(Symbol.iterator in Object(r)||"[object Arguments]"===Object.prototype.toString.call(r))return Array.from(r)}function _iterableToArrayLimit(r,e){var t=[],n=!0,a=!1,i=void 0;try{for(var o,l=r[Symbol.iterator]();!(n=(o=l.next()).done)&&(t.push(o.value),!e||t.length!==e);n=!0);}catch(r){a=!0,i=r;}finally{try{n||null==l.return||l.return();}finally{if(a)throw i}}return t}function _nonIterableSpread(){throw new TypeError("Invalid attempt to spread non-iterable instance")}function _nonIterableRest(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}function Scramble(r,e){return new Promise(function(t,n){if(void 0===r&&n("Target element is undefined"),"true"!==r.getAttribute("data-scramble-active")){e.beforeEach&&e.beforeEach(r),r.setAttribute("data-scramble-active","true"),r.classList.add("scrambling");var a,i=r.innerHTML,o=[],l=e.speed?e.speed:100,c=r.textContent.split(""),u=c,f=r.textContent.split(""),s=!1;isValidString(e.text)?a=defineEndText(e.text):r.getAttribute("data-scramble-text")&&""!==r.getAttribute("data-scramble-text")&&(a=defineEndText(r.getAttribute("data-scramble-text"))),a&&(s=!0,c=a.truth,f=a.newLetters,u=a.startText);var d=function(){if(u.map(function(e,t){return !(" \t\n\r\v".indexOf(e)>-1)&&(f[t]=randomChar(),!0===o[t]&&(f[t]=c[t]),r.textContent=f.join(""),!0)}),killCheck(f,c)){if(r.innerHTML=i,s){var n=r.children[0];n&&""!==n?n.textContent=f.join(""):r.textContent=f.join("");}clearInterval(b),r.setAttribute("data-scramble-active","false"),r.classList.remove("scrambling"),e.afterEach&&e.afterEach(r),t(r);}};!function(r){if(r&&isArray(r))for(var t=0;t<=r.length;t++)!function(r){setTimeout(function(){o[r]=!0;},randomTime(isObject(e),e.random,e.speed));}(t);}(u),d();var b=setInterval(function(){d();},l);}else n("Animation already triggered");})}function ScramblerSetup(r){if(!isValidArgType(r))return !1;var e=setArgs(r,isObject(r)),t=_toConsumableArray(isObject(e)?document.querySelectorAll(e.target):document.querySelectorAll(e)),n=[];if(t.forEach(function(r){var t=Scramble(r,e);n.push(t);}),!(n.length>0))return !1;e.beforeAll&&e.beforeAll(t),Promise.all(n).then(function(r){e.afterAll&&e.afterAll(r);}).catch(function(r){e.errorHandler&&e.errorHandler(r);});}var isObject=function(r){return !!r&&r.constructor===Object},isArray=function(r){return !!r&&r.constructor===Array},isBool=function(r){return "boolean"==typeof r},isFunction=function(r){return "function"==typeof r},isInteger=function(r){return Number.isInteger(r)},isValidString=function(r){return !(!r||""===r||!("string"==typeof r||r instanceof String))},isValidArgType=function(r){return !isArray(r)&&!isBool(r)&&"number"!=typeof r&&"function"!=typeof r&&void 0!==r},randomChar=function(r,e){var t=r||1,n=e||!1,a=Math.random().toString(36).replace(/[^a-z]+/g,"").substr(0,t);return " \t\n\r\v".indexOf(a)<0&&!0!==n&&a},randomTime=function(r,e,t){var n=r||!1,a=t||100;if(n&&isArray(e)&&e.length>1){var i=_slicedToArray(e,2),o=i[0],l=i[1];if((t>=l||a>=l)&&(a=l-1),l-=a,o>l&&(o=l),isInteger(o)&&isInteger(l))return Math.floor(Math.random()*(l-o))+o}return Math.floor(1999*Math.random())+1e3},setArgs=function(r,e){var t=e||!1,n={target:"[data-scrambler]",random:[1e3,3e3],speed:100,text:!1,beforeEach:!1,afterEach:!1,beforeAll:!1,afterAll:!1,errorHandler:!1};return r&&t&&(n.target=void 0!==r.target?r.target:"[data-scrambler]",n.random=void 0!==r.random?r.random:[1e3,3e3],n.speed=void 0!==r.speed?r.speed:100,n.text=void 0!==r.text&&r.text,n.beforeEach=!(void 0===r.beforeEach||!isFunction(r.beforeEach))&&r.beforeEach,n.afterEach=!(void 0===r.afterEach||!isFunction(r.afterEach))&&r.afterEach,n.beforeAll=!(void 0===r.beforeAll||!isFunction(r.beforeAll))&&r.beforeAll,n.afterAll=!(void 0===r.afterAll||!isFunction(r.afterAll))&&r.afterAll,n.errorHandler=!(void 0===r.errorHandler||!isFunction(r.errorHandler))&&r.errorHandler),n},killCheck=function(r,e){return !(r.length!==e.length||!r.every(function(r,t){return r===e[t]}))},defineEndText=function(r){if(!r||void 0===r||!("string"==typeof r||r instanceof String))return !1;var e,t=r,n=t.split(""),a=t.split(""),i=[];return n.forEach(function(r,e){" \t\n\r\v".indexOf(n[e])>-1?i.push(" "):i.push(randomChar());}),e=i,{truth:n,newLetters:a,startText:e}},scrambler=function(){return ScramblerSetup}();
-
     /*
      *  Components - Hero
      */
@@ -2887,20 +2887,20 @@
       .c-hero__name-stylized {
         background-image: linear-gradient(
           -45deg,
-          var(--color-opaque) 0%,
-          var(--color-opaque) 6.24%,
-          transparent 6.25%,
-          transparent 43.74%,
-          var(--color-opaque) 43.75%,
-          var(--color-opaque) 56.25%,
-          transparent 56.26%,
-          transparent 93.74%,
-          var(--color-opaque) 93.75%,
-          var(--color-opaque) 100%
+          var(--color-opaque-heavy) 0%,
+          var(--color-opaque-heavy) 6.24%,
+          transparent         6.25%,
+          transparent         43.74%,
+          var(--color-opaque-heavy) 43.75%,
+          var(--color-opaque-heavy) 56.25%,
+          transparent         56.26%,
+          transparent         93.74%,
+          var(--color-opaque-heavy) 93.75%,
+          var(--color-opaque-heavy) 100%
         );
         background-position: 0 0;
         background-repeat: repeat;
-        background-size: 0.25rem 0.25rem;
+        background-size: .25rem .25rem;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
@@ -2910,6 +2910,7 @@
         padding-left: var(--spacing-responsive-x);
         padding-right: var(--spacing-responsive-x);
         padding-top: var(--spacing-responsive-y);
+        position: relative;
         text-align: center;
         width: 100%;
       }
@@ -2918,6 +2919,16 @@
         .c-hero__name-stylized {
           border-right: solid 1px var(--color-accent);
         }
+      }
+
+      .c-hero__name-stylized::before {
+        background-color: var(--color-bg);
+        content: '';
+        height: 100%;
+        opacity: .2;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
       }
 
       .c-hero__name-stylized-letter {
@@ -3135,31 +3146,18 @@
       }
 
       firstUpdated() {
-        this._preloadImages();
-
         this._taglineSetup();
 
         this._nameStylizedSetup();
 
-        const documentEl = document.documentElement;
-        documentEl.addEventListener('change', () => {
-          const isLoaded = documentEl.dataset.loaded === true;
-
-          if (isLoaded) {
-            scrambler({
-              target: '[data-scrambler]',
-              random: [1000, 1000],
-              speed: 60
-            });
-          }
-        });
+        window.addEventListener('load', () => {});
       }
 
-      _preloadImages() {
-        const imageLinks = ['/images/Me-Dark.jpg', '/images/Me-Light.jpg', '/images/Hero-Paint-1-Dark.jpg', '/images/Hero-Paint-1-Light.jpg', '/images/Hero-Paint-2-Dark.jpg', '/images/Hero-Paint-2-Light.jpg'];
-        imageLinks.forEach(link => {
-          const image = new Image();
-          image.src = link;
+      _scramble() {
+        scrambler({
+          target: '[data-scrambler]',
+          random: [1000, 1000],
+          speed: 60
         });
       }
 
@@ -5556,46 +5554,41 @@
     class Loader extends LitElement {
       static get styles() {
         return css`
+
       :host {
         --loader-color-bg: var(--color-bg);
-        --loader-image-bg: url('images/Noise-Main-Clear.svg');
+      }
 
+      :host,
+      ::slotted(*) {
+        height: 100vh;
+        left: 0;
+        top: 0;
+        transition: opacity var(--transition-duration);
+        width: 100%;
+        z-index: 9;
+      }
+
+      :host {
+        background-color: var(--loader-color-bg);
+        position: fixed;
+      }
+
+      ::slotted(*) {
         align-content: center;
         cursor: progress;
         display: grid;
         grid-template-columns: 100px;
         grid-template-rows: min-content;
-        height: 100vh;
         justify-content: center;
-        position: fixed;
-        top: 0;
-        transition: opacity var(--transition-duration);
-        width: 100vw;
-        z-index: 9;
+        position: absolute;
       }
 
-      :host::before {
-        background-color: var(--loader-color-bg);
-        background-image: var(--loader-image-bg);
-        content: '';
-        height: 100%;
-        opacity: .33;
-        position: absolute;
-        width: 100%;
-      }
     `;
       }
 
-      static get properties() {
-        return {
-          open: {
-            type: Boolean,
-            attribute: true
-          }
-        };
-      }
-
-      firstUpdated() {
+      constructor() {
+        super();
         this.check();
         const observer = new MutationObserver(mutations => {
           mutations.forEach(mutation => {
@@ -5609,6 +5602,14 @@
         });
       }
 
+      check() {
+        const isPreloaded = document.documentElement.dataset.preloaded;
+
+        if (isPreloaded) {
+          this.disable();
+        }
+      }
+
       disable() {
         const mainEl = document.querySelector('main');
         const isTransparent = mainEl.classList.contains('u-transparent');
@@ -5617,30 +5618,13 @@
           mainEl.classList.remove('u-transparent');
         }
 
-        this.style.opacity = 0;
-        this.style.pointerEvents = 'none';
+        setTimeout(() => {
+          this.style.opacity = 0;
+          this.style.pointerEvents = 'none';
+        }, 600);
         setTimeout(() => {
           this.style.display = 'none';
-        }, 4000);
-      }
-
-      check() {
-        const documentEl = document.documentElement;
-        const preloadElCount = document.querySelectorAll('[data-preload]').length;
-        const preloadedCount = parseInt(documentEl.dataset.preloaded);
-        const elsLoaded = preloadedCount === preloadElCount;
-
-        if (elsLoaded) {
-          documentEl.dataset.preloaded = 'true';
-          console.log('Elements preloaded ...');
-        }
-
-        const fontStatus = documentEl.dataset.fontsLoaded;
-        const fontsLoaded = fontStatus === 'true' || 'false';
-
-        if (elsLoaded && fontsLoaded) {
-          this.disable();
-        }
+        }, 2000);
       }
 
       render() {
@@ -5660,6 +5644,7 @@
     customElements.define('c-glitch-image', GlitchImage);
     customElements.define('c-modal', Modal);
     customElements.define('c-loader', Loader);
+    const preloadingImages = ['/images/Me-Dark.jpg', '/images/Me-Light.jpg', '/images/Hero-Paint-1-Dark.jpg', '/images/Hero-Paint-1-Light.jpg', '/images/Hero-Paint-2-Dark.jpg', '/images/Hero-Paint-2-Light.jpg', '/images/Noise-Main-Clear.svg'];
     webfontloader.load({
       classes: false,
       custom: {
@@ -5667,44 +5652,125 @@
         timeout: 4000
       },
       inactive: () => {
-        handleFontLoadFailure();
+        handleFontPreloadFailure();
       },
       active: () => {
-        handleFontLoad();
+        handleFontPreload();
       }
     });
 
-    function handleFontLoad() {
-      console.log('Webfonts loaded ...');
+    function handleFontPreload() {
+      console.log('Webfonts preloaded ...');
       const documentEl = document.documentElement;
-      documentEl.dataset.fontsLoaded = 'true';
+      documentEl.dataset.fontsPreloaded = 'true';
     }
 
-    function handleFontLoadFailure() {
+    function handleFontPreloadFailure() {
       console.log('Webfonts didn\'t load ...');
       const documentEl = document.documentElement;
-      documentEl.dataset.fontsLoaded = 'false';
+      documentEl.dataset.fontsPreloaded = 'false';
     }
 
-    function handleElLoad() {
+    function handleElPreload() {
       const documentEl = document.documentElement;
-      const count = documentEl.dataset.preloaded;
-      documentEl.dataset.preloaded = count ? parseInt(count) + 1 : 1;
+      const count = documentEl.dataset.elementsPreloaded;
+      documentEl.dataset.elementsPreloaded = count ? parseInt(count) + 1 : 1;
+    }
 
-      if (count) {
-        const loaderEl = document.querySelector('c-loader');
+    function handleImagePreload() {
+      const documentEl = document.documentElement;
+      const count = documentEl.dataset.imagesPreloaded;
+      documentEl.dataset.imagesPreloaded = count ? parseInt(count) + 1 : 1;
+    }
 
-        if (loaderEl) {
-          loaderEl.check();
-        }
+    function setupPreloadImages() {
+      const imageLinks = preloadingImages;
+      imageLinks.forEach(link => {
+        const image = new Image();
+        image.addEventListener('load', () => {
+          handleImagePreload();
+        });
+        image.src = link;
+      });
+    }
+
+    function preloadElements() {
+      const documentEl = document.documentElement;
+      const preloadCount = document.querySelectorAll('[data-preload]').length;
+      const preloadedCount = parseInt(documentEl.dataset.elementsPreloaded);
+      const elsLoaded = preloadedCount === preloadCount;
+
+      if (elsLoaded) {
+        documentEl.dataset.elementsPreloaded = 'true';
+        console.log('Elements preloaded ...');
       }
     }
 
+    function preloadImages() {
+      const documentEl = document.documentElement;
+      const preloadCount = preloadingImages.length;
+      const preloadedCount = parseInt(documentEl.dataset.imagesPreloaded);
+      const imagesPreloaded = preloadedCount === preloadCount;
+
+      if (imagesPreloaded) {
+        documentEl.dataset.imagesPreloaded = 'true';
+        console.log('Images preloaded ...');
+      }
+    }
+
+    function observePreload() {
+      const observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+          if (mutation.type === 'attributes') {
+            handlePreload();
+          }
+        });
+      });
+      observer.observe(document.documentElement, {
+        attributes: true
+      });
+    }
+
+    function handlePreload() {
+      const documentEl = document.documentElement;
+      const elsLoaded = documentEl.dataset.elementsPreloaded === 'true';
+      const imagesLoaded = documentEl.dataset.imagesPreloaded === 'true';
+      const fontsLoaded = documentEl.dataset.fontsPreloaded === 'true' || 'false';
+
+      if (!elsLoaded) {
+        preloadElements();
+      }
+
+      if (!imagesLoaded) {
+        preloadImages();
+      }
+
+      if (elsLoaded && imagesLoaded && fontsLoaded) {
+        delete documentEl.dataset.elementsPreloaded;
+        delete documentEl.dataset.imagesPreloaded;
+        delete documentEl.dataset.fontsPreloaded;
+        documentEl.dataset.preloaded = true;
+        setTimeout(() => {
+          scramble();
+        }, 500);
+      }
+    }
+
+    function scramble() {
+      scrambler({
+        target: '[data-scrambler]',
+        random: [1000, 1000],
+        speed: 60
+      });
+    }
+
+    setupPreloadImages();
+    observePreload();
     render(html`
 
     <main class="u-transparent">
 
-      <c-top-bar data-preload @load=${handleElLoad()}>
+      <c-top-bar data-preload @load=${handleElPreload()}>
         <a
           slot="logo"
           href="/"
@@ -5756,7 +5822,7 @@
 
       <c-hero
         class="u-bg-noise"
-        @load=${handleElLoad()}
+        @load=${handleElPreload()}
         data-preload
         id="hero"
       >
@@ -6948,14 +7014,16 @@
     </main>
 
     <c-loader>
-      <c-glitch-image
-        src="images/Loader-Image.svg"
-        active
-        glitch=1
-        width="100"
-        height="100"
-      >
-      </c-glitch-image>
+      <div class="u-bg-noise-heavy">
+        <c-glitch-image
+          src="images/Loader-Image.svg"
+          active
+          glitch=1
+          width="100"
+          height="100"
+        >
+        </c-glitch-image>
+      </div>
     </c-loader>
   `, document.body);
 

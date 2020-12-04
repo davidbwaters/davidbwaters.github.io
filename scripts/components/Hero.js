@@ -259,20 +259,20 @@ export class Hero extends LitElement {
       .c-hero__name-stylized {
         background-image: linear-gradient(
           -45deg,
-          var(--color-opaque) 0%,
-          var(--color-opaque) 6.24%,
-          transparent 6.25%,
-          transparent 43.74%,
-          var(--color-opaque) 43.75%,
-          var(--color-opaque) 56.25%,
-          transparent 56.26%,
-          transparent 93.74%,
-          var(--color-opaque) 93.75%,
-          var(--color-opaque) 100%
+          var(--color-opaque-heavy) 0%,
+          var(--color-opaque-heavy) 6.24%,
+          transparent         6.25%,
+          transparent         43.74%,
+          var(--color-opaque-heavy) 43.75%,
+          var(--color-opaque-heavy) 56.25%,
+          transparent         56.26%,
+          transparent         93.74%,
+          var(--color-opaque-heavy) 93.75%,
+          var(--color-opaque-heavy) 100%
         );
         background-position: 0 0;
         background-repeat: repeat;
-        background-size: 0.25rem 0.25rem;
+        background-size: .25rem .25rem;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
@@ -282,6 +282,7 @@ export class Hero extends LitElement {
         padding-left: var(--spacing-responsive-x);
         padding-right: var(--spacing-responsive-x);
         padding-top: var(--spacing-responsive-y);
+        position: relative;
         text-align: center;
         width: 100%;
       }
@@ -290,6 +291,16 @@ export class Hero extends LitElement {
         .c-hero__name-stylized {
           border-right: solid 1px var(--color-accent);
         }
+      }
+
+      .c-hero__name-stylized::before {
+        background-color: var(--color-bg);
+        content: '';
+        height: 100%;
+        opacity: .2;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
       }
 
       .c-hero__name-stylized-letter {
@@ -507,31 +518,18 @@ export class Hero extends LitElement {
   }
 
   firstUpdated() {
-    this._preloadImages();
-
     this._taglineSetup();
 
     this._nameStylizedSetup();
 
-    const documentEl = document.documentElement;
-    documentEl.addEventListener('change', () => {
-      const isLoaded = documentEl.dataset.loaded === true;
-
-      if (isLoaded) {
-        Scrambler({
-          target: '[data-scrambler]',
-          random: [1000, 1000],
-          speed: 60
-        });
-      }
-    });
+    window.addEventListener('load', () => {});
   }
 
-  _preloadImages() {
-    const imageLinks = ['/images/Me-Dark.jpg', '/images/Me-Light.jpg', '/images/Hero-Paint-1-Dark.jpg', '/images/Hero-Paint-1-Light.jpg', '/images/Hero-Paint-2-Dark.jpg', '/images/Hero-Paint-2-Light.jpg'];
-    imageLinks.forEach(link => {
-      const image = new Image();
-      image.src = link;
+  _scramble() {
+    Scrambler({
+      target: '[data-scrambler]',
+      random: [1000, 1000],
+      speed: 60
     });
   }
 

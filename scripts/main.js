@@ -2,7 +2,8 @@
  *  Scripts - Main
  */
 import { html, render } from '../modules/lit-html.js';
-import WebFont from '../modules/webfontloader.js'; // import stickybits from 'stickybits'
+import WebFont from '../modules/webfontloader.js';
+import Scrambler from '../modules/scrambling-letters.js'; // import stickybits from 'stickybits'
 
 import { TopBar } from './components/TopBar.js';
 import { Hero } from './components/Hero.js';
@@ -20,6 +21,7 @@ customElements.define('c-section-header', SectionHeader);
 customElements.define('c-glitch-image', GlitchImage);
 customElements.define('c-modal', Modal);
 customElements.define('c-loader', Loader);
+const preloadingImages = ['/images/Me-Dark.jpg', '/images/Me-Light.jpg', '/images/Hero-Paint-1-Dark.jpg', '/images/Hero-Paint-1-Light.jpg', '/images/Hero-Paint-2-Dark.jpg', '/images/Hero-Paint-2-Light.jpg', '/images/Noise-Main-Clear.svg'];
 WebFont.load({
   classes: false,
   custom: {
@@ -27,44 +29,125 @@ WebFont.load({
     timeout: 4000
   },
   inactive: () => {
-    handleFontLoadFailure();
+    handleFontPreloadFailure();
   },
   active: () => {
-    handleFontLoad();
+    handleFontPreload();
   }
 });
 
-function handleFontLoad() {
-  console.log('Webfonts loaded ...');
+function handleFontPreload() {
+  console.log('Webfonts preloaded ...');
   const documentEl = document.documentElement;
-  documentEl.dataset.fontsLoaded = 'true';
+  documentEl.dataset.fontsPreloaded = 'true';
 }
 
-function handleFontLoadFailure() {
+function handleFontPreloadFailure() {
   console.log('Webfonts didn\'t load ...');
   const documentEl = document.documentElement;
-  documentEl.dataset.fontsLoaded = 'false';
+  documentEl.dataset.fontsPreloaded = 'false';
 }
 
-function handleElLoad() {
+function handleElPreload() {
   const documentEl = document.documentElement;
-  const count = documentEl.dataset.preloaded;
-  documentEl.dataset.preloaded = count ? parseInt(count) + 1 : 1;
+  const count = documentEl.dataset.elementsPreloaded;
+  documentEl.dataset.elementsPreloaded = count ? parseInt(count) + 1 : 1;
+}
 
-  if (count) {
-    const loaderEl = document.querySelector('c-loader');
+function handleImagePreload() {
+  const documentEl = document.documentElement;
+  const count = documentEl.dataset.imagesPreloaded;
+  documentEl.dataset.imagesPreloaded = count ? parseInt(count) + 1 : 1;
+}
 
-    if (loaderEl) {
-      loaderEl.check();
-    }
+function setupPreloadImages() {
+  const imageLinks = preloadingImages;
+  imageLinks.forEach(link => {
+    const image = new Image();
+    image.addEventListener('load', () => {
+      handleImagePreload();
+    });
+    image.src = link;
+  });
+}
+
+function preloadElements() {
+  const documentEl = document.documentElement;
+  const preloadCount = document.querySelectorAll('[data-preload]').length;
+  const preloadedCount = parseInt(documentEl.dataset.elementsPreloaded);
+  const elsLoaded = preloadedCount === preloadCount;
+
+  if (elsLoaded) {
+    documentEl.dataset.elementsPreloaded = 'true';
+    console.log('Elements preloaded ...');
   }
 }
 
+function preloadImages() {
+  const documentEl = document.documentElement;
+  const preloadCount = preloadingImages.length;
+  const preloadedCount = parseInt(documentEl.dataset.imagesPreloaded);
+  const imagesPreloaded = preloadedCount === preloadCount;
+
+  if (imagesPreloaded) {
+    documentEl.dataset.imagesPreloaded = 'true';
+    console.log('Images preloaded ...');
+  }
+}
+
+function observePreload() {
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+      if (mutation.type === 'attributes') {
+        handlePreload();
+      }
+    });
+  });
+  observer.observe(document.documentElement, {
+    attributes: true
+  });
+}
+
+function handlePreload() {
+  const documentEl = document.documentElement;
+  const elsLoaded = documentEl.dataset.elementsPreloaded === 'true';
+  const imagesLoaded = documentEl.dataset.imagesPreloaded === 'true';
+  const fontsLoaded = documentEl.dataset.fontsPreloaded === 'true' || 'false';
+
+  if (!elsLoaded) {
+    preloadElements();
+  }
+
+  if (!imagesLoaded) {
+    preloadImages();
+  }
+
+  if (elsLoaded && imagesLoaded && fontsLoaded) {
+    delete documentEl.dataset.elementsPreloaded;
+    delete documentEl.dataset.imagesPreloaded;
+    delete documentEl.dataset.fontsPreloaded;
+    documentEl.dataset.preloaded = true;
+    setTimeout(() => {
+      scramble();
+    }, 500);
+  }
+}
+
+function scramble() {
+  Scrambler({
+    target: '[data-scrambler]',
+    random: [1000, 1000],
+    speed: 60
+  });
+}
+
+setupPreloadImages();
+observePreload();
 render(html`
 
     <main class="u-transparent">
 
-      <c-top-bar data-preload @load=${handleElLoad()}>
+      <c-top-bar data-preload @load=${handleElPreload()}>
         <a
           slot="logo"
           href="/"
@@ -116,7 +199,7 @@ render(html`
 
       <c-hero
         class="u-bg-noise"
-        @load=${handleElLoad()}
+        @load=${handleElPreload()}
         data-preload
         id="hero"
       >
@@ -1308,13 +1391,15 @@ render(html`
     </main>
 
     <c-loader>
-      <c-glitch-image
-        src="images/Loader-Image.svg"
-        active
-        glitch=1
-        width="100"
-        height="100"
-      >
-      </c-glitch-image>
+      <div class="u-bg-noise-heavy">
+        <c-glitch-image
+          src="images/Loader-Image.svg"
+          active
+          glitch=1
+          width="100"
+          height="100"
+        >
+        </c-glitch-image>
+      </div>
     </c-loader>
   `, document.body);
