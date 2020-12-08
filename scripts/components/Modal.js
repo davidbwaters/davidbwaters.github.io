@@ -25,6 +25,7 @@ export class Modal extends LitElement {
         --modal-button-thickness: 1.5px;
         --modal-transition-duration: 0.15s;
         --modal-trigger-transition-duration: 0.33s;
+
       }
 
       .c-modal__body {

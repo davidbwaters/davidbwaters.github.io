@@ -42,6 +42,7 @@ export class Loader extends LitElement {
 
   constructor() {
     super();
+    document.documentElement.style.position = 'fixed';
     this.check();
     const observer = new MutationObserver(mutations => {
       mutations.forEach(mutation => {
@@ -66,6 +67,7 @@ export class Loader extends LitElement {
   disable() {
     const mainEl = document.querySelector('main');
     const mainIsTransparent = mainEl.classList.contains('u-transparent');
+    document.documentElement.style.position = '';
 
     if (mainIsTransparent) {
       mainEl.classList.remove('u-transparent');
@@ -74,7 +76,7 @@ export class Loader extends LitElement {
     setTimeout(() => {
       this.style.opacity = 0;
       this.style.pointerEvents = 'none';
-    }, 600);
+    }, 800);
     setTimeout(() => {
       this.style.display = 'none';
     }, 2000);

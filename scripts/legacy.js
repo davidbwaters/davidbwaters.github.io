@@ -2657,6 +2657,9 @@
         --hero-image-paint-2-light: url(
           '/images/Hero-Paint-2-Light.jpg'
         );
+        --hero-image-noise: url(
+          '/images/Noise-Clear.svg'
+        );
 
         display: grid;
         grid-template-rows: 4fr 5fr 4.5rem;
@@ -2883,6 +2886,7 @@
       .c-hero__me {
         background-image: var(--hero-image-me-dark);
         border-right: solid 1px var(--color-accent);
+        opacity: .9;
         position: relative;
       }
 
@@ -3098,6 +3102,38 @@
         margin-top: 0;
       }
 
+      .u-noise-overlay,
+      .u-noise-heavy-overlay {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .u-noise-overlay::after,
+      .u-noise-heavy-overlay::after {
+        animation: noise .4s infinite !important;
+        backface-visibility: hidden !important;
+        background-image: url(
+          "/images/Noise-Clear.svg"
+        ) !important;
+        background-size: 400px auto !important;
+        background-repeat: repeat !important;
+        content: '' !important;
+        height: 200% !important;
+        left: -50% !important;
+
+        position: absolute !important;
+        top: -50% !important;
+        width: 200% !important;
+      }
+
+      .u-noise-overlay::after {
+        opacity: .2;
+      }
+
+      .u-noise-heavy-overlay::after {
+        opacity: .5;
+      }
+
 
       /* Animations */
 
@@ -3157,6 +3193,14 @@
           opacity: 0.2;
         }
       }
+
+      @keyframes noise {
+        0.00% { transform: translate(0, 0) }
+        49.99% { transform: translate(0, 0) }
+        50.00% { transform: translate(-10%, 10%) }
+        99.99% { transform: translate(-10%, 10%) }
+      }
+
     `;
       }
 
@@ -3217,8 +3261,14 @@
         <div class="c-hero__location">Charleston, SC</div>
       </div>
       <div class="c-hero__lower">
-        <div class="c-hero__me"></div>
-        <div class="c-hero__name-stylized"></div>
+        <div class="
+          c-hero__me
+          u-noise-heavy-overlay
+        "></div>
+        <div class="
+          c-hero__name-stylized
+          u-noise-overlay
+        "></div>
         <div class="c-hero__heading">
           <slot name="heading"></slot>
         </div>
@@ -3396,8 +3446,8 @@
       static get styles() {
         return css`
       :host {
-        --title-font: var(--font-display);
-        --title-font-weight: var(--font-display-weight);
+        --section-header-title-font: var(--font-display);
+        --section-header-title-font-weight: var(--font-display-weight);
 
         box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05);
         display: block;
@@ -3414,8 +3464,8 @@
 
       ::slotted([slot='title']) {
         font-size: 1.4rem;
-        font-family: var(--title-font);
-        font-weight: var(--title-font-weight);
+        font-family: var(--section-header-title-font);
+        font-weight: var(--section-header-title-font-weight);
         line-height: 1.25;
         padding-bottom: 3rem;
         padding-left: .5rem;
@@ -5251,6 +5301,7 @@
         --modal-button-thickness: 1.5px;
         --modal-transition-duration: 0.15s;
         --modal-trigger-transition-duration: 0.33s;
+
       }
 
       .c-modal__body {
@@ -5604,6 +5655,7 @@
 
       constructor() {
         super();
+        document.documentElement.style.position = 'fixed';
         this.check();
         const observer = new MutationObserver(mutations => {
           mutations.forEach(mutation => {
@@ -5628,6 +5680,7 @@
       disable() {
         const mainEl = document.querySelector('main');
         const mainIsTransparent = mainEl.classList.contains('u-transparent');
+        document.documentElement.style.position = '';
 
         if (mainIsTransparent) {
           mainEl.classList.remove('u-transparent');
@@ -5636,7 +5689,7 @@
         setTimeout(() => {
           this.style.opacity = 0;
           this.style.pointerEvents = 'none';
-        }, 600);
+        }, 800);
         setTimeout(() => {
           this.style.display = 'none';
         }, 2000);
