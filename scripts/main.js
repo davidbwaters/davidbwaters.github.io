@@ -369,8 +369,9 @@ render(html`
                 </h4>
                 <div
                   class="
-                  c-work-list__item-info-taglist
-                  u-text-title"
+                    c-work-list__item-info-taglist
+                    u-text-title
+                  "
                 >
                   Techologies Used: Frontend Development
                 </div>
@@ -404,9 +405,6 @@ render(html`
               <c-glitch-image
                 src="images/Work/macOS Modern Dark 1.jpg"
                 alt="macOS Modern Dark Theme Screenshot"
-                class="
-                  u-hidden@mobile
-                "
                 glitch=2
                 width="800"
                 height="600"
@@ -550,8 +548,9 @@ render(html`
                 </h4>
                 <div
                   class="
-                  c-work-list__item-info-taglist
-                  u-text-title"
+                    c-work-list__item-info-taglist
+                    u-text-title
+                  "
                 >
                   Techologies Used: Adobe Illustrator
                 </div>
@@ -586,10 +585,7 @@ render(html`
               <c-glitch-image
                   src="images/Work/Limber Logic Both.svg"
                   alt="Limber Logic Logo Dark and Light Versions"
-                  class="
-                    u-hidden@mobile
-                    u-bg-color-white
-                  "
+
                   glitch=2
                   width="800"
                   height="600"
@@ -691,7 +687,9 @@ render(html`
                   Map Dashboard
                 </h4>
                 <div
-                  class="c-work-list__item-info-taglist u-text-title"
+                  class="
+                    c-work-list__item-info-taglist u-text-title
+                  "
                 >
                   Techologies Used: Figma, Javascript, React
                 </div>
@@ -724,9 +722,6 @@ render(html`
               <c-glitch-image
                 src="images/Work/Map Figma.jpg"
                 alt="Map Dashboard in Figma"
-                class="
-                  u-hidden@mobile
-                "
                 glitch=2
                 width="912"
                 height="712"
@@ -826,7 +821,9 @@ render(html`
                   Personal Branding
                 </h4>
                 <div
-                  class="c-work-list__item-info-taglist u-text-title"
+                  class="
+                    c-work-list__item-info-taglist u-text-title
+                  "
                 >
                   Techologies Used: Adobe Illustrator
                 </div>
@@ -848,9 +845,6 @@ render(html`
               <c-glitch-image
                 src="images/Work/Personal Branding Mockup 1.jpg"
                 alt="Personal Branding VHS Mockup"
-                class="
-                  u-hidden@mobile
-                "
                 glitch=2
                 width="912"
                 height="712"
@@ -985,8 +979,9 @@ render(html`
                 </h4>
                 <div
                   class="
-                  c-work-list__item-info-taglist
-                  u-text-title"
+                    c-work-list__item-info-taglist
+                    u-text-title
+                  "
                 >
                   Techologies Used: CSS/SASS, BEM, ITCSS, Lerna
                 </div>
@@ -1013,7 +1008,6 @@ render(html`
                 src="images/Work/Substructure Text.svg"
                 alt="Substructure Text Logo"
                 class="
-                  u-hidden@mobile
                   u-max-width-30
                 "
                 glitch=2
@@ -1071,8 +1065,9 @@ render(html`
                 </h4>
                 <div
                   class="
-                  c-work-list__item-info-taglist
-                  u-text-title"
+                    c-work-list__item-info-taglist
+                    u-text-title
+                  "
                 >
                   Techologies Used: Figma, Adobe Illustrator
                 </div>
@@ -1107,9 +1102,6 @@ render(html`
               <c-glitch-image
                 src="images/Work/Yippy Menu Bar.jpg"
                 alt="Yippy Menu Bar Icon"
-                class="
-                  u-hidden@mobile
-                "
                 glitch=2
                 width="800"
                 height="600"
@@ -1223,8 +1215,9 @@ render(html`
                   </h4>
                   <div
                     class="
-                    c-work-list__item-info-taglist
-                    u-text-title"
+                      c-work-list__item-info-taglist
+                      u-text-title
+                    "
                   >
                     Techologies Used: Adobe Photoshop, Adobe Illustrator, Figma, Blender
                   </div>
@@ -1250,7 +1243,6 @@ render(html`
                   src="images/Work/Art Me.jpg"
                   alt="Artwork Me"
                   class="
-                    u-hidden@mobile
                     u-max-width-30
                   "
                   glitch=2
@@ -1382,7 +1374,7 @@ render(html`
               href="https://github.com/davidbwaters/davidbwaters.github.io"
               title="This Site's Github Repo Link"
             >here</a>.
-            <br class="u-hidden@tablet">
+            <br>
             Stay tuned! It's still very much a
             work in progress.
           </small>
