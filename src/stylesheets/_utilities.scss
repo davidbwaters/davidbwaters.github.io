@@ -17,9 +17,18 @@
 
 .u-text-title {
   font-family: var(--font-accent) !important;
-  font-size: .75rem !important;
+  font-size: .66rem !important;
   font-weight: var(--font-accent-weight) !important;
+  line-height: 1.1 !important;
   text-transform: uppercase !important;
+}
+
+@media (min-width:45em) {
+
+  .u-text-title {
+    font-size: .75rem !important;
+  }
+
 }
 
 .u-text-heading {

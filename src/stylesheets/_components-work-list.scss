@@ -56,7 +56,7 @@
   z-index: 5;
 }
 
-@media (min-height:35em) and (min-width:45em) {
+@media  (min-height:35em) and (min-width:45em) {
 
   .c-work-list__item-info {
     margin-top: 0;
@@ -118,8 +118,9 @@
 }
 
 .c-work-list__item-info-title {
-  font-size: clamp(1.66rem, 3vw, 2rem);
+  font-size: clamp(1.33rem, 3vw, 2rem);
   line-height: 1.1;
+  margin-bottom: .66rem;
 }
 
 .c-work-list__item-info-description {
@@ -144,14 +145,13 @@
 }
 
 .c-work-list__item-info-taglist {
-  padding-bottom: .5rem;
+  margin-bottom: .7rem;
 }
 
 @media (min-width:35em) {
 
   .c-work-list__item-info-taglist {
-    padding-top: .33rem;
-    padding-bottom: .66rem;
+    margin-top: .2rem;
   }
 
 }

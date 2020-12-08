@@ -3227,8 +3227,9 @@ c-theme-switch,
   }
 }
 .c-work-list__item-info-title {
-  font-size: clamp(1.66rem, 3vw, 2rem);
+  font-size: clamp(1.33rem, 3vw, 2rem);
   line-height: 1.1;
+  margin-bottom: 0.66rem;
 }
 
 .c-work-list__item-info-description {
@@ -3247,13 +3248,12 @@ c-theme-switch,
   }
 }
 .c-work-list__item-info-taglist {
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 
 @media (min-width: 35em) {
   .c-work-list__item-info-taglist {
-    padding-top: 0.33rem;
-    padding-bottom: 0.66rem;
+    margin-top: 0.2rem;
   }
 }
 .c-work-list__item-preview {
@@ -3367,11 +3367,17 @@ strong {
 
 .u-text-title {
   font-family: var(--font-accent) !important;
-  font-size: 0.75rem !important;
+  font-size: 0.66rem !important;
   font-weight: var(--font-accent-weight) !important;
+  line-height: 1.1 !important;
   text-transform: uppercase !important;
 }
 
+@media (min-width: 45em) {
+  .u-text-title {
+    font-size: 0.75rem !important;
+  }
+}
 .u-text-heading {
   font-family: var(--font-heading) !important;
   font-weight: var(--font-heading-weight) !important;

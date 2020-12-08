@@ -30,6 +30,7 @@ export class Modal extends LitElement {
         --modal-transition-duration: 0.15s;
         --modal-trigger-transition-duration: 0.33s;
 
+        position: absolute;
       }
 
       .c-modal__body {
