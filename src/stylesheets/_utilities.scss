@@ -404,27 +404,15 @@
 }
 
 .u-bg-noise::before {
-  opacity: 0.4 !important;
+  opacity: var(--opacity-noise) !important;
 }
 
 .u-bg-noise-heavy::before {
-  opacity: 0.6 !important;
+  opacity: var(--opacity-noise-heavy) !important;
 }
 
 .u-overlay-noise::before {
-  opacity: 0.4 !important;
-}
-
-[data-theme=light] .u-bg-noise::before {
-  opacity: 0.25 !important;
-}
-
-[data-theme=light] .u-bg-noise-heavy::before {
-  opacity: 0.4 !important;
-}
-
-[data-theme=light] .u-overlay-noise::before {
-  opacity: 0.25 !important;
+  opacity:var(--opacity-noise-overlay) !important;
 }
 
 

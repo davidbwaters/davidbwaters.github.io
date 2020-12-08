@@ -49,6 +49,9 @@ export class Loader extends LitElement {
 
     super()
 
+    document.documentElement.style.position = 'fixed'
+    document.documentElement.style.overflowY = 'scroll'
+
     this.check()
 
     const observer = new MutationObserver(mutations => {
@@ -86,23 +89,29 @@ export class Loader extends LitElement {
   }
   disable() {
 
+
     const mainEl = document.querySelector('main')
 
     const mainIsTransparent = mainEl.classList.contains(
       'u-transparent'
     )
 
+
     if (mainIsTransparent) {
 
       mainEl.classList.remove('u-transparent')
 
     }
+
     setTimeout(() => {
+
+      document.documentElement.style.position = ''
+      document.documentElement.style.overflowY = ''
 
       this.style.opacity = 0
       this.style.pointerEvents = 'none'
 
-    }, 600)
+    }, 800)
 
     setTimeout(() => {
 

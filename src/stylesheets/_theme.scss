@@ -49,6 +49,9 @@
   --color-opaque-alternate: rgba(255,255,255,.175);
   --color-opaque-overlay: rgba(0,0,0,0.02);
   --color-opaque-shadow: rgba(0,0,0,.1);
+  --opacity-noise: .4;
+  --opacity-noise-heavy: .6;
+  --opacity-noise-overlay: .4;
 
   --theme-dark-opacity: 1;
 }
@@ -65,6 +68,9 @@
   --color-opaque-alternate: rgba(0,0,0,.175);
   --color-opaque-overlay: rgba(255,255,255,.02);
   --color-opaque-shadow: rgba(0,0,0,.1);
+  --opacity-noise: .25;
+  --opacity-noise-heavy: .4;
+  --opacity-noise-overlay: .25;
 
   --theme-light-opacity: 1;
 }

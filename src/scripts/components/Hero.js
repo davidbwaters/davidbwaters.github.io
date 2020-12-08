@@ -33,6 +33,9 @@ export class Hero extends LitElement {
         --hero-image-paint-2-light: url(
           '/images/Hero-Paint-2-Light.jpg'
         );
+        --hero-image-noise: url(
+          '/images/Noise-Clear.svg'
+        );
 
         display: grid;
         grid-template-rows: 4fr 5fr 4.5rem;
@@ -259,6 +262,7 @@ export class Hero extends LitElement {
       .c-hero__me {
         background-image: var(--hero-image-me-dark);
         border-right: solid 1px var(--color-accent);
+        opacity: .9;
         position: relative;
       }
 
@@ -474,6 +478,38 @@ export class Hero extends LitElement {
         margin-top: 0;
       }
 
+      .u-noise-overlay,
+      .u-noise-heavy-overlay {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .u-noise-overlay::after,
+      .u-noise-heavy-overlay::after {
+        animation: noise .4s infinite !important;
+        backface-visibility: hidden !important;
+        background-image: url(
+          "/images/Noise-Clear.svg"
+        ) !important;
+        background-size: 400px auto !important;
+        background-repeat: repeat !important;
+        content: '' !important;
+        height: 200% !important;
+        left: -50% !important;
+
+        position: absolute !important;
+        top: -50% !important;
+        width: 200% !important;
+      }
+
+      .u-noise-overlay::after {
+        opacity: .2;
+      }
+
+      .u-noise-heavy-overlay::after {
+        opacity: .5;
+      }
+
 
       /* Animations */
 
@@ -533,6 +569,14 @@ export class Hero extends LitElement {
           opacity: 0.2;
         }
       }
+
+      @keyframes noise {
+        0.00% { transform: translate(0, 0) }
+        49.99% { transform: translate(0, 0) }
+        50.00% { transform: translate(-10%, 10%) }
+        99.99% { transform: translate(-10%, 10%) }
+      }
+
     `
 
   }
@@ -644,8 +688,14 @@ export class Hero extends LitElement {
         <div class="c-hero__location">Charleston, SC</div>
       </div>
       <div class="c-hero__lower">
-        <div class="c-hero__me"></div>
-        <div class="c-hero__name-stylized"></div>
+        <div class="
+          c-hero__me
+          u-noise-heavy-overlay
+        "></div>
+        <div class="
+          c-hero__name-stylized
+          u-noise-overlay
+        "></div>
         <div class="c-hero__heading">
           <slot name="heading"></slot>
         </div>

@@ -10,8 +10,8 @@ export class SectionHeader extends LitElement {
 
     return css`
       :host {
-        --title-font: var(--font-display);
-        --title-font-weight: var(--font-display-weight);
+        --section-header-title-font: var(--font-display);
+        --section-header-title-font-weight: var(--font-display-weight);
 
         box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05);
         display: block;
@@ -28,8 +28,8 @@ export class SectionHeader extends LitElement {
 
       ::slotted([slot='title']) {
         font-size: 1.4rem;
-        font-family: var(--title-font);
-        font-weight: var(--title-font-weight);
+        font-family: var(--section-header-title-font);
+        font-weight: var(--section-header-title-font-weight);
         line-height: 1.25;
         padding-bottom: 3rem;
         padding-left: .5rem;
