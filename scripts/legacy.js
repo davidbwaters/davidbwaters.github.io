@@ -6468,7 +6468,7 @@
                     </p>
                     <p>
                       I also helped the team refine the
-                      React-based frontend durning a sprint
+                      React-based frontend during a sprint
                       before a deadline.
                     </p>
                   </article>
