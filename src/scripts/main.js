@@ -680,8 +680,8 @@ render(
               data-modal-target="modal-limber-logic"
             >
               <c-glitch-image
-                src="images/Work/Limber Logic Mockup Dark.jpg"
-                alt="Limber Logic Logo Mockup Dark"
+                src="images/Work/Limber Logic Mockup 1 Dark.jpg"
+                alt="Limber Logic Logo Mockup 1 Dark"
                 glitch=2
                 width="800"
                 height="600"
@@ -769,15 +769,15 @@ render(
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
-                      src="images/Work/Limber Logic Mockup Dark.jpg"
-                      alt="Limber Logic Mockup Dark"
+                      src="images/Work/Limber Logic Mockup 2 Dark.jpg"
+                      alt="Limber Logic Mockup 2 Dark"
                     />
                   </div>
                   <div class="c-media-grid__image-item">
                     <img
                       class="c-media-grid__image"
-                      src="images/Work/Limber Logic Mockup Light.jpg"
-                      alt="Limber Logic Mockup Light"
+                      src="images/Work/Limber Logic Mockup 2 Light.jpg"
+                      alt="Limber Logic Mockup 2 Light"
                     />
                   </div>
                 </div>
