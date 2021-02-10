@@ -1,10 +1,6 @@
-# My Site
+# New Project
 
-My personal site.
-
-## Built With Snowpack
-
-✨ Bootstrapped with Create Snowpack App (CSA).
+> ✨ Bootstrapped with Create Snowpack App (CSA).
 
 ## Available Scripts
 
@@ -18,13 +14,11 @@ You will also see any lint errors in the console.
 
 ### npm run build
 
-Builds the app for production to the `dist/` folder.
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds a static copy of your site to the `build/` folder.
+Your app is ready to be deployed!
 
-## Directives
+**For the best production performance:** Add a build bundler plugin like [@snowpack/plugin-webpack](https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-webpack) or [snowpack-plugin-rollup-bundle](https://github.com/ParamagicDev/snowpack-plugin-rollup-bundle) to your `snowpack.config.json` config file.
 
-In case you need to add a directive like `classMap` you should add the extension to the import:
+### Q: What about Eject?
 
-```
-import { classMap } from "lit-html/directives/class-map.js";
-```
+No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.

@@ -2,14 +2,14 @@
  *  Components - Top Bar
  */
 
-import { LitElement, html, css } from 'lit-element'
+import when from 'once-defined'
 
-export class TopBar extends LitElement {
+when('uce-lib').then(({define, render, html, svg, css}) => {
 
-  static get styles() {
+  define('c-top-bar', {
 
-    return css`
-      
+    styles: css`
+
       :host {
         align-items: flex-start;
         display: grid;
@@ -24,55 +24,53 @@ export class TopBar extends LitElement {
         width: 100%;
         z-index: 9;
       }
-      
-      @media (min-height:35em) {
 
+      @media (min-height: 35em) {
         :host {
           padding-bottom: 1.5rem;
           padding-top: 1.5rem;
         }
-
       }
 
       .c-top-bar__nav {
         display: grid;
         font-size: 125%;
         grid-auto-flow: column;
-        grid-gap: .25rem;
+        grid-gap: 0.25rem;
         transform: translatex(0);
       }
 
-      @media (min-width:45em) and (min-height:35em) {
-
+      @media (min-width: 45em) and (min-height: 35em) {
         .c-top-bar__nav {
           grid-auto-flow: row;
           grid-gap: 0;
-          transform: translatex(.25rem);
+          transform: translatex(0.25rem);
         }
-        
       }
-      
-      ::slotted([slot="link"]) {
-        padding: 0 .25rem;
+
+      ::slotted([slot='link']) {
+        padding: 0 0.25rem;
         text-align: center;
         text-decoration: none;
       }
-      
-    `
+    `,
 
-  }
+    attachShadow: {mode: 'open'},
 
-  render() {
+    render() {
 
-    return html`
-      <slot name="logo">
-      </slot>
-      <nav class="c-top-bar__nav">
-        <slot name="link">
-        </slot>
-      </nav>
-    `
+      this.html`
+        <style>
+          ${this.styles}
+        </style>
+        <slot name="logo"> </slot>
+        <nav class="c-top-bar__nav">
+          <slot name="link"> </slot>
+        </nav>
+      `
 
-  }
+    }
 
-}
+  })
+
+})

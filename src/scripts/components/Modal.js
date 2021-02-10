@@ -2,144 +2,400 @@
  *  Components - Modal
  */
 
-import { LitElement, html, css } from 'lit-element'
+import dialogPolyfill from 'dialog-polyfill'
+import when from 'once-defined'
 
-export class Modal extends LitElement {
+when('uce-lib').then(({define, render, html, svg, css}) => {
 
-  static get styles() {
+  define('c-modal', {
 
-    return css`
-      :host {
-        --modal-transition-duration: var(--transition-duration);
+    styles: css`
+      :host  {
+        --modal-color-fg: var(--color-fg);
+        --modal-color-bg: var(--color-bg);
+        --modal-spacing: 1.5rem;
+        --modal-button-color-fg: var(--color-fg);
+        --modal-button-color-bg: var(--color-bg);
+        --modal-button-color-border: var(--color-fg);
+        --modal-button-color-shadow: var(
+          --color-opaque
+        );
+        --modal-button-color-shadow-hover: var(
+          --color-opaque-alternate
+        );
+        --modal-button-font: var(--font-main-regular);
+        --modal-button-font-weight: normal;
+        --modal-button-size: 1.8rem;
+        --modal-button-thickness: 1.5px;
+        --modal-transition-duration: 0.15s;
+        --modal-trigger-transition-duration: 0.15s;
+
+        position: absolute;
       }
 
-      .c-modal__content {
-        height: 100vh;
+      .c-modal__body {
+        background-color: var(--modal-color-bg);
+        border: none;
+        box-sizing: border-box;
+        color: var(--modal-color-fg);
+        height: 100%;
         left: 0;
+        max-height: none;
+        max-width: none;
+        overflow-y: scroll;
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
         position: fixed;
-        transition: all var(--modal-transition-duration);
+        transition: var(--modal-transition-duration);
         top: 0;
-        width: 100vw;
+        width: 100%;
         z-index: 9;
       }
-      
-      .c-modal__content:not([open]) {
+
+      .c-modal__body:not([open]) {
         display: none;
         opacity: 0;
+        pointer-events: none;
+      }
+
+      .c-modal__body.is-opening {
+        display: block;
+        opacity: 0;
+        visibility: visible;
+      }
+
+      .c-modal__body.is-open {
+        display: block;
+        opacity: 1;
+        pointer-events: initial;
+      }
+
+      .c-modal__body.is-closing {
+        opacity: 0;
+      }
+
+      .c-modal__body.-is-closed {
+        display: none;
         visibility: hidden;
       }
 
-      .c-modal__content.is-closing {
-        opacity: 0;
+      .c-modal__back-button,
+      .c-modal__back-button:focus,
+      .c-modal__close-button,
+      .c-modal__close-button:focus {
+        border: solid 1px
+          var(--modal-button-color-border);
+        outline: none;
       }
-    `
 
-  }
+      .c-modal__back-button,
+      .c-modal__close-button {
+        align-items: center;
+        background-color: var(
+          --modal-button-color-bg
+        );
+        color: inherit;
+        cursor: pointer;
+        display: grid;
+        font-family: var(--modal-button-font);
+        font-weight: var(--modal-button-font-weight);
+        grid-template-columns: var(
+          --modal-button-size
+        );
+        grid-template-rows: var(--modal-button-size);
+        letter-spacing: 0.025em;
+        padding-bottom: calc(var(--modal-spacing) / 3);
+        padding-top: calc(var(--modal-spacing) / 3);
+        position: sticky;
+        top: calc(var(--modal-spacing) / 2);
+        text-transform: uppercase;
+        transition-duration: var(
+          --modal-transition-duration
+        );
+        z-index: 9;
+      }
 
-  static get properties() {
+      .c-modal__back-button:active,
+      .c-modal__close-button:active {
+        transform: translateY(2px);
+      }
 
-    return {
+      .c-modal__back-button:hover,
+      .c-modal__close-button:hover {
+        box-shadow: 0 0 1px 1px
+          var(--modal-button-color-shadow-hover);
+      }
+
+      .c-modal__back-button {
+        border-radius: 100%;
+        float: left;
+        justify-items: center;
+        margin-left: calc(var(--modal-spacing) / 2);
+        width: calc(
+          var(--modal-button-size) +
+          (var(--modal-spacing) / 3 * 2)
+        );
+      }
+
+      .c-modal__back-button i {
+        font-family: 'icons';
+        font-size: 1.4em;
+        font-style: normal;
+        left: .025em;
+        position: relative;
+        text-transform: none;
+      }
+
+      .c-modal__close-button {
+        display: none;
+        font-size: 0.7rem;
+        float: right;
+        margin-right: calc(var(--modal-spacing) / 2);
+        margin-top: calc(var(--modal-spacing) / 2);
+        padding-left: calc(var(--modal-spacing) / 3);
+        padding-right: calc(var(--modal-spacing) / 3);
+      }
+
+      @media (min-width: 45em) {
+
+        .c-modal__close-button {
+          grid-gap: 0.25rem;
+          grid-template-columns:var(
+            --modal-button-size
+          );
+        }
+
+      }
+
+      .c-modal__close-button span {
+        display: none;
+      }
+
+      @media (min-width: 45em) {
+
+        .c-modal__close-button span {
+          display: inline-block;
+          margin-top: 1px;
+        }
+
+      }
+
+      .c-modal__close-button i {
+        height: var(--modal-button-size);
+        position: relative;
+        text-align: center;
+      }
+
+      .c-modal__close-button i::before,
+      .c-modal__close-button i::after {
+        background-color: var(
+          --modal-button-color-fg
+        );
+        content: '';
+        height: 100%;
+        margin: auto;
+        position: absolute;
+        transform-origin: center;
+        width: var(--modal-button-thickness);
+      }
+
+      .c-modal__close-button i::before {
+        transform: rotate(-45deg);
+      }
+
+      .c-modal__close-button i::after {
+        transform: rotate(45deg);
+      }
+
+      .c-modal__content {
+        position: absolute;
+        width: 100%;
+      }
+    `,
+
+    props: {
+
       open: { type: Boolean, attribute: true }
-    }
 
-  }
+    },
 
-  constructor() {
+    init() {
 
-    super()
+      this.open = false
 
-    this.open = false
-    
+      this.render()
 
-  }
+      this._setup()
 
-  _setOpen() {
+      dialogPolyfill.registerDialog(this._dialogEl)
 
-    if (this.open && this._dialog) {
+      window.addEventListener(
+        'click',
+        e => {
 
-      this._dialog.showModal()
+          const target = e.target.closest(
+            '[data-modal-target=' + this._triggerData + ']'
+          )
 
-    }
+          if (target) {
 
-  }
+            this.showModal()
 
-  _setClosed() {
+          }
 
-    this._dialog.classList.add('is-closing')
+        },
+        true
+      )
 
-    setTimeout( () => {
+      this.shadowRoot.addEventListener('click', e => {
 
-      this._dialog.classList.remove('is-opening')
-      this.removeAttribute('open')
-      this._dialog.close()
-      this._triggerEl.classList.remove('is-expanded')
-      console.log(this._duration)
+        if (e.target.closest('.c-modal__back-button')) {
 
-    }, this._duration)
+          this.close()
 
-  }
+        }
 
-  update() {
+        if (e.target.closest('.c-modal__close-button')) {
 
-    super.update()
+          this.close()
 
-    this._setOpen()
-
-  }
-
-  firstUpdated() {
-
-    const target = this.dataset.modalTrigger
-
-    const triggerSelector = 
-      '[data-modal-target=' + target + ']'
-
-    const hostStyles = window.getComputedStyle(this)
-
-    const durationSeconds = hostStyles.getPropertyValue(
-      '--modal-transition-duration'
-    )
-
-    this._duration = parseFloat(durationSeconds) * 1000
-
-    this._triggerEl = document.querySelector(
-      triggerSelector
-    )
-
-    this._dialog = this.shadowRoot.querySelector('dialog')
-
-    if (this._triggerEl) {
-
-      this._triggerEl.addEventListener('click', (e) => {
-        
-        this._triggerEl.classList.add('is-expanded')
-        
-        this.setAttribute('open', '')
+        }
 
       })
 
+      //this._dialogEl.addEventListener('close', () => {
+
+        //this._handleClose()
+
+      //})
+
+      this._dialogEl.classList.add('is-closed')
+
+      this.open
+        ? this.showModal()
+        : this._dialogEl.classList.add('is-closed')
+
+    },
+
+    _setup() {
+
+      const styles = window.getComputedStyle(this)
+
+      this._documentEl = document.documentElement
+
+      this._triggerData = this.dataset.modalTrigger
+
+      this._triggerEl = document.querySelector(
+        '[data-modal-target=' +
+          this._triggerData +
+          ']' +
+          '[data-modal-trigger-primary]'
+      )
+
+      this._triggerParent = this._triggerEl.parentElement
+
+      this._dialogEl = this.shadowRoot.querySelector('dialog')
+
+      this._closeButtonEl = this._dialogEl.querySelector(
+        '.c-modal__close-button'
+      )
+
+      this._triggerDuration =
+        parseFloat(
+          styles.getPropertyValue(
+            '--modal-trigger-transition-duration'
+          )
+        ) * 1000
+
+      this._modalDuration =
+        parseFloat(
+          styles.getPropertyValue(
+            '--modal-transition-duration'
+          )
+        ) * 1000
+
+    },
+
+    close() {
+
+      this._handleClose()
+
+    },
+
+    _open() {
+
+      this._triggerEl.classList.add('is-expanded')
+      this._triggerParent.style.zIndex = '9'
+
+      setTimeout(() => {
+
+        this.setAttribute('open', '')
+        // this._dialogEl.showModal()
+        this._dialogEl.classList.remove('is-closed')
+        this._dialogEl.classList.add('is-opening')
+        this._documentEl.style.overflow = 'hidden'
+        this._dialogEl.classList.remove('is-opening')
+        this._dialogEl.classList.add('is-open')
+
+      }, this._triggerDuration)
+
+    },
+
+    showModal() {
+
+      this._open()
+
+    },
+
+    _handleClose() {
+
+      this.removeAttribute('open')
+
+      this._dialogEl.classList.remove('is-open')
+      this._dialogEl.classList.add('is-closing')
+
+      setTimeout(() => {
+
+        this._documentEl.style.overflow = ''
+        this._dialogEl.classList.remove('is-closing')
+        this._dialogEl.classList.add('is-closed')
+        this._triggerEl.classList.remove('is-expanded')
+
+        setTimeout(() => {
+
+          this._triggerParent.style.zIndex = ''
+
+        }, this._triggerDuration)
+
+      }, this._modalDuration)
+
+    },
+
+    attachShadow: {mode: 'open'},
+
+    render() {
+
+      this.html`
+        <style>
+          ${this.styles}
+        </style>
+        <dialog class="c-modal__body">
+          <button class="c-modal__back-button">
+            <i>l</i>
+          </button>
+          <button class="c-modal__close-button">
+            <i></i>
+          </button>
+          <section class="c-modal__content">
+            <slot> </slot>
+          </section>
+        </dialog>
+      `
+
     }
 
-    this._setOpen()
+  })
 
-  }
-
-  render() {
-
-    return html`
-      <dialog class="c-modal__content">
-        <button 
-          class="c-modal__close-button"
-          @click=${this._setClosed}
-        >
-          X
-        </button>
-        <slot>
-
-        </slot>
-      </dialog>
-    `
-
-  }
-
-}
+})
