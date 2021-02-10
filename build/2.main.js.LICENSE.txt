@@ -1,0 +1,13 @@
+/*! (c) Andrea Giammarchi - ISC */
+
+/*! (c) Andrea Giammarchi @webreflection ISC */
+
+/**
+ * @licence
+ * @author Sergey Melyukov 2016
+ */
+
+/**
+ * @licence MIT
+ * @author Sergey Melyukov
+ */

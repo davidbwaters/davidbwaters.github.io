@@ -1,0 +1,28 @@
+{
+  "name": "promise-ext-settled",
+  "description": "Simple settled promise",
+  "main": "build/promiseSettled.min.js",
+  "authors": [
+    "Sergey Melyukov"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "promise",
+    "es6",
+    "settled",
+    "all"
+  ],
+  "homepage": "https://github.com/smelukov/PromiseSettled",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

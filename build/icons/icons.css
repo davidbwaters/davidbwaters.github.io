@@ -1,0 +1,86 @@
+/*
+ * Icons
+ */
+
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'icons';
+  src: url('icons.eot');
+  src: url('icons.eot?#iefix') format('embedded-opentype'),
+    url('icons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.c-icon,
+[data-icon] {
+  display: inline-block;
+  height: 1em;
+  line-height: 1;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.c-icon:before,
+[data-icon]:before {
+  font-family: 'icons' !important;
+  content: attr(data-icon);
+  display: inline-block;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1;
+  margin-top: -.02em;
+  height: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[data-icon]:before {
+  content: attr(data-icon);
+}
+
+.c-icon--arrow-down:before {
+  content: "\73";
+}
+.c-icon--arrow-left:before {
+  content: "\6c";
+}
+.c-icon--dribbble:before {
+  content: "\64";
+}
+.c-icon--expand:before {
+  content: "\7a";
+}
+.c-icon--github:before {
+  content: "\63";
+}
+.c-icon--hand:before {
+  content: "\68";
+}
+.c-icon--hand-alt:before {
+  content: "\6a";
+}
+.c-icon--mail:before {
+  content: "\62";
+}
+.c-icon--microsoft:before {
+  content: "\6d";
+}
+.c-icon--npm:before {
+  content: "\6e";
+}
+.c-icon--npm-alt:before {
+  content: "\76";
+}
+.c-icon--plus:before {
+  content: "\70";
+}
+.c-icon--switch:before {
+  content: "\65";
+}
+.c-icon--twitter:before {
+  content: "\61";
+}

@@ -1,0 +1,10 @@
+{
+  "actions" : {
+    "run" : {
+      "enabled" : true,
+      "script" : "#!\/bin\/sh\nnpm publish"
+    }
+  },
+  "identifier" : "E2430C29-52FD-47FA-A545-F3CF01B18EC7",
+  "openLogOnRun" : "start"
+}

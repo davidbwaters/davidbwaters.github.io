@@ -1,0 +1,8 @@
+{
+  "extension" : {
+    "identifier" : "biati.Landotasks",
+    "name" : "Lando tasks"
+  },
+  "extensionTemplate" : "landodestroy",
+  "identifier" : "5BDB4296-EDBF-489D-B378-C755D5981179"
+}
