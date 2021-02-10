@@ -2,13 +2,14 @@
  *  Components - Top Bar
  */
 
-import { LitElement, html, css } from 'lit-element'
+import when from 'once-defined'
 
-export class TopBar extends LitElement {
+when('uce-lib').then(({define, render, html, svg, css}) => {
 
-  static get styles() {
+  define('c-top-bar', {
 
-    return css`
+    styles: css`
+
       :host {
         align-items: flex-start;
         display: grid;
@@ -52,19 +53,24 @@ export class TopBar extends LitElement {
         text-align: center;
         text-decoration: none;
       }
-    `
+    `,
 
-  }
+    attachShadow: {mode: 'open'},
 
-  render() {
+    render() {
 
-    return html`
-      <slot name="logo"> </slot>
-      <nav class="c-top-bar__nav">
-        <slot name="link"> </slot>
-      </nav>
-    `
+      this.html`
+        <style>
+          ${this.styles}
+        </style>
+        <slot name="logo"> </slot>
+        <nav class="c-top-bar__nav">
+          <slot name="link"> </slot>
+        </nav>
+      `
 
-  }
+    }
 
-}
+  })
+
+})

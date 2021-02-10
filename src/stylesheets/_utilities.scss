@@ -195,6 +195,8 @@
     var(--bg-pattern-diagonal-tight-size)
     var(--bg-pattern-diagonal-tight-size) !important;
   height: .5rem !important;
+  margin-bottom: 0;
+  margin-top: 0;
   width: 100% !important;
 }
 
@@ -386,11 +388,13 @@
 .u-bg-noise::before,
 .u-bg-noise-heavy::before,
 .u-overlay-noise::before {
-  animation: noise .4s infinite !important;
+  //animation: noise .4s infinite !important;
   backface-visibility: hidden !important;
+  /*
   background-image: url(
     "/images/Noise-Clear.svg"
   ) !important;
+  */
   background-size: 400px auto !important;
   background-repeat: repeat !important;
   content: '' !important;

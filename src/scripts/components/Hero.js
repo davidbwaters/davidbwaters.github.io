@@ -2,19 +2,21 @@
  *  Components - Hero
  */
 
-import { LitElement, html, css } from 'lit-element'
-import Scrambler from 'scrambling-letters'
+import when from 'once-defined'
 
-export class Hero extends LitElement {
+//import Scrambler from 'scrambling-letters'
 
-  static get styles() {
+when('uce-lib').then(({define, render, html, svg, css}) => {
 
-    return css`
+  define('c-hero', {
+
+    styles: css`
+
       * {
         box-sizing: border-box;
       }
 
-      :host {
+      :host  {
         --hero-image-me-dark:       url(
           '/images/Me-Dark.jpg'
         );
@@ -33,19 +35,17 @@ export class Hero extends LitElement {
         --hero-image-paint-2-light: url(
           '/images/Hero-Paint-2-Light.jpg'
         );
-        --hero-image-noise: url(
-          '/images/Noise-Clear.svg'
-        );
 
         display: grid;
         grid-template-rows: 4fr 5fr 4.5rem;
         height: 100%;
         max-height: 100%;
         min-height: 30rem;
+        z-index: 2;
       }
 
       @media (min-width: 45em) {
-        :host {
+        :host  {
           grid-template-rows: 2fr 1fr 4.5rem;
           min-height: 30rem;
         }
@@ -78,7 +78,7 @@ export class Hero extends LitElement {
           );
         background-repeat: repeat, no-repeat;
         background-size: 100% 4px, 100% 20%;
-        content: '';
+        /* content: ''; */
         height: 100%;
         position: absolute;
         width: 100%;
@@ -92,6 +92,7 @@ export class Hero extends LitElement {
         backface-visibility: hidden;
         background-position: top left;
         background-size: cover;
+        display: none;
         height: 100%;
         left: 0;
         position: absolute;
@@ -133,7 +134,8 @@ export class Hero extends LitElement {
       }
 
       .c-hero__tagline {
-        font-family: 'syneextrabold';
+        font-family: var(--font-display), sans-serif;
+        font-weight: var(--font-display-weight);
         font-size: clamp(1.5rem, 7vw, 4.25rem);
         line-height: 1.05;
         text-transform: uppercase;
@@ -188,7 +190,7 @@ export class Hero extends LitElement {
       .c-hero__location {
         bottom: 0;
         display: block;
-        font-family: var(--font-main-regular);
+        font-family: var(--font-main-regular), sans-serif;
         font-size: 0.6rem;
         font-weight: var(--font-main-regular-weight);
         height: 0.6rem;
@@ -280,22 +282,22 @@ export class Hero extends LitElement {
       .c-hero__name-stylized {
         background-image: linear-gradient(
           -45deg,
-          var(--color-opaque-heavy) 0%,
-          var(--color-opaque-heavy) 6.24%,
-          transparent               6.25%,
-          transparent               43.74%,
-          var(--color-opaque-heavy) 43.75%,
-          var(--color-opaque-heavy) 56.25%,
-          transparent               56.26%,
-          transparent               93.74%,
-          var(--color-opaque-heavy) 93.75%,
-          var(--color-opaque-heavy) 100%
+          var(--color-opaque)   0.00%,
+          var(--color-opaque)  12.50%,
+          transparent          12.51%,
+          transparent          37.49%,
+          var(--color-opaque)  37.50%,
+          var(--color-opaque)  62.50%,
+          transparent          62.51%,
+          transparent          87.49%,
+          var(--color-opaque)  87.50%,
+          var(--color-opaque) 100.00%
         );
         background-position: 0 0;
         background-repeat: repeat;
         background-size:
-          var(--bg-pattern-diagonal-size)
-          var(--bg-pattern-diagonal-size);
+          var(--bg-pattern-diagonal-tight-size)
+          var(--bg-pattern-diagonal-tight-size);
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
@@ -327,7 +329,7 @@ export class Hero extends LitElement {
       }
 
       .c-hero__name-stylized-letter {
-        font-family: var(--font-accent);
+        font-family: var(--font-accent), sans-serif;
         font-size: .8rem;
         font-weight: var(--font-accent-weight);
         margin-bottom: auto;
@@ -348,7 +350,8 @@ export class Hero extends LitElement {
         align-content: center;
         border-top: solid 1px var(--color-accent);
         display: grid;
-        font-family: var(--font-heading);
+        font-family: var(--font-heading), sans-serif;
+        font-weight: var(--font-heading-weight);
         font-size: clamp(1.5rem, 3vw, 2.25rem);
         grid-column-end: 3;
         grid-column-start: 1;
@@ -408,7 +411,7 @@ export class Hero extends LitElement {
         align-items: center;
         column-gap: .5rem;
         display: grid;
-        font-family: var(--font-main-regular);
+        font-family: var(--font-main-regular), sans-serif;
         font-size: 0.6rem;
         justify-content: center;
         padding-left: .5rem;
@@ -420,7 +423,7 @@ export class Hero extends LitElement {
         ::slotted([slot='footer-content-left']),
         ::slotted([slot='footer-content-right']) {
           column-gap: .75rem;
-          font-family: var(--font-main-light);
+          font-family: var(--font-main-light), sans-serif;
           font-size: .8rem;
           padding-left: 1rem;
           padding-right: 1rem;
@@ -476,38 +479,6 @@ export class Hero extends LitElement {
         grid-column-end: 5;
         margin-bottom: 0;
         margin-top: 0;
-      }
-
-      .u-noise-overlay,
-      .u-noise-heavy-overlay {
-        overflow: hidden;
-        position: relative;
-      }
-
-      .u-noise-overlay::after,
-      .u-noise-heavy-overlay::after {
-        animation: noise .4s infinite !important;
-        backface-visibility: hidden !important;
-        background-image: url(
-          "/images/Noise-Clear.svg"
-        ) !important;
-        background-size: 400px auto !important;
-        background-repeat: repeat !important;
-        content: '' !important;
-        height: 200% !important;
-        left: -50% !important;
-
-        position: absolute !important;
-        top: -50% !important;
-        width: 200% !important;
-      }
-
-      .u-noise-overlay::after {
-        opacity: .2;
-      }
-
-      .u-noise-heavy-overlay::after {
-        opacity: .5;
       }
 
 
@@ -570,145 +541,140 @@ export class Hero extends LitElement {
         }
       }
 
-      @keyframes noise {
-        0.00% { transform: translate(0, 0) }
-        49.99% { transform: translate(0, 0) }
-        50.00% { transform: translate(-10%, 10%) }
-        99.99% { transform: translate(-10%, 10%) }
-      }
+    `,
 
-    `
+    init() {
 
-  }
+      this.render()
+      this._taglineSetup()
+      this._nameStylizedSetup()
 
-  firstUpdated() {
+    },
 
-    this._taglineSetup()
-    this._nameStylizedSetup()
+    _scramble() {
 
-    window.addEventListener('load', () => {
+      Scrambler({
+        target: '[data-scrambler]',
+        random: [1000, 1000],
+        speed: 60
+      })
 
-    })
+    },
 
-  }
+    _taglineSetup() {
 
-  _scramble() {
+      const taglineHTML = this.querySelector('[slot=tagline]')
+        .innerHTML.replaceAll('  ', '')
+        .replaceAll('\n', '')
 
-    Scrambler({
-      target: '[data-scrambler]',
-      random: [1000, 1000],
-      speed: 60
-    })
+      const taglineSplit = taglineHTML.split('<br>')
 
-  }
-  _taglineSetup() {
+      const taglineMain = taglineSplit
+        .map((value, index) => {
 
-    const taglineHTML = this.querySelector('[slot=tagline]')
-      .innerHTML.replaceAll('  ', '')
-      .replaceAll('\n', '')
+          const inner =
+            '<span data-scrambler>' + value + '</span>'
+          const isLast = taglineSplit.length - 1 === index
 
-    const taglineSplit = taglineHTML.split('<br>')
+          return isLast ? inner : inner + '<br>'
 
-    const taglineMain = taglineSplit
-      .map((value, index) => {
+        })
+        .join('')
 
-        const inner =
-          '<span data-scrambler>' + value + '</span>'
-        const isLast = taglineSplit.length - 1 === index
+      const taglineAccentEls = [
+        this.shadowRoot.querySelector(
+          '.c-hero__tagline-accent-1'
+        ),
+        this.shadowRoot.querySelector(
+          '.c-hero__tagline-accent-2'
+        ),
+        this.shadowRoot.querySelector(
+          '.c-hero__tagline-accent-3'
+        )
+      ]
 
-        return isLast ? inner : inner + '<br>'
+      this.innerHTML +=
+        '<div slot="tagline-main">' + taglineMain + '</div>'
+
+      taglineAccentEls.map(el => {
+
+        el.innerHTML = taglineHTML
 
       })
-      .join('')
 
-    const taglineAccentEls = [
-      this.shadowRoot.querySelector(
-        '.c-hero__tagline-accent-1'
-      ),
-      this.shadowRoot.querySelector(
-        '.c-hero__tagline-accent-2'
-      ),
-      this.shadowRoot.querySelector(
-        '.c-hero__tagline-accent-3'
+    },
+
+    _nameStylizedSetup() {
+
+      const name = this.querySelector('[slot="name-stylized"')
+        .innerHTML.replaceAll(' ', '')
+        .replaceAll('\n', '')
+        .split('')
+
+      const nameStylizedEl = this.shadowRoot.querySelector(
+        '.c-hero__name-stylized'
       )
-    ]
 
-    this.innerHTML +=
-      '<div slot="tagline-main">' + taglineMain + '</div>'
+      nameStylizedEl.innerHTML = name
+        .map(value => {
 
-    taglineAccentEls.map(el => {
+          const nameDiv =
+            '<div class="c-hero__name-stylized-letter">' +
+            value +
+            '</div>'
 
-      el.innerHTML = taglineHTML
+          return nameDiv
 
-    })
+        })
+        .join('')
 
-  }
+    },
 
-  _nameStylizedSetup() {
+    attachShadow: {mode: 'open'},
 
-    const name = this.querySelector('[slot="name-stylized"')
-      .innerHTML.replaceAll(' ', '')
-      .replaceAll('\n', '')
-      .split('')
+    render() {
 
-    const nameStylizedEl = this.shadowRoot.querySelector(
-      '.c-hero__name-stylized'
-    )
-
-    nameStylizedEl.innerHTML = name
-      .map(value => {
-
-        const nameDiv =
-          '<div class="c-hero__name-stylized-letter">' +
-          value +
-          '</div>'
-
-        return nameDiv
-
-      })
-      .join('')
-
-  }
-
-  render() {
-
-    return html`
-      <div class="c-hero__upper">
-        <div class="c-hero__paint-dark"></div>
-        <div class="c-hero__paint-light"></div>
-        <div class="c-hero__tagline">
-          <div class="c-hero__tagline-main">
-            <slot name="tagline-main"></slot>
+      this.html`
+        <style>
+          ${this.styles}
+        </style>
+        <div class="c-hero__upper">
+          <div class="c-hero__paint-dark"></div>
+          <div class="c-hero__paint-light"></div>
+          <c-canvas-transition></c-canvas-transition>
+          <div class="c-hero__tagline">
+            <div class="c-hero__tagline-main">
+              <slot name="tagline-main"></slot>
+            </div>
+            <div class="c-hero__tagline-accent-1"></div>
+            <div class="c-hero__tagline-accent-2"></div>
+            <div class="c-hero__tagline-accent-3"></div>
           </div>
-          <div class="c-hero__tagline-accent-1"></div>
-          <div class="c-hero__tagline-accent-2"></div>
-          <div class="c-hero__tagline-accent-3"></div>
+          <div class="c-hero__name">David B. Waters</div>
+          <div class="c-hero__location">Charleston, SC</div>
         </div>
-        <div class="c-hero__name">David B. Waters</div>
-        <div class="c-hero__location">Charleston, SC</div>
-      </div>
-      <div class="c-hero__lower">
-        <div class="
-          c-hero__me
-          u-noise-heavy-overlay
-        "></div>
-        <div class="
-          c-hero__name-stylized
-          u-noise-overlay
-        "></div>
-        <div class="c-hero__heading">
-          <slot name="heading"></slot>
+        <div class="c-hero__lower">
+          <div class="
+            c-hero__me
+          "></div>
+          <div class="
+            c-hero__name-stylized
+          "></div>
+          <div class="c-hero__heading">
+            <slot name="heading"></slot>
+          </div>
         </div>
-      </div>
-      <footer class="c-hero__footer">
-        <slot name="footer-box-left"> </slot>
-        <slot name="footer-content-left"> </slot>
-        <slot name="footer-content-right"> </slot>
-        <slot name="footer-box-right"> </slot>
-        <slot name="bottom"> </slot>
-      </footer>
-    `
+        <footer class="c-hero__footer">
+          <slot name="footer-box-left"> </slot>
+          <slot name="footer-content-left"> </slot>
+          <slot name="footer-content-right"> </slot>
+          <slot name="footer-box-right"> </slot>
+          <slot name="bottom"> </slot>
+        </footer>
+      `
 
-  }
+    }
 
-}
+  })
+
+})

@@ -2,13 +2,13 @@
  *  Components - Theme Switch
  */
 
-import { LitElement, html, css } from 'lit-element'
+import when from 'once-defined'
 
-export class ThemeSwitch extends LitElement {
+when('uce-lib').then(({define, render, html, svg, css}) => {
 
-  static get styles() {
+  define('c-theme-switch', {
 
-    return css`
+    styles: css`
       * {
         box-sizing: border-box;
       }
@@ -17,7 +17,7 @@ export class ThemeSwitch extends LitElement {
         background-color: transparent;
       }
 
-      :host {
+      :host  {
         --theme-switch-border: var(--color-subtle);
         --theme-switch-bg: var(--color-subtle);
         --theme-switch-switch-border: rgba(0, 0, 0, 0.8);
@@ -95,34 +95,39 @@ export class ThemeSwitch extends LitElement {
         }
 
       }
-    `
+    `,
 
-  }
+    _handleChange() {
 
-  _handleChange() {
+      const current = document.body.dataset.theme
 
-    const current = document.body.dataset.theme
+      document.body.dataset.theme =
+        current === 'dark' ? 'light' : 'dark'
 
-    document.body.dataset.theme =
-      current === 'dark' ? 'light' : 'dark'
+    },
 
-  }
+    attachShadow: {mode: 'open'},
 
-  render() {
+    render() {
 
-    return html`
-      <label class="c-theme-switch__label">
-        <input
-          type="checkbox"
-          class="c-theme-switch__input"
-          @change=${this._handleChange}
-        />
-        <span class="c-theme-switch__switch"></span>
-        <slot></slot>
-      </label>
-      
-    `
+      this.html`
+        <style>
+          ${this.styles}
+        </style>
+        <label class="c-theme-switch__label">
+          <input
+            type="checkbox"
+            class="c-theme-switch__input"
+            onChange=${this._handleChange}
+          />
+          <span class="c-theme-switch__switch"></span>
+          <slot></slot>
+        </label>
 
-  }
+      `
 
-}
+    }
+
+  })
+
+})

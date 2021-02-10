@@ -24,7 +24,8 @@
   color: var(--button-color-fg);
   cursor: pointer;
   display: inline-grid;
-  font-family: var(--font-main-regular);
+  font-family: var(--font-main-regular), sans-serif;
+  font-weight: var(--font-main-regular-weight);
   font-size: .6rem;
   grid-auto-flow: column;
   grid-gap: .5rem;
@@ -38,6 +39,7 @@
   text-decoration: none;
   text-transform: uppercase;
   transition: all var(--button-transition-duration);
+  will-change: box-shadow, opacity;
 }
 
 @media (min-width:25em) {

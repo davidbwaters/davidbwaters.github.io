@@ -1,0 +1,109 @@
+/*
+ *  Components - Lightbox
+ */
+
+.glightbox-dbw .gslide-description {
+  background: #fff;
+}
+
+.glightbox-dbw .goverlay {
+  background: hsla(255, 57%, 50%, .9);
+}
+
+.glightbox-dbw .gdesc-inner {
+  padding: 22px 20px;
+}
+
+.glightbox-dbw .gslide-title {
+  font-size: 1em;
+  font-weight: normal;
+  font-family: arial;
+  color: #000;
+  margin-bottom: 19px;
+  line-height: 1.4em;
+}
+
+.glightbox-dbw .gslide-desc {
+  font-size: 0.86em;
+  margin-bottom: 0;
+  font-family: arial;
+  line-height: 1.4em;
+}
+
+.glightbox-dbw .gslide-video {
+  background: #000;
+}
+
+.glightbox-dbw .gprev,
+    .glightbox-dbw .gnext,
+    .glightbox-dbw .gclose {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+}
+
+.glightbox-dbw .gprev path,
+.glightbox-dbw .gnext path,
+.glightbox-dbw .gclose path {
+  fill: #fff;
+}
+
+.glightbox-dbw button:focus:not(.focused):not(.disabled) {
+  outline: none;
+}
+
+.glightbox-dbw .gprev {
+  position: absolute;
+  top: -100%;
+  left: 30px;
+  width: 40px;
+  height: 50px;
+}
+
+.glightbox-dbw .gnext {
+  position: absolute;
+  top: -100%;
+  right: 30px;
+  width: 40px;
+  height: 50px;
+}
+
+.glightbox-dbw .gclose {
+  background-color: transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 1.25rem;
+  right: 1.25rem;
+  position: absolute;
+}
+
+.glightbox-dbw .gclose::before {
+  transform: rotate(
+    -45deg
+  );
+}
+
+.glightbox-dbw .gclose::after {
+  transform: rotate(
+    45deg
+  );
+}
+
+.glightbox-dbw .gclose::before, .glightbox-dbw .gclose::after {
+  background-color: white;
+  content: '';
+  height: 100%;
+  margin: auto;
+  position: absolute;
+  transform-origin: center;
+  width: 2px;
+}
+
+.glightbox-dbw .gclose svg {
+  display: none;
+  width: 18px;
+  height: auto;
+}
+
+.glightbox-dbw .gclose:hover {
+  opacity: 1;
+}
