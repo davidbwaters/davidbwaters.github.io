@@ -2,8 +2,9 @@
  *  Scripts - Main
  */
 
-import 'uce'
 import '@ungap/custom-elements'
+import 'uce'
+
 import 'glightbox/dist/css/glightbox.css'
 import './components/CanvasNoise'
 import './components/CanvasTransition'
@@ -25,11 +26,13 @@ import Scrambler from 'scrambling-letters'
 function scramble() {
 
   setTimeout(() => {
+
     Scrambler({
       target: '[data-scrambler]',
       random: [1000, 1000],
       speed: 60
     })
+
   }, 1500)
 
 }
@@ -43,8 +46,8 @@ function consoleLove() {
     'border-top: solid 1px black',
     'color: #666',
     'line-height: 35px',
-    'padding: 10px 0px 10px 10px',
-    ].join(';')
+    'padding: 10px 0px 10px 10px'
+  ].join(';')
 
   const clh = [
     'background: #fff',
@@ -54,18 +57,18 @@ function consoleLove() {
     'line-height: 35px',
     'padding: 10px 5px 10px 0px',
     'width: 300px'
-    ].join(';')
+  ].join(';')
 
-    const cle = [
-      'background: #fff',
-      'border-bottom: solid 1px black',
-      'border-right: solid 1px black',
-      'border-top: solid 1px black',
-      'color: #666',
-      'line-height: 35px',
-      'padding: 10px 20px 10px 0px',
-      'width: 300px'
-      ].join(';')
+  const cle = [
+    'background: #fff',
+    'border-bottom: solid 1px black',
+    'border-right: solid 1px black',
+    'border-top: solid 1px black',
+    'color: #666',
+    'line-height: 35px',
+    'padding: 10px 20px 10px 0px',
+    'width: 300px'
+  ].join(';')
 
   console.log(
     '%c Coded with %c ♥️ %c https://davidbwaters.com',
@@ -109,7 +112,7 @@ lightboxSetup()
 
 preloader.preload(
   ...preloadingImages
-).then(function(status){
+).then(function(status) {
 
   loader.disable()
   scramble()
