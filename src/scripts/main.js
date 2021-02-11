@@ -72,7 +72,9 @@ function consoleLove() {
 
   console.log(
     '%c Coded with %c ♥️ %c https://davidbwaters.com',
-    cl, clh, cle
+    cl,
+    clh,
+    cle
   )
 
 }
@@ -88,8 +90,6 @@ function lightboxSetup() {
     closeEffect: 'fade',
     skin: 'dbw'
   })
-
-  const modals = document.querySelectorAll('c-modal')
 
 }
 
@@ -110,11 +110,11 @@ const loader = document.querySelector('c-loader')
 consoleLove()
 lightboxSetup()
 
-preloader.preload(
-  ...preloadingImages
-).then(function(status) {
+preloader
+  .preload(...preloadingImages)
+  .then(function(status) {
 
-  loader.disable()
-  scramble()
+    loader.disable()
+    scramble()
 
-})
+  })

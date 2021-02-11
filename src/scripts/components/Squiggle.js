@@ -4,27 +4,27 @@
 
 import when from 'once-defined'
 
-when('uce-lib').then(({define, render, html, svg, css}) => {
+when('uce-lib').then(
+  ({ define, render, html, svg, css }) => {
 
-  define('c-squiggle', {
+    define('c-squiggle', {
+      style: selector => css`
+        ${selector} {
+          display: block;
+          height: 0.5rem;
+          line-height: 0;
+          margin-top: 1rem;
+        }
 
-    style: selector => css`
-      ${selector}  {
-        display: block;
-        height: 0.5rem;
-        line-height: 0;
-        margin-top: 1rem;
-      }
+        .c-squiggle__svg {
+          display: inline-block;
+          fill: var(--color-accent);
+        }
+      `,
 
-      .c-squiggle__svg {
-        display: inline-block;
-        fill: var(--color-accent);
-      }
-    `,
+      render() {
 
-    render() {
-
-      this.html`
+        this.html`
         <svg
           class="c-squiggle__svg"
           height="8px"
@@ -37,9 +37,8 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
         </svg>
       `
 
-    }
+      }
+    })
 
-  })
-
-})
-
+  }
+)

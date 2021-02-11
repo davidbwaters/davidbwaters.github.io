@@ -4,87 +4,85 @@
 
 import when from 'once-defined'
 
-when('uce-lib').then(({define, render, html, svg, css}) => {
+when('uce-lib').then(
+  ({ define, render, html, svg, css }) => {
 
-  define('c-loader', {
+    define('c-loader', {
+      styles: css`
+        :host {
+          --loader-color-bg: var(--color-bg);
+        }
 
-    styles: css`
+        :host,
+        ::slotted(*) {
+          height: 100vh;
+          left: 0;
+          top: 0;
+          transition: opacity var(--transition-duration);
+          width: 100%;
+          z-index: 9;
+        }
 
-      :host  {
-        --loader-color-bg: var(--color-bg);
-      }
+        :host {
+          background-color: var(--loader-color-bg);
+          position: fixed;
+          height: 100%;
+          width: 100%;
+        }
 
-      :host,
-      ::slotted(*) {
-        height: 100vh;
-        left: 0;
-        top: 0;
-        transition: opacity var(--transition-duration);
-        width: 100%;
-        z-index: 9;
-      }
+        ::slotted(*) {
+          align-content: center;
+          cursor: progress;
+          display: grid;
+          grid-template-columns: 100px;
+          grid-template-rows: min-content;
+          justify-content: center;
+          position: absolute;
+        }
+      `,
 
-      :host  {
-        background-color: var(--loader-color-bg);
-        position: fixed;
-        height: 100%;
-        width: 100%;
-      }
+      init() {
 
-      ::slotted(*) {
-        align-content: center;
-        cursor: progress;
-        display: grid;
-        grid-template-columns: 100px;
-        grid-template-rows: min-content;
-        justify-content: center;
-        position: absolute;
-      }
+        // document.documentElement.style.position = 'fixed'
+        this.render()
 
-    `,
+      },
 
-    init() {
+      disable() {
 
-      // document.documentElement.style.position = 'fixed'
-      this.render()
+        const mainEl = document.querySelector('main')
 
-    },
+        const mainIsTransparent = mainEl.classList.contains(
+          'u-transparent'
+        )
 
-    disable() {
+        document.documentElement.style.position = ''
 
-      const mainEl = document.querySelector('main')
+        if (mainIsTransparent) {
 
-      const mainIsTransparent = mainEl.classList.contains(
-        'u-transparent'
-      )
+          mainEl.classList.remove('u-transparent')
 
-      document.documentElement.style.position = ''
+        }
+        setTimeout(() => {
 
-      if (mainIsTransparent) {
+          this.style.opacity = 0
+          this.style.pointerEvents = 'none'
 
-        mainEl.classList.remove('u-transparent')
+        }, 800)
 
-      }
-      setTimeout(() => {
+        setTimeout(() => {
 
-        this.style.opacity = 0
-        this.style.pointerEvents = 'none'
+          this.style.display = 'none'
 
-      }, 800)
+        }, 2000)
 
-      setTimeout(() => {
+      },
 
-        this.style.display = 'none'
+      attachShadow: { mode: 'open' },
 
-      }, 2000)
+      render() {
 
-    },
-
-    attachShadow: {mode: 'open'},
-
-    render() {
-
-      this.html`
+        this.html`
         <style>
           ${this.styles}
         </style>
@@ -92,8 +90,8 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
         </slot>
       `
 
-    }
+      }
+    })
 
-  })
-
-})
+  }
+)

@@ -4,12 +4,14 @@
 
 import * as THREE from 'three/src/Three.js'
 
-import { Scene } from 'three/src/scenes/Scene'
-import { gsap, Power2} from 'gsap'
+import { gsap, Power2 } from 'gsap'
 export class Sketch {
-  constructor(slider, opts) {
+
+  constructor(images, slider, opts) {
+
     this.scene = new THREE.Scene()
-    this.vertex = `varying vec2 vUv;void main() {vUv = uv;gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );}`
+    this.vertex =
+      `varying vec2 vUv;void main() {vUv = uv;gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );}`
     this.fragment = opts.fragment
     this.uniforms = opts.uniforms
     this.renderer = new THREE.WebGLRenderer()
@@ -23,9 +25,7 @@ export class Sketch {
     this.easing = opts.easing || 'easeInOut'
 
     this.container = slider
-    this.images = JSON.parse(
-      this.container.getAttribute('data-images')
-    )
+    this.images = images
     this.width = this.container.offsetWidth
     this.height = this.container.offsetHeight
     this.container.appendChild(this.renderer.domElement)
@@ -44,6 +44,7 @@ export class Sketch {
 
     this.paused = false
     this.initiate(() => {
+
       //console.log(this.textures)
       this.setupResize()
       this.settings()
@@ -51,51 +52,72 @@ export class Sketch {
       this.resize()
       this.autoplay()
       this.play()
+
     })
+
   }
 
   initiate(cb) {
+
     const promises = []
     let that = this
     this.images.forEach((url, i) => {
+
       let promise = new Promise(resolve => {
+
         that.textures[i] = new THREE.TextureLoader().load(
           url,
           resolve
         )
+
       })
+
       promises.push(promise)
+
     })
 
     Promise.all(promises).then(() => {
+
       cb()
+
     })
+
   }
 
   autoplay() {
+
     setTimeout(() => {
+
       this.next()
       this.autoplay()
+
     }, 2000)
+
   }
 
   settings() {
-    let that = this
+
     this.settings = { progress: 0.5 }
 
     Object.keys(this.uniforms).forEach(item => {
+
       this.settings[item] = this.uniforms[item].value
+
     })
+
   }
 
   setupResize() {
+
     window.addEventListener(
       'resize',
       this.resize.bind(this)
     )
+
   }
 
   resize() {
+
     this.width = this.container.offsetWidth
     this.height = this.container.offsetHeight
     this.renderer.setSize(this.width, this.height)
@@ -108,11 +130,16 @@ export class Sketch {
     let a1
     let a2
     if (this.height / this.width > this.imageAspect) {
+
       a1 = (this.width / this.height) * this.imageAspect
       a2 = 1
-    } else {
+
+    }
+    else {
+
       a1 = 1
       a2 = this.height / this.width / this.imageAspect
+
     }
 
     this.material.uniforms.resolution.value.x = this.width
@@ -129,10 +156,11 @@ export class Sketch {
     this.plane.scale.y = 1
 
     this.camera.updateProjectionMatrix()
+
   }
 
   addObjects() {
-    let that = this
+
     this.material = new THREE.ShaderMaterial({
       extensions: {
         derivatives:
@@ -175,18 +203,38 @@ export class Sketch {
       this.material
     )
     this.scene.add(this.plane)
+
   }
 
   stop() {
+
     this.paused = true
+
   }
 
   play() {
+
     this.paused = false
     this.render()
+
+  }
+
+  reset() {
+
+    this.current = 0
+    this.time = 0
+
+    let texture = this.textures[0]
+    let nextTexture = this.textures[1]
+    this.material.uniforms.texture1.value = texture
+    this.material.uniforms.texture2.value = nextTexture
+    this.material.uniforms.progress.value = 0
+    this.material.uniforms.time.value = 0
+
   }
 
   next() {
+
     if (this.isRunning) return
     this.isRunning = true
     let len = this.textures.length
@@ -199,24 +247,30 @@ export class Sketch {
       value: 1,
       ease: Power2[this.easing],
       onComplete: () => {
+
         // console.log('FINISH')
         this.current = (this.current + 1) % len
         this.material.uniforms.texture1.value = nextTexture
         this.material.uniforms.progress.value = 0
         this.isRunning = false
+
       }
     })
+
   }
+
   render() {
+
     if (this.paused) return
     this.time += 0.05
     this.material.uniforms.time.value = this.time
-    // this.material.uniforms.progress.value = this.settings.progress;
 
     Object.keys(this.uniforms).forEach(item => {
+
       this.material.uniforms[item].value = this.settings[
         item
       ]
+
     })
 
     // this.camera.position.z = 3;
@@ -225,5 +279,7 @@ export class Sketch {
 
     requestAnimationFrame(this.render.bind(this))
     this.renderer.render(this.scene, this.camera)
+
   }
+
 }
