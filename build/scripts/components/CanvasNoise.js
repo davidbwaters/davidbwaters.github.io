@@ -8,7 +8,6 @@ import when from '../../_snowpack/pkg/once-defined.js'
 when('uce-lib').then(({ define, css }) => {
 
   define('c-canvas-noise', {
-
     styles: css`
       :host {
         display: block;
@@ -35,8 +34,9 @@ when('uce-lib').then(({ define, css }) => {
 
       this.render()
 
-      const canvas = this.shadowRoot
-        .querySelector('.c-canvas-noise__canvas')
+      const canvas = this.shadowRoot.querySelector(
+        '.c-canvas-noise__canvas'
+      )
 
       noise(canvas, 12)
 
@@ -45,6 +45,7 @@ when('uce-lib').then(({ define, css }) => {
     attachShadow: { mode: 'open' },
 
     render() {
+
       this.html`
         <style>
           ${this.styles}
@@ -52,6 +53,8 @@ when('uce-lib').then(({ define, css }) => {
         <canvas class="c-canvas-noise__canvas">
         </canvas>
       `
+
     }
   })
+
 })

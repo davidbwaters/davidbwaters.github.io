@@ -9,7 +9,6 @@
     "once-defined": "./once-defined.js",
     "scrambling-letters": "./scrambling-letters.js",
     "three/src/Three.js": "./three/src/Three.js",
-    "three/src/scenes/Scene": "./three/src/scenes/Scene.js",
     "uce": "./uce.js"
   }
 }
