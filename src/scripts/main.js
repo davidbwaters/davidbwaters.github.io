@@ -3,8 +3,18 @@
  */
 
 import 'uce'
+<<<<<<< Updated upstream
 import '@ungap/custom-elements'
+=======
+
+import GLightbox from 'glightbox'
+import ImagePreloader from 'image-preloader'
+import Scrambler from 'scrambling-letters'
+
+>>>>>>> Stashed changes
 import 'glightbox/dist/css/glightbox.css'
+
+import './App'
 import './components/CanvasNoise'
 import './components/CanvasTransition'
 import './components/GlitchImage'
@@ -16,6 +26,7 @@ import './components/SectionHeader'
 import './components/ThemeSwitch'
 import './components/TopBar'
 
+<<<<<<< Updated upstream
 import GLightbox from 'glightbox'
 import ImagePreloader from 'image-preloader'
 import Scrambler from 'scrambling-letters'
@@ -23,6 +34,11 @@ import Scrambler from 'scrambling-letters'
 // import stickybits from 'stickybits'
 
 function scramble() {
+=======
+function scramble() {
+
+  setTimeout(() => {
+>>>>>>> Stashed changes
 
   setTimeout(() => {
     Scrambler({
@@ -30,6 +46,10 @@ function scramble() {
       random: [1000, 1000],
       speed: 60
     })
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   }, 1500)
 
 }
@@ -86,8 +106,11 @@ function lightboxSetup() {
     skin: 'dbw'
   })
 
+<<<<<<< Updated upstream
   const modals = document.querySelectorAll('c-modal')
 
+=======
+>>>>>>> Stashed changes
 }
 
 const preloadingImages = [
@@ -107,6 +130,7 @@ const loader = document.querySelector('c-loader')
 consoleLove()
 lightboxSetup()
 
+<<<<<<< Updated upstream
 preloader.preload(
   ...preloadingImages
 ).then(function(status){
@@ -115,3 +139,21 @@ preloader.preload(
   scramble()
 
 })
+=======
+preloader
+  .preload(...preloadingImages)
+  .then(function(status) {
+
+    let app = document.querySelector('c-app')
+
+    console.log(app.preload)
+
+    app.preload().then(() => {
+
+      loader.disable()
+      scramble()
+
+    })
+
+  })
+>>>>>>> Stashed changes

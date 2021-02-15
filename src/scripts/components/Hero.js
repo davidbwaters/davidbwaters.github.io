@@ -145,6 +145,7 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
       @media (min-height: 35em) {
 
         .c-hero__tagline {
+<<<<<<< Updated upstream
           margin-top: 0.5rem;
           line-height: 1.1;
         }
@@ -155,6 +156,29 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
         position: relative;
         z-index: 1;
       }
+=======
+          font-family: var(--font-display), sans-serif;
+          font-weight: var(--font-display-weight);
+          font-size: clamp(1.25rem, 6.5vw, 4.25rem);
+          line-height: 1.05;
+          min-height: 0vw;
+          text-transform: uppercase;
+          width: auto;
+        }
+
+        @media (min-height: 35em) {
+          .c-hero__tagline {
+            line-height: 1.1;
+            margin-top: 0.5rem;
+          }
+        }
+
+        .c-hero__tagline-main {
+          min-height: .00000001vw;
+          position: relative;
+          z-index: 1;
+        }
+>>>>>>> Stashed changes
 
       .c-hero__tagline-accent-1,
       .c-hero__tagline-accent-2,

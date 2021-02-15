@@ -5,6 +5,7 @@
 import dialogPolyfill from 'dialog-polyfill'
 import when from 'once-defined'
 
+<<<<<<< Updated upstream
 when('uce-lib').then(({define, render, html, svg, css}) => {
 
   define('c-modal', {
@@ -32,6 +33,33 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
 
         position: absolute;
       }
+=======
+when('uce-lib').then(
+  ({ define, render, html, svg, css }) => {
+
+    define('c-modal', {
+      styles: css`
+        :host {
+          --modal-color-fg: var(--color-fg);
+          --modal-color-bg: var(--color-bg);
+          --modal-spacing: 1.5rem;
+          --modal-button-color-fg: var(--color-fg);
+          --modal-button-color-bg: var(--color-bg);
+          --modal-button-color-border: var(--color-fg);
+          --modal-button-color-shadow: var(--color-opaque);
+          --modal-button-color-shadow-hover: var(
+            --color-opaque-alternate
+          );
+          --modal-button-font: var(--font-main-regular);
+          --modal-button-font-weight: normal;
+          --modal-button-size: 1.8rem;
+          --modal-button-thickness: 1.5px;
+          --modal-transition-duration: 0.15s;
+          --modal-trigger-transition-duration: 0.15s;
+
+          position: absolute;
+        }
+>>>>>>> Stashed changes
 
       .c-modal__body {
         background-color: var(--modal-color-bg);
@@ -217,7 +245,11 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
 
     props: {
 
+<<<<<<< Updated upstream
       open: { type: Boolean, attribute: true }
+=======
+      init() {
+>>>>>>> Stashed changes
 
     },
 
@@ -227,10 +259,17 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
 
       this.render()
 
+<<<<<<< Updated upstream
       this._setup()
+=======
+        window.addEventListener(
+          'click',
+          e => {
+>>>>>>> Stashed changes
 
       dialogPolyfill.registerDialog(this._dialogEl)
 
+<<<<<<< Updated upstream
       window.addEventListener(
         'click',
         e => {
@@ -260,6 +299,33 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
         if (e.target.closest('.c-modal__close-button')) {
 
           this.close()
+=======
+            if (target) {
+
+              this.showModal()
+
+            }
+
+          },
+          true
+        )
+
+        this.shadowRoot.addEventListener('click', e => {
+
+          if (e.target.closest('.c-modal__back-button')) {
+
+            this.close()
+
+          }
+
+          if (e.target.closest('.c-modal__close-button')) {
+
+            this.close()
+
+          }
+
+        })
+>>>>>>> Stashed changes
 
         }
 
@@ -273,11 +339,21 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
 
       this._dialogEl.classList.add('is-closed')
 
+<<<<<<< Updated upstream
       this.open
         ? this.showModal()
         : this._dialogEl.classList.add('is-closed')
 
     },
+=======
+        this.open
+          ? this.showModal()
+          : this._dialogEl.classList.add('is-closed')
+
+      },
+
+      _setup() {
+>>>>>>> Stashed changes
 
     _setup() {
 
@@ -302,6 +378,7 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
         '.c-modal__close-button'
       )
 
+<<<<<<< Updated upstream
       this._triggerDuration =
         parseFloat(
           styles.getPropertyValue(
@@ -319,9 +396,28 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
     },
 
     close() {
+=======
+        this._modalDuration =
+          parseFloat(
+            styles.getPropertyValue(
+              '--modal-transition-duration'
+            )
+          ) * 1000
+
+      },
+
+      close() {
+
+        this._handleClose()
+
+      },
+
+      _open() {
+>>>>>>> Stashed changes
 
       this._handleClose()
 
+<<<<<<< Updated upstream
     },
 
     _open() {
@@ -348,16 +444,44 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
       this._open()
 
     },
+=======
+        setTimeout(() => {
+
+          this.setAttribute('open', '')
+          // this._dialogEl.showModal()
+          this._dialogEl.classList.remove('is-closed')
+          this._dialogEl.classList.add('is-opening')
+          this._documentEl.style.overflow = 'hidden'
+          this._dialogEl.classList.remove('is-opening')
+          this._dialogEl.classList.add('is-open')
+
+        }, this._triggerDuration)
+
+      },
+
+      showModal() {
+
+        this._open()
+
+      },
+
+      _handleClose() {
+>>>>>>> Stashed changes
 
     _handleClose() {
 
       this.removeAttribute('open')
 
+<<<<<<< Updated upstream
       this._dialogEl.classList.remove('is-open')
       this._dialogEl.classList.add('is-closing')
+=======
+        setTimeout(() => {
+>>>>>>> Stashed changes
 
       setTimeout(() => {
 
+<<<<<<< Updated upstream
         this._documentEl.style.overflow = ''
         this._dialogEl.classList.remove('is-closing')
         this._dialogEl.classList.add('is-closed')
@@ -370,10 +494,25 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
         }, this._triggerDuration)
 
       }, this._modalDuration)
+=======
+          setTimeout(() => {
+
+            this._triggerParent.style.zIndex = ''
+
+          }, this._triggerDuration)
+
+        }, this._modalDuration)
+
+      },
+>>>>>>> Stashed changes
 
     },
 
+<<<<<<< Updated upstream
     attachShadow: {mode: 'open'},
+=======
+      render() {
+>>>>>>> Stashed changes
 
     render() {
 
@@ -394,8 +533,16 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
         </dialog>
       `
 
+<<<<<<< Updated upstream
     }
 
   })
 
 })
+=======
+      }
+    })
+
+  }
+)
+>>>>>>> Stashed changes

@@ -21,10 +21,12 @@
   },
   "dependencies": {
     "@directus/sdk-js": "^9.0.0-rc.34",
-    "@ungap/custom-elements": "^0.1.12",
+    "@ungap/custom-elements": "^0.1.14",
     "attachshadow": "^0.3.0",
     "canvas-confetti": "^1.2.0",
     "dialog-polyfill": "^0.5.6",
+    "dotenv": "^8.2.0",
+    "fast-sort": "^2.2.0",
     "glightbox": "^3.0.7",
     "gsap": "^3.6.0",
     "image-preloader": "^1.1.1",
