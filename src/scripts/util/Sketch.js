@@ -89,7 +89,6 @@ export class Sketch {
 
     setTimeout(() => {
 
-
       if (!this.paused) {
 
         this.next()
