@@ -6,7 +6,6 @@ import DirectusSDK from '@directus/sdk-js'
 import when from 'once-defined'
 
 import { api } from './config/api'
-import sort from 'fast-sort'
 
 const sdk = new DirectusSDK(api.url)
 
@@ -25,14 +24,34 @@ when('uce-lib').then(({ define, css }) => {
 
     init() {
 
+
+    },
+
+    bound: ['setLogo'],
+
+    setLogo() {
+
+      this.theme = document.body.dataset.theme
+
+      this.data.logo = this.theme === 'dark'
+        ? this.data.site.images.branding_light.image
+        : this.data.site.images.branding_dark.image
+
+      console.log(this.data.logo)
+      this.render()
+
     },
 
     async preload() {
 
       await this.getData()
 
-      console.log(this.data)
+      //console.log(this.data)
+
+      this.setLogo()
       this.render()
+
+      this.addEventListener('themeChange', this.setLogo)
 
     },
 
@@ -48,7 +67,7 @@ when('uce-lib').then(({ define, css }) => {
 
         // console.log(i)
 
-        if (o[i] && o[i].filename_disk) {
+        if (o[i] && o[i].icon) {
 
           if (!obj.images) {
 
@@ -56,14 +75,15 @@ when('uce-lib').then(({ define, css }) => {
 
           }
 
-          obj.images[i] = api.assets + o[i].filename_disk
+          obj.images[o[i].name] = {}
+          obj.images[o[i].name].image = api.assets +
+            o[i].icon
+          // obj.images[i].name = o[i].name
 
         }
 
-        else if (
-          o[i] && o[i].image &&
-          o[i].image.filename_disk
-        ) {
+
+        else if (o[i] && o[i].directus_files_id) {
 
           if (!obj.images) {
 
@@ -71,15 +91,64 @@ when('uce-lib').then(({ define, css }) => {
 
           }
 
-          obj.images[i] = api.assets +
-          o[i].image.filename_disk
+          if (
+            o[i] &&
+            o[i].directus_files_id
+          ) {
+
+            obj.images[i] =
+              api.assets +
+              o[i].directus_files_id
+
+          }
+
+          else if (
+            o[i].filename_disk &&
+            o[i].id
+          ) {
+
+            obj.images[i] =
+              api.assets +
+              o[i].id
+
+          }
+
+        }
+
+        else if (o[i] && o[i].filename_disk) {
+
+          if (!obj.images) {
+
+            obj.images = {}
+
+          }
+
+          obj.images[i] = {}
+
+          obj.images[i].image =
+            api.assets + o[i].id
+
+        }
+
+
+        else if (o[i] && o[i].filename_disk) {
+
+          if (!obj.images) {
+
+            obj.images = {}
+
+          }
+
+          obj.images[i].image =
+            api.assets + o[i].id
 
         }
 
         else if (
           o[i] &&
-          o[i].icon &&
-          o[i].icon.filename_disk
+          o[i].length &&
+          typeof o[i] !== 'string' &&
+          o[i][0].filename_disk
         ) {
 
           if (!obj.images) {
@@ -88,35 +157,89 @@ when('uce-lib').then(({ define, css }) => {
 
           }
 
-          obj.images[i] =
-            api.assets + o[i].icon.filename_disk
+          obj.images[i] = []
+
+          let index = 0
+
+          o[i].forEach(j => {
+
+            if (
+              o[i][index] &&
+              o[i][index].filename_disk
+            ) {
+
+              obj.images[i][index] = {}
+
+            }
+
+            if (
+              o[i][index] &&
+              i === 'icons'
+            ) {
+
+              Object.keys(o[i]).forEach(j => {
+
+                obj.images[i] = {}
+
+                obj.images[i][o[i].name] = {}
+                obj.images[i][o[i].name].image =
+                  api.url + o[i].icon
+
+              })
+
+            }
+
+
+            if (
+              o[i][index] &&
+              o[i][index].sort
+            ) {
+
+              obj.images[i][index].sort = o[i][index].sort
+
+            }
+
+            if (
+              o[i][index] &&
+              o[i][index].directus_files_id
+            ) {
+
+              obj.images[i][index].image =
+                api.assets +
+                o[i][index].directus_files_id
+
+            }
+
+            else if (
+              o[i][index].filename_disk &&
+              o[i][index].id
+            ) {
+
+              obj.images[i][index].image =
+                api.assets +
+                o[i][index].id
+
+            }
+
+            index++
+
+          })
+
+          console.log(i)
+          console.log(o[i])
 
         }
 
-        else if (
-          o[i] &&
-          o[i].icon &&
-          o[i].icon.icon &&
-          o[i].icon.icon.filename_disk
-        ) {
-
-          if (!obj.images) {
-
-            obj.images = {}
-
-          }
-
-          obj.images[i] =
-            api.assets + o[i].icon.filename_disk
-
-        }
 
         else if (
-          i === 'media' &&
           o[i] &&
-          o[i].length
+          typeof o[i] !== 'string' &&
+          o[i][Object.keys(o[i])[0]] &&
+          o[i][Object.keys(o[i])[0]].filename_disk
         ) {
 
+          console.log(i)
+          console.log(o[i])
           if (!obj.images) {
 
             obj.images = {}
@@ -128,30 +251,40 @@ when('uce-lib').then(({ define, css }) => {
           Object.keys(o[i]).forEach(j => {
 
             if (
-              o.media[j].sort !== null &&
-              o.media[j].directus_files_id
+              o[i][j].filename_disk
             ) {
 
-              obj.images.media[j] = {}
+              obj.images[i][j] = {}
 
             }
 
             if (
-              o.media[j].sort &&
-              o.media[j].sort !== null
+              o[i][j].sort &&
+              o[i][j].sort !== null
             ) {
 
-              obj.images.media[j].sort = o.media[j].sort
+              obj.images[i][j].sort = o[i][j].sort
 
             }
 
             if (
-              o.media[j].directus_files_id
+              o[i][j].directus_files_id
             ) {
 
-              obj.images.media[j].image =
+              obj.images[i][j].image =
                 api.assets +
-                o.media[j].directus_files_id.filename_disk
+                o[i][j].directus_files_id
+
+            }
+
+            else if (
+              o[i][j].filename_disk &&
+              o[i][j].id
+            ) {
+
+              obj.images[i][j].image =
+                api.assets +
+                o[i][j].id
 
             }
 
@@ -161,7 +294,13 @@ when('uce-lib').then(({ define, css }) => {
 
         else if (o[i]) {
 
-          obj[i] = o[i]
+          if (!obj.text) {
+
+            obj.text = {}
+
+          }
+
+          obj.text[i] = o[i]
 
         }
 
@@ -176,8 +315,9 @@ when('uce-lib').then(({ define, css }) => {
 
       let site = await sdk.items('site').read({
         fields: [
-          '*.filename_disk',
-          '*.icon.filename_disk'
+          '*.directus_files_id',
+          '*.icon.*',
+          '*.*'
         ]
       })
 
@@ -187,15 +327,8 @@ when('uce-lib').then(({ define, css }) => {
 
 
       let icons = await sdk.items(
-        'social_links'
-      ).read({
-        fields: [
-          '*.filename_disk',
-          '*.icon.filename_disk'
-        ],
-        sort: 'sort'
-      })
-
+        'icons'
+      ).read()
 
       let {
         iconsId, ...iconsData
@@ -205,12 +338,7 @@ when('uce-lib').then(({ define, css }) => {
 
       Object.keys(iconsData).forEach(i => {
 
-        this.data.icons =
-          this.data.icons.concat(
-            this.formatData(
-              iconsData[i]
-            )
-          )
+        this.data.icons = this.formatData(iconsData)
 
       })
 
@@ -219,8 +347,8 @@ when('uce-lib').then(({ define, css }) => {
         'social_links'
       ).read({
         fields: [
-          '*.filename_disk',
-          '*.icon.filename_disk'
+          '*.directus_files_id',
+          '*.icon.icon.directus_files_id'
         ],
         sort: 'sort'
       })
@@ -235,18 +363,19 @@ when('uce-lib').then(({ define, css }) => {
 
         this.data.socialLinks =
           this.data.socialLinks.concat(
-            this.formatData(
-              socialLinksData[i]
-            )
+            socialLinksData[i]
           )
+
+        this.data.socialLinks[i].icon =
+          this.data.socialLinks[i].icon.icon
 
       })
 
 
       let home = await sdk.items('home').read({
         fields: [
-          '*.filename_disk',
-          '*.icon.filename_disk'
+          '*.*',
+          '*.icon.*'
         ]
       })
 
@@ -257,8 +386,8 @@ when('uce-lib').then(({ define, css }) => {
 
       let skills = await sdk.items('skills').read({
         fields: [
-          '*.filename_disk',
-          '*.icon.filename_disk'
+          '*.*',
+          '*.icon.*'
         ]
       })
 
@@ -277,17 +406,12 @@ when('uce-lib').then(({ define, css }) => {
       })
 
 
-      let portfolioItems = await sdk
-        .items('portfolio_items').read({
-          fields: [
-            '*.filename_disk',
-            '*.icon.filename_disk',
-            'media.*.*',
-            //'media.directus_files_id.filename_disk',
-            'media.sort'
-          ],
-          sort: 'sort'
-        })
+      let portfolioItems = await sdk.items('portfolio_items').read({
+        fields: [
+          '*',
+          '*.directus_files_id'
+        ]
+      })
 
       let {
         portfolioItemsId, ...portfolioItemsData
@@ -306,7 +430,7 @@ when('uce-lib').then(({ define, css }) => {
 
       })
 
-      console.log(portfolioItemsData)
+      console.log(skills)
 
     },
 
@@ -323,7 +447,7 @@ when('uce-lib').then(({ define, css }) => {
             >
               <object
                 type="image/svg+xml"
-                data="${this.data.site.images.branding_light}"
+                data=${this.data.logo}
                 class="u-theme-fill" width="30" height="24"
               >
               </object>
