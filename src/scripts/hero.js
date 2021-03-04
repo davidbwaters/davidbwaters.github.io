@@ -44,9 +44,13 @@ const fragment = `
 const bg = {
   start1: '/images/Hero-Paint-1-Dark.jpg',
   end1: '/images/Hero-Paint-2-Dark.jpg',
+  start2: '/images/Hero-Paint-1-Light.jpg',
+  end2: '/images/Hero-Paint-2-Light.jpg',
   width: 1600,
   height: 1080
 }
+
+const wrapper = document.body
 
 const renderer = new Renderer({
   dpr: 2
@@ -54,7 +58,7 @@ const renderer = new Renderer({
 
 const gl = renderer.gl
 
-document.body.appendChild(gl.canvas)
+wrapper.appendChild(gl.canvas)
 
 // Variable inputs to control flowmap
 let aspect = 1
@@ -98,9 +102,9 @@ function resize() {
 const flowmap = new Flowmap(
   gl, {
     size: 5,
-    falloff: 0.28,
-    dissipation: 0.99,
-    alpha: 0.7
+    falloff: 0.25,
+    dissipation: 0.992,
+    alpha: 0.72
   }
 )
 
@@ -117,28 +121,47 @@ const geometry = new Geometry(gl, {
   }
 })
 
-const texture1 = new Texture(gl, {
+const texture1a = new Texture(gl, {
   minFilter: gl.LINEAR,
   magFilter: gl.LINEAR
 })
 
-const img1 = new Image()
-
-img1.onload = () => (texture1.image = img1)
-img1.crossOrigin = 'Anonymous'
-img1.src = bg.start1
-
-
-const texture2 = new Texture(gl, {
+const texture1b = new Texture(gl, {
   minFilter: gl.LINEAR,
   magFilter: gl.LINEAR
 })
 
-const img2 = new Image()
+const texture2a = new Texture(gl, {
+  minFilter: gl.LINEAR,
+  magFilter: gl.LINEAR
+})
 
-img2.onload = () => (texture2.image = img2)
-img2.crossOrigin = 'Anonymous'
-img2.src = bg.end1
+const texture2b = new Texture(gl, {
+  minFilter: gl.LINEAR,
+  magFilter: gl.LINEAR
+})
+
+const img1a = new Image()
+const img1b = new Image()
+const img2a = new Image()
+const img2b = new Image()
+
+
+img1a.onload = () => (texture1a.image = img1a)
+img1a.crossOrigin = 'Anonymous'
+img1a.src = bg.start1
+
+img1b.onload = () => (texture1b.image = img1b)
+img1b.crossOrigin = 'Anonymous'
+img1b.src = bg.end1
+
+img2a.onload = () => (texture2a.image = img2a)
+img2a.crossOrigin = 'Anonymous'
+img2a.src = bg.start2
+
+img2b.onload = () => (texture2b.image = img2b)
+img2b.crossOrigin = 'Anonymous'
+img2b.src = bg.end2
 
 
 let a1, a2
@@ -168,10 +191,10 @@ const program = new Program(gl, {
       value: 0
     },
     tPaintStart: {
-      value: texture1
+      value: texture1a
     },
     tPaintEnd: {
-      value: texture2
+      value: texture1b
     },
     res: {
       value: new Vec4(
@@ -268,7 +291,25 @@ function updateMouse(e) {
   velocity.needsUpdate = true
 
 }
+
 requestAnimationFrame(update)
+
+window.themeSwitch = theme => {
+
+  if (theme === 'light') {
+
+    mesh.program.uniforms.tPaintStart.value = texture2a
+    mesh.program.uniforms.tPaintEnd.value = texture2b
+
+  }
+  else {
+
+    mesh.program.uniforms.tPaintStart.value = texture1a
+    mesh.program.uniforms.tPaintEnd.value = texture1b
+
+  }
+
+}
 
 function update(t) {
 
