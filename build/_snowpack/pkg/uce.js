@@ -476,10 +476,9 @@ const handleAnything = comment => {
       case 'boolean':
         if (oldValue !== newValue) {
           oldValue = newValue;
-          if (text)
-            text.textContent = newValue;
-          else
-            text = document.createTextNode(newValue);
+          if (!text)
+            text = document.createTextNode('');
+          text.data = newValue;
           nodes = diff(comment, nodes, [text]);
         }
         break;
@@ -522,6 +521,10 @@ const handleAnything = comment => {
               [newValue]
           );
         }
+        break;
+      case 'function':
+        anyContent(newValue(comment));
+        break;
     }
   };
   return anyContent;
@@ -530,6 +533,7 @@ const handleAnything = comment => {
 // attributes can be:
 //  * ref=${...}      for hooks and other purposes
 //  * aria=${...}     for aria attributes
+//  * ?boolean=${...} for boolean attributes
 //  * .dataset=${...} for dataset related attributes
 //  * .setter=${...}  for Custom Elements setters or nodes with setters
 //                    such as buttons, details, options, select, etc
@@ -577,7 +581,7 @@ const prefix = 'isµ';
 // should be parsed once, and once only, as it will always represent the same
 // content, within the exact same amount of updates each time.
 // This cache relates each template to its unique content and updates.
-const cache = umap(new WeakMap);
+const cache$1 = umap(new WeakMap);
 
 // a RegExp that helps checking nodes that cannot contain comments
 const textOnly = /^(?:plaintext|script|style|textarea|title|xmp)$/i;
@@ -631,7 +635,7 @@ const mapTemplate = (type, template) => {
     if (node.nodeType === 8) {
       // The only comments to be considered are those
       // which content is exactly the same as the searched one.
-      if (node.textContent === search) {
+      if (node.data === search) {
         nodes.push({type: 'node', path: createPath(node)});
         search = `${prefix}${++i}`;
       }
@@ -675,8 +679,8 @@ const mapTemplate = (type, template) => {
 // its details such as the fragment with all nodes, and updates info.
 const mapUpdates = (type, template) => {
   const {content, nodes} = (
-    cache.get(template) ||
-    cache.set(template, mapTemplate(type, template))
+    cache$1.get(template) ||
+    cache$1.set(template, mapTemplate(type, template))
   );
   // clone deeply the fragment
   const fragment = importNode.call(document, content, true);
@@ -759,7 +763,7 @@ function Hole(type, template, values) {
   this.values = values;
 }
 
-const {create, defineProperties} = Object;
+const {create: create$1, defineProperties: defineProperties$2} = Object;
 
 // both `html` and `svg` template literal tags are polluted
 // with a `for(ref[, id])` and a `node` tag too
@@ -772,7 +776,7 @@ const tag = type => {
     cache,
     {type, template, values}
   );
-  return defineProperties(
+  return defineProperties$2(
     // non keyed operations are recognized as instance of Hole
     // during the "unroll", recursively resolved and updated
     (template, ...values) => new Hole(type, template, values),
@@ -783,7 +787,7 @@ const tag = type => {
         // related node, handy with JSON results and mutable list of objects
         // that usually carry a unique identifier
         value(ref, id) {
-          const memo = keyed.get(ref) || keyed.set(ref, create(null));
+          const memo = keyed.get(ref) || keyed.set(ref, create$1(null));
           return memo[id] || (memo[id] = fixed(createCache()));
         }
       },
@@ -801,7 +805,7 @@ const tag = type => {
 };
 
 // each rendered node gets its own cache
-const cache$1 = umap(new WeakMap);
+const cache = umap(new WeakMap);
 
 // rendering means understanding what `html` or `svg` tags returned
 // and it relates a specific node to its own unique cache.
@@ -810,7 +814,7 @@ const cache$1 = umap(new WeakMap);
 // then it's "unrolled" to resolve all its inner nodes.
 const render = (where, what) => {
   const hole = typeof what === 'function' ? what() : what;
-  const info = cache$1.get(where) || cache$1.set(where, createCache());
+  const info = cache.get(where) || cache.set(where, createCache());
   const wire = hole instanceof Hole ? unroll(info, hole) : hole;
   if (wire !== info.wire) {
     info.wire = wire;
@@ -833,7 +837,7 @@ function css (t) {
   return s;
 }
 
-const {defineProperties: defineProperties$1, keys} = Object;
+const {defineProperties: defineProperties$1, keys: keys$1} = Object;
 
 const accessor = (all, shallow, hook, value, update) => ({
   configurable: true,
@@ -853,7 +857,7 @@ const loop = (props, get, all, shallow, useState, update) => {
   const desc = {};
   const hook = useState !== noop;
   const args = [all, shallow, hook];
-  for (let ke = keys(props), y = 0; y < ke.length; y++) {
+  for (let ke = keys$1(props), y = 0; y < ke.length; y++) {
     const value = get(props, ke[y]);
     const extras = hook ? useState(value) : [value, useState];
     if (update)
@@ -894,7 +898,7 @@ const reactive = domHandler({dom: true});
 
 const CE = customElements;
 const {define: defineCustomElement} = CE;
-const {create: create$1, defineProperties: defineProperties$2, getOwnPropertyDescriptor, keys: keys$1} = Object;
+const {create, defineProperties, getOwnPropertyDescriptor, keys} = Object;
 
 const element = 'element';
 const constructors = umap(new Map([[element, {c: HTMLElement, e: element}]]));
@@ -924,11 +928,11 @@ const define = (tagName, definition) => {
   const statics = {};
   const proto = {};
   const listeners = [];
-  const retype = create$1(null);
+  const retype = create(null);
   const bootstrap = (element, key, value) => {
     if (!initialized.has(element)) {
       initialized.set(element, 0);
-      defineProperties$2(element, {
+      defineProperties(element, {
         html: {
           configurable: true,
           value: content.bind(
@@ -950,7 +954,7 @@ const define = (tagName, definition) => {
         element[key] = value;
     }
   };
-  for (let k = keys$1(definition), i = 0, {length} = k; i < length; i++) {
+  for (let k = keys(definition), i = 0, {length} = k; i < length; i++) {
     const key = k[i];
     if (/^on./.test(key) && !/Options$/.test(key)) {
       const options = definition[key + 'Options'] || false;
@@ -966,6 +970,7 @@ const define = (tagName, definition) => {
     }
     switch (key) {
       case 'attachShadow':
+      case 'constructor':
       case 'observedAttributes':
       case 'style':
         break;
@@ -982,7 +987,7 @@ const define = (tagName, definition) => {
   // [props]
   if (props !== null) {
     if (props) {
-      for (let k = keys$1(props), i = 0; i < k.length; i++) {
+      for (let k = keys(props), i = 0; i < k.length; i++) {
         const key = k[i];
         proto[key] = {
           get() {
@@ -1026,8 +1031,8 @@ const define = (tagName, definition) => {
     proto.disconnectedCallback = {value: disconnected};
 
   const {c, e} = info(definition.extends || element);
-  class MicroElement extends c {}  defineProperties$2(MicroElement, statics);
-  defineProperties$2(MicroElement.prototype, proto);
+  class MicroElement extends c {}  defineProperties(MicroElement, statics);
+  defineProperties(MicroElement.prototype, proto);
   const args = [tagName, MicroElement];
   if (e !== element)
     args.push({extends: e});

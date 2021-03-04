@@ -25,7 +25,6 @@ when('uce-lib').then(({ define, css }) => {
 
     init() {
 
-
     },
 
     bound: ['setLogo'],

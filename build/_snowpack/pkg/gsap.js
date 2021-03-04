@@ -27,8 +27,8 @@ var _config = {
   delay: 0
 },
     _suppressOverwrites,
-    _bigNum = 1e8,
-    _tinyNum = 1 / _bigNum,
+    _bigNum$1 = 1e8,
+    _tinyNum = 1 / _bigNum$1,
     _2PI = Math.PI * 2,
     _HALF_PI = _2PI / 4,
     _gsID = 0,
@@ -53,7 +53,7 @@ var _config = {
     _isNotFalse = function _isNotFalse(value) {
   return value !== false;
 },
-    _windowExists = function _windowExists() {
+    _windowExists$1 = function _windowExists() {
   return typeof window !== "undefined";
 },
     _isFuncOrString = function _isFuncOrString(value) {
@@ -73,9 +73,9 @@ _relExp = /[+-]=-?[.\d]+/,
     _delimitedValueExp = /[#\-+.]*\b[a-z\d-=+%.]+/gi,
     _unitExp = /[\d.+\-=]+(?:e[-+]\d*)*/i,
     _globalTimeline,
-    _win,
+    _win$1,
     _coreInitted,
-    _doc,
+    _doc$1,
     _globals = {},
     _installScope = {},
     _coreReady,
@@ -561,7 +561,7 @@ _renderZeroDurationTween = function _renderZeroDurationTween(tween, totalTime, s
     _parsePosition = function _parsePosition(animation, position) {
   var labels = animation.labels,
       recent = animation._recent || _zeroPosition,
-      clippedDuration = animation.duration() >= _bigNum ? recent.endTime(false) : animation._dur,
+      clippedDuration = animation.duration() >= _bigNum$1 ? recent.endTime(false) : animation._dur,
       //in case there's a child that infinitely repeats, users almost never intend for the insertion point of a new child to be based on a SUPER long value like that so we clip it and assume the most recently-added child's endTime should be used instead.
   i,
       offset;
@@ -610,7 +610,7 @@ clamp = function clamp(min, max, value) {
 },
     _slice = [].slice,
     _isArrayLike = function _isArrayLike(value, nonEmpty) {
-  return value && _isObject(value) && "length" in value && (!nonEmpty && !value.length || value.length - 1 in value && _isObject(value[0])) && !value.nodeType && value !== _win;
+  return value && _isObject(value) && "length" in value && (!nonEmpty && !value.length || value.length - 1 in value && _isObject(value[0])) && !value.nodeType && value !== _win$1;
 },
     _flatten = function _flatten(ar, leaveStrings, accumulator) {
   if (accumulator === void 0) {
@@ -625,7 +625,7 @@ clamp = function clamp(min, max, value) {
 },
     //takes any value and returns an array. If it's a string (and leaveStrings isn't true), it'll use document.querySelectorAll() and convert that to an array. It'll also accept iterables like jQuery objects.
 toArray = function toArray(value, leaveStrings) {
-  return _isString(value) && !leaveStrings && (_coreInitted || !_wake()) ? _slice.call(_doc.querySelectorAll(value), 0) : _isArray(value) ? _flatten(value, leaveStrings) : _isArrayLike(value) ? _slice.call(value, 0) : value ? [value] : [];
+  return _isString(value) && !leaveStrings && (_coreInitted || !_wake()) ? _slice.call(_doc$1.querySelectorAll(value), 0) : _isArray(value) ? _flatten(value, leaveStrings) : _isArrayLike(value) ? _slice.call(value, 0) : value ? [value] : [];
 },
     shuffle = function shuffle(a) {
   return a.sort(function () {
@@ -678,10 +678,10 @@ distribute = function distribute(v) {
         wrapAt;
 
     if (!distances) {
-      wrapAt = vars.grid === "auto" ? 0 : (vars.grid || [1, _bigNum])[1];
+      wrapAt = vars.grid === "auto" ? 0 : (vars.grid || [1, _bigNum$1])[1];
 
       if (!wrapAt) {
-        max = -_bigNum;
+        max = -_bigNum$1;
 
         while (max < (max = a[wrapAt++].getBoundingClientRect().left) && wrapAt < l) {}
 
@@ -692,7 +692,7 @@ distribute = function distribute(v) {
       originX = ratios ? Math.min(wrapAt, l) * ratioX - .5 : from % wrapAt;
       originY = ratios ? l * ratioY / wrapAt - .5 : from / wrapAt | 0;
       max = 0;
-      min = _bigNum;
+      min = _bigNum$1;
 
       for (j = 0; j < l; j++) {
         x = j % wrapAt - originX;
@@ -731,7 +731,7 @@ distribute = function distribute(v) {
       is2D;
 
   if (!isArray && _isObject(snapTo)) {
-    radius = isArray = snapTo.radius || _bigNum;
+    radius = isArray = snapTo.radius || _bigNum$1;
 
     if (snapTo.values) {
       snapTo = toArray(snapTo.values);
@@ -750,7 +750,7 @@ distribute = function distribute(v) {
   } : function (raw) {
     var x = parseFloat(is2D ? raw.x : raw),
         y = parseFloat(is2D ? raw.y : 0),
-        min = _bigNum,
+        min = _bigNum$1,
         closest = 0,
         i = snapTo.length,
         dx,
@@ -906,7 +906,7 @@ distribute = function distribute(v) {
     _getLabelInDirection = function _getLabelInDirection(timeline, fromTime, backward) {
   //used for nextLabel() and previousLabel()
   var labels = timeline.labels,
-      min = _bigNum,
+      min = _bigNum$1,
       p,
       distance,
       label;
@@ -1265,15 +1265,15 @@ _tickerActive,
     },
     wake: function wake() {
       if (_coreReady) {
-        if (!_coreInitted && _windowExists()) {
-          _win = _coreInitted = window;
-          _doc = _win.document || {};
+        if (!_coreInitted && _windowExists$1()) {
+          _win$1 = _coreInitted = window;
+          _doc$1 = _win$1.document || {};
           _globals.gsap = gsap;
-          (_win.gsapVersions || (_win.gsapVersions = [])).push(gsap.version);
+          (_win$1.gsapVersions || (_win$1.gsapVersions = [])).push(gsap.version);
 
-          _install(_installScope || _win.GreenSockGlobals || !_win.gsap && _win || {});
+          _install(_installScope || _win$1.GreenSockGlobals || !_win$1.gsap && _win$1 || {});
 
-          _raf = _win.requestAnimationFrame;
+          _raf = _win$1.requestAnimationFrame;
         }
 
         _id && _self.sleep();
@@ -1288,7 +1288,7 @@ _tickerActive,
       }
     },
     sleep: function sleep() {
-      (_raf ? _win.cancelAnimationFrame : clearTimeout)(_id);
+      (_raf ? _win$1.cancelAnimationFrame : clearTimeout)(_id);
       _tickerActive = 0;
       _req = _emptyFunc;
     },
@@ -2241,7 +2241,7 @@ var Timeline = /*#__PURE__*/function (_Animation) {
     }
 
     if (ignoreBeforeTime === void 0) {
-      ignoreBeforeTime = -_bigNum;
+      ignoreBeforeTime = -_bigNum$1;
     }
 
     var a = [],
@@ -2505,7 +2505,7 @@ var Timeline = /*#__PURE__*/function (_Animation) {
     var max = 0,
         self = this,
         child = self._last,
-        prevStart = _bigNum,
+        prevStart = _bigNum$1,
         prev,
         start,
         parent;
@@ -3804,7 +3804,7 @@ var gsap = _gsap.registerPlugin({
 Tween.version = Timeline.version = gsap.version = "3.6.0";
 _coreReady = 1;
 
-if (_windowExists()) {
+if (_windowExists$1()) {
   _wake();
 }
 
@@ -3820,21 +3820,21 @@ var Power2 = _easeMap.Power2;
  * @author: Jack Doyle, jack@greensock.com
 */
 
-var _win$1,
-    _doc$1,
+var _win,
+    _doc,
     _docElement,
     _pluginInitted,
     _tempDiv,
     _tempDivStyler,
     _recentSetterPlugin,
-    _windowExists$1 = function _windowExists() {
+    _windowExists = function _windowExists() {
   return typeof window !== "undefined";
 },
     _transformProps = {},
     _RAD2DEG = 180 / Math.PI,
     _DEG2RAD = Math.PI / 180,
     _atan2 = Math.atan2,
-    _bigNum$1 = 1e8,
+    _bigNum = 1e8,
     _capsExp = /([A-Z])/g,
     _horizontalExp = /(?:left|right|width|margin|padding|x)/i,
     _complexExp = /[\s,\(]\S/,
@@ -3889,9 +3889,9 @@ _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
     _transformOriginProp = _transformProp + "Origin",
     _supports3D,
     _createElement = function _createElement(type, ns) {
-  var e = _doc$1.createElementNS ? _doc$1.createElementNS((ns || "http://www.w3.org/1999/xhtml").replace(/^https/, "http"), type) : _doc$1.createElement(type); //some servers swap in https for http in the namespace which can break things, making "style" inaccessible.
+  var e = _doc.createElementNS ? _doc.createElementNS((ns || "http://www.w3.org/1999/xhtml").replace(/^https/, "http"), type) : _doc.createElement(type); //some servers swap in https for http in the namespace which can break things, making "style" inaccessible.
 
-  return e.style ? e : _doc$1.createElement(type); //some environments won't allow access to the element's style when created with a namespace in which case we default to the standard createElement() to work around the issue. Also note that when GSAP is embedded directly inside an SVG file, createElement() won't allow access to the style object in Firefox (see https://greensock.com/forums/topic/20215-problem-using-tweenmax-in-standalone-self-containing-svg-file-err-cannot-set-property-csstext-of-undefined/).
+  return e.style ? e : _doc.createElement(type); //some environments won't allow access to the element's style when created with a namespace in which case we default to the standard createElement() to work around the issue. Also note that when GSAP is embedded directly inside an SVG file, createElement() won't allow access to the style object in Firefox (see https://greensock.com/forums/topic/20215-problem-using-tweenmax-in-standalone-self-containing-svg-file-err-cannot-set-property-csstext-of-undefined/).
 },
     _getComputedProperty = function _getComputedProperty(target, property, skipPrefixFallback) {
   var cs = getComputedStyle(target);
@@ -3914,10 +3914,10 @@ _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
   return i < 0 ? null : (i === 3 ? "ms" : i >= 0 ? _prefixes[i] : "") + property;
 },
     _initCore = function _initCore() {
-  if (_windowExists$1() && window.document) {
-    _win$1 = window;
-    _doc$1 = _win$1.document;
-    _docElement = _doc$1.documentElement;
+  if (_windowExists() && window.document) {
+    _win = window;
+    _doc = _win.document;
+    _docElement = _doc.documentElement;
     _tempDiv = _createElement("div") || {
       style: {}
     };
@@ -4070,8 +4070,8 @@ _convertToUnit = function _convertToUnit(target, property, value, unit) {
     parent = (target.ownerSVGElement || {}).parentNode;
   }
 
-  if (!parent || parent === _doc$1 || !parent.appendChild) {
-    parent = _doc$1.body;
+  if (!parent || parent === _doc || !parent.appendChild) {
+    parent = _doc.body;
   }
 
   cache = parent._gsap;
@@ -4892,9 +4892,9 @@ _addPxTranslate = function _addPxTranslate(target, start, value) {
     }
 
     if (direction === "cw" && change < 0) {
-      change = (change + cap * _bigNum$1) % cap - ~~(change / cap) * cap;
+      change = (change + cap * _bigNum) % cap - ~~(change / cap) * cap;
     } else if (direction === "ccw" && change > 0) {
-      change = (change - cap * _bigNum$1) % cap - ~~(change / cap) * cap;
+      change = (change - cap * _bigNum) % cap - ~~(change / cap) * cap;
     }
   }
 
@@ -4923,7 +4923,7 @@ _addPxTranslate = function _addPxTranslate(target, start, value) {
 
   style[_transformProp] = transforms;
 
-  _doc$1.body.appendChild(_tempDivStyler);
+  _doc.body.appendChild(_tempDivStyler);
 
   endCache = _parseTransform(_tempDivStyler, 1);
 
@@ -4944,7 +4944,7 @@ _addPxTranslate = function _addPxTranslate(target, start, value) {
     }
   }
 
-  _doc$1.body.removeChild(_tempDivStyler);
+  _doc.body.removeChild(_tempDivStyler);
 }; // handle splitting apart padding, margin, borderWidth, and borderRadius into their 4 components. Firefox, for example, won't report borderRadius correctly - it will only do borderTopLeftRadius and the other corners. We also want to handle paddingTop, marginLeft, borderRightWidth, etc.
 
 
