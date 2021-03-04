@@ -4,89 +4,86 @@
 
 import when from '../../_snowpack/pkg/once-defined.js'
 
-when('uce-lib').then(
-  ({ define, render, html, svg, css }) => {
+when('uce-lib').then(({define, render, html, svg, css}) => {
 
-    define('c-section-header', {
-      styles: css`
-        :host {
-          --section-header-title-font: var(--font-display);
-          --section-header-title-font-weight: var(
-            --font-display-weight
-          );
+  define('c-section-header', {
 
-          box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05);
-          display: block;
-          text-align: center;
-        }
+    styles: css`
+      :host  {
+        --section-header-title-font: var(--font-display);
+        --section-header-title-font-weight: var(--font-display-weight);
 
-        ::slotted([slot='title']),
-        ::slotted([slot='description']) {
-          border-bottom: solid 1px
-            var(--color-subtle-alternate);
-          box-sizing: border-box;
-          display: block;
-        }
+        box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05);
+        display: block;
+        text-align: center;
+      }
+
+      ::slotted([slot='title']),
+      ::slotted([slot='description']) {
+        border-bottom: solid 1px
+          var(--color-subtle-alternate);
+        box-sizing: border-box;
+        display: block;
+      }
+
+      ::slotted([slot='title']) {
+        font-size: 1.4rem;
+        font-family: var(--section-header-title-font), sans-serif;
+        font-weight: var(--section-header-title-font-weight);
+        line-height: 1.25;
+        padding-bottom: 3rem;
+        padding-left: .5rem;
+        padding-right: .5rem;
+        padding-top: 4rem;
+        text-transform: uppercase;
+      }
+
+      @media (min-width: 16em) {
 
         ::slotted([slot='title']) {
-          font-size: 1.4rem;
-          font-family: var(--section-header-title-font),
-            sans-serif;
-          font-weight: var(
-            --section-header-title-font-weight
+          font-size: 1.5rem;
+          padding-left: 1rem;
+          padding-right: 1rem;
+          -webkit-text-fill-color: transparent;
+          -webkit-text-stroke-width: 1px;
+          -webkit-text-stroke-color: var(--color-fg);
+        }
+      }
+
+      @media (min-width: 25em) {
+
+        ::slotted([slot='title']) {
+          font-size: 2.0736rem;
+          font-size: clamp(
+            2.0736rem,
+            32.832px + 0.108vw,
+            2.16rem
           );
-          line-height: 1.25;
-          padding-bottom: 3rem;
-          padding-left: 0.5rem;
-          padding-right: 0.5rem;
-          padding-top: 4rem;
-          text-transform: uppercase;
         }
 
-        @media (min-width: 16em) {
-          ::slotted([slot='title']) {
-            font-size: 1.5rem;
-            padding-left: 1rem;
-            padding-right: 1rem;
-            -webkit-text-fill-color: transparent;
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: var(--color-fg);
-          }
+      }
+
+      @media (min-width: 45em) {
+        ::slotted([slot='title']) {
+          padding-left: 6rem;
+          padding-right: 6rem;
         }
+      }
 
-        @media (min-width: 25em) {
-          ::slotted([slot='title']) {
-            font-size: 2.0736rem;
-            font-size: clamp(
-              2.0736rem,
-              32.832px + 0.108vw,
-              2.16rem
-            );
-          }
-        }
+      ::slotted([slot='description']) {
+        box-shadow: 0 0 0 1px var(--color-subtle-alternate);
+        padding-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 1.5rem;
+      }
+    `,
 
-        @media (min-width: 45em) {
-          ::slotted([slot='title']) {
-            padding-left: 6rem;
-            padding-right: 6rem;
-          }
-        }
+    attachShadow: {mode: 'open'},
 
-        ::slotted([slot='description']) {
-          box-shadow: 0 0 0 1px
-            var(--color-subtle-alternate);
-          padding-bottom: 1.5rem;
-          padding-left: 1.5rem;
-          padding-right: 1.5rem;
-          padding-top: 1.5rem;
-        }
-      `,
+    render() {
 
-      attachShadow: { mode: 'open' },
-
-      render() {
-
-        this.html`
+      this.html`
         <style>
           ${this.styles}
         </style>
@@ -94,8 +91,8 @@ when('uce-lib').then(
         <slot name="description"> </slot>
       `
 
-      }
-    })
+    }
 
-  }
-)
+  })
+
+})

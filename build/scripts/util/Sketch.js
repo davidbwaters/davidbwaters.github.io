@@ -2,6 +2,7 @@
  * Sketch
  */
 
+
 import * as THREE from '../../_snowpack/pkg/three/src/Three.js'
 
 import { gsap, Power2 } from '../../_snowpack/pkg/gsap.js'
@@ -11,7 +12,7 @@ export class Sketch {
 
     this.scene = new THREE.Scene()
     this.vertex =
-      `varying vec2 vUv;void main() {vUv = uv;gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );}`
+       `varying vec2 vUv;void main() {vUv = uv;gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );}`
     this.fragment = opts.fragment
     this.uniforms = opts.uniforms
     this.renderer = new THREE.WebGLRenderer()
@@ -88,10 +89,14 @@ export class Sketch {
 
     setTimeout(() => {
 
-      this.next()
-      this.autoplay()
+      if (!this.paused) {
 
-    }, 2000)
+        this.next()
+        this.autoplay()
+
+      }
+
+    }, this.duration)
 
   }
 
@@ -125,8 +130,8 @@ export class Sketch {
 
     // image cover
     this.imageAspect =
-      this.textures[0].image.height /
-      this.textures[0].image.width
+       this.textures[0].image.height /
+       this.textures[0].image.width
     let a1
     let a2
     if (this.height / this.width > this.imageAspect) {
@@ -150,7 +155,7 @@ export class Sketch {
     const dist = this.camera.position.z
     const height = 1
     this.camera.fov =
-      2 * (180 / Math.PI) * Math.atan(height / (2 * dist))
+       2 * (180 / Math.PI) * Math.atan(height / (2 * dist))
 
     this.plane.scale.x = this.camera.aspect
     this.plane.scale.y = 1
@@ -164,7 +169,7 @@ export class Sketch {
     this.material = new THREE.ShaderMaterial({
       extensions: {
         derivatives:
-          '#extension GL_OES_standard_derivatives : enable'
+           '#extension GL_OES_standard_derivatives : enable'
       },
       side: THREE.DoubleSide,
       uniforms: {

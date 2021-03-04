@@ -12,15 +12,6 @@ when('uce-lib').then(({ define, css }) => {
       :host {
         display: block;
         position: absolute;
-        position: absolute;
-        z-index: 0;
-        height: 100%;
-        width: 100%;
-      }
-
-      .c-canvas-transition__wrapper {
-        height: 100%;
-        width: 100%;
       }
     `,
 
@@ -42,16 +33,24 @@ when('uce-lib').then(({ define, css }) => {
         <style>
           ${this.styles}
         </style>
-        <div
-          class="c-canvas-transition__wrapper"
-          data-displacement=""
-        >
+        <div class="c-canvas-transition__wrapper">
+          <div
+            class="c-canvas-transition__slider"
+            data-displacement=""
+          >
+          </div>
         </div>
       `
 
       this.slider = this.shadowRoot.querySelector(
-        '.c-canvas-transition__wrapper'
+        '.c-canvas-transition__slider'
       )
+
+      this.addSketch()
+
+    },
+
+    addSketch() {
 
       this.images = this.theme === 'light'
         ? this.lightImages
@@ -111,18 +110,28 @@ when('uce-lib').then(({ define, css }) => {
       this.sketch.images = this.images
       this.sketch.textures = []
 
+      this.sketch.stop()
+
       this.sketch.initiate(() => {
 
-        //this.sketch.stop()
+        this.sketch.paused = true
         this.sketch.duration = 0.02
-        this.sketch.reset()
-        this.sketch.render()
-        //this.sketch.play()
-        setTimeout(() => {
 
+        requestAnimationFrame(() => {
+
+          this.sketch.reset()
+          this.sketch.render()
+
+        })
+
+        requestAnimationFrame(() => {
+
+          // this.sketch.play()
           this.sketch.duration = 2
 
-        }, 500)
+        })
+
+        this.sketch.paused = false
         //this.sketch.autoplay()
         //
 

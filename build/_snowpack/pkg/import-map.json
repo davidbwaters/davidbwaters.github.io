@@ -1,11 +1,13 @@
 {
   "imports": {
+    "@directus/sdk-js": "./@directus/sdk-js.js",
     "@ungap/custom-elements": "./@ungap/custom-elements.js",
     "dialog-polyfill": "./dialog-polyfill.js",
     "glightbox": "./glightbox.js",
     "glightbox/dist/css/glightbox.css": "./glightbox/dist/css/glightbox.css",
     "gsap": "./gsap.js",
     "image-preloader": "./image-preloader.js",
+    "ogl": "./ogl.js",
     "once-defined": "./once-defined.js",
     "scrambling-letters": "./scrambling-letters.js",
     "three/src/Three.js": "./three/src/Three.js",

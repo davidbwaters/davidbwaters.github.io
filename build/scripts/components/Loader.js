@@ -4,85 +4,87 @@
 
 import when from '../../_snowpack/pkg/once-defined.js'
 
-when('uce-lib').then(
-  ({ define, render, html, svg, css }) => {
+when('uce-lib').then(({ define, render, html, svg, css }) => {
 
-    define('c-loader', {
-      styles: css`
-        :host {
-          --loader-color-bg: var(--color-bg);
-        }
+  define('c-loader', {
 
-        :host,
-        ::slotted(*) {
-          height: 100vh;
-          left: 0;
-          top: 0;
-          transition: opacity var(--transition-duration);
-          width: 100%;
-          z-index: 9;
-        }
+    styles: css`
 
-        :host {
-          background-color: var(--loader-color-bg);
-          position: fixed;
-          height: 100%;
-          width: 100%;
-        }
+      :host  {
+        --loader-color-bg: var(--color-bg);
+      }
 
-        ::slotted(*) {
-          align-content: center;
-          cursor: progress;
-          display: grid;
-          grid-template-columns: 100px;
-          grid-template-rows: min-content;
-          justify-content: center;
-          position: absolute;
-        }
-      `,
+      :host,
+      ::slotted(*) {
+        height: 100vh;
+        left: 0;
+        top: 0;
+        transition: opacity var(--transition-duration);
+        width: 100%;
+        z-index: 9;
+      }
 
-      init() {
+      :host  {
+        background-color: var(--loader-color-bg);
+        position: fixed;
+        height: 100%;
+        width: 100%;
+      }
 
-        // document.documentElement.style.position = 'fixed'
-        this.render()
+      ::slotted(*) {
+        align-content: center;
+        cursor: progress;
+        display: grid;
+        grid-template-columns: 100px;
+        grid-template-rows: min-content;
+        justify-content: center;
+        position: absolute;
+      }
 
-      },
+    `,
 
-      disable() {
+    init() {
 
-        const mainEl = document.querySelector('main')
+      // document.documentElement.style.position = 'fixed'
+      this.render()
 
-        const mainIsTransparent = mainEl.classList.contains(
-          'u-transparent'
-        )
+    },
 
-        document.documentElement.style.position = ''
+    disable() {
 
-        if (mainIsTransparent) {
+      const mainEl = document.querySelector('main')
 
-          mainEl.classList.remove('u-transparent')
+      const mainIsTransparent = mainEl.classList.contains(
+        'u-transparent'
+      )
 
-        }
-        setTimeout(() => {
+      document.documentElement.style.position = ''
 
-          this.style.opacity = 0
-          this.style.pointerEvents = 'none'
+      if (mainIsTransparent) {
 
-        }, 800)
+        mainEl.classList.remove('u-transparent')
 
-        setTimeout(() => {
+      }
+      setTimeout(() => {
 
-          this.style.display = 'none'
+        this.style.opacity = 0
+        this.style.pointerEvents = 'none'
 
-        }, 2000)
+      }, 800)
 
-      },
+      setTimeout(() => {
 
-      attachShadow: { mode: 'open' },
+        this.style.display = 'none'
 
-      render() {
+      }, 2000)
 
-        this.html`
+    },
+
+    attachShadow: {mode: 'open'},
+
+    render() {
+
+      this.html`
         <style>
           ${this.styles}
         </style>
@@ -90,8 +92,8 @@ when('uce-lib').then(
         </slot>
       `
 
-      }
-    })
+    }
 
-  }
-)
+  })
+
+})

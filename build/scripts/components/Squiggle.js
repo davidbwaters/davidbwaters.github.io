@@ -4,27 +4,27 @@
 
 import when from '../../_snowpack/pkg/once-defined.js'
 
-when('uce-lib').then(
-  ({ define, render, html, svg, css }) => {
+when('uce-lib').then(({define, render, html, svg, css}) => {
 
-    define('c-squiggle', {
-      style: selector => css`
-        ${selector} {
-          display: block;
-          height: 0.5rem;
-          line-height: 0;
-          margin-top: 1rem;
-        }
+  define('c-squiggle', {
 
-        .c-squiggle__svg {
-          display: inline-block;
-          fill: var(--color-accent);
-        }
-      `,
+    style: selector => css`
+      ${selector}  {
+        display: block;
+        height: 0.5rem;
+        line-height: 0;
+        margin-top: 1rem;
+      }
 
-      render() {
+      .c-squiggle__svg {
+        display: inline-block;
+        fill: var(--color-accent);
+      }
+    `,
 
-        this.html`
+    render() {
+
+      this.html`
         <svg
           class="c-squiggle__svg"
           height="8px"
@@ -37,8 +37,9 @@ when('uce-lib').then(
         </svg>
       `
 
-      }
-    })
+    }
 
-  }
-)
+  })
+
+})
+

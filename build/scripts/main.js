@@ -5,7 +5,13 @@
 import '../_snowpack/pkg/@ungap/custom-elements.js'
 import '../_snowpack/pkg/uce.js'
 
+import GLightbox from '../_snowpack/pkg/glightbox.js'
+import ImagePreloader from '../_snowpack/pkg/image-preloader.js'
+import Scrambler from '../_snowpack/pkg/scrambling-letters.js'
+
 import '../_snowpack/pkg/glightbox/dist/css/glightbox.css.proxy.js'
+
+import './App.js'
 import './components/CanvasNoise.js'
 import './components/CanvasTransition.js'
 import './components/GlitchImage.js'
@@ -16,12 +22,6 @@ import './components/Squiggle.js'
 import './components/SectionHeader.js'
 import './components/ThemeSwitch.js'
 import './components/TopBar.js'
-
-import GLightbox from '../_snowpack/pkg/glightbox.js'
-import ImagePreloader from '../_snowpack/pkg/image-preloader.js'
-import Scrambler from '../_snowpack/pkg/scrambling-letters.js'
-
-// import stickybits from 'stickybits'
 
 function scramble() {
 
@@ -105,7 +105,6 @@ const preloadingImages = [
 ]
 
 const preloader = new ImagePreloader()
-const loader = document.querySelector('c-loader')
 
 consoleLove()
 lightboxSetup()
@@ -114,7 +113,18 @@ preloader
   .preload(...preloadingImages)
   .then(function(status) {
 
-    loader.disable()
-    scramble()
+    let app = document.querySelector('c-app')
+
+    console.log(app.preload)
+
+    app.preload().then(() => {
+
+      let loader = document
+        .querySelector('c-loader')
+
+      loader.disable()
+      scramble()
+
+    })
 
   })

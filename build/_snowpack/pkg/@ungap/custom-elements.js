@@ -398,7 +398,7 @@
       handle: function handle(element, connected) {
         if (shadowRoots.has(element)) {
           if (connected) shadows.add(element);else shadows["delete"](element);
-          parseShadow.call(_query, element);
+          if (_query.length) parseShadow.call(_query, element);
         }
       }
     }),

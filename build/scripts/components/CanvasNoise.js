@@ -2,12 +2,13 @@
  *  Components - Canvas Noise
  */
 
-import { noise } from '../util/CanvasNoise.js'
+import { noise } from '../util/canvasNoise.js'
 import when from '../../_snowpack/pkg/once-defined.js'
 
 when('uce-lib').then(({ define, css }) => {
 
   define('c-canvas-noise', {
+
     styles: css`
       :host {
         display: block;
@@ -34,9 +35,8 @@ when('uce-lib').then(({ define, css }) => {
 
       this.render()
 
-      const canvas = this.shadowRoot.querySelector(
-        '.c-canvas-noise__canvas'
-      )
+      const canvas = this.shadowRoot
+        .querySelector('.c-canvas-noise__canvas')
 
       noise(canvas, 12)
 

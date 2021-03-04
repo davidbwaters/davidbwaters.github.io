@@ -281,6 +281,17 @@ const attribute = (node, name) => {
   };
 };
 
+const boolean = (node, key, oldValue) => newValue => {
+  if (oldValue !== !!newValue) {
+    // when IE won't be around anymore ...
+    // node.toggleAttribute(key, oldValue = !!newValue);
+    if ((oldValue = !!newValue))
+      node.setAttribute(key, '');
+    else
+      node.removeAttribute(key);
+  }
+};
+
 const data = ({dataset}) => values => {
   for (const key in values) {
     const value = values[key];
@@ -313,9 +324,11 @@ const ref = node => value => {
     value.current = node;
 };
 
-const setter = (node, key) => value => {
-  node[key] = value;
-};
+const setter = (node, key) => key === 'dataset' ?
+  data(node) :
+  value => {
+    node[key] = value;
+  };
 
 const text = node => {
   let oldValue;
@@ -523,20 +536,16 @@ const handleAnything = comment => {
 //  * onevent=${...}  to automatically handle event listeners
 //  * generic=${...}  to handle an attribute just like an attribute
 const handleAttribute = (node, name/*, svg*/) => {
-  if (name === 'ref')
-    return ref(node);
+  switch (name[0]) {
+    case '?': return boolean(node, name.slice(1), false);
+    case '.': return setter(node, name.slice(1));
+    case 'o': if (name[1] === 'n') return event(node, name);
+  }
 
-  if (name === 'aria')
-    return aria(node);
-
-  if (name === '.dataset')
-    return data(node);
-
-  if (name.slice(0, 1) === '.')
-    return setter(node, name.slice(1));
-
-  if (name.slice(0, 2) === 'on')
-    return event(node, name);
+  switch (name) {
+    case 'ref': return ref(node);
+    case 'aria': return aria(node);
+  }
 
   return attribute(node, name/*, svg*/);
 };
