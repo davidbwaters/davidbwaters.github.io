@@ -7,7 +7,7 @@ import {
   GraphQLClient
 } from 'graphql-request'
 
-//impo
+import { url } from '../config/api'
 import query from './query'
 
 // Run GraphQL queries/mutations using a static function
