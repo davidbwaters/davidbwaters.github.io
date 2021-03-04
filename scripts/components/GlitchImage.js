@@ -1,11 +1,15 @@
 /*
  *  Components - Glitch Image
  */
-import { LitElement, html, css } from '../../modules/lit-element.js';
-export class GlitchImage extends LitElement {
-  static get styles() {
-    return css`
-      :host {
+
+import when from '../../_snowpack/pkg/once-defined.js'
+
+when('uce-lib').then(({ define, render, html, svg, css }) => {
+
+  define('c-glitch-image', {
+
+    styles: css`
+      :host  {
         --glitch-image-height: 100%;
         --glitch-image-width: 100%;
 
@@ -812,91 +816,106 @@ export class GlitchImage extends LitElement {
           transform: translate3d(0, 0, 0);
         }
       }
-    `;
-  }
+    `,
 
-  static get properties() {
-    return {
-      glitch: {
-        type: String,
-        attribute: true
-      },
-      src: {
-        type: String,
-        attribute: true
-      },
-      active: {
-        type: Boolean,
-        attribute: true
-      },
-      aspectRatio: {
-        type: Number
-      },
-      wrapper: {
-        type: Object
+    props: {
+
+      glitch: { type: String, attribute: true },
+      src: { type: String, attribute: true },
+      active: { type: Boolean, attribute: true },
+      aspectRatio: { type: Number },
+      wrapper: { type: Object }
+
+    },
+
+    init() {
+
+      this.glitch = '1'
+      this.active = false
+      this.aspectRatio = 1
+
+      this.render()
+
+      const hasWidth = this.hasAttribute('width')
+      const hasHeight = this.hasAttribute('height')
+      const hasDimensions = hasWidth && hasHeight
+
+      this._wrapper = this.shadowRoot.querySelector(
+        '.c-glitch-image__inner'
+      )
+
+      if (this.active) {
+
+        this._wrapper
+          .querySelectorAll('.c-glitch-image__image')
+          .forEach(el => {
+
+            el.classList.add('is-glitching')
+
+          })
+
       }
-    };
-  }
 
-  constructor() {
-    super();
-    this.glitch = '1';
-    this.active = false;
-    this.aspectRatio = 1;
-  }
+      this.classList.add(
+        'c-glitch-image--style-' + this.glitch
+      )
 
-  firstUpdated() {
-    const hasWidth = this.hasAttribute('width');
-    const hasHeight = this.hasAttribute('height');
-    const hasDimensions = hasWidth && hasHeight;
-    this._wrapper = this.shadowRoot.querySelector('.c-glitch-image__inner');
+      if (hasDimensions) {
 
-    if (this.active) {
-      this._wrapper.querySelectorAll('.c-glitch-image__image').forEach(el => {
-        el.classList.add('is-glitching');
-      });
+        const imgWidth = this.getAttribute('width')
+        const imgHeight = this.getAttribute('height')
+        this.aspectRatio = imgWidth / imgHeight
+
+      }
+
+      this._wrapper.style.setProperty(
+        '--glitch-aspect-ratio',
+        this.aspectRatio
+      )
+
+      this._wrapper.style.setProperty(
+        '--glitch-image',
+        'url("' + this.src + '")'
+      )
+
+    },
+
+    attachShadow: {mode: 'open'},
+
+    render() {
+
+      this.html`
+        <style>
+          ${this.styles}
+        </style>
+        <div
+          class="c-glitch-image__inner"
+        >
+          <div
+            class="c-glitch-image__image"
+          >
+          </div>
+          <div
+            class="c-glitch-image__image"
+          >
+          </div>
+          <div
+            class="c-glitch-image__image"
+          >
+          </div>
+          <div
+            class="c-glitch-image__image"
+          >
+          </div>
+          <div
+            class="c-glitch-image__image"
+          >
+          </div>
+        </div>
+      `
+
     }
 
-    this.classList.add('c-glitch-image--style-' + this.glitch);
+  })
 
-    if (hasDimensions) {
-      const imgWidth = this.getAttribute('width');
-      const imgHeight = this.getAttribute('height');
-      this.aspectRatio = imgWidth / imgHeight;
-    }
-
-    this._wrapper.style.setProperty('--glitch-aspect-ratio', this.aspectRatio);
-
-    this._wrapper.style.setProperty('--glitch-image', 'url("' + this.src + '")');
-  }
-
-  render() {
-    return html`
-      <div
-        class="c-glitch-image__inner"
-      >
-        <div
-          class="c-glitch-image__image"
-        />
-        </div>
-        <div
-          class="c-glitch-image__image"
-        />
-        </div>
-        <div
-          class="c-glitch-image__image"
-        />
-        </div>
-        <div
-          class="c-glitch-image__image"
-        />
-        </div>
-        <div
-          class="c-glitch-image__image"
-        />
-        </div>
-      </div>
-    `;
-  }
-
-}
+})

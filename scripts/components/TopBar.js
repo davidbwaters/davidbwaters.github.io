@@ -1,10 +1,15 @@
 /*
  *  Components - Top Bar
  */
-import { LitElement, html, css } from '../../modules/lit-element.js';
-export class TopBar extends LitElement {
-  static get styles() {
-    return css`
+
+import when from '../../_snowpack/pkg/once-defined.js'
+
+when('uce-lib').then(({define, render, html, svg, css}) => {
+
+  define('c-top-bar', {
+
+    styles: css`
+
       :host {
         align-items: flex-start;
         display: grid;
@@ -48,16 +53,24 @@ export class TopBar extends LitElement {
         text-align: center;
         text-decoration: none;
       }
-    `;
-  }
+    `,
 
-  render() {
-    return html`
-      <slot name="logo"> </slot>
-      <nav class="c-top-bar__nav">
-        <slot name="link"> </slot>
-      </nav>
-    `;
-  }
+    attachShadow: {mode: 'open'},
 
-}
+    render() {
+
+      this.html`
+        <style>
+          ${this.styles}
+        </style>
+        <slot name="logo"> </slot>
+        <nav class="c-top-bar__nav">
+          <slot name="link"> </slot>
+        </nav>
+      `
+
+    }
+
+  })
+
+})

@@ -1,11 +1,15 @@
 /*
  *  Components - Section Header
  */
-import { LitElement, html, css } from '../../modules/lit-element.js';
-export class SectionHeader extends LitElement {
-  static get styles() {
-    return css`
-      :host {
+
+import when from '../../_snowpack/pkg/once-defined.js'
+
+when('uce-lib').then(({define, render, html, svg, css}) => {
+
+  define('c-section-header', {
+
+    styles: css`
+      :host  {
         --section-header-title-font: var(--font-display);
         --section-header-title-font-weight: var(--font-display-weight);
 
@@ -24,7 +28,7 @@ export class SectionHeader extends LitElement {
 
       ::slotted([slot='title']) {
         font-size: 1.4rem;
-        font-family: var(--section-header-title-font);
+        font-family: var(--section-header-title-font), sans-serif;
         font-weight: var(--section-header-title-font-weight);
         line-height: 1.25;
         padding-bottom: 3rem;
@@ -73,14 +77,22 @@ export class SectionHeader extends LitElement {
         padding-right: 1.5rem;
         padding-top: 1.5rem;
       }
-    `;
-  }
+    `,
 
-  render() {
-    return html`
-      <slot name="title"> </slot>
-      <slot name="description"> </slot>
-    `;
-  }
+    attachShadow: {mode: 'open'},
 
-}
+    render() {
+
+      this.html`
+        <style>
+          ${this.styles}
+        </style>
+        <slot name="title"> </slot>
+        <slot name="description"> </slot>
+      `
+
+    }
+
+  })
+
+})

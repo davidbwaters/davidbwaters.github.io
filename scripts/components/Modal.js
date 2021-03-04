@@ -1,12 +1,16 @@
 /*
  *  Components - Modal
  */
-import { LitElement, html, css } from '../../modules/lit-element.js';
-import dialogPolyfill from '../../modules/dialog-polyfill.js';
-export class Modal extends LitElement {
-  static get styles() {
-    return css`
-      :host {
+
+import dialogPolyfill from '../../_snowpack/pkg/dialog-polyfill.js'
+import when from '../../_snowpack/pkg/once-defined.js'
+
+when('uce-lib').then(({ define, render, html, svg, css }) => {
+
+  define('c-modal', {
+
+    styles: css`
+      :host  {
         --modal-color-fg: var(--color-fg);
         --modal-color-bg: var(--color-bg);
         --modal-spacing: 1.5rem;
@@ -21,10 +25,10 @@ export class Modal extends LitElement {
         );
         --modal-button-font: var(--font-main-regular);
         --modal-button-font-weight: normal;
-        --modal-button-size: 1.2rem;
+        --modal-button-size: 1.8rem;
         --modal-button-thickness: 1.5px;
         --modal-transition-duration: 0.15s;
-        --modal-trigger-transition-duration: 0.33s;
+        --modal-trigger-transition-duration: 0.15s;
 
         position: absolute;
       }
@@ -96,7 +100,6 @@ export class Modal extends LitElement {
         cursor: pointer;
         display: grid;
         font-family: var(--modal-button-font);
-        font-size: 0.7rem;
         font-weight: var(--modal-button-font-weight);
         grid-template-columns: var(
           --modal-button-size
@@ -138,7 +141,7 @@ export class Modal extends LitElement {
 
       .c-modal__back-button i {
         font-family: 'icons';
-        font-size: 1.4rem;
+        font-size: 1.4em;
         font-style: normal;
         left: .025em;
         position: relative;
@@ -146,6 +149,8 @@ export class Modal extends LitElement {
       }
 
       .c-modal__close-button {
+        display: none;
+        font-size: 0.7rem;
         float: right;
         margin-right: calc(var(--modal-spacing) / 2);
         margin-top: calc(var(--modal-spacing) / 2);
@@ -157,7 +162,7 @@ export class Modal extends LitElement {
 
         .c-modal__close-button {
           grid-gap: 0.25rem;
-          grid-template-columns: 1fr var(
+          grid-template-columns:var(
             --modal-button-size
           );
         }
@@ -208,131 +213,189 @@ export class Modal extends LitElement {
         position: absolute;
         width: 100%;
       }
-    `;
-  }
+    `,
 
-  static get properties() {
-    return {
-      open: {
-        type: Boolean,
-        attribute: true
-      }
-    };
-  }
+    props: {
 
-  constructor() {
-    super();
-    this.open = false;
-  }
+      open: { type: Boolean, attribute: true }
 
-  firstUpdated() {
-    this._setup();
+    },
 
-    dialogPolyfill.registerDialog(this._dialogEl);
-    window.addEventListener('click', e => {
-      const target = e.target.closest('[data-modal-target=' + this._triggerData + ']');
+    init() {
 
-      if (target) {
-        this.showModal();
-      }
-    }, true);
-    this.shadowRoot.addEventListener('click', e => {
-      if (e.target.closest('.c-modal__back-button')) {
-        this.close();
-      }
+      this.open = false
 
-      if (e.target.closest('.c-modal__close-button')) {
-        this.close();
-      }
-    });
+      this.render()
 
-    this._dialogEl.addEventListener('close', () => {
-      this._handleClose();
-    });
+      this._setup()
 
-    this._dialogEl.classList.add('is-closed');
+      dialogPolyfill.registerDialog(this._dialogEl)
 
-    this.open ? this.showModal() : this._dialogEl.classList.add('is-closed');
-  }
+      window.addEventListener(
+        'click',
+        e => {
 
-  showModal() {
-    this._open();
-  }
+          const target = e.target.closest(
+            '[data-modal-target=' + this._triggerData + ']'
+          )
 
-  close() {
-    this._dialogEl.close();
-  }
+          if (target) {
 
-  _setup() {
-    const styles = window.getComputedStyle(this);
-    this._documentEl = document.documentElement;
-    this._triggerData = this.dataset.modalTrigger;
-    this._triggerEl = document.querySelector('[data-modal-target=' + this._triggerData + ']' + '[data-modal-trigger-primary]');
-    this._triggerParent = this._triggerEl.parentElement;
-    this._dialogEl = this.shadowRoot.querySelector('dialog');
-    this._closeButtonEl = this._dialogEl.querySelector('.c-modal__close-button');
-    this._triggerDuration = parseFloat(styles.getPropertyValue('--modal-trigger-transition-duration')) * 1000;
-    this._modalDuration = parseFloat(styles.getPropertyValue('--modal-transition-duration')) * 1000;
-  }
+            this.showModal()
 
-  _open() {
-    this._triggerEl.classList.add('is-expanded');
+          }
 
-    this._triggerParent.style.zIndex = '9';
-    setTimeout(() => {
-      this.setAttribute('open', '');
+        },
+        true
+      )
 
-      this._dialogEl.showModal();
+      this.shadowRoot.addEventListener('click', e => {
 
-      this._dialogEl.classList.remove('is-closed');
+        if (e.target.closest('.c-modal__back-button')) {
 
-      this._dialogEl.classList.add('is-opening');
+          this.close()
 
-      this._documentEl.style.overflow = 'hidden';
+        }
 
-      this._dialogEl.classList.remove('is-opening');
+        if (e.target.closest('.c-modal__close-button')) {
 
-      this._dialogEl.classList.add('is-open');
-    }, this._triggerDuration);
-  }
+          this.close()
 
-  _handleClose() {
-    this.removeAttribute('open');
+        }
 
-    this._dialogEl.classList.remove('is-open');
+      })
 
-    this._dialogEl.classList.add('is-closing');
+      //this._dialogEl.addEventListener('close', () => {
 
-    setTimeout(() => {
-      this._documentEl.style.overflow = '';
+      //this._handleClose()
 
-      this._dialogEl.classList.remove('is-closing');
+      //})
 
-      this._dialogEl.classList.add('is-closed');
+      this._dialogEl.classList.add('is-closed')
 
-      this._triggerEl.classList.remove('is-expanded');
+      this.open
+        ? this.showModal()
+        : this._dialogEl.classList.add('is-closed')
+
+    },
+
+    _setup() {
+
+      const styles = window.getComputedStyle(this)
+
+      this._documentEl = document.documentElement
+
+      this._triggerData = this.dataset.modalTrigger
+
+      this._triggerEl = document.querySelector(
+        '[data-modal-target=' +
+          this._triggerData +
+          ']' +
+          '[data-modal-trigger-primary]'
+      )
+
+      this._triggerParent = this._triggerEl.parentElement
+
+      this._dialogEl = this.shadowRoot.querySelector('dialog')
+
+      this._closeButtonEl = this._dialogEl.querySelector(
+        '.c-modal__close-button'
+      )
+
+      this._triggerDuration =
+        parseFloat(
+          styles.getPropertyValue(
+            '--modal-trigger-transition-duration'
+          )
+        ) * 1000
+
+      this._modalDuration =
+        parseFloat(
+          styles.getPropertyValue(
+            '--modal-transition-duration'
+          )
+        ) * 1000
+
+    },
+
+    close() {
+
+      this._handleClose()
+
+    },
+
+    _open() {
+
+      this._triggerEl.classList.add('is-expanded')
+      this._triggerParent.style.zIndex = '9'
 
       setTimeout(() => {
-        this._triggerParent.style.zIndex = '';
-      }, this._triggerDuration);
-    }, this._modalDuration);
-  }
 
-  render() {
-    return html`
-      <dialog class="c-modal__body">
-        <button class="c-modal__back-button">
-          <i>l</i>
-        </button>
-        <button class="c-modal__close-button">
-          <span> Close </span>
-          <i></i>
-        </button>
-        <section class="c-modal__content">
-          <slot> </slot>
-        </section>
-      </dialog>
-    `;
-  }
+        this.setAttribute('open', '')
+        // this._dialogEl.showModal()
+        this._dialogEl.classList.remove('is-closed')
+        this._dialogEl.classList.add('is-opening')
+        this._documentEl.style.overflow = 'hidden'
+        this._dialogEl.classList.remove('is-opening')
+        this._dialogEl.classList.add('is-open')
 
-}
+      }, this._triggerDuration)
+
+    },
+
+    showModal() {
+
+      this._open()
+
+    },
+
+    _handleClose() {
+
+      this.removeAttribute('open')
+
+      this._dialogEl.classList.remove('is-open')
+      this._dialogEl.classList.add('is-closing')
+
+      setTimeout(() => {
+
+        this._documentEl.style.overflow = ''
+        this._dialogEl.classList.remove('is-closing')
+        this._dialogEl.classList.add('is-closed')
+        this._triggerEl.classList.remove('is-expanded')
+
+        setTimeout(() => {
+
+          this._triggerParent.style.zIndex = ''
+
+        }, this._triggerDuration)
+
+      }, this._modalDuration)
+
+    },
+
+    attachShadow: { mode: 'open' },
+
+    render() {
+
+      this.html`
+        <style>
+          ${this.styles}
+        </style>
+        <dialog class="c-modal__body">
+          <button class="c-modal__back-button">
+            <i>l</i>
+          </button>
+          <button class="c-modal__close-button">
+            <i></i>
+          </button>
+          <section class="c-modal__content">
+            <slot> </slot>
+          </section>
+        </dialog>
+      `
+
+    }
+
+  })
+
+})

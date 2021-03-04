@@ -1,12 +1,16 @@
 /*
  *  Components - Loader
  */
-import { LitElement, html, css } from '../../modules/lit-element.js';
-export class Loader extends LitElement {
-  static get styles() {
-    return css`
 
-      :host {
+import when from '../../_snowpack/pkg/once-defined.js'
+
+when('uce-lib').then(({ define, render, html, svg, css }) => {
+
+  define('c-loader', {
+
+    styles: css`
+
+      :host  {
         --loader-color-bg: var(--color-bg);
       }
 
@@ -20,7 +24,7 @@ export class Loader extends LitElement {
         z-index: 9;
       }
 
-      :host {
+      :host  {
         background-color: var(--loader-color-bg);
         position: fixed;
         height: 100%;
@@ -37,53 +41,59 @@ export class Loader extends LitElement {
         position: absolute;
       }
 
-    `;
-  }
+    `,
 
-  constructor() {
-    super();
-    document.documentElement.style.position = 'fixed';
-    this.check();
-    const observer = new MutationObserver(mutations => {
-      mutations.forEach(mutation => {
-        if (mutation.type === 'attributes') {
-          this.check();
-        }
-      });
-    });
-    observer.observe(document.documentElement, {
-      attributes: true
-    });
-  }
+    init() {
 
-  check() {
-    const isPreloaded = document.documentElement.dataset.preloaded;
+      // document.documentElement.style.position = 'fixed'
+      this.render()
 
-    if (isPreloaded) {
-      this.disable();
+    },
+
+    disable() {
+
+      const mainEl = document.querySelector('main')
+
+      const mainIsTransparent = mainEl.classList.contains(
+        'u-transparent'
+      )
+
+      document.documentElement.style.position = ''
+
+      if (mainIsTransparent) {
+
+        mainEl.classList.remove('u-transparent')
+
+      }
+      setTimeout(() => {
+
+        this.style.opacity = 0
+        this.style.pointerEvents = 'none'
+
+      }, 800)
+
+      setTimeout(() => {
+
+        this.style.display = 'none'
+
+      }, 2000)
+
+    },
+
+    attachShadow: {mode: 'open'},
+
+    render() {
+
+      this.html`
+        <style>
+          ${this.styles}
+        </style>
+        <slot>
+        </slot>
+      `
+
     }
-  }
 
-  disable() {
-    const mainEl = document.querySelector('main');
-    const mainIsTransparent = mainEl.classList.contains('u-transparent');
-    document.documentElement.style.position = '';
+  })
 
-    if (mainIsTransparent) {
-      mainEl.classList.remove('u-transparent');
-    }
-
-    setTimeout(() => {
-      this.style.opacity = 0;
-      this.style.pointerEvents = 'none';
-    }, 800);
-    setTimeout(() => {
-      this.style.display = 'none';
-    }, 2000);
-  }
-
-  render() {
-    return html` <slot> </slot> `;
-  }
-
-}
+})
