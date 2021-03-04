@@ -8,7 +8,6 @@ import when from 'once-defined'
 when('uce-lib').then(({ define, css }) => {
 
   define('c-canvas-noise', {
-
     styles: css`
       :host {
         display: block;
@@ -35,8 +34,9 @@ when('uce-lib').then(({ define, css }) => {
 
       this.render()
 
-      const canvas = this.shadowRoot
-        .querySelector('.c-canvas-noise__canvas')
+      const canvas = this.shadowRoot.querySelector(
+        '.c-canvas-noise__canvas'
+      )
 
       noise(canvas, 12)
 
