@@ -123,16 +123,17 @@ when('uce-lib').then(
         .c-hero__tagline {
           font-family: var(--font-display), sans-serif;
           font-weight: var(--font-display-weight);
-          font-size: clamp(1.5rem, 6.5vw, 4.25rem);
+          font-size: clamp(1.25rem, 6.5vw, 4.25rem);
           line-height: 1.05;
+          min-height: 0vw;
           text-transform: uppercase;
           width: auto;
         }
 
         @media (min-height: 35em) {
           .c-hero__tagline {
-            margin-top: 0.5rem;
             line-height: 1.1;
+            margin-top: 0.5rem;
           }
         }
 
@@ -249,6 +250,8 @@ when('uce-lib').then(
         .c-hero__me {
           background-image: url('/images/Me-Dark.jpg');
           border-right: solid 1px var(--color-accent);
+
+          filter: hue-rotate(-2deg);
           opacity: 0.9;
           position: relative;
         }

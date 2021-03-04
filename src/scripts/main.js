@@ -5,7 +5,13 @@
 import '@ungap/custom-elements'
 import 'uce'
 
+import GLightbox from 'glightbox'
+import ImagePreloader from 'image-preloader'
+import Scrambler from 'scrambling-letters'
+
 import 'glightbox/dist/css/glightbox.css'
+
+import './App'
 import './components/CanvasNoise'
 import './components/CanvasTransition'
 import './components/GlitchImage'
@@ -16,12 +22,6 @@ import './components/Squiggle'
 import './components/SectionHeader'
 import './components/ThemeSwitch'
 import './components/TopBar'
-
-import GLightbox from 'glightbox'
-import ImagePreloader from 'image-preloader'
-import Scrambler from 'scrambling-letters'
-
-// import stickybits from 'stickybits'
 
 function scramble() {
 
@@ -105,7 +105,6 @@ const preloadingImages = [
 ]
 
 const preloader = new ImagePreloader()
-const loader = document.querySelector('c-loader')
 
 consoleLove()
 lightboxSetup()
@@ -114,7 +113,18 @@ preloader
   .preload(...preloadingImages)
   .then(function(status) {
 
-    loader.disable()
-    scramble()
+    let app = document.querySelector('c-app')
+
+    console.log(app.preload)
+
+    app.preload().then(() => {
+
+      let loader = document
+        .querySelector('c-loader')
+
+      loader.disable()
+      scramble()
+
+    })
 
   })

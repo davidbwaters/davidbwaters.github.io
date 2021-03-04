@@ -46,6 +46,12 @@ when('uce-lib').then(({ define, css }) => {
         '.c-canvas-transition__slider'
       )
 
+      this.addSketch()
+
+    },
+
+    addSketch() {
+
       this.images = this.theme === 'light'
         ? this.lightImages
         : this.darkImages
@@ -104,14 +110,28 @@ when('uce-lib').then(({ define, css }) => {
       this.sketch.images = this.images
       this.sketch.textures = []
 
+      this.sketch.stop()
+
       this.sketch.initiate(() => {
 
-        //this.sketch.stop()
+        this.sketch.paused = true
         this.sketch.duration = 0.02
-        this.sketch.reset()
-        this.sketch.render()
-        //this.sketch.play()
-        this.sketch.duration = 2
+
+        requestAnimationFrame(() => {
+
+          this.sketch.reset()
+          this.sketch.render()
+
+        })
+
+        requestAnimationFrame(() => {
+
+          // this.sketch.play()
+          this.sketch.duration = 2
+
+        })
+
+        this.sketch.paused = false
         //this.sketch.autoplay()
         //
 
@@ -131,3 +151,4 @@ when('uce-lib').then(({ define, css }) => {
   })
 
 })
+

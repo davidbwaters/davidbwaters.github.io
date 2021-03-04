@@ -1,15 +1,21 @@
-/** @type {import("snowpack").SnowpackUserConfig } */
+/**
+ * Snowpack Config
+ */
+
+const { join } = require('path')
 
 module.exports = {
   mount: {
-    public: {url: '/', static: true},
-    src: {url: '/'},
+    config: { url: '/config/', static: true },
+    data: { url: '/', static: true },
+    public: { url: '/', static: true },
+    src: { url: '/' }
   },
   plugins: [
-//    ['@snowpack/plugin-optimize'],
+    // ['@snowpack/plugin-optimize'],
     ['@snowpack/plugin-sass', {
       includePaths: [
-        __dirname + '/node_modules'
+        join(__dirname, '/node_modules')
       ]
     }],
     ['@snowpack/plugin-webpack', {
@@ -24,5 +30,5 @@ module.exports = {
   optimize: {},
   packageOptions: {},
   devOptions: {},
-  buildOptions: {},
-};
+  buildOptions: {}
+}

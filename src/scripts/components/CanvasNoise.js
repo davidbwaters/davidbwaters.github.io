@@ -2,7 +2,7 @@
  *  Components - Canvas Noise
  */
 
-import { noise } from '../util/CanvasNoise'
+import { noise } from '../util/canvasNoise'
 import when from 'once-defined'
 
 when('uce-lib').then(({ define, css }) => {

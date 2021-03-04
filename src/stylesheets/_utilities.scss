@@ -179,9 +179,11 @@
 
 /* Theme Fill */
 
-.u-theme-fill {
+.u-theme-fill,
+.u-theme-fill svg {
   fill: var(--color-fg) !important;
 }
+
 
 
 /* Separators */
