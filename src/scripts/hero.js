@@ -97,7 +97,7 @@ function resize() {
 
 const flowmap = new Flowmap(
   gl, {
-    size: 5,
+    size: 8,
     falloff: 0.35,
     dissipation: 0.98,
     alpha: 0.7
