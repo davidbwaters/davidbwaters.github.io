@@ -69,6 +69,7 @@
     "@substructure/utilities-text-align": "^0.2.2",
     "@substructure/utilities-text-sizing": "^0.2.2",
     "@substructure/utilities-z-index": "^0.2.1",
+    "core-js": "3",
     "eslint": "^7.13.0",
     "eslint-plugin-import": "^2.22.1",
     "gh-pages": "^3.1.0",
