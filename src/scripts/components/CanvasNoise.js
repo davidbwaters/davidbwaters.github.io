@@ -2,7 +2,7 @@
  *  Components - Canvas Noise
  */
 
-import { noise } from '../util/CanvasNoise'
+import { noise } from '../util/canvasNoise'
 import when from 'once-defined'
 
 when('uce-lib').then(({ define, css }) => {
@@ -45,6 +45,7 @@ when('uce-lib').then(({ define, css }) => {
     attachShadow: { mode: 'open' },
 
     render() {
+
       this.html`
         <style>
           ${this.styles}
@@ -52,6 +53,8 @@ when('uce-lib').then(({ define, css }) => {
         <canvas class="c-canvas-noise__canvas">
         </canvas>
       `
+
     }
   })
+
 })

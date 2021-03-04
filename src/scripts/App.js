@@ -5,9 +5,10 @@
 import DirectusSDK from '@directus/sdk-js'
 import when from 'once-defined'
 
-import { api } from './config/api'
+import api from '../../config/api.js'
 
-const sdk = new DirectusSDK(api.url)
+const { url, assets } = api
+const sdk = new DirectusSDK(url)
 
 when('uce-lib').then(({ define, css }) => {
 
@@ -76,7 +77,7 @@ when('uce-lib').then(({ define, css }) => {
           }
 
           obj.images[o[i].name] = {}
-          obj.images[o[i].name].image = api.assets +
+          obj.images[o[i].name].image = assets +
             o[i].icon
           // obj.images[i].name = o[i].name
 
@@ -97,7 +98,7 @@ when('uce-lib').then(({ define, css }) => {
           ) {
 
             obj.images[i] =
-              api.assets +
+              assets +
               o[i].directus_files_id
 
           }
@@ -108,7 +109,7 @@ when('uce-lib').then(({ define, css }) => {
           ) {
 
             obj.images[i] =
-              api.assets +
+              assets +
               o[i].id
 
           }
@@ -126,7 +127,7 @@ when('uce-lib').then(({ define, css }) => {
           obj.images[i] = {}
 
           obj.images[i].image =
-            api.assets + o[i].id
+            assets + o[i].id
 
         }
 
@@ -140,7 +141,7 @@ when('uce-lib').then(({ define, css }) => {
           }
 
           obj.images[i].image =
-            api.assets + o[i].id
+            assets + o[i].id
 
         }
 
@@ -183,7 +184,7 @@ when('uce-lib').then(({ define, css }) => {
 
                 obj.images[i][o[i].name] = {}
                 obj.images[i][o[i].name].image =
-                  api.url + o[i].icon
+                  url + o[i].icon
 
               })
 
@@ -205,7 +206,7 @@ when('uce-lib').then(({ define, css }) => {
             ) {
 
               obj.images[i][index].image =
-                api.assets +
+                assets +
                 o[i][index].directus_files_id
 
             }
@@ -216,7 +217,7 @@ when('uce-lib').then(({ define, css }) => {
             ) {
 
               obj.images[i][index].image =
-                api.assets +
+                assets +
                 o[i][index].id
 
             }
@@ -272,7 +273,7 @@ when('uce-lib').then(({ define, css }) => {
             ) {
 
               obj.images[i][j].image =
-                api.assets +
+                assets +
                 o[i][j].directus_files_id
 
             }
@@ -283,7 +284,7 @@ when('uce-lib').then(({ define, css }) => {
             ) {
 
               obj.images[i][j].image =
-                api.assets +
+                assets +
                 o[i][j].id
 
             }

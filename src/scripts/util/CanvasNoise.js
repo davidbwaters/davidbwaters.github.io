@@ -5,7 +5,9 @@
 export function noise(el, speed = 12, alpha = 28) {
 
   class Grain {
+
     constructor(el) {
+
       /**
        * Options
        * Increase the pattern size if visible pattern
@@ -20,17 +22,17 @@ export function noise(el, speed = 12, alpha = 28) {
        * Create canvas
        */
       this.canvas = el
-      this.ctx = this.canvas.getContext("2d")
+      this.ctx = this.canvas.getContext('2d')
       this.ctx.scale(this.patternScaleX, this.patternScaleY)
 
       /**
        * Create a canvas that will be used to generate grain and used as a
        * pattern on the main canvas.
        */
-      this.patternCanvas = document.createElement("canvas")
+      this.patternCanvas = document.createElement('canvas')
       this.patternCanvas.width = this.patternSize
       this.patternCanvas.height = this.patternSize
-      this.patternCtx = this.patternCanvas.getContext("2d")
+      this.patternCtx = this.patternCanvas.getContext('2d')
       this.patternData = this.patternCtx.createImageData(
         this.patternSize,
         this.patternSize
@@ -45,18 +47,22 @@ export function noise(el, speed = 12, alpha = 28) {
 
       this.frame = 0
 
-      window.addEventListener("resize", this.resize)
+      window.addEventListener('resize', this.resize)
       this.resize()
 
       window.requestAnimationFrame(this.loop)
+
     }
 
     resize() {
+
       this.canvas.width = window.innerWidth * devicePixelRatio
       this.canvas.height = window.innerHeight * devicePixelRatio
+
     }
 
     update() {
+
       const {
         patternPixelDataLength,
         patternData,
@@ -66,6 +72,7 @@ export function noise(el, speed = 12, alpha = 28) {
 
       // put a random shade of gray into every pixel of the pattern
       for (let i = 0; i < patternPixelDataLength; i += 4) {
+
         // const value = (Math.random() * 255) | 0
         const value = Math.random() * 200
 
@@ -73,12 +80,15 @@ export function noise(el, speed = 12, alpha = 28) {
         patternData.data[i + 1] = value
         patternData.data[i + 2] = value
         patternData.data[i + 3] = patternAlpha
+
       }
 
       patternCtx.putImageData(patternData, 0, 0)
+
     }
 
     draw() {
+
       const {
         ctx,
         patternCanvas,
@@ -94,20 +104,26 @@ export function noise(el, speed = 12, alpha = 28) {
       ctx.clearRect(0, 0, width, height)
 
       // fill the canvas using the pattern
-      ctx.fillStyle = ctx.createPattern(patternCanvas, "repeat")
+      ctx.fillStyle = ctx.createPattern(patternCanvas, 'repeat')
       ctx.fillRect(0, 0, width, height)
+
     }
 
     loop() {
+
       // only update grain every n frames
       const shouldDraw = ++this.frame % this.patternRefreshInterval === 0
       if (shouldDraw) {
+
         this.update()
         this.draw()
+
       }
 
       window.requestAnimationFrame(this.loop)
+
     }
+
   }
 
   /**
