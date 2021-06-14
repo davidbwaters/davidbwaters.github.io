@@ -37,8 +37,21 @@ when('uce-lib').then(({ define, css }) => {
         ? this.data.site.images.branding_light.image
         : this.data.site.images.branding_dark.image
 
-      console.log(this.data.logo)
+      // console.log(this.data.logo)
+
       this.render()
+
+      this.dispatchEvent(
+
+        new CustomEvent('appLoaded', {
+
+          detail: { theme: document.body.dataset.theme },
+          bubbles: true,
+          composed: true
+
+        })
+
+      )
 
     },
 
@@ -494,6 +507,28 @@ when('uce-lib').then(({ define, css }) => {
             data-preload
             id="hero"
           >
+            <div slot="paint">
+              <img
+                data-paint="dark-1"
+                src="images/Hero-Paint-1-Dark.jpg"
+                alt=""
+              />
+              <img
+                data-paint="dark-2"
+                src="images/Hero-Paint-2-Dark.jpg"
+                alt=""
+              />
+              <img
+                data-paint="light-1"
+                src="images/Hero-Paint-1-Light.jpg"
+                alt=""
+              />
+              <img
+                data-paint="light-2"
+                src="images/Hero-Paint-2-Light.jpg"
+                alt=""
+              />
+            </div>
             <div slot="tagline">
               Artist & <br />
               Designer & <br />

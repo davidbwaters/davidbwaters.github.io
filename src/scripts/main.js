@@ -13,7 +13,7 @@ import 'glightbox/dist/css/glightbox.css'
 
 import './App'
 import './components/CanvasNoise'
-import './components/CanvasTransition'
+import './components/CanvasMain'
 import './components/GlitchImage'
 import './components/Hero'
 import './components/Loader'
