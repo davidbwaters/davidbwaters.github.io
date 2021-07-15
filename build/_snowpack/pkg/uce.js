@@ -317,11 +317,17 @@ const event = (node, name) => {
   };
 };
 
-const ref = node => value => {
-  if (typeof value === 'function')
-    value(node);
-  else
-    value.current = node;
+const ref = node => {
+  let oldValue;
+  return value => {
+    if (oldValue !== value) {
+      oldValue = value;
+      if (typeof value === 'function')
+        value(node);
+      else
+        value.current = node;
+    }
+  };
 };
 
 const setter = (node, key) => key === 'dataset' ?
@@ -340,103 +346,8 @@ const text = node => {
   };
 };
 
-/*! (c) Andrea Giammarchi - ISC */
-var createContent = (function (document) {  var FRAGMENT = 'fragment';
-  var TEMPLATE = 'template';
-  var HAS_CONTENT = 'content' in create(TEMPLATE);
-
-  var createHTML = HAS_CONTENT ?
-    function (html) {
-      var template = create(TEMPLATE);
-      template.innerHTML = html;
-      return template.content;
-    } :
-    function (html) {
-      var content = create(FRAGMENT);
-      var template = create(TEMPLATE);
-      var childNodes = null;
-      if (/^[^\S]*?<(col(?:group)?|t(?:head|body|foot|r|d|h))/i.test(html)) {
-        var selector = RegExp.$1;
-        template.innerHTML = '<table>' + html + '</table>';
-        childNodes = template.querySelectorAll(selector);
-      } else {
-        template.innerHTML = html;
-        childNodes = template.childNodes;
-      }
-      append(content, childNodes);
-      return content;
-    };
-
-  return function createContent(markup, type) {
-    return (type === 'svg' ? createSVG : createHTML)(markup);
-  };
-
-  function append(root, childNodes) {
-    var length = childNodes.length;
-    while (length--)
-      root.appendChild(childNodes[0]);
-  }
-
-  function create(element) {
-    return element === FRAGMENT ?
-      document.createDocumentFragment() :
-      document.createElementNS('http://www.w3.org/1999/xhtml', element);
-  }
-
-  // it could use createElementNS when hasNode is there
-  // but this fallback is equally fast and easier to maintain
-  // it is also battle tested already in all IE
-  function createSVG(svg) {
-    var content = create(FRAGMENT);
-    var template = create('div');
-    template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg">' + svg + '</svg>';
-    append(content, template.firstChild.childNodes);
-    return content;
-  }
-
-}(document));
-
 // from a generic path, retrieves the exact targeted node
 const reducePath = ({childNodes}, i) => childNodes[i];
-
-// from a fragment container, create an array of indexes
-// related to its child nodes, so that it's possible
-// to retrieve later on exact node via reducePath
-const createPath = node => {
-  const path = [];
-  let {parentNode} = node;
-  while (parentNode) {
-    path.push(indexOf.call(parentNode.childNodes, node));
-    node = parentNode;
-    parentNode = node.parentNode;
-  }
-  return path;
-};
-
-const {createTreeWalker, importNode} = document;
-
-// this "hack" tells the library if the browser is IE11 or old Edge
-const isImportNodeLengthWrong = importNode.length != 1;
-
-// IE11 and old Edge discard empty nodes when cloning, potentially
-// resulting in broken paths to find updates. The workaround here
-// is to import once, upfront, the fragment that will be cloned
-// later on, so that paths are retrieved from one already parsed,
-// hence without missing child nodes once re-cloned.
-const createFragment = isImportNodeLengthWrong ?
-  (text, type, normalize) => importNode.call(
-    document,
-    createContent(text, type, normalize),
-    true
-  ) :
-  createContent;
-
-// IE11 and old Edge have a different createTreeWalker signature that
-// has been deprecated in other browsers. This export is needed only
-// to guarantee the TreeWalker doesn't show warnings and, ultimately, works
-const createWalker = isImportNodeLengthWrong ?
-  fragment => createTreeWalker.call(document, fragment, 1 | 128, null, false) :
-  fragment => createTreeWalker.call(document, fragment, 1 | 128);
 
 // this helper avoid code bloat around handleAnything() callback
 const diff = (comment, oldNodes, newNodes) => udomdiff(
@@ -511,7 +422,7 @@ const handleAnything = comment => {
         // if the node is a fragment, it's appended once via its childNodes
         // There is no `else` here, meaning if the content
         // is not expected one, nothing happens, as easy as that.
-        if ('ELEMENT_NODE' in newValue && oldValue !== newValue) {
+        if (oldValue !== newValue && 'ELEMENT_NODE' in newValue) {
           oldValue = newValue;
           nodes = diff(
             comment,
@@ -537,12 +448,14 @@ const handleAnything = comment => {
 //  * .dataset=${...} for dataset related attributes
 //  * .setter=${...}  for Custom Elements setters or nodes with setters
 //                    such as buttons, details, options, select, etc
+//  * @event=${...}   to explicitly handle event listeners
 //  * onevent=${...}  to automatically handle event listeners
 //  * generic=${...}  to handle an attribute just like an attribute
 const handleAttribute = (node, name/*, svg*/) => {
   switch (name[0]) {
     case '?': return boolean(node, name.slice(1), false);
     case '.': return setter(node, name.slice(1));
+    case '@': return event(node, 'on' + name.slice(1));
     case 'o': if (name[1] === 'n') return event(node, name);
   }
 
@@ -568,6 +481,98 @@ function handlers(options) {
       text(node));
 }
 
+/*! (c) Andrea Giammarchi - ISC */
+var createContent = (function (document) {  var FRAGMENT = 'fragment';
+  var TEMPLATE = 'template';
+  var HAS_CONTENT = 'content' in create(TEMPLATE);
+
+  var createHTML = HAS_CONTENT ?
+    function (html) {
+      var template = create(TEMPLATE);
+      template.innerHTML = html;
+      return template.content;
+    } :
+    function (html) {
+      var content = create(FRAGMENT);
+      var template = create(TEMPLATE);
+      var childNodes = null;
+      if (/^[^\S]*?<(col(?:group)?|t(?:head|body|foot|r|d|h))/i.test(html)) {
+        var selector = RegExp.$1;
+        template.innerHTML = '<table>' + html + '</table>';
+        childNodes = template.querySelectorAll(selector);
+      } else {
+        template.innerHTML = html;
+        childNodes = template.childNodes;
+      }
+      append(content, childNodes);
+      return content;
+    };
+
+  return function createContent(markup, type) {
+    return (type === 'svg' ? createSVG : createHTML)(markup);
+  };
+
+  function append(root, childNodes) {
+    var length = childNodes.length;
+    while (length--)
+      root.appendChild(childNodes[0]);
+  }
+
+  function create(element) {
+    return element === FRAGMENT ?
+      document.createDocumentFragment() :
+      document.createElementNS('http://www.w3.org/1999/xhtml', element);
+  }
+
+  // it could use createElementNS when hasNode is there
+  // but this fallback is equally fast and easier to maintain
+  // it is also battle tested already in all IE
+  function createSVG(svg) {
+    var content = create(FRAGMENT);
+    var template = create('div');
+    template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg">' + svg + '</svg>';
+    append(content, template.firstChild.childNodes);
+    return content;
+  }
+
+}(document));
+
+// this "hack" tells the library if the browser is IE11 or old Edge
+const isImportNodeLengthWrong = document.importNode.length != 1;
+
+// IE11 and old Edge discard empty nodes when cloning, potentially
+// resulting in broken paths to find updates. The workaround here
+// is to import once, upfront, the fragment that will be cloned
+// later on, so that paths are retrieved from one already parsed,
+// hence without missing child nodes once re-cloned.
+const createFragment = isImportNodeLengthWrong ?
+  (text, type, normalize) => document.importNode(
+    createContent(text, type, normalize),
+    true
+  ) :
+  createContent;
+
+// IE11 and old Edge have a different createTreeWalker signature that
+// has been deprecated in other browsers. This export is needed only
+// to guarantee the TreeWalker doesn't show warnings and, ultimately, works
+const createWalker = isImportNodeLengthWrong ?
+  fragment => document.createTreeWalker(fragment, 1 | 128, null, false) :
+  fragment => document.createTreeWalker(fragment, 1 | 128);
+
+// from a fragment container, create an array of indexes
+// related to its child nodes, so that it's possible
+// to retrieve later on exact node via reducePath
+const createPath = node => {
+  const path = [];
+  let {parentNode} = node;
+  while (parentNode) {
+    path.push(indexOf.call(parentNode.childNodes, node));
+    node = parentNode;
+    parentNode = node.parentNode;
+  }
+  return path;
+};
+
 // the prefix is used to identify either comments, attributes, or nodes
 // that contain the related unique id. In the attribute cases
 // isµX="attribute-name" will be used to map current X update to that
@@ -581,7 +586,7 @@ const prefix = 'isµ';
 // should be parsed once, and once only, as it will always represent the same
 // content, within the exact same amount of updates each time.
 // This cache relates each template to its unique content and updates.
-const cache$1 = umap(new WeakMap);
+const cache = umap(new WeakMap);
 
 // a RegExp that helps checking nodes that cannot contain comments
 const textOnly = /^(?:plaintext|script|style|textarea|title|xmp)$/i;
@@ -679,11 +684,11 @@ const mapTemplate = (type, template) => {
 // its details such as the fragment with all nodes, and updates info.
 const mapUpdates = (type, template) => {
   const {content, nodes} = (
-    cache$1.get(template) ||
-    cache$1.set(template, mapTemplate(type, template))
+    cache.get(template) ||
+    cache.set(template, mapTemplate(type, template))
   );
   // clone deeply the fragment
-  const fragment = importNode.call(document, content, true);
+  const fragment = document.importNode(content, true);
   // and relate an update handler per each node that needs one
   const updates = nodes.map(handlers, fragment);
   // return the fragment and all updates to use within its nodes
@@ -763,7 +768,7 @@ function Hole(type, template, values) {
   this.values = values;
 }
 
-const {create: create$1, defineProperties: defineProperties$2} = Object;
+const {create, defineProperties} = Object;
 
 // both `html` and `svg` template literal tags are polluted
 // with a `for(ref[, id])` and a `node` tag too
@@ -776,7 +781,7 @@ const tag = type => {
     cache,
     {type, template, values}
   );
-  return defineProperties$2(
+  return defineProperties(
     // non keyed operations are recognized as instance of Hole
     // during the "unroll", recursively resolved and updated
     (template, ...values) => new Hole(type, template, values),
@@ -787,7 +792,7 @@ const tag = type => {
         // related node, handy with JSON results and mutable list of objects
         // that usually carry a unique identifier
         value(ref, id) {
-          const memo = keyed.get(ref) || keyed.set(ref, create$1(null));
+          const memo = keyed.get(ref) || keyed.set(ref, create(null));
           return memo[id] || (memo[id] = fixed(createCache()));
         }
       },
@@ -805,7 +810,7 @@ const tag = type => {
 };
 
 // each rendered node gets its own cache
-const cache = umap(new WeakMap);
+const cache$1 = umap(new WeakMap);
 
 // rendering means understanding what `html` or `svg` tags returned
 // and it relates a specific node to its own unique cache.
@@ -814,7 +819,7 @@ const cache = umap(new WeakMap);
 // then it's "unrolled" to resolve all its inner nodes.
 const render = (where, what) => {
   const hole = typeof what === 'function' ? what() : what;
-  const info = cache.get(where) || cache.set(where, createCache());
+  const info = cache$1.get(where) || cache$1.set(where, createCache());
   const wire = hole instanceof Hole ? unroll(info, hole) : hole;
   if (wire !== info.wire) {
     info.wire = wire;
@@ -837,7 +842,7 @@ function css (t) {
   return s;
 }
 
-const {defineProperties: defineProperties$1, keys: keys$1} = Object;
+const {defineProperties: defineProperties$1, keys} = Object;
 
 const accessor = (all, shallow, hook, value, update) => ({
   configurable: true,
@@ -857,7 +862,7 @@ const loop = (props, get, all, shallow, useState, update) => {
   const desc = {};
   const hook = useState !== noop;
   const args = [all, shallow, hook];
-  for (let ke = keys$1(props), y = 0; y < ke.length; y++) {
+  for (let ke = keys(props), y = 0; y < ke.length; y++) {
     const value = get(props, ke[y]);
     const extras = hook ? useState(value) : [value, useState];
     if (update)
@@ -898,9 +903,11 @@ const reactive = domHandler({dom: true});
 
 const CE = customElements;
 const {define: defineCustomElement} = CE;
-const {create, defineProperties, getOwnPropertyDescriptor, keys} = Object;
+const {parse, stringify} = JSON;
+const {create: create$1, defineProperties: defineProperties$2, getOwnPropertyDescriptor, keys: keys$1} = Object;
 
 const element = 'element';
+const ownProps = new WeakMap;
 const constructors = umap(new Map([[element, {c: HTMLElement, e: element}]]));
 
 const el = name => document.createElement(name);
@@ -928,11 +935,11 @@ const define = (tagName, definition) => {
   const statics = {};
   const proto = {};
   const listeners = [];
-  const retype = create(null);
+  const retype = create$1(null);
   const bootstrap = (element, key, value) => {
     if (!initialized.has(element)) {
       initialized.set(element, 0);
-      defineProperties(element, {
+      defineProperties$2(element, {
         html: {
           configurable: true,
           value: content.bind(
@@ -946,15 +953,23 @@ const define = (tagName, definition) => {
       }
       if (bound)
         bound.forEach(bind, element);
-      if (props)
-        reactive(element, props, render);
+      if (props) {
+        const reProps = {};
+        for (let k = keys$1(props), i = 0; i < k.length; i++) {
+          const key = k[i];
+          const value = props[key];
+          reProps[key] = typeof value === 'object' ? parse(stringify(value)) : value;
+        }
+        ownProps.set(element, reProps);
+        reactive(element, reProps, render);
+      }
       if (init || render)
         (init || render).call(element);
       if (key)
         element[key] = value;
     }
   };
-  for (let k = keys(definition), i = 0, {length} = k; i < length; i++) {
+  for (let k = keys$1(definition), i = 0, {length} = k; i < length; i++) {
     const key = k[i];
     if (/^on./.test(key) && !/Options$/.test(key)) {
       const options = definition[key + 'Options'] || false;
@@ -987,12 +1002,12 @@ const define = (tagName, definition) => {
   // [props]
   if (props !== null) {
     if (props) {
-      for (let k = keys(props), i = 0; i < k.length; i++) {
+      for (let k = keys$1(props), i = 0; i < k.length; i++) {
         const key = k[i];
         proto[key] = {
           get() {
             bootstrap(this);
-            return props[key];
+            return ownProps.get(this)[key];
           },
           set(value) {
             bootstrap(this, key, value);
@@ -1031,8 +1046,8 @@ const define = (tagName, definition) => {
     proto.disconnectedCallback = {value: disconnected};
 
   const {c, e} = info(definition.extends || element);
-  class MicroElement extends c {}  defineProperties(MicroElement, statics);
-  defineProperties(MicroElement.prototype, proto);
+  class MicroElement extends c {}  defineProperties$2(MicroElement, statics);
+  defineProperties$2(MicroElement.prototype, proto);
   const args = [tagName, MicroElement];
   if (e !== element)
     args.push({extends: e});

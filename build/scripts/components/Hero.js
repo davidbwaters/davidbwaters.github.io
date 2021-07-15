@@ -72,45 +72,17 @@ when('uce-lib').then(
           z-index: 0;
         }
 
-        .c-hero__paint-dark,
-        .c-hero__paint-light,
-        .c-hero__paint-dark::before,
-        .c-hero__paint-light::before {
+        ::slotted([slot='paint']) {
           backface-visibility: hidden;
           background-position: top left;
           background-size: cover;
-          display: none;
+          display: block;
           height: 100%;
           left: 0;
           position: absolute;
           top: 0;
           transition: all 0.25s;
           width: 100%;
-        }
-
-        .c-hero__paint-dark::before,
-        .c-hero__paint-light::before {
-          animation: hero-paint 6s infinite;
-          content: '';
-        }
-
-        .c-hero__paint-dark {
-          background-image: var(--hero-image-paint-1-dark);
-          opacity: var(--theme-dark-opacity);
-        }
-
-        .c-hero__paint-dark::before {
-          background-image: var(--hero-image-paint-2-dark);
-        }
-
-        .c-hero__paint-light {
-          backface-visibility: hidden;
-          background-image: var(--hero-image-paint-1-light);
-          opacity: var(--theme-light-opacity);
-        }
-
-        .c-hero__paint-light::before {
-          background-image: var(--hero-image-paint-1-light);
         }
 
         .c-hero__tagline,
@@ -620,12 +592,8 @@ when('uce-lib').then(
           ${this.styles}
         </style>
         <div class="c-hero__upper">
-          <div class="c-hero__paint-dark"></div>
-          <div class="c-hero__paint-light"></div>
-          <c-canvas-transition
-            .theme=${this.theme}
-          >
-          </c-canvas-transition>
+          <slot name="paint">
+          </slot>
           <div class="c-hero__tagline">
             <div class="c-hero__tagline-main">
               <slot name="tagline-main"></slot>

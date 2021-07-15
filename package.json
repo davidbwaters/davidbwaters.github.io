@@ -36,8 +36,6 @@
     "once-defined": "^1.0.2",
     "regl": "^2.0.1",
     "scrambling-letters": "^1.6.2",
-    "three": "^0.125.2",
-    "three.js": "^0.77.1",
     "uce": "^1.12.1"
   },
   "devDependencies": {

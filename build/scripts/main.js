@@ -13,7 +13,7 @@ import '../_snowpack/pkg/glightbox/dist/css/glightbox.css.proxy.js'
 
 import './App.js'
 import './components/CanvasNoise.js'
-import './components/CanvasTransition.js'
+import './components/CanvasMain.js'
 import './components/GlitchImage.js'
 import './components/Hero.js'
 import './components/Loader.js'
@@ -115,7 +115,7 @@ preloader
 
     let app = document.querySelector('c-app')
 
-    console.log(app.preload)
+    //console.log(app.preload)
 
     app.preload().then(() => {
 

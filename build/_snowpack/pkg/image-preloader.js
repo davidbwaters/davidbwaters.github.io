@@ -39,7 +39,7 @@ function allSettled(promises, onProgress) {
     return Promise.all(mapped);
 }
 
-var src$1 = allSettled;
+var src = allSettled;
 
 /**
  * @licence MIT
@@ -143,7 +143,7 @@ ImagePreloader.prototype.preload = function(args) {
         });
     });
 
-    return src$1(imagesToLoad, that.onProgress);
+    return src(imagesToLoad, that.onProgress);
 };
 
 var main = ImagePreloader;
@@ -153,6 +153,6 @@ var main = ImagePreloader;
  * @author Sergey Melyukov
  */
 
-var src = main;
+var src$1 = main;
 
-export default src;
+export default src$1;
