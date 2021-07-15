@@ -115,7 +115,7 @@ preloader
 
     let app = document.querySelector('c-app')
 
-    console.log(app.preload)
+    //console.log(app.preload)
 
     app.preload().then(() => {
 

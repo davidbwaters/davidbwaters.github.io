@@ -34,8 +34,8 @@ when('uce-lib').then(({ define, css }) => {
       this.theme = document.body.dataset.theme
 
       this.data.logo = this.theme === 'dark'
-        ? this.data.site.images.branding_light.image
-        : this.data.site.images.branding_dark.image
+        ? 'images/Logo-Dark.svg'
+        : 'images/Logo-Light.svg'
 
       // console.log(this.data.logo)
 
@@ -57,7 +57,7 @@ when('uce-lib').then(({ define, css }) => {
 
     async preload() {
 
-      await this.getData()
+      //await this.getData()
 
       //console.log(this.data)
 
@@ -460,7 +460,7 @@ when('uce-lib').then(({ define, css }) => {
             >
               <object
                 type="image/svg+xml"
-                data=${this.data.logo}
+                data="${this.data.logo}"
                 class="u-theme-fill" width="30" height="24"
               >
               </object>
@@ -508,26 +508,7 @@ when('uce-lib').then(({ define, css }) => {
             id="hero"
           >
             <div slot="paint">
-              <img
-                data-paint="dark-1"
-                src="images/Hero-Paint-1-Dark.jpg"
-                alt=""
-              />
-              <img
-                data-paint="dark-2"
-                src="images/Hero-Paint-2-Dark.jpg"
-                alt=""
-              />
-              <img
-                data-paint="light-1"
-                src="images/Hero-Paint-1-Light.jpg"
-                alt=""
-              />
-              <img
-                data-paint="light-2"
-                src="images/Hero-Paint-2-Light.jpg"
-                alt=""
-              />
+              <div class="js-canvas-paint"></div>
             </div>
             <div slot="tagline">
               Artist & <br />
