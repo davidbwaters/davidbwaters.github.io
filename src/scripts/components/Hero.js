@@ -100,6 +100,7 @@ when('uce-lib').then(
           min-height: 0vw;
           text-transform: uppercase;
           width: auto;
+          white-space: nowrap;
         }
 
         @media (min-height: 35em) {
