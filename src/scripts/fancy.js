@@ -397,52 +397,61 @@ window.addEventListener('appLoaded', () => {
 
   function updateMouse(e) {
 
-    e.preventDefault()
-    if (e.changedTouches && e.changedTouches.length) {
+    console.log(e.target.tagName)
+    if (
+      e.target.tagName.toLowerCase() === 'canvas' ||
+      e.target.hasAttribute('data-scrambler')
+    ) {
 
-      e.x = e.changedTouches[0].pageX
-      e.y = e.changedTouches[0].pageY
+      e.preventDefault()
 
-    }
-    if (e.x === undefined) {
+      if (e.changedTouches && e.changedTouches.length) {
 
-      e.x = e.pageX
-      e.y = e.pageY
+        e.x = e.changedTouches[0].pageX
+        e.y = e.changedTouches[0].pageY
 
-    }
+      }
+      if (e.x === undefined) {
 
-    // Get mouse value in 0 to 1 range, with y flipped
-    mouse.set(
-      e.x / gl.renderer.width,
-      1.0 - e.y / gl.renderer.height
-    )
+        e.x = e.pageX
+        e.y = e.pageY
 
-    // Calculate velocity
-    if (!lastTime) {
+      }
 
-      // First frame
-      lastTime = performance.now()
+      // Get mouse value in 0 to 1 range, with y flipped
+      mouse.set(
+        e.x / gl.renderer.width,
+        1.0 - e.y / gl.renderer.height
+      )
+
+      // Calculate velocity
+      if (!lastTime) {
+
+        // First frame
+        lastTime = performance.now()
+        lastMouse.set(e.x, e.y)
+
+      }
+
+      const deltaX = e.x - lastMouse.x
+      const deltaY = e.y - lastMouse.y
+
       lastMouse.set(e.x, e.y)
 
+      let time = performance.now()
+
+      // Avoid dividing by 0
+      let delta = Math.max(10.4, time - lastTime)
+      lastTime = time
+      velocity.x = deltaX / delta
+      velocity.y = deltaY / delta
+
+      // Flag update to prevent hanging velocity values when
+      // not moving
+
+      velocity.needsUpdate = true
+
     }
-
-    const deltaX = e.x - lastMouse.x
-    const deltaY = e.y - lastMouse.y
-
-    lastMouse.set(e.x, e.y)
-
-    let time = performance.now()
-
-    // Avoid dividing by 0
-    let delta = Math.max(10.4, time - lastTime)
-    lastTime = time
-    velocity.x = deltaX / delta
-    velocity.y = deltaY / delta
-
-    // Flag update to prevent hanging velocity values when
-    // not moving
-
-    velocity.needsUpdate = true
 
   }
 
