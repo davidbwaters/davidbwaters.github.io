@@ -397,7 +397,6 @@ window.addEventListener('appLoaded', () => {
 
   function updateMouse(e) {
 
-    console.log(e.target.tagName)
     if (
       e.target.tagName.toLowerCase() === 'canvas' ||
       e.target.hasAttribute('data-scrambler')

@@ -106,16 +106,12 @@ const preloadingImages = [
 
 const preloader = new ImagePreloader()
 
-consoleLove()
-lightboxSetup()
 
 preloader
   .preload(...preloadingImages)
   .then(function(status) {
 
     let app = document.querySelector('c-app')
-
-    //console.log(app.preload)
 
     app.preload().then(() => {
 
@@ -124,6 +120,9 @@ preloader
 
       loader.disable()
       scramble()
+
+      consoleLove()
+      lightboxSetup()
 
     })
 
