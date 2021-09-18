@@ -1205,7 +1205,6 @@ when('uce-lib').then(({ define, css }) => {
               </li>
 
               <li class="c-work-list__item">
-                <div></div>
                 <div data-sticky class="c-work-list__item-info">
                   <div class="c-work-list__item-info-inner">
                     <h4 class="c-work-list__item-info-title">

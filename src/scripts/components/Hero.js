@@ -317,8 +317,8 @@ when('uce-lib').then(
           grid-column-start: 1;
           justify-content: center;
           line-height: 1;
-          padding-left: 2rem;
-          padding-right: 2rem;
+          padding-left: 2.5rem;
+          padding-right: 2.5rem;
         }
 
         ::slotted([slot='heading']) {
