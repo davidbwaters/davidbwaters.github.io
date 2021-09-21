@@ -312,7 +312,7 @@ when('uce-lib').then(
           display: grid;
           font-family: var(--font-heading), sans-serif;
           font-weight: var(--font-heading-weight);
-          font-size: clamp(1.5rem, 3vw, 2.00rem);
+          font-size: clamp(1.5rem, 2.8vw, 2.00rem);
           grid-column-end: 3;
           grid-column-start: 1;
           justify-content: center;
