@@ -668,6 +668,160 @@ when('uce-lib').then(({ define, css }) => {
             "
             >
 
+
+              <li class="c-work-list__item">
+                <div data-sticky class="c-work-list__item-info">
+                  <div class="c-work-list__item-info-inner">
+                    <h4 class="c-work-list__item-info-title">
+                      Fitbux
+                    </h4>
+                    <div
+                      class="
+                        c-work-list__item-info-taglist
+                        u-text-title
+                      "
+                    >
+                      Techologies Used: Figma
+                    </div>
+                    <div
+                      class="
+                        c-work-list__item-info-description
+                      "
+                    >
+                      <p>
+                      Providing gps for your money. Mobile and web app design.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="
+                    c-work-list__item-preview
+                    u-cursor-zoom-in"
+                  data-modal-target="fitbux"
+                >
+                  <c-glitch-image
+                    src="images/Work/Fitbux-1.jpg"
+                    alt="Fitbux Screenshot"
+                    glitch=2
+                    width="800"
+                    height="600"
+                  >
+                  </c-glitch-image>
+                  <c-glitch-image
+                    src="images/Work/Fitbux-2.jpg"
+                    alt="Fitbux Screenshot"
+                    glitch=2
+                    width="800"
+                    height="600"
+                  >
+                  </c-glitch-image>
+                </div>
+                <div class="c-work-list__item-lower">
+
+                  <button
+                    class="c-button"
+                    data-modal-target="fitbux"
+                    data-modal-trigger-primary
+                  >
+                    <i
+                      class="
+                        c-icon
+                        c-icon--expand
+                      "
+                    ></i>
+                    Show More
+                  </button>
+
+
+                  <c-modal
+                    data-modal-trigger="fitbux"
+                  >
+                    <c-section-header
+                      class="u-bg-noise u-z-index-3"
+                    >
+                      <div slot="title">
+                        Fitbux
+                        <c-squiggle></c-squiggle>
+                      </div>
+                      <div slot="description" class="u-text-title">
+                          Techologies Used: Figma
+                      </div>
+                    </c-section-header>
+
+                    <div
+                      class="
+                      c-media-grid
+                      u-bg-pattern-diagonal-alternate
+                    "
+                    >
+                      <article
+                        class="c-media-grid__text-item-wide"
+                      >
+                        <p>
+                          While working for <a href="mainux.com">Mainux</a>, I helped create Fitbux's design system, UI, and branding
+                          using Figma.  I was responsible for overhauling their current
+                          branding and updating it to modern standards.
+                        </p>
+                      </article>
+                      <div class="c-media-grid__image-item">
+                        <a
+                          data-glightbox
+                          data-gallery=5
+                          href="images/Work/Fitbux-1.jpg"
+                        >
+                          <img
+                            class="c-media-grid__image"
+                            src="images/Work/Fitbux-1.jpg"
+                            alt="Fitbux Screenshot"
+                          />
+                        </a>
+                      </div>
+                      <div class="c-media-grid__image-item">
+                        <a
+                          data-glightbox
+                          data-gallery=5
+                          href="images/Work/Fitbux-2.jpg"
+                        >
+                          <img
+                            class="c-media-grid__image"
+                            src="images/Work/Fitbux-2.jpg"
+                            alt="Fitbux Screenshot"
+                          />
+                        </a>
+                      </div>
+                      <div class="c-media-grid__image-item">
+                        <a
+                          data-glightbox
+                          data-gallery=5
+                          href="images/Work/Fitbux-3.jpg"
+                        >
+                          <img
+                            class="c-media-grid__image"
+                            src="images/Work/Fitbux-3.jpg"
+                            alt="Fitbux Screenshot"
+                          />
+                        </a>
+                      </div>
+                      <div class="c-media-grid__image-item">
+                        <a
+                          data-glightbox
+                          data-gallery=5
+                          href="images/Work/Fitbux-4.gif"
+                        >
+                          <img
+                            class="c-media-grid__image"
+                            src="images/Work/Fitbux-4.gif"
+                            alt="Fitbux Screenshot"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </c-modal>
+                </div>
+              </li>
+
               <li class="c-work-list__item">
                 <div data-sticky class="c-work-list__item-info">
                   <div class="c-work-list__item-info-inner">
