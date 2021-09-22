@@ -760,7 +760,7 @@ when('uce-lib').then(({ define, css }) => {
                         class="c-media-grid__text-item-wide"
                       >
                         <p>
-                          While working for <a href="mainux.com">Mainux</a>, I helped create Fitbux's design system, UI, and branding
+                          While working for <a href="http://mainux.com">Mainux</a>, I helped create Fitbux's design system, UI, and branding
                           using Figma.  I was responsible for overhauling their current
                           branding and updating it to modern standards.
                         </p>
