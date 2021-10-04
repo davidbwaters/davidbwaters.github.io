@@ -14,7 +14,7 @@ when('uce-lib').then(({ define, css }) => {
         display: block;
         height: 100%;
         mix-blend-mode: hard-light;
-        opacity: 0.6;
+        opacity: 0.8;
         pointer-events: none;
         position: fixed;
         top: 0;

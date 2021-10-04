@@ -101,7 +101,8 @@
 }
 
 .c-work-list__item-info-inner {
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-opaque);
+  backdrop-filter: blur(0.75rem);
   box-shadow: 0 0 0 1px var(--color-subtle-alternate);
   padding-bottom: .5rem;
   padding-left:  1.5rem;

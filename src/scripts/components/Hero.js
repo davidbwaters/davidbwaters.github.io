@@ -27,14 +27,20 @@ when('uce-lib').then(
           grid-template-rows: 4fr 5fr 4.5rem;
           height: 100%;
           max-height: 100%;
-          min-height: 30rem;
+          min-height: 28rem;
           z-index: 2;
         }
 
         @media (min-width: 45em) {
           :host {
-            grid-template-rows: 2fr 1fr 4.5rem;
+            grid-template-rows: 2fr .9fr 4.5rem;
             min-height: 30rem;
+          }
+        }
+
+        @media (min-width: 80em) {
+          :host {
+            min-height: 35rem;
           }
         }
 
@@ -95,7 +101,7 @@ when('uce-lib').then(
         .c-hero__tagline {
           font-family: var(--font-display), sans-serif;
           font-weight: var(--font-display-weight);
-          font-size: clamp(1.25rem, 6.5vw, 4.25rem);
+          font-size: clamp(1.25rem, 5.5vw, 4.5rem);
           line-height: 1.05;
           min-height: 0vw;
           text-transform: uppercase;
@@ -106,7 +112,7 @@ when('uce-lib').then(
         @media (min-height: 35em) {
           .c-hero__tagline {
             line-height: 1.1;
-            margin-top: 0.5rem;
+            margin-top: 1.5rem;
           }
         }
 
@@ -214,6 +220,12 @@ when('uce-lib').then(
           }
         }
 
+        @media (min-width: 80em) {
+          .c-hero__lower {
+            grid-template-columns: 3fr 2fr 5fr;
+          }
+        }
+
         .c-hero__me,
         .c-hero__me::before {
           background-position: center;
@@ -312,17 +324,12 @@ when('uce-lib').then(
           display: grid;
           font-family: var(--font-heading), sans-serif;
           font-weight: var(--font-heading-weight);
-          font-size: clamp(1.5rem, 2.8vw, 2.00rem);
+          font-size: clamp(1.5rem, 2.8vw, 2.4rem);
           grid-column-end: 3;
           grid-column-start: 1;
+          grid-template-columns: .85fr;
           justify-content: center;
           line-height: 1;
-          padding-left: 2.5rem;
-          padding-right: 2.5rem;
-        }
-
-        ::slotted([slot='heading']) {
-          max-width: 30rem;
         }
 
         @media (min-width: 45em) {
