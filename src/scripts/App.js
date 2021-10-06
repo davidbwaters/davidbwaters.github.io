@@ -7,6 +7,10 @@ import when from 'once-defined'
 
 import api from '../../config/api.js'
 
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+
 const { url, assets } = api
 const sdk = new DirectusSDK(url)
 
@@ -14,16 +18,84 @@ when('uce-lib').then(({ define, css }) => {
 
   define('c-app', {
     styles: css`
-      :host {
-        display: block;
-        height: 100%;
-        opacity: 1;
-        width: 100%;
-        will-change: opacity;
-      }
     `,
 
     init() {
+
+      this.render()
+
+      gsap.registerPlugin(ScrollTrigger)
+
+
+      let revealContainers = document.querySelectorAll('.js-reveal')
+
+      revealContainers.forEach((container) => {
+
+        let targets = container.querySelectorAll('.js-reveal-inner')
+
+        if (!targets.length) {
+
+          targets = container
+
+        }
+
+        //let image = container.querySelector('img')
+
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container,
+            toggleActions: 'restart none none reset',
+            start: 'top bottom',
+            end: '+=10',
+          }
+        })
+
+        // tl.set(targets, { autoAlpha: 1 })
+
+        tl.from(targets, {
+          y: 150,
+          opacity: 0,
+          duration: 0.8,
+          delay: 0,
+          stagger: '0.25',
+          scale: 1.1,
+          ease: 'Power2.out',
+          onComplete: () => ScrollTrigger.refresh()
+        })
+
+      })
+
+      let revealFadeContainers = document.querySelectorAll('.js-reveal-fade')
+
+      revealFadeContainers.forEach((container) => {
+
+        //let image = container.querySelector('img')
+
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: container,
+            toggleActions: 'restart none none reset',
+            start: 'top bottom',
+            end: '+=10',
+          }
+        })
+
+        tl.from(container, {
+          opacity: 0,
+          duration: 1.2,
+          delay: 0.2,
+          stagger: '0.25',
+          ease: 'Power2.out',
+          onComplete: () => ScrollTrigger.refresh()
+        })
+
+      })
+
+      setTimeout(() => {
+
+        ScrollTrigger.refresh()
+
+      }, 4000)
 
     },
 
@@ -511,8 +583,8 @@ when('uce-lib').then(({ define, css }) => {
               <div class="js-canvas-paint"></div>
             </div>
             <div slot="tagline">
-              Artist & <br />
-              Designer & <br />
+              Multidisciplinary <br />
+              Designer & Frontend <br />
               Developer
             </div>
             <div slot="name-stylized">DAVIDBWATERS</div>
@@ -557,7 +629,7 @@ when('uce-lib').then(({ define, css }) => {
           </c-hero>
 
           <section id="skills">
-            <c-section-header class="u-bg-noise">
+            <c-section-header class="u-bg-noise js-reveal">
               <div slot="title">
                 Skills
                 <c-squiggle></c-squiggle>
@@ -567,7 +639,7 @@ when('uce-lib').then(({ define, css }) => {
                 enjoy working with.
               </div>
             </c-section-header>
-            <ul class="c-skill-list">
+            <ul class="c-skill-list js-reveal">
               <li class="c-skill-list__skill">
                 <img
                   class="c-skill-list__image"
@@ -648,8 +720,8 @@ when('uce-lib').then(({ define, css }) => {
             <hr class="u-separator-alternate" />
           </section>
 
-          <section id="work">
-            <c-section-header class="u-bg-noise u-z-index-3">
+          <section id="work" class="js-reveal">
+            <c-section-header class="u-bg-noise u-z-index-3 js-reveal-inner">
               <div slot="title">
                 Selected <br />
                 Works
@@ -663,9 +735,10 @@ when('uce-lib').then(({ define, css }) => {
 
             <ul
               class="
-              c-work-list
-              u-bg-pattern-diagonal
-            "
+                c-work-list
+                u-bg-pattern-diagonal
+                js-reveal-fade
+              "
             >
 
 
@@ -1972,23 +2045,25 @@ when('uce-lib').then(({ define, css }) => {
             </ul>
           </section>
 
-          <footer class="c-page-footer u-bg-noise">
-            <hr class="u-separator-alternate u-margin-0" />
-            <div class="c-page-footer__upper u-text-large-1">
-              Made with <3 by David B Waters in 2020.
-            </div>
-            <div class="c-page-footer__lower">
-              <small class="u-text-bolder">
-                This site's source code is freely available under
-                the MIT license
-                <a
-                  href="https://github.com/davidbwaters/davidbwaters.github.io"
-                  title="This Site's Github Repo Link"
-                >here</a>.
-                <br>
-                Stay tuned! It's still very much a
-                work in progress.
-              </small>
+          <footer class="c-page-footer u-bg-noise js-reveal">
+            <div class="c-footer__inner js-reveal-inner">
+              <hr class="u-separator-alternate u-margin-0" />
+              <div class="c-page-footer__upper u-text-large-1">
+                Made with <3 by David B Waters in 2020.
+              </div>
+              <div class="c-page-footer__lower">
+                <small class="u-text-bolder">
+                  This site's source code is freely available under
+                  the MIT license
+                  <a
+                    href="https://github.com/davidbwaters/davidbwaters.github.io"
+                    title="This Site's Github Repo Link"
+                  >here</a>.
+                  <br>
+                  Stay tuned! It's still very much a
+                  work in progress.
+                </small>
+              </div>
             </div>
           </footer>
 

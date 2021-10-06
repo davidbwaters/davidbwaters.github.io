@@ -6,6 +6,9 @@ import when from 'once-defined'
 
 //import Scrambler from 'scrambling-letters'
 
+import { gsap } from 'gsap'
+
+
 when('uce-lib').then(
   ({ define, render, html, svg, css }) => {
 
@@ -33,7 +36,7 @@ when('uce-lib').then(
 
         @media (min-width: 45em) {
           :host {
-            grid-template-rows: 2fr .9fr 4.5rem;
+            grid-template-rows: 2fr auto 4.5rem;
             min-height: 30rem;
           }
         }
@@ -101,18 +104,20 @@ when('uce-lib').then(
         .c-hero__tagline {
           font-family: var(--font-display), sans-serif;
           font-weight: var(--font-display-weight);
-          font-size: clamp(1.25rem, 5.5vw, 4.5rem);
-          line-height: 1.05;
+          font-size: clamp(1.0rem, 4.2vw, 3.5rem);
+          line-height: 1.2;
           min-height: 0vw;
+          max-width: 90vw;
           text-transform: uppercase;
           width: auto;
-          white-space: nowrap;
         }
 
         @media (min-height: 35em) {
           .c-hero__tagline {
-            line-height: 1.1;
+            line-height: 1.25;
             margin-top: 1.5rem;
+            max-width: 100vw;
+            white-space: nowrap;
           }
         }
 
@@ -211,23 +216,25 @@ when('uce-lib').then(
           display: grid;
           grid-template-columns: 1fr 1fr;
           grid-template-rows: 5fr 4fr;
+          overflow: hidden;
         }
 
         @media (min-width: 45em) {
           .c-hero__lower {
             grid-template-columns: 1fr 1fr 2fr;
             grid-template-rows: auto;
+            height: 30vh;
           }
         }
 
-        @media (min-width: 80em) {
+        @media (min-width: 70em) {
           .c-hero__lower {
             grid-template-columns: 3fr 2fr 5fr;
           }
         }
 
         .c-hero__me,
-        .c-hero__me::before {
+        .c-hero__me-light {
           background-position: center;
           background-size: cover;
         }
@@ -241,7 +248,7 @@ when('uce-lib').then(
           position: relative;
         }
 
-        .c-hero__me::before {
+        .c-hero__me .c-hero__me-light {
           background-blend-mode: luminosity;
           background-color: var(--color-bg-primary);
           background-image: url('/images/Me-Light.jpg');
@@ -324,7 +331,7 @@ when('uce-lib').then(
           display: grid;
           font-family: var(--font-heading), sans-serif;
           font-weight: var(--font-heading-weight);
-          font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+          font-size: clamp(1.4rem, 2.8vw, 2.4rem);
           grid-column-end: 3;
           grid-column-start: 1;
           grid-template-columns: .85fr;
@@ -504,6 +511,8 @@ when('uce-lib').then(
         this._taglineSetup()
         this._nameStylizedSetup()
 
+        this._transitionIn()
+
         const render = this.render
 
         this.addEventListener('themeChange', render)
@@ -512,6 +521,62 @@ when('uce-lib').then(
 
       props: {
         theme: document.body.dataset.theme
+      },
+
+      _transitionIn() {
+
+        const heroTrigger = this.shadowRoot.querySelector(
+          '.c-hero__upper'
+        )
+
+        let heroTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: heroTrigger,
+            end: '+=220%',
+            scrub: true
+          }
+        })
+
+        heroTl.to(
+          this.shadowRoot.querySelectorAll('.js-hero-me'),
+          {
+            backgroundSize: '150% auto'
+          }
+
+        )
+
+        let tl = gsap.timeline()
+
+        const heroTarget = this.shadowRoot.querySelector('.c-hero__lower')
+
+        tl.from(
+          heroTarget,
+          {
+            height: 0,
+            opacity: 0,
+            duration: 1,
+            delay: 1.75,
+            onComplete: () => {
+
+              heroTarget.style.height = ''
+
+            }
+          }
+        )
+
+        tl.from(
+          this.shadowRoot.querySelector('.c-hero__tagline'),
+          {
+            opacity: 0,
+            duration: 2,
+            delay: 1.75
+          },
+          0
+        )
+
+        tl.play()
+
+
       },
 
       _taglineSetup() {
@@ -615,9 +680,9 @@ when('uce-lib').then(
         </div>
         <div class="c-hero__lower">
           <div class="
-            c-hero__me
+            c-hero__me js-hero-me
           ">
-            <div class="c-hero__me-light">
+            <div class="c-hero__me-light js-hero-me">
             </div>
           </div>
           <div class="
