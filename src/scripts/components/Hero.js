@@ -108,6 +108,7 @@ when('uce-lib').then(
           line-height: 1.2;
           min-height: 0vw;
           max-width: 90vw;
+          pointer-events: none;
           text-transform: uppercase;
           width: auto;
         }
@@ -669,7 +670,7 @@ when('uce-lib').then(
           </slot>
           <div class="c-hero__tagline">
             <div class="c-hero__tagline-main">
-              <slot name="tagline-main"></slot>
+              <slot name="tagline"></slot>
             </div>
             <div class="c-hero__tagline-accent-1"></div>
             <div class="c-hero__tagline-accent-2"></div>

@@ -10,9 +10,11 @@ import api from '../../config/api.js'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+import './fancy'
 
 const { url, assets } = api
 const sdk = new DirectusSDK(url)
+
 
 when('uce-lib').then(({ define, css }) => {
 
@@ -35,7 +37,7 @@ when('uce-lib').then(({ define, css }) => {
 
         if (!targets.length) {
 
-          targets = container
+          targets = [ container ]
 
         }
 
@@ -53,14 +55,23 @@ when('uce-lib').then(({ define, css }) => {
         // tl.set(targets, { autoAlpha: 1 })
 
         tl.from(targets, {
-          y: 150,
+          y: 120,
           opacity: 0,
           duration: 0.8,
           delay: 0,
           stagger: '0.25',
           scale: 1.1,
           ease: 'Power2.out',
-          onComplete: () => ScrollTrigger.refresh()
+          onComplete: () => {
+
+            targets.forEach(item => {
+
+              item.style.transform = ''
+
+            })
+            ScrollTrigger.refresh()
+
+          }
         })
 
       })
@@ -70,23 +81,32 @@ when('uce-lib').then(({ define, css }) => {
       revealFadeContainers.forEach((container) => {
 
         //let image = container.querySelector('img')
+        gsap.set(container, {
+          transformOrigin: 'top center'
+        })
 
         let tl = gsap.timeline({
           scrollTrigger: {
             trigger: container,
             toggleActions: 'restart none none reset',
             start: 'top bottom',
-            end: '+=10',
+            end: '+=10'
           }
         })
 
         tl.from(container, {
-          opacity: 0,
-          duration: 1.2,
+          // opacity: 0.25,
+          // scale: 1.1,
+          duration: 0.8,
           delay: 0.2,
           stagger: '0.25',
           ease: 'Power2.out',
-          onComplete: () => ScrollTrigger.refresh()
+          onComplete: () => {
+
+            container.style.transform = ''
+            ScrollTrigger.refresh()
+
+          }
         })
 
       })
@@ -94,6 +114,7 @@ when('uce-lib').then(({ define, css }) => {
       setTimeout(() => {
 
         ScrollTrigger.refresh()
+        window.dispatchEvent(new Event('resize'))
 
       }, 4000)
 
@@ -523,7 +544,6 @@ when('uce-lib').then(({ define, css }) => {
 
       this.html`
         <main class="u-transparent">
-
           <c-top-bar>
             <a
               slot="logo"
@@ -580,15 +600,15 @@ when('uce-lib').then(({ define, css }) => {
             id="hero"
           >
             <div slot="paint">
-              <div class="js-canvas-paint"></div>
+              <div id="js-canvas-paint" class="js-canvas-paint"></div>
             </div>
-            <div slot="tagline">
+            <div slot="tagline" class="js-text-plane">
               Multidisciplinary <br />
               Designer & Frontend <br />
               Developer
             </div>
             <div slot="name-stylized">DAVIDBWATERS</div>
-            <div slot="heading">
+            <div slot="heading" class="js-text-plane">
               Building digital solutions to promote growth.
               <c-squiggle></c-squiggle>
             </div>
@@ -737,12 +757,11 @@ when('uce-lib').then(({ define, css }) => {
               class="
                 c-work-list
                 u-bg-pattern-diagonal
-                js-reveal-fade
               "
             >
 
 
-              <li class="c-work-list__item">
+              <li class="c-work-list__item js-reveal-fade">
                 <div data-sticky class="c-work-list__item-info">
                   <div class="c-work-list__item-info-inner">
                     <h4 class="c-work-list__item-info-title">
@@ -895,7 +914,7 @@ when('uce-lib').then(({ define, css }) => {
                 </div>
               </li>
 
-              <li class="c-work-list__item">
+              <li class="c-work-list__item js-reveal-fade">
                 <div data-sticky class="c-work-list__item-info">
                   <div class="c-work-list__item-info-inner">
                     <h4 class="c-work-list__item-info-title">
@@ -1110,7 +1129,7 @@ when('uce-lib').then(({ define, css }) => {
                 </div>
               </li>
 
-              <li class="c-work-list__item">
+              <li class="c-work-list__item js-reveal-fade">
                 <div data-sticky class="c-work-list__item-info">
                   <div class="c-work-list__item-info-inner">
                     <h4 class="c-work-list__item-info-title">
@@ -1274,7 +1293,7 @@ when('uce-lib').then(({ define, css }) => {
                 </div>
               </li>
 
-              <li class="c-work-list__item">
+              <li class="c-work-list__item js-reveal-fade">
                 <div data-sticky class="c-work-list__item-info">
                   <div class="c-work-list__item-info-inner">
                     <h4 class="c-work-list__item-info-title">
@@ -1431,7 +1450,7 @@ when('uce-lib').then(({ define, css }) => {
                 </div>
               </li>
 
-              <li class="c-work-list__item">
+              <li class="c-work-list__item js-reveal-fade">
                 <div data-sticky class="c-work-list__item-info">
                   <div class="c-work-list__item-info-inner">
                     <h4 class="c-work-list__item-info-title">
@@ -1636,7 +1655,7 @@ when('uce-lib').then(({ define, css }) => {
                 </div>
               </li>
 
-              <li class="c-work-list__item">
+              <li class="c-work-list__item js-reveal-fade">
                 <div data-sticky class="c-work-list__item-info">
                   <div class="c-work-list__item-info-inner">
                     <h4 class="c-work-list__item-info-title">
@@ -1722,7 +1741,7 @@ when('uce-lib').then(({ define, css }) => {
                 </div>
               </li>
 
-              <li class="c-work-list__item">
+              <li class="c-work-list__item js-reveal-fade">
                 <div data-sticky class="c-work-list__item-info">
                   <div class="c-work-list__item-info-inner">
                     <h4 class="c-work-list__item-info-title">
@@ -1891,7 +1910,7 @@ when('uce-lib').then(({ define, css }) => {
               </li>
 
               <!--
-                <li class="c-work-list__item">
+                <li class="c-work-list__item js-reveal-fade">
                   <div data-sticky class="c-work-list__item-info">
                     <div class="c-work-list__item-info-inner">
                       <h4 class="c-work-list__item-info-title">

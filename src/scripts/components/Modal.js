@@ -25,7 +25,7 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
         );
         --modal-button-font: var(--font-main-regular);
         --modal-button-font-weight: normal;
-        --modal-button-size: 1.8rem;
+        --modal-button-size: 2.8rem;
         --modal-button-thickness: 1.5px;
         --modal-transition-duration: 0.15s;
         --modal-trigger-transition-duration: 0.15s;
@@ -141,7 +141,7 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
 
       .c-modal__back-button i {
         font-family: 'icons';
-        font-size: 1.4em;
+        font-size: 1.6em;
         font-style: normal;
         left: .025em;
         position: relative;
@@ -315,6 +315,13 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
             '--modal-transition-duration'
           )
         ) * 1000
+
+
+      this._dialogEl.addEventListener('close', (event) => {
+
+        this._handleClose()
+
+      })
 
     },
 

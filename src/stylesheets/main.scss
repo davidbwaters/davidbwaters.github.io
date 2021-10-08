@@ -32,6 +32,14 @@
 @import '/icons/icons.css';
 
 
-.js-reveal,
-.js-reveal-inner {
+.js-canvas-paint {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+#flowmap {
+  height: 100vh;
 }
