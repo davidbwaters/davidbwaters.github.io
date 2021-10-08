@@ -95,8 +95,8 @@ when('uce-lib').then(({ define, css }) => {
         })
 
         tl.from(container, {
-          // opacity: 0.25,
-          // scale: 1.1,
+          opacity: 0.25,
+          scale: 1.1,
           duration: 0.8,
           delay: 0.2,
           stagger: '0.25',
@@ -826,91 +826,6 @@ when('uce-lib').then(({ define, css }) => {
                     Show More
                   </button>
 
-
-                  <c-modal
-                    data-modal-trigger="fitbux"
-                  >
-                    <c-section-header
-                      class="u-bg-noise u-z-index-3"
-                    >
-                      <div slot="title">
-                        Fitbux
-                        <c-squiggle></c-squiggle>
-                      </div>
-                      <div slot="description" class="u-text-title">
-                          Techologies Used: Figma
-                      </div>
-                    </c-section-header>
-
-                    <div
-                      class="
-                      c-media-grid
-                      u-bg-pattern-diagonal-alternate
-                    "
-                    >
-                      <article
-                        class="c-media-grid__text-item-wide"
-                      >
-                        <p>
-                          While working for <a href="http://mainux.com">Mainux</a>, I helped create Fitbux's design system, UI, and branding
-                          using Figma.  I was responsible for overhauling their current
-                          branding and updating it to modern standards.
-                        </p>
-                      </article>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=5
-                          href="images/Work/Fitbux-1.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Fitbux-1.jpg"
-                            alt="Fitbux Screenshot"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=5
-                          href="images/Work/Fitbux-2.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Fitbux-2.jpg"
-                            alt="Fitbux Screenshot"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=5
-                          href="images/Work/Fitbux-3.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Fitbux-3.jpg"
-                            alt="Fitbux Screenshot"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=5
-                          href="images/Work/Fitbux-4.gif"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Fitbux-4.gif"
-                            alt="Fitbux Screenshot"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  </c-modal>
                 </div>
               </li>
 
@@ -1006,126 +921,6 @@ when('uce-lib').then(({ define, css }) => {
                     ></i>
                     VSC Market Link
                   </a>
-
-                  <c-modal
-                    data-modal-trigger="modal-macos-modern"
-                  >
-                    <c-section-header
-                      class="u-bg-noise u-z-index-3"
-                    >
-                      <div slot="title">
-                        macOS Modern
-                        <c-squiggle></c-squiggle>
-                      </div>
-                      <div slot="description" class="u-text-title">
-                          Techologies Used: Frontend Development
-                      </div>
-                    </c-section-header>
-
-                    <div
-                      class="
-                      c-media-grid
-                      u-bg-pattern-diagonal-alternate
-                    "
-                    >
-                      <article
-                        class="c-media-grid__text-item-wide"
-                      >
-                        <p>
-                          I created the macOS Modern Visual Studio
-                          Code theme to enable users to experience
-                          the best code editor while maintaining a
-                          native-like look and feel.
-                        </p>
-                        <p>
-                          The theme includes multiple icon sets
-                          and a matching light and dark app icon.
-                        </p>
-                        <p>
-                          At the time of this writing, it has over
-                          22 thousand installs.
-                        </p>
-                      </article>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=1
-                          href="images/Work/macOS-Modern-All.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/macOS-Modern-All.jpg"
-                            alt="macOS Modern All Color Schemes"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=1
-                          href="images/Work/macOS-Modern-Light-1.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/macOS-Modern-Light-1.jpg"
-                            alt="macOS Modern Light 1"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=1
-                          href="images/Work/macOS-Modern-Dark-1.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/macOS-Modern-Dark-1.jpg"
-                            alt="macOS Modern Dark 1"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=1
-                          href="images/Work/macOS-Modern-Light-2.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/macOS-Modern-Light-2.jpg"
-                            alt="macOS Modern Light 2"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=1
-                          href="images/Work/macOS-Modern-Dark-2.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/macOS-Modern-Dark-2.jpg"
-                            alt="macOS Modern Dark 2"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=1
-                          href="images/Work/macOS-Modern-Icons.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/macOS-Modern-Icons.jpg"
-                            alt="macOS Modern App Icons"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  </c-modal>
                 </div>
               </li>
 
@@ -1197,99 +992,6 @@ when('uce-lib').then(({ define, css }) => {
                     Show More
                   </button>
 
-                  <c-modal
-                    data-modal-trigger="modal-limber-logic"
-                  >
-                    <c-section-header
-                      class="u-bg-noise u-z-index-3"
-                    >
-                      <div slot="title">
-                        Limber Logic Identity
-                        <c-squiggle></c-squiggle>
-                      </div>
-                      <div slot="description" class="u-text-title">
-                        Techologies Used: Adobe Illustrator
-                      </div>
-                    </c-section-header>
-
-                    <div
-                      class="
-                      c-media-grid
-                      u-bg-pattern-diagonal-alternate
-                    "
-                    >
-                      <article
-                        class="c-media-grid__text-item-wide"
-                      >
-                        <p>
-                          I created the brand identity for
-                          Limber Logic, a digital product design
-                          company in Charleston. I wanted the
-                          branding to have a sleek, techy,
-                          aesthetic.
-                        </p>
-                        <p>
-                          Limber Logic was the collaboration of
-                          my friend as Lead Developer and me as
-                          Lead Designer. We worked on various
-                          projects and I learned a lot in my
-                          time there.
-                        </p>
-                      </article>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=2
-                          href="images/Work/Limber-Logic-Light.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Limber-Logic-Light.jpg"
-                            alt="Limber Logic Logo Light"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=2
-                          href="images/Work/Limber-Logic-Dark.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Limber-Logic-Dark.jpg"
-                            alt="Limber Logic Logo Dark"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=2
-                          href="images/Work/Limber-Logic-Mockup-1-Dark.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Limber-Logic-Mockup-1-Dark.jpg"
-                            alt="Limber Logic Mockup Dark"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=2
-                          href="images/Work/Limber-Logic-Mockup-1-Light.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Limber-Logic-Mockup-1-Light.jpg"
-                            alt="Limber Logic Mockup Light"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  </c-modal>
                 </div>
               </li>
 
@@ -1357,96 +1059,6 @@ when('uce-lib').then(({ define, css }) => {
                     Show More
                   </button>
 
-                  <c-modal data-modal-trigger="modal-map-dashboard">
-                    <c-section-header
-                      class="u-bg-noise u-z-index-3"
-                    >
-                      <div slot="title">
-                        Map Dashboard
-                        <c-squiggle></c-squiggle>
-                      </div>
-                      <div slot="description" class="u-text-title">
-                          Techologies Used: Figma, Javascript, React
-                      </div>
-                    </c-section-header>
-                    <div
-                      class="c-media-grid u-bg-pattern-diagonal-alternate"
-                    >
-                      <article
-                        class="c-media-grid__text-item-wide"
-                      >
-                        <p>
-                          These shots were created for an
-                          in-development web and mobile app
-                          for land developers.
-                        </p>
-                        <p>
-                          I was recruited to improve the overall
-                          user experience and help design the map
-                          interface. I used Figma to create
-                          wireframes, mockups, and a component
-                          system.
-                        </p>
-                        <p>
-                          I also helped the team refine the
-                          React-based frontend during a sprint
-                          before a deadline.
-                        </p>
-                      </article>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=3
-                          href="images/Work/Map-Browser.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Map-Browser.jpg"
-                            alt="Map Dashboard in Browser"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=3
-                          href="images/Work/Map-Components.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Map-Components.jpg"
-                            alt="Map Dashboard Components"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=3
-                          href="images/Work/Map-Figma.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Map-Figma.jpg"
-                            alt="Map Dashboard Figma Project"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=3
-                          href="images/Work/Map-Wireframe.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Map-Wireframe.jpg"
-                            alt="Map Dashboard Mockup"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  </c-modal>
                 </div>
               </li>
 
@@ -1511,147 +1123,6 @@ when('uce-lib').then(({ define, css }) => {
                     Show More
                   </button>
 
-                  <c-modal data-modal-trigger="modal-logos">
-                    <c-section-header
-                      class="u-bg-noise u-z-index-3"
-                    >
-                      <div slot="title">
-                        Personal Branding
-                        <c-squiggle></c-squiggle>
-                      </div>
-                      <div slot="description" class="u-text-title">
-                          Techologies Used: Adobe Illustrator
-                      </div>
-                    </c-section-header>
-                    <div
-                      class="c-media-grid u-bg-pattern-diagonal-alternate"
-                    >
-                      <article
-                        class="c-media-grid__text-item-wide"
-                      >
-                        <p>
-                          This is a collection of logo variations
-                          created as part of a personal branding
-                          update.
-                        </p>
-                        <p>
-                          This project was a great exercise in
-                          using the process of rapid iteration to
-                          develop a final product.
-                        </p>
-                      </article>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=4
-                          href="images/Work/Personal-Branding-Mockup-1.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Personal-Branding-Mockup-1.jpg"
-                            alt="Personal Branding VHS Mockup"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=4
-                          href="images/Work/Personal-Branding-Mockup-2.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Personal-Branding-Mockup-2.jpg"
-                            alt="Personal Branding Stamp Mockup"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=4
-                          href="images/Work/Personal-Branding-All-1.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Personal-Branding-All-1.jpg"
-                            alt="All Personal Branding Logos Dark"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=4
-                          href="images/Work/Personal-Branding-All-2.jpg"
-                        >
-                        <img
-                          class="c-media-grid__image"
-                          src="images/Work/Personal-Branding-All-2.jpg"
-                          alt="All Personal Branding Logos Light"
-                        />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=4
-                          href="images/Work/Personal-Branding-Logo-Final.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Personal-Branding-Logo-Final.jpg"
-                            alt="Selected Personal Branding Logo"
-                          />
-                        </a>
-                        <span
-                          class="c-media-grid__image-caption-alternate"
-                        >
-                          This was the version I ended up using.
-                        </span>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=4
-                          href="images/Work/Personal-Branding-Logo-Alt-1.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Personal-Branding-Logo-Alt-1.jpg"
-                            alt="Personal Branding Alternate Logo 1"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=4
-                          href="images/Work/Personal-Branding-Logo-Alt-2.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Personal-Branding-Logo-Alt-2.jpg"
-                            alt="Personal Branding Alternate Logo 2"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=4
-                          href="images/Work/Personal-Branding-Logo-Alt-3.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Personal-Branding-Logo-Alt-3.jpg"
-                            alt="Personal Branding Alternate Logo 3"
-                          />
-                        </a>
-                      </div>
-                    </div>
-
-                  </c-modal>
                 </div>
               </li>
 
@@ -1821,91 +1292,6 @@ when('uce-lib').then(({ define, css }) => {
                     Show More
                   </button>
 
-                  <c-modal
-                    data-modal-trigger="modal-yippy"
-                  >
-                    <c-section-header
-                      class="u-bg-noise u-z-index-3"
-                    >
-                      <div slot="title">
-                        macOS Modern
-                        <c-squiggle></c-squiggle>
-                      </div>
-                      <div slot="description" class="u-text-title">
-                        Techologies Used: Figma, Adobe Illustrator
-                      </div>
-                    </c-section-header>
-
-                    <div
-                      class="
-                      c-media-grid
-                      u-bg-pattern-diagonal-alternate
-                    "
-                    >
-                      <article
-                        class="c-media-grid__text-item-wide"
-                      >
-                        <p>
-                          I contributed icons to an
-                          open-source clipboard manager for
-                          macOS made by Matt Davidson.
-                        </p>
-                        <p>
-                          I created a menu bar icon and three
-                          reversions of the app icon, included an
-                          updated version for macOS Big Sur.
-                          This project adheres to Apple's design
-                          guidelines.
-                        </p>
-                      </article>
-                      <div class="c-media-grid__image-item">
-                        <img
-                          class="c-media-grid__image"
-                          src="images/Work/Yippy-1.jpg"
-                          alt="Yippy Big Sur Icon"
-                        />
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=5
-                          href="images/Work/Yippy-Menu-Bar.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Yippy-Menu-Bar.jpg"
-                            alt="Yippy Menu Bar Icon"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=5
-                          href="images/Work/Yippy-2.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Yippy-2.jpg"
-                            alt="Yippy Updated Icon"
-                          />
-                        </a>
-                      </div>
-                      <div class="c-media-grid__image-item">
-                        <a
-                          data-glightbox
-                          data-gallery=5
-                          href="images/Work/Yippy-3.jpg"
-                        >
-                          <img
-                            class="c-media-grid__image"
-                            src="images/Work/Yippy-3.jpg"
-                            alt="Yippy Original Icon"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  </c-modal>
                 </div>
               </li>
 
@@ -2063,6 +1449,624 @@ when('uce-lib').then(({ define, css }) => {
               -->
             </ul>
           </section>
+
+          <c-modal
+            data-modal-trigger="fitbux"
+          >
+            <c-section-header
+              class="u-bg-noise u-z-index-3"
+            >
+              <div slot="title">
+                Fitbux
+                <c-squiggle></c-squiggle>
+              </div>
+              <div slot="description" class="u-text-title">
+                  Techologies Used: Figma
+              </div>
+            </c-section-header>
+
+            <div
+              class="
+              c-media-grid
+              u-bg-pattern-diagonal-alternate
+            "
+            >
+              <article
+                class="c-media-grid__text-item-wide"
+              >
+                <p>
+                  While working for <a href="http://mainux.com">Mainux</a>, I helped create Fitbux's design system, UI, and branding
+                  using Figma.  I was responsible for overhauling their current
+                  branding and updating it to modern standards.
+                </p>
+              </article>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=5
+                  href="images/Work/Fitbux-1.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Fitbux-1.jpg"
+                    alt="Fitbux Screenshot"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=5
+                  href="images/Work/Fitbux-2.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Fitbux-2.jpg"
+                    alt="Fitbux Screenshot"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=5
+                  href="images/Work/Fitbux-3.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Fitbux-3.jpg"
+                    alt="Fitbux Screenshot"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=5
+                  href="images/Work/Fitbux-4.gif"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Fitbux-4.gif"
+                    alt="Fitbux Screenshot"
+                  />
+                </a>
+              </div>
+            </div>
+          </c-modal>
+
+          <c-modal
+            data-modal-trigger="modal-macos-modern"
+          >
+            <c-section-header
+              class="u-bg-noise u-z-index-3"
+            >
+              <div slot="title">
+                macOS Modern
+                <c-squiggle></c-squiggle>
+              </div>
+              <div slot="description" class="u-text-title">
+                  Techologies Used: Frontend Development
+              </div>
+            </c-section-header>
+
+            <div
+              class="
+              c-media-grid
+              u-bg-pattern-diagonal-alternate
+            "
+            >
+              <article
+                class="c-media-grid__text-item-wide"
+              >
+                <p>
+                  I created the macOS Modern Visual Studio
+                  Code theme to enable users to experience
+                  the best code editor while maintaining a
+                  native-like look and feel.
+                </p>
+                <p>
+                  The theme includes multiple icon sets
+                  and a matching light and dark app icon.
+                </p>
+                <p>
+                  At the time of this writing, it has over
+                  22 thousand installs.
+                </p>
+              </article>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=1
+                  href="images/Work/macOS-Modern-All.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/macOS-Modern-All.jpg"
+                    alt="macOS Modern All Color Schemes"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=1
+                  href="images/Work/macOS-Modern-Light-1.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/macOS-Modern-Light-1.jpg"
+                    alt="macOS Modern Light 1"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=1
+                  href="images/Work/macOS-Modern-Dark-1.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/macOS-Modern-Dark-1.jpg"
+                    alt="macOS Modern Dark 1"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=1
+                  href="images/Work/macOS-Modern-Light-2.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/macOS-Modern-Light-2.jpg"
+                    alt="macOS Modern Light 2"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=1
+                  href="images/Work/macOS-Modern-Dark-2.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/macOS-Modern-Dark-2.jpg"
+                    alt="macOS Modern Dark 2"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=1
+                  href="images/Work/macOS-Modern-Icons.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/macOS-Modern-Icons.jpg"
+                    alt="macOS Modern App Icons"
+                  />
+                </a>
+              </div>
+            </div>
+          </c-modal>
+
+          <c-modal
+            data-modal-trigger="modal-limber-logic"
+          >
+            <c-section-header
+              class="u-bg-noise u-z-index-3"
+            >
+              <div slot="title">
+                Limber Logic Identity
+                <c-squiggle></c-squiggle>
+              </div>
+              <div slot="description" class="u-text-title">
+                Techologies Used: Adobe Illustrator
+              </div>
+            </c-section-header>
+
+            <div
+              class="
+              c-media-grid
+              u-bg-pattern-diagonal-alternate
+            "
+            >
+              <article
+                class="c-media-grid__text-item-wide"
+              >
+                <p>
+                  I created the brand identity for
+                  Limber Logic, a digital product design
+                  company in Charleston. I wanted the
+                  branding to have a sleek, techy,
+                  aesthetic.
+                </p>
+                <p>
+                  Limber Logic was the collaboration of
+                  my friend as Lead Developer and me as
+                  Lead Designer. We worked on various
+                  projects and I learned a lot in my
+                  time there.
+                </p>
+              </article>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=2
+                  href="images/Work/Limber-Logic-Light.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Limber-Logic-Light.jpg"
+                    alt="Limber Logic Logo Light"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=2
+                  href="images/Work/Limber-Logic-Dark.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Limber-Logic-Dark.jpg"
+                    alt="Limber Logic Logo Dark"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=2
+                  href="images/Work/Limber-Logic-Mockup-1-Dark.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Limber-Logic-Mockup-1-Dark.jpg"
+                    alt="Limber Logic Mockup Dark"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=2
+                  href="images/Work/Limber-Logic-Mockup-1-Light.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Limber-Logic-Mockup-1-Light.jpg"
+                    alt="Limber Logic Mockup Light"
+                  />
+                </a>
+              </div>
+            </div>
+          </c-modal>
+
+          <c-modal data-modal-trigger="modal-map-dashboard">
+            <c-section-header
+              class="u-bg-noise u-z-index-3"
+            >
+              <div slot="title">
+                Map Dashboard
+                <c-squiggle></c-squiggle>
+              </div>
+              <div slot="description" class="u-text-title">
+                  Techologies Used: Figma, Javascript, React
+              </div>
+            </c-section-header>
+            <div
+              class="c-media-grid u-bg-pattern-diagonal-alternate"
+            >
+              <article
+                class="c-media-grid__text-item-wide"
+              >
+                <p>
+                  These shots were created for an
+                  in-development web and mobile app
+                  for land developers.
+                </p>
+                <p>
+                  I was recruited to improve the overall
+                  user experience and help design the map
+                  interface. I used Figma to create
+                  wireframes, mockups, and a component
+                  system.
+                </p>
+                <p>
+                  I also helped the team refine the
+                  React-based frontend during a sprint
+                  before a deadline.
+                </p>
+              </article>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=3
+                  href="images/Work/Map-Browser.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Map-Browser.jpg"
+                    alt="Map Dashboard in Browser"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=3
+                  href="images/Work/Map-Components.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Map-Components.jpg"
+                    alt="Map Dashboard Components"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=3
+                  href="images/Work/Map-Figma.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Map-Figma.jpg"
+                    alt="Map Dashboard Figma Project"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=3
+                  href="images/Work/Map-Wireframe.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Map-Wireframe.jpg"
+                    alt="Map Dashboard Mockup"
+                  />
+                </a>
+              </div>
+            </div>
+          </c-modal>
+
+          <c-modal data-modal-trigger="modal-logos">
+            <c-section-header
+              class="u-bg-noise u-z-index-3"
+            >
+              <div slot="title">
+                Personal Branding
+                <c-squiggle></c-squiggle>
+              </div>
+              <div slot="description" class="u-text-title">
+                  Techologies Used: Adobe Illustrator
+              </div>
+            </c-section-header>
+            <div
+              class="c-media-grid u-bg-pattern-diagonal-alternate"
+            >
+              <article
+                class="c-media-grid__text-item-wide"
+              >
+                <p>
+                  This is a collection of logo variations
+                  created as part of a personal branding
+                  update.
+                </p>
+                <p>
+                  This project was a great exercise in
+                  using the process of rapid iteration to
+                  develop a final product.
+                </p>
+              </article>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=4
+                  href="images/Work/Personal-Branding-Mockup-1.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Personal-Branding-Mockup-1.jpg"
+                    alt="Personal Branding VHS Mockup"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=4
+                  href="images/Work/Personal-Branding-Mockup-2.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Personal-Branding-Mockup-2.jpg"
+                    alt="Personal Branding Stamp Mockup"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=4
+                  href="images/Work/Personal-Branding-All-1.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Personal-Branding-All-1.jpg"
+                    alt="All Personal Branding Logos Dark"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=4
+                  href="images/Work/Personal-Branding-All-2.jpg"
+                >
+                <img
+                  class="c-media-grid__image"
+                  src="images/Work/Personal-Branding-All-2.jpg"
+                  alt="All Personal Branding Logos Light"
+                />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=4
+                  href="images/Work/Personal-Branding-Logo-Final.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Personal-Branding-Logo-Final.jpg"
+                    alt="Selected Personal Branding Logo"
+                  />
+                </a>
+                <span
+                  class="c-media-grid__image-caption-alternate"
+                >
+                  This was the version I ended up using.
+                </span>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=4
+                  href="images/Work/Personal-Branding-Logo-Alt-1.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Personal-Branding-Logo-Alt-1.jpg"
+                    alt="Personal Branding Alternate Logo 1"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=4
+                  href="images/Work/Personal-Branding-Logo-Alt-2.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Personal-Branding-Logo-Alt-2.jpg"
+                    alt="Personal Branding Alternate Logo 2"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=4
+                  href="images/Work/Personal-Branding-Logo-Alt-3.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Personal-Branding-Logo-Alt-3.jpg"
+                    alt="Personal Branding Alternate Logo 3"
+                  />
+                </a>
+              </div>
+            </div>
+
+          </c-modal>
+
+          <c-modal
+            data-modal-trigger="modal-yippy"
+          >
+            <c-section-header
+              class="u-bg-noise u-z-index-3"
+            >
+              <div slot="title">
+                macOS Modern
+                <c-squiggle></c-squiggle>
+              </div>
+              <div slot="description" class="u-text-title">
+                Techologies Used: Figma, Adobe Illustrator
+              </div>
+            </c-section-header>
+
+            <div
+              class="
+              c-media-grid
+              u-bg-pattern-diagonal-alternate
+            "
+            >
+              <article
+                class="c-media-grid__text-item-wide"
+              >
+                <p>
+                  I contributed icons to an
+                  open-source clipboard manager for
+                  macOS made by Matt Davidson.
+                </p>
+                <p>
+                  I created a menu bar icon and three
+                  reversions of the app icon, included an
+                  updated version for macOS Big Sur.
+                  This project adheres to Apple's design
+                  guidelines.
+                </p>
+              </article>
+              <div class="c-media-grid__image-item">
+                <img
+                  class="c-media-grid__image"
+                  src="images/Work/Yippy-1.jpg"
+                  alt="Yippy Big Sur Icon"
+                />
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=5
+                  href="images/Work/Yippy-Menu-Bar.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Yippy-Menu-Bar.jpg"
+                    alt="Yippy Menu Bar Icon"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=5
+                  href="images/Work/Yippy-2.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Yippy-2.jpg"
+                    alt="Yippy Updated Icon"
+                  />
+                </a>
+              </div>
+              <div class="c-media-grid__image-item">
+                <a
+                  data-glightbox
+                  data-gallery=5
+                  href="images/Work/Yippy-3.jpg"
+                >
+                  <img
+                    class="c-media-grid__image"
+                    src="images/Work/Yippy-3.jpg"
+                    alt="Yippy Original Icon"
+                  />
+                </a>
+              </div>
+            </div>
+          </c-modal>
 
           <footer class="c-page-footer u-bg-noise js-reveal">
             <div class="c-footer__inner js-reveal-inner">
