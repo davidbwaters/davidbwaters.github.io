@@ -19,6 +19,11 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
         width: 100%;
       }
 
+      :host(:hover) {
+        filter: url('#animate');
+      }
+
+
       :host(.c-glitch-image--style-1) {
         --glitch-image-gap-horizontal: 0px;
         --glitch-image-gap-vertical: 0px;
@@ -880,7 +885,7 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
 
     },
 
-    attachShadow: {mode: 'open'},
+    attachShadow: { mode: 'open' },
 
     render() {
 
@@ -888,6 +893,7 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
         <style>
           ${this.styles}
         </style>
+
         <div
           class="c-glitch-image__inner"
         >

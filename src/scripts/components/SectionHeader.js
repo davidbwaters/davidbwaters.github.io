@@ -16,25 +16,25 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
         box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05);
         display: block;
         text-align: center;
+        will-change: transform, opacity;
       }
 
       ::slotted([slot='title']),
       ::slotted([slot='description']) {
-        border-bottom: solid 1px
-          var(--color-subtle-alternate);
         box-sizing: border-box;
         display: block;
       }
 
       ::slotted([slot='title']) {
+        filter: url('#animate');
         font-size: 1.4rem;
         font-family: var(--section-header-title-font), sans-serif;
         font-weight: var(--section-header-title-font-weight);
         line-height: 1.25;
-        padding-bottom: 3rem;
+        padding-bottom: 4rem;
         padding-left: .5rem;
         padding-right: .5rem;
-        padding-top: 4rem;
+        padding-top: 5rem;
         text-transform: uppercase;
       }
 
@@ -56,8 +56,8 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
           font-size: 2.0736rem;
           font-size: clamp(
             2.0736rem,
-            32.832px + 0.108vw,
-            2.16rem
+            9vw,
+            2.4rem
           );
         }
 
@@ -71,6 +71,8 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
       }
 
       ::slotted([slot='description']) {
+        border-bottom: solid 1px
+          var(--color-subtle-alternate);
         box-shadow: 0 0 0 1px var(--color-subtle-alternate);
         padding-bottom: 1.5rem;
         padding-left: 1.5rem;

@@ -26,6 +26,7 @@ when('uce-lib').then(
           --hero-image-paint-2-dark: url('/images/Hero-Paint-2-Dark.jpg');
           --hero-image-paint-2-light: url('/images/Hero-Paint-2-Light.jpg');
 
+          background-color: var(--color-bg);
           display: grid;
           grid-template-rows: 4fr 5fr 4.5rem;
           height: 100%;
@@ -102,6 +103,7 @@ when('uce-lib').then(
         }
 
         .c-hero__tagline {
+          filter: url('#animate');
           font-family: var(--font-display), sans-serif;
           font-weight: var(--font-display-weight);
           font-size: clamp(1.0rem, 4.2vw, 3.5rem);
@@ -134,6 +136,7 @@ when('uce-lib').then(
           -webkit-text-stroke-width: 1px;
           -webkit-text-stroke-color: var(--color-fg);
           opacity: 0.05;
+          pointer-events: none;
           position: absolute;
           top: 0;
           z-index: 0;
@@ -235,28 +238,43 @@ when('uce-lib').then(
         }
 
         .c-hero__me,
+        .c-hero__me-dark,
         .c-hero__me-light {
           background-position: center;
           background-size: cover;
+          width: 100%;
         }
 
         .c-hero__me {
-          background-image: url('/images/Me-Dark.jpg');
-          border-right: solid 1px var(--color-accent);
-
-          filter: hue-rotate(-2deg);
-          opacity: 0.9;
+          display: grid;
+          grid-template-rows: 1fr;
+          overflow: hidden;
           position: relative;
         }
 
-        .c-hero__me .c-hero__me-light {
+
+        .c-hero__me-dark {
+          background-image: url('/images/Me-Dark.jpg');
+          background-size: cover;
+          filter: hue-rotate(-2deg) url('#animate');;
+          grid-column: 1;
+          grid-row: 1;
+          height: 100%;
+          opacity: var(--theme-dark-opacity);
+          transform: scale(1.025);
+          width: 100%;
+        }
+
+        .c-hero__me-light {
           background-blend-mode: luminosity;
           background-color: var(--color-bg-primary);
           background-image: url('/images/Me-Light.jpg');
-          content: '';
+          filter: url('#animate');
+          grid-column: 1;
+          grid-row: 1;
           height: 100%;
           opacity: var(--theme-light-opacity);
-          position: absolute;
+          transform: scale(1.025);
           width: 100%;
         }
 
@@ -280,11 +298,12 @@ when('uce-lib').then(
               --bg-pattern-diagonal-tight-size
             )
             var(--bg-pattern-diagonal-tight-size);
+          border-left: solid 1px var(--color-accent);
+
           display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr;
-          grid-template-rows: 1fr 1fr 1fr;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr;
           height: 100%;
-          justify-items: center;
           padding-bottom: var(--spacing-responsive-y);
           padding-left: var(--spacing-responsive-x);
           padding-right: var(--spacing-responsive-x);
@@ -310,6 +329,15 @@ when('uce-lib').then(
           z-index: -1;
         }
 
+        .c-hero__name-stylized-inner {
+          display: grid;
+          filter: url('#animate');
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr 1fr;
+          height: 100%;
+          justify-items: center;
+        }
+
         .c-hero__name-stylized-letter {
           font-family: var(--font-accent), sans-serif;
           font-size: 0.8rem;
@@ -330,6 +358,7 @@ when('uce-lib').then(
           align-content: center;
           border-top: solid 1px var(--color-accent);
           display: grid;
+          filter: url('#animate');
           font-family: var(--font-heading), sans-serif;
           font-weight: var(--font-heading-weight);
           font-size: clamp(1.4rem, 2.8vw, 2.4rem);
@@ -637,7 +666,7 @@ when('uce-lib').then(
           .split('')
 
         const nameEl = this.shadowRoot.querySelector(
-          '.c-hero__name-stylized'
+          '.c-hero__name-stylized-inner'
         )
 
         nameEl.innerHTML = name
@@ -683,12 +712,18 @@ when('uce-lib').then(
           <div class="
             c-hero__me js-hero-me
           ">
+            <div class="c-hero__me-dark js-hero-me">
+            </div>
             <div class="c-hero__me-light js-hero-me">
             </div>
           </div>
           <div class="
             c-hero__name-stylized
-          "></div>
+          ">
+            <div class="
+              c-hero__name-stylized-inner
+            "></div>
+          </div>
           <div class="c-hero__heading">
             <slot name="heading"></slot>
           </div>
@@ -700,6 +735,42 @@ when('uce-lib').then(
           <slot name="footer-box-right"> </slot>
           <slot name="bottom"> </slot>
         </footer>
+
+        <svg style="display: none;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+            id="morphing-animation" x="0px" y="0px" viewBox="0 0 200 120" overflow="scroll">
+          <!-- SVG Filter -->
+          <filter id="animate" width="150%" height="150%">
+            <!-- Generate Noise - fractalNoise/turbulent -->
+            <feTurbulence type="fractalNoise" seed="77"
+                          numOctaves=".025" baseFrequency="0.01" />
+            <!-- Cycle through Hue - Hue wheel allows for seamless loop  -->
+            <feColorMatrix type="hueRotate" values="0">
+              <animate attributeName="values"
+                      values="0;360" dur="3s" repeatCount="indefinite" />
+            </feColorMatrix>
+            <!-- Extract alpha / filter colors -->
+            <feColorMatrix type="matrix"
+                          values="1 0 0 0 0
+                                  0 1 0 0 0
+                                  0 0 1 0 0
+                                  0 0 0 0 1" />
+            <!-- Optional Filters -->
+            <!-- <feMorphology operator="dilate" radius="1" /> -->
+            <!-- <feMorphology operator="erode" radius="1" /> -->
+            <feGaussianBlur stdDeviation="0.5" />
+            <!-- Apply Displacement Map -->
+            <feDisplacementMap in="SourceGraphic" scale="6"
+                              xChannelSelector="R", yChannelSelector="B" />
+            <!-- Blending with Original -->
+            <!-- <feBlend mode="soft-light" in2="SourceGraphic"/> -->
+            <!-- <feComposite operator="in" in2="SourceGraphic"/> -->
+          </filter>
+          <!-- Object to be filtered -->
+          <circle filter="url(#animate)" fill="#202020"
+                  cx="100" cy="60" r="50" />
+          <!-- <rect filter="url(#animate)" fill="#202020"
+                    x="50" y="10" width="100" height="100" /> -->
+          </svg>
       `
 
       }

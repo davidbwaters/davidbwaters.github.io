@@ -612,7 +612,7 @@ when('uce-lib').then(({ define, css }) => {
               Building digital solutions to promote growth.
               <c-squiggle></c-squiggle>
             </div>
-            <c-theme-switch slot="footer-box-left">
+            <c-theme-switch slot="footer-box-left" data-cursor-target>
               <i class="c-icon c-icon--switch"></i>
             </c-theme-switch>
             <div slot="footer-content-left">
@@ -659,8 +659,8 @@ when('uce-lib').then(({ define, css }) => {
                 enjoy working with.
               </div>
             </c-section-header>
-            <ul class="c-skill-list js-reveal">
-              <li class="c-skill-list__skill">
+            <ul class="c-skill-list">
+              <li class="c-skill-list__skill js-reveal">
                 <img
                   class="c-skill-list__image"
                   src="images/Elephant.png"
@@ -679,7 +679,7 @@ when('uce-lib').then(({ define, css }) => {
                   </span>
                 </div>
               </li>
-              <li class="c-skill-list__skill">
+              <li class="c-skill-list__skill js-reveal">
                 <img
                   class="c-skill-list__image"
                   src="images/Lion.png"
@@ -698,7 +698,7 @@ when('uce-lib').then(({ define, css }) => {
                   </span>
                 </div>
               </li>
-              <li class="c-skill-list__skill">
+              <li class="c-skill-list__skill js-reveal">
                 <img
                   class="c-skill-list__image"
                   src="images/Squirrel.png"
@@ -717,7 +717,7 @@ when('uce-lib').then(({ define, css }) => {
                   </span>
                 </div>
               </li>
-              <li class="c-skill-list__skill">
+              <li class="c-skill-list__skill js-reveal">
                 <img
                   class="c-skill-list__image"
                   src="images/Camel.png"
@@ -793,7 +793,7 @@ when('uce-lib').then(({ define, css }) => {
                     u-cursor-zoom-in"
                   data-modal-target="fitbux"
                 >
-                  <c-glitch-image
+                  <c-glitch-image data-cursor-target
                     src="images/Work/Fitbux-1.jpg"
                     alt="Fitbux Screenshot"
                     glitch=2
@@ -801,7 +801,7 @@ when('uce-lib').then(({ define, css }) => {
                     height="600"
                   >
                   </c-glitch-image>
-                  <c-glitch-image
+                  <c-glitch-image data-cursor-target
                     src="images/Work/Fitbux-2.jpg"
                     alt="Fitbux Screenshot"
                     glitch=2
@@ -862,7 +862,7 @@ when('uce-lib').then(({ define, css }) => {
                     u-cursor-zoom-in"
                   data-modal-target="modal-macos-modern"
                 >
-                  <c-glitch-image
+                  <c-glitch-image data-cursor-target
                     src="images/Work/macOS-Modern-All.jpg"
                     alt="macOS Modern Light Theme Screenshot"
                     glitch=2
@@ -870,7 +870,7 @@ when('uce-lib').then(({ define, css }) => {
                     height="600"
                   >
                   </c-glitch-image>
-                  <c-glitch-image
+                  <c-glitch-image data-cursor-target
                     src="images/Work/macOS-Modern-Dark-1.jpg"
                     alt="macOS Modern Dark Theme Screenshot"
                     glitch=2
@@ -958,7 +958,7 @@ when('uce-lib').then(({ define, css }) => {
                     u-cursor-zoom-in"
                   data-modal-target="modal-limber-logic"
                 >
-                  <c-glitch-image
+                  <c-glitch-image data-cursor-target
                     src="images/Work/Limber-Logic-Mockup-1-Dark.jpg"
                     alt="Limber Logic Logo Mockup 1 Dark"
                     glitch=2
@@ -966,7 +966,7 @@ when('uce-lib').then(({ define, css }) => {
                     height="600"
                   >
                   </c-glitch-image>
-                  <c-glitch-image
+                  <c-glitch-image data-cursor-target
                       src="images/Work/Limber-Logic-Both.svg"
                       alt="Limber Logic Logo Dark and Light Versions"
 
@@ -1026,7 +1026,7 @@ when('uce-lib').then(({ define, css }) => {
                   "
                   data-modal-target="modal-map-dashboard"
                 >
-                  <c-glitch-image
+                  <c-glitch-image data-cursor-target
                     src="images/Work/Map-Browser.jpg"
                     alt="Map Dashboard in a Browser"
                     glitch=2
@@ -1034,7 +1034,7 @@ when('uce-lib').then(({ define, css }) => {
                     height="712"
                   >
                   </c-glitch-image>
-                  <c-glitch-image
+                  <c-glitch-image data-cursor-target
                     src="images/Work/Map-Figma.jpg"
                     alt="Map Dashboard in Figma"
                     glitch=2
@@ -1090,7 +1090,7 @@ when('uce-lib').then(({ define, css }) => {
                   class="c-work-list__item-preview u-cursor-zoom-in"
                   data-modal-target="modal-logos"
                 >
-                  <c-glitch-image
+                  <c-glitch-image data-cursor-target
                     src="images/Work/Personal-Branding-Mockup-1.jpg"
                     alt="Personal Branding VHS Mockup"
                     glitch=2
@@ -1098,7 +1098,7 @@ when('uce-lib').then(({ define, css }) => {
                     height="712"
                   >
                   </c-glitch-image>
-                  <c-glitch-image
+                  <c-glitch-image data-cursor-target
                     src="images/Work/Personal-Branding-All-2.jpg"
                     alt="Personal Branding Logos Dark BG"
                     glitch=2
@@ -1247,7 +1247,7 @@ when('uce-lib').then(({ define, css }) => {
                   "
                   data-modal-target="modal-yippy"
                 >
-                  <c-glitch-image
+                  <c-glitch-image data-cursor-target
                     src="images/Work/Yippy-1.jpg"
                     alt="Yippy Icon for macOS Big Sur"
                     glitch=2
@@ -1255,7 +1255,7 @@ when('uce-lib').then(({ define, css }) => {
                     height="600"
                   >
                   </c-glitch-image>
-                  <c-glitch-image
+                  <c-glitch-image data-cursor-target
                     src="images/Work/Yippy-Menu-Bar.jpg"
                     alt="Yippy Menu Bar Icon"
                     glitch=2
@@ -1328,7 +1328,7 @@ when('uce-lib').then(({ define, css }) => {
                       u-cursor-zoom"
                     data-modal-target="modal-artwork"
                   >
-                    <c-glitch-image
+                    <c-glitch-image data-cursor-target
                       src="images/Work/Art Me.jpg"
                       alt="Artwork Me"
                       class="
@@ -1339,7 +1339,7 @@ when('uce-lib').then(({ define, css }) => {
                       height="1024"
                     >
                     </c-glitch-image>
-                    <c-glitch-image
+                    <c-glitch-image data-cursor-target
                       src="images/Work/Art Melted.jpg"
                       alt="Artwork Melted"
                       glitch=2
@@ -2093,7 +2093,7 @@ when('uce-lib').then(({ define, css }) => {
 
           <c-loader>
             <div class="u-bg-noise-heavy">
-              <c-glitch-image
+              <c-glitch-image data-cursor-target
                 src="images/Loader.svg"
                 active
                 glitch=1
@@ -2104,6 +2104,42 @@ when('uce-lib').then(({ define, css }) => {
             </div>
           </c-loader>
 
+          <c-cursor></c-cursor>
+          <svg style="display: none;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+            id="morphing-animation" x="0px" y="0px" viewBox="0 0 200 120" overflow="scroll">
+          <!-- SVG Filter -->
+          <filter id="animate" width="150%" height="150%">
+            <!-- Generate Noise - fractalNoise/turbulent -->
+            <feTurbulence type="fractalNoise" seed="77"
+                          numOctaves=".025" baseFrequency="0.01" />
+            <!-- Cycle through Hue - Hue wheel allows for seamless loop  -->
+            <feColorMatrix type="hueRotate" values="0">
+              <animate attributeName="values"
+                      values="0;360" dur="3s" repeatCount="indefinite" />
+            </feColorMatrix>
+            <!-- Extract alpha / filter colors -->
+            <feColorMatrix type="matrix"
+                          values="1 0 0 0 0
+                                  0 1 0 0 0
+                                  0 0 1 0 0
+                                  0 0 0 0 1" />
+            <!-- Optional Filters -->
+            <!-- <feMorphology operator="dilate" radius="1" /> -->
+            <!-- <feMorphology operator="erode" radius="1" /> -->
+            <feGaussianBlur stdDeviation="0.5" />
+            <!-- Apply Displacement Map -->
+            <feDisplacementMap in="SourceGraphic" scale="8"
+                              xChannelSelector="R", yChannelSelector="B" />
+            <!-- Blending with Original -->
+            <!-- <feBlend mode="soft-light" in2="SourceGraphic"/> -->
+            <!-- <feComposite operator="in" in2="SourceGraphic"/> -->
+          </filter>
+          <!-- Object to be filtered -->
+          <circle filter="url(#animate)" fill="#202020"
+                  cx="100" cy="60" r="50" />
+          <!-- <rect filter="url(#animate)" fill="#202020"
+                    x="50" y="10" width="100" height="100" /> -->
+          </svg>
         </main>
       `
 
