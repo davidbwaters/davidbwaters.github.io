@@ -279,35 +279,12 @@ when('uce-lib').then(
         }
 
         .c-hero__name-stylized {
-          background-image: linear-gradient(
-            -45deg,
-            var(--color-opaque) 0%,
-            var(--color-opaque) 12.5%,
-            transparent 12.51%,
-            transparent 37.49%,
-            var(--color-opaque) 37.5%,
-            var(--color-opaque) 62.5%,
-            transparent 62.51%,
-            transparent 87.49%,
-            var(--color-opaque) 87.5%,
-            var(--color-opaque) 100%
-          );
-          background-position: 0 0;
-          background-repeat: repeat;
-          background-size: var(
-              --bg-pattern-diagonal-tight-size
-            )
-            var(--bg-pattern-diagonal-tight-size);
           border-left: solid 1px var(--color-accent);
 
           display: grid;
           grid-template-columns: 1fr;
           grid-template-rows: 1fr;
           height: 100%;
-          padding-bottom: var(--spacing-responsive-y);
-          padding-left: var(--spacing-responsive-x);
-          padding-right: var(--spacing-responsive-x);
-          padding-top: var(--spacing-responsive-y);
           position: relative;
           text-align: center;
           width: 100%;
@@ -330,12 +307,36 @@ when('uce-lib').then(
         }
 
         .c-hero__name-stylized-inner {
+
+          background-image: linear-gradient(
+            -45deg,
+            var(--color-opaque) 0%,
+            var(--color-opaque) 12.5%,
+            transparent 12.51%,
+            transparent 37.49%,
+            var(--color-opaque) 37.5%,
+            var(--color-opaque) 62.5%,
+            transparent 62.51%,
+            transparent 87.49%,
+            var(--color-opaque) 87.5%,
+            var(--color-opaque) 100%
+          );
+          background-position: 0 0;
+          background-repeat: repeat;
+          background-size: var(
+              --bg-pattern-diagonal-tight-size
+            )
+            var(--bg-pattern-diagonal-tight-size);
           display: grid;
           filter: url('#animate');
           grid-template-columns: 1fr 1fr 1fr 1fr;
           grid-template-rows: 1fr 1fr 1fr;
           height: 100%;
           justify-items: center;
+          padding-bottom: var(--spacing-responsive-y);
+          padding-left: var(--spacing-responsive-x);
+          padding-right: var(--spacing-responsive-x);
+          padding-top: var(--spacing-responsive-y);
         }
 
         .c-hero__name-stylized-letter {
@@ -742,7 +743,7 @@ when('uce-lib').then(
           <filter id="animate" width="150%" height="150%">
             <!-- Generate Noise - fractalNoise/turbulent -->
             <feTurbulence type="fractalNoise" seed="77"
-                          numOctaves=".025" baseFrequency="0.01" />
+                          numOctaves="1" baseFrequency="0.01" />
             <!-- Cycle through Hue - Hue wheel allows for seamless loop  -->
             <feColorMatrix type="hueRotate" values="0">
               <animate attributeName="values"

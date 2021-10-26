@@ -10,6 +10,8 @@ import api from '../../config/api.js'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+import VanillaTilt from 'vanilla-tilt'
+
 import './fancy'
 
 const { url, assets } = api
@@ -25,6 +27,20 @@ when('uce-lib').then(({ define, css }) => {
     init() {
 
       this.render()
+
+      setTimeout(() => {
+
+        let tiltElements = document.querySelectorAll('[data-tilt]')
+
+        tiltElements = [
+          ...tiltElements,
+          ...document.querySelector('c-hero')
+            .shadowRoot.querySelectorAll('[data-tilt]')
+        ]
+
+        VanillaTilt.init(tiltElements)
+
+      }, 1000)
 
       gsap.registerPlugin(ScrollTrigger)
 
@@ -535,8 +551,6 @@ when('uce-lib').then(({ define, css }) => {
           )
 
       })
-
-      console.log(skills)
 
     },
 
@@ -2111,7 +2125,7 @@ when('uce-lib').then(({ define, css }) => {
           <filter id="animate" width="150%" height="150%">
             <!-- Generate Noise - fractalNoise/turbulent -->
             <feTurbulence type="fractalNoise" seed="77"
-                          numOctaves=".025" baseFrequency="0.01" />
+                          numOctaves="1" baseFrequency="0.01" />
             <!-- Cycle through Hue - Hue wheel allows for seamless loop  -->
             <feColorMatrix type="hueRotate" values="0">
               <animate attributeName="values"

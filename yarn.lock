@@ -9476,6 +9476,11 @@ validate-npm-package-name@^3.0.0:
   dependencies:
     builtins "^1.0.3"
 
+vanilla-tilt@^1.7.2:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/vanilla-tilt/-/vanilla-tilt-1.7.2.tgz#59a5565d9f1f6d392a36969f223fb600dd101a81"
+  integrity sha512-arf2wY2Y65rP6Zxve9PnUUnRl9nQ1KenPNae6QRaVq/PEvaIto2bC4jYirNJ19U7nLkzI1H9O+nYtcQlX7BTsA==
+
 vendors@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.4.tgz#e2b800a53e7a29b93506c3cf41100d16c4c4ad8e"
