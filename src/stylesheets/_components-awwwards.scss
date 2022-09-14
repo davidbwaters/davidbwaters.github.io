@@ -4,21 +4,22 @@
 
 
 .c-awwwards {
-  bottom: 4.8rem;
+  bottom: 7rem;
   color: #342867;
-  padding: 0 .85rem;
+  padding: 0 0rem;
   position: fixed;
-  right: 0;
+  right: .5rem;
   transform: scale(.66) translateX(0%);
   transform-origin: right bottom;
   z-index: 999;
 }
 
-@media (min-width:35em) {
+@media (min-width:45em) {
 
   .c-awwwards {
     bottom: 5.25rem;
-    padding: 0 1.4rem;
+    padding: 0 ;
+    right: 1.0rem;
   }
 
 }

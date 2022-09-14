@@ -64,7 +64,7 @@ when('uce-lib').then(({ define, css }) => {
             trigger: container,
             toggleActions: 'restart none none reset',
             start: 'top bottom',
-            end: '+=10',
+            end: '+=10'
           }
         })
 
@@ -73,10 +73,10 @@ when('uce-lib').then(({ define, css }) => {
         tl.from(targets, {
           y: 120,
           opacity: 0,
-          duration: 0.8,
+          duration: 0.6,
           delay: 0,
-          stagger: '0.25',
-          scale: 1.1,
+          stagger: 0.3,
+          scaleY: 1.4,
           ease: 'Power2.out',
           onComplete: () => {
 
@@ -111,11 +111,11 @@ when('uce-lib').then(({ define, css }) => {
         })
 
         tl.from(container, {
-          opacity: 0.25,
-          scale: 1.1,
-          duration: 0.8,
-          delay: 0.2,
-          stagger: '0.25',
+          opacity: 0,
+          scaleY: 1.4,
+          duration: 0.6,
+          delay: 0.15,
+          stagger: 0.3,
           ease: 'Power2.out',
           onComplete: () => {
 
