@@ -8,22 +8,27 @@
   -webkit-text-stroke-color: var(--color-bg);
 }
 
-:root {
-  --doc-height: 100%;
-}
-
 :root,
 body,
 main {
   height: 100vh !important;
   height: var(--doc-height) !important;
   max-width: 100vw;
-  //overflow-x: hidden;
+
+}
+
+:root {
+  --doc-height: 100%;
+  overflow-x: hidden;
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-fg);
+  overflow-y: scroll;
+}
+
+main {
 }
 
 img {
