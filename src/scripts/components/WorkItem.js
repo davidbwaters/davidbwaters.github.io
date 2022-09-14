@@ -335,6 +335,7 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
       'github': null,
       'vsc': null,
       'npm': null,
+      'site': null,
       'threeButton': false,
       'hideModal': false
     },
@@ -466,7 +467,6 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
             </a>
           ` : ''}
 
-
           ${this.npm ? html`
             <a
               class="c-button"
@@ -480,6 +480,22 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
                 "
               ></i>
               Add on NPM
+            </a>
+          ` : ''}
+
+          ${this.site ? html`
+            <a
+              class="c-button"
+              href="${this.site}"
+              title=${this.title + 'Site Link'}
+            >
+              <i
+                class="
+                  c-icon
+                  c-icon--plus
+                "
+              ></i>
+              Visit Website
             </a>
           ` : ''}
 

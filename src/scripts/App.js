@@ -776,9 +776,36 @@ when('uce-lib').then(({ define, css }) => {
 
               <c-work-item
                 class='js-reveal-fade'
+                title='Matrix'
+                slug='Matrix'
+                .gallery=${1}
+                .tags=${['Figma', 'TypeScript', 'React', 'Frontend Development']}
+                .previewImages=${[
+                  'images/Work/Matrix-1.jpg',
+                  'images/Work/Matrix-2.jpg'
+                ]}
+                .images=${[
+                  'images/Work/Matrix-1.jpg',
+                  'images/Work/Matrix-2.jpg',
+                  'images/Work/Matrix-3.jpg',
+                  'images/Work/Matrix-4.jpg',
+                  'images/Work/Matrix-5.jpg',
+                  'images/Work/Matrix-6.jpg'
+                ]}
+                site='http://mtx.gg'
+                shortDescription='Revolutionizing the digital economy, one quest at a time.'
+                .description=${[
+                  `While working as Lead Designer at <a href='http://mtx.gg'>Matrix</a> in 2022, I was tasked with developing their branding and design system.`, `Using Figma and a design token based frontend, I also helped develop the designs into a React-based webapp.`
+                ]}
+
+                .wide=${true}
+              ></c-work-item>
+
+              <c-work-item
+                class='js-reveal-fade'
                 title='Fitbux'
                 slug='Fitbux'
-                .gallery=${1}
+                .gallery=${2}
                 .tags=${['Figma']}
                 .previewImages=${[
                   'images/Work/Fitbux-1.jpg',
@@ -798,11 +825,12 @@ when('uce-lib').then(({ define, css }) => {
                 .wide=${true}
               ></c-work-item>
 
+
               <c-work-item
                 class='js-reveal-fade'
                 title='macOS Modern'
                 slug='macOSModern'
-                .gallery=${2}
+                .gallery=${3}
                 .tags=${['Frontend Development']}
                 .previewImages=${[
                   'images/Work/macOS-Modern-All.jpg',
@@ -820,7 +848,7 @@ when('uce-lib').then(({ define, css }) => {
                 .description=${[
                   `I created the macOS Modern Visual Studio Code theme to enable users to experience the best code editor while maintaining a native-like look and feel.`,
                   `The theme includes multiple icon sets and a matching light and dark app icon.`,
-                  `At the time of this writing, it has over 22 thousand installs.`
+                  `At the time of this writing, it has over 71 thousand installs.`
                 ]}
 
                 .wide=${true}
@@ -834,7 +862,7 @@ when('uce-lib').then(({ define, css }) => {
                 class='js-reveal-fade'
                 title='Limber Logic Brand Identity'
                 slug='LimberLogic'
-                .gallery=${3}
+                .gallery=${4}
                 .tags=${['Adobe Illustrator']}
                 .previewImages=${[
                   'images/Work/Limber-Logic-Mockup-1-Dark.jpg',
@@ -859,8 +887,8 @@ when('uce-lib').then(({ define, css }) => {
                 class='js-reveal-fade'
                 title='Map Dashboard'
                 slug='MapDashboard'
-                .gallery=${4}
-                .tags=${['Figma', 'Javascript', 'React']}
+                .gallery=${5}
+                .tags=${['Figma', 'Javascript', 'React', 'Frontend Development']}
                 .previewImages=${[
                   'images/Work/Map-Browser.jpg',
                   'images/Work/Map-Figma.jpg'
@@ -885,7 +913,7 @@ when('uce-lib').then(({ define, css }) => {
                 class='js-reveal-fade'
                 title='Personal Branding'
                 slug='PersonalBranding'
-                .gallery=${5}
+                .gallery=${6}
                 .tags=${['Adobe Illustrator']}
                 .previewImages=${[
                   'images/Work/Personal-Branding-Mockup-1.jpg',
@@ -912,8 +940,8 @@ when('uce-lib').then(({ define, css }) => {
                 class='js-reveal-fade'
                 title='Substructure ITCSS Framework'
                 slug='Substructure'
-                .gallery=${6}
-                .tags=${['CSS/SASS', 'BEM', 'ITCSS', 'Lerna']}
+                .gallery=${7}
+                .tags=${['CSS/SASS', 'BEM', 'ITCSS', 'Lerna', 'Frontend Development']}
                 .previewImages=${[
                   'images/Work/Substructure-Text.svg',
                   'images/Work/Substructure-Shot.jpg'
@@ -930,11 +958,12 @@ when('uce-lib').then(({ define, css }) => {
 
               ></c-work-item>
 
+
               <c-work-item
                 class='js-reveal-fade'
                 title='Yippy Clipboard Manager'
                 slug='Yippy'
-                .gallery=${6}
+                .gallery=${8}
                 .tags=${['Figma', 'Adobe Illustrator']}
                 .previewImages=${[
                   'images/Work/Yippy-1.jpg',
