@@ -90,6 +90,8 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
         background-color: var(--color-bg-opaque);
         backdrop-filter: blur(0.75rem);
         box-shadow: 0 0 0 1px var(--color-subtle-alternate);
+        display: grid;
+        gap: 0.3rem;
         padding-bottom: 1.25rem;
         padding-top: 1.25rem;
       }
@@ -97,6 +99,7 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
       @media (min-width:45em) {
 
         .c-work-list__item-info-inner {
+          gap: 0.4rem;
           padding-bottom: 1.5rem;
           padding-top: 1.5rem;
         }
@@ -107,10 +110,8 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
        font-size: clamp(1.33rem, 3vw, 2rem);
         line-height: 1.1;
         margin: 0;
-        padding-bottom: .5rem;
         padding-left:  1.5rem;
         padding-right: 1.5rem;
-        padding-top: 0rem;
       }
 
       .c-work-list__item-info-description {
@@ -142,10 +143,8 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
       }
 
       .c-work-list__item-info-taglist {
-        padding-bottom: .5rem;
         padding-left:  1.5rem;
         padding-right: 1.5rem;
-        padding-top: 0rem;
       }
 
 

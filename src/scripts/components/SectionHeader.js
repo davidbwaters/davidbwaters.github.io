@@ -74,10 +74,18 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
         border-bottom: solid 1px
           var(--color-subtle-alternate);
         box-shadow: 0 0 0 1px var(--color-subtle-alternate);
+        font-size: .8em;
         padding-bottom: 1.5rem;
         padding-left: 1.5rem;
         padding-right: 1.5rem;
         padding-top: 1.5rem;
+      }
+
+
+      @media (min-width: 45em) {
+        ::slotted([slot='description']) {
+          font-size: 1em;
+        }
       }
     `,
 
