@@ -84,9 +84,9 @@ when('uce-lib').then(({ define, css }) => {
         tl.from(targets, {
           y: 120,
           opacity: 0,
-          duration: 0.6,
+          duration: 0.5,
           delay: 0,
-          stagger: 0.3,
+          stagger: 0.1,
           scaleY: 1.4,
           ease: 'Power2.out',
           onComplete: () => {
@@ -126,9 +126,9 @@ when('uce-lib').then(({ define, css }) => {
         tl.from(container, {
           opacity: 0,
           scaleY: 1.4,
-          duration: 0.6,
-          delay: 0.15,
-          stagger: 0.3,
+          duration: 0.5,
+          delay: 0.1,
+          stagger: 0.1,
           ease: 'Power2.out',
           onComplete: () => {
 
