@@ -42,8 +42,18 @@ when('uce-lib').then(({ define, css }) => {
 
       }, 1000)
 
-      gsap.registerPlugin(ScrollTrigger)
+      const documentHeight = () => {
 
+        const doc = document.documentElement
+        doc.style.setProperty('--doc-height', `${window.innerHeight}px`)
+
+      }
+
+      window.addEventListener('resize', documentHeight)
+
+      documentHeight()
+
+      gsap.registerPlugin(ScrollTrigger)
 
       let revealContainers = document.querySelectorAll('.js-reveal')
 
@@ -877,7 +887,7 @@ when('uce-lib').then(({ define, css }) => {
                 shortDescription='I created the brand identity for Limber Logic, a digital product design company in Charleston.'
                 .description=${[
                   `I created the brand identity for Limber Logic, a digital product design company in Charleston. I wanted the branding to have a sleek, techy, aesthetic.`,
-                  `Limber Logic was the collaboration of my friend as Lead Developer and me as Lead Designer. We worked on various projects and I learned a lot in my time there.`,
+                  `Limber Logic was the collaboration of my friend as Lead Developer and me as Lead Designer. We worked on various projects and I learned a lot in my time there.`
                 ]}
                 .wide=${true}
               ></c-work-list-item>

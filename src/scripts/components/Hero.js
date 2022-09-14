@@ -30,9 +30,9 @@ when('uce-lib').then(
           display: grid;
           grid-template-rows: 4fr 5fr 4.5rem;
           height: 100%;
-          height: -webkit-fill-available;
+          height: var(--doc-height);
           max-height: calc(100vh - 3.75rem);
-          max-height: -webkit-fill-available;
+          max-height: var(--doc-height);
           min-height: 28rem;
           z-index: 2;
         }
@@ -41,7 +41,6 @@ when('uce-lib').then(
           :host {
             grid-template-rows: 2fr auto 4.5rem;
             min-height: 30rem;
-            max-height: -webkit-fill-available;;
           }
         }
 
