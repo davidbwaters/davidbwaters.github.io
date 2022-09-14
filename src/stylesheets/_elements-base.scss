@@ -8,6 +8,10 @@
   -webkit-text-stroke-color: var(--color-bg);
 }
 
+:root {
+  --doc-height: 100%;
+}
+
 :root,
 body,
 main {
@@ -18,19 +22,11 @@ main {
   --doc-height: 100%;
   height: 100vh !important;
   height: var(--doc-height) !important;
-  overflow-x: hidden;
-  // contain: paint;
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-fg);
-  height: 100%;
-  overflow-y: auto;
-}
-
-main {
-  //overflow-y: auto;
   height: 100%;
 }
 
