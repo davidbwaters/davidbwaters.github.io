@@ -71,6 +71,7 @@ when('uce-lib').then(({ define, css }) => {
 
         let tl = gsap.timeline({
           scrollTrigger: {
+            scroller: document.body,
             trigger: container,
             toggleActions: 'restart none none reset',
             start: 'top bottom',
@@ -113,6 +114,8 @@ when('uce-lib').then(({ define, css }) => {
 
         let tl = gsap.timeline({
           scrollTrigger: {
+
+            scroller: document.body,
             trigger: container,
             toggleActions: 'restart none none reset',
             start: 'top bottom',
