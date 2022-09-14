@@ -19,12 +19,12 @@ main {
 :root {
   --doc-height: 100%;
   // overflow-x: hidden;
-  contain: paint;
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-fg);
+  contain: paint;
   overflow-y: auto;
 }
 
