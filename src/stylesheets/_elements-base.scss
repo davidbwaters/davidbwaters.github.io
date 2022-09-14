@@ -14,21 +14,18 @@ main {
   height: 100vh !important;
   height: var(--doc-height) !important;
   max-width: 100vw;
-
 }
 
 :root {
   --doc-height: 100%;
-  overflow-x: hidden;
+  // overflow-x: hidden;
+  contain: paint;
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-fg);
   overflow-y: scroll;
-}
-
-main {
 }
 
 img {
