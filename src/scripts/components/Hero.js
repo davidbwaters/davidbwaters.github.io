@@ -31,8 +31,7 @@ when('uce-lib').then(
           grid-template-rows: 4fr 5fr 4.5rem;
           height: 100%;
           height: var(--doc-height);
-          max-height: calc(100vh - 3.75rem);
-          max-height: var(--doc-height);
+          max-height: 100%;
           min-height: 28rem;
           z-index: 2;
         }
