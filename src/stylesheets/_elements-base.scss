@@ -18,8 +18,8 @@ main {
   --doc-height: 100%;
   height: 100vh !important;
   height: var(--doc-height) !important;
-  // overflow-x: hidden;
-  contain: paint;
+  overflow-x: hidden;
+  // contain: paint;
 }
 
 body {
