@@ -70,13 +70,13 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
         this.style.opacity = 0
         this.style.pointerEvents = 'none'
 
-      }, 800)
+      }, 2000)
 
       setTimeout(() => {
 
         this.style.display = 'none'
 
-      }, 2000)
+      }, 4000)
 
     },
 
