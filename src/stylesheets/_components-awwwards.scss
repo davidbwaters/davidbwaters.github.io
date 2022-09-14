@@ -1,0 +1,25 @@
+/*
+ *  Components - Work List
+ */
+
+
+.c-awwwards {
+  bottom: 5rem;
+  color: #342867;
+  padding: 0 1.25rem;
+  position: fixed;
+  right: 0;
+  transform: scale(.66) translateX(0%);
+  transform-origin: right bottom;
+  z-index: 999;
+}
+
+@media (min-width:35em) {
+
+  .c-awwwards {
+    bottom: 5rem;
+    padding: 0 1.75rem;
+  }
+
+}
+

@@ -106,7 +106,7 @@ when('uce-lib').then(
           filter: url('#animate');
           font-family: var(--font-display), sans-serif;
           font-weight: var(--font-display-weight);
-          font-size: clamp(1.0rem, 4.2vw, 3.5rem);
+          font-size: clamp(1.0rem, 4.05vw, 3.5rem);
           line-height: 1.2;
           min-height: 0vw;
           max-width: 90vw;
@@ -202,7 +202,7 @@ when('uce-lib').then(
           .c-hero__name {
             left: 1.5rem;
             text-align: right;
-            transform: rotate(90deg) translateY(-0.6rem)
+            transform: rotate(90deg) translateY(-0.7rem)
               translateX(-100%);
             transform-origin: top left;
           }
@@ -210,7 +210,7 @@ when('uce-lib').then(
           .c-hero__location {
             right: 1.5rem;
             text-align: left;
-            transform: rotate(-90deg) translateY(-0.6rem)
+            transform: rotate(-90deg) translateY(-0.7rem)
               translateX(100%);
             transform-origin: top right;
           }
@@ -362,12 +362,18 @@ when('uce-lib').then(
           filter: url('#animate');
           font-family: var(--font-heading), sans-serif;
           font-weight: var(--font-heading-weight);
-          font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+          font-size: clamp(1.3rem, 2.4vw, 2.4rem);
           grid-column-end: 3;
           grid-column-start: 1;
-          grid-template-columns: .85fr;
           justify-content: center;
           line-height: 1;
+          padding: 0 3.2rem;
+        }
+
+        @media (min-width: 35em) {
+          .c-hero__heading {
+            padding: 0 4rem 0 4rem;
+          }
         }
 
         @media (min-width: 45em) {
@@ -375,6 +381,7 @@ when('uce-lib').then(
             border-top: none;
             grid-column-end: 4;
             grid-column-start: 3;
+            padding: 0 4rem 0 3rem;
           }
 
           .c-hero__heading > * {
@@ -389,7 +396,7 @@ when('uce-lib').then(
             3.2rem
             auto
             auto
-            2.1rem;
+            3.2rem;
           grid-template-rows: 1fr 0.5rem;
         }
 
@@ -421,7 +428,7 @@ when('uce-lib').then(
           padding-right: 0.5rem;
         }
 
-        @media (min-width: 25em) {
+        @media (min-width: 35em) {
           ::slotted([slot='footer-content-left']),
           ::slotted([slot='footer-content-right']) {
             column-gap: 0.75rem;
@@ -707,7 +714,7 @@ when('uce-lib').then(
             <div class="c-hero__tagline-accent-3"></div>
           </div>
           <div class="c-hero__name">David B. Waters</div>
-          <div class="c-hero__location">Charleston, SC</div>
+          <div class="c-hero__location">Oakland, CA</div>
         </div>
         <div class="c-hero__lower">
           <div class="

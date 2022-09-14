@@ -6,54 +6,55 @@ import when from 'once-defined'
 
 when('uce-lib').then(({ define, render, html, svg, css }) => {
 
-  define('c-work-item', {
+  define('c-work-list-item', {
 
     styles: css`
-    c-work-item  {
+      c-work-list-item  {
         box-shadow: 0 0 0 1px var(--color-subtle-alternate);
         display: grid;
         grid-template-rows: auto 1fr;
         grid-template-columns: 100%;
         margin-left: auto;
         margin-right: auto;
-        max-width: 65rem;
         padding-bottom: 1rem;
       }
 
       @media (min-height:35em) and (min-width:45em) {
 
-        c-work-item {
+        c-work-list-item {
+          max-width: calc(100% - 9rem);
           padding-bottom: 1.25rem;
+
         }
 
       }
 
-      c-work-item:last-child {
+
+      @media (min-height:35em) and (min-width:80em) {
+
+        c-work-list-item {
+          max-width: 72rem;
+          padding-bottom: 1.25rem;
+
+        }
+
+      }
+
+      @media (max-width:45em) {
+        c-work-list-item:first-child {
+          margin-top: 0rem;
+        }
+      }
+
+      c-work-list-item:last-child {
         padding-bottom: 0rem;
       }
 
-      .c-work-list__item-info {
-        margin-top: -4.5rem;
-        position: sticky;
-        top: 4.25rem;
-        z-index: 5;
-      }
 
-      @media  (min-height:35em) and (min-width:45em) {
-
-        .c-work-list__item-info {
-          margin-top: 0;
-          top: 0;
-          z-index: 1;
-        }
-
-      }
-
-      .c-work-list__item::before {
+      .c-work-list__item-backdrop {
         background-color: var(--color-bg);
-        content: '';
         display: block;
-        height: 4.25rem;
+        height: 4.5rem;
         position: sticky;
         top: 0;
         width: 100%;
@@ -62,22 +63,25 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
 
       @media (min-height:35em) and (min-width:45em) {
 
-        .c-work-list__item::before {
+        .c-work-list__item-backdrop::before {
           display: none;
         }
 
       }
 
-      .c-work-list__item:first-child .c-work-list__item-info {
-        margin-top: -4.25rem;
-        padding-top: 0;
+      .c-work-list__item-info {
+        margin-top: -4.5rem;
+        position: sticky;
+        top: 4.5rem;
+        z-index: 5;
       }
 
       @media (min-height:35em) and (min-width:45em) {
 
-        .c-work-list__item:first-child .c-work-list__item-info {
-          margin-top: 0;
-          padding-top: 0;
+        .c-work-list__item-info {
+          margin-top: -4.5;
+          top: 0;
+          z-index: 1;
         }
 
       }
@@ -86,35 +90,40 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
         background-color: var(--color-bg-opaque);
         backdrop-filter: blur(0.75rem);
         box-shadow: 0 0 0 1px var(--color-subtle-alternate);
-        padding-bottom: .5rem;
-        padding-left:  1.5rem;
-        padding-right: 1.5rem;
-        padding-top: .8rem;
+        padding-bottom: 1.25rem;
+        padding-top: 1.25rem;
       }
 
       @media (min-width:45em) {
 
         .c-work-list__item-info-inner {
-          padding-bottom: 1.25rem;
-          padding-top: 1.25rem;
+          padding-bottom: 1.5rem;
+          padding-top: 1.5rem;
         }
 
       }
 
       .c-work-list__item-info-title {
-        font-size: clamp(1.33rem, 3vw, 2rem);
+       font-size: clamp(1.33rem, 3vw, 2rem);
         line-height: 1.1;
-        margin-bottom: .66rem;
+        margin: 0;
+        padding-bottom: .5rem;
+        padding-left:  1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 0rem;
       }
 
       .c-work-list__item-info-description {
         font-size: .8rem;
+        padding-left:  1.5rem;
+        padding-right: 1.5rem;
       }
+
 
       @media (min-width:35em) {
 
         .c-work-list__item-info-description {
-          font-size: 1rem;
+          font-size: 1em;
         }
 
       }
@@ -122,23 +131,23 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
       @media (min-width:55em) {
 
         .c-work-list__item-info-description {
-          font-size: 1.2rem;
+          font-size: 1.1em;
           max-width: 55rem;
         }
 
       }
 
+      .c-work-list__item-info-description  p {
+        margin: 0;
+      }
+
       .c-work-list__item-info-taglist {
-        margin-bottom: .7rem;
+        padding-bottom: .5rem;
+        padding-left:  1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 0rem;
       }
 
-      @media (min-width:35em) {
-
-        .c-work-list__item-info-taglist {
-          margin-top: .2rem;
-        }
-
-      }
 
       .c-work-list__item-preview {
         background-color: var(--color-subtle-alternate);
@@ -366,6 +375,7 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
         <style>
           ${this.styles}
         </style>
+        <div class="c-work-list__item-backdrop"></div>
         <div data-sticky class="c-work-list__item-info">
           <div class="c-work-list__item-info-inner">
             <h4 class="c-work-list__item-info-title">

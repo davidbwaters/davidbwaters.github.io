@@ -44,14 +44,18 @@ when('uce-lib').then(({define, render, html, svg, css}) => {
         .c-top-bar__nav {
           grid-auto-flow: row;
           grid-gap: 0;
-          transform: translatex(0.25rem);
         }
       }
 
       ::slotted([slot='link']) {
-        padding: 0 0.25rem;
+        padding: 0 0rem;
         text-align: center;
         text-decoration: none;
+        width: 1.5rem;
+      }
+
+      ::slotted([slot='logo']) {
+        width: 1.5rem;
       }
     `,
 

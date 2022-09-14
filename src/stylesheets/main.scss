@@ -18,12 +18,12 @@
 @use 'node_modules/@substructure/utilities-z-index';
 
 @use 'theme';
+@use 'components-awwwards';
 @use 'components-button';
 @use 'components-lightbox';
 @use 'components-media-grid';
 @use 'components-page-footer';
 @use 'components-skill-list';
-@use 'components-work-list';
 @use 'elements-base' as elements-base-local;
 @use 'elements-text' as elements-text-local;
 @use 'utilities';
