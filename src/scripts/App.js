@@ -114,7 +114,6 @@ when('uce-lib').then(({ define, css }) => {
 
         let tl = gsap.timeline({
           scrollTrigger: {
-
             scroller: document.body,
             trigger: container,
             toggleActions: 'restart none none reset',
@@ -142,7 +141,7 @@ when('uce-lib').then(({ define, css }) => {
 
       setTimeout(() => {
 
-        ScrollTrigger.refresh()
+        // ScrollTrigger.refresh()
         window.dispatchEvent(new Event('resize'))
 
       }, 4000)
