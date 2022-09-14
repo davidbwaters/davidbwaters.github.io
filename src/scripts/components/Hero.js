@@ -30,7 +30,7 @@ when('uce-lib').then(
           display: grid;
           grid-template-rows: 4fr 5fr 4.5rem;
           height: 100%;
-          max-height: calc(100vh - 3.5rem);
+          max-height: calc(100vh - 3.75rem);
           min-height: 28rem;
           z-index: 2;
         }
