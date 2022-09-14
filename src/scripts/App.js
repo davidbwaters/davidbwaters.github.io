@@ -142,7 +142,7 @@ when('uce-lib').then(({ define, css }) => {
       setTimeout(() => {
 
         // ScrollTrigger.refresh()
-        window.dispatchEvent(new Event('resize'))
+        // window.dispatchEvent(new Event('resize'))
 
       }, 4000)
 
