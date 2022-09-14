@@ -8,11 +8,15 @@
   -webkit-text-stroke-color: var(--color-bg);
 }
 
+:root {
+  --doc-height: 100%;
+}
+
 :root,
 body,
 main {
   height: 100vh !important;
-  max-height: var(--doc-height) !important;
+  height: var(--doc-height) !important;
   max-width: 100vw;
   //overflow-x: hidden;
 }
