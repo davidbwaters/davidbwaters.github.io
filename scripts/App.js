@@ -5,7 +5,6 @@
 import DirectusSDK from '@directus/sdk-js'
 import when from 'once-defined'
 
-import api from '../../config/api.js'
 
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -14,8 +13,6 @@ import VanillaTilt from 'vanilla-tilt'
 
 import './fancy'
 
-const { url, assets } = api
-const sdk = new DirectusSDK(url)
 
 
 when('uce-lib').then(({ define, css }) => {

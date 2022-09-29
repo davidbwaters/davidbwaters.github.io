@@ -2,6 +2,9 @@
  *  Main
  */
 
+
+@use 'imports';
+
 @use 'node_modules/@substructure/settings';
 @use 'node_modules/@substructure/tools';
 @use 'node_modules/@substructure/generic-initialize';
@@ -28,8 +31,6 @@
 @use 'elements-text' as elements-text-local;
 @use 'utilities';
 
-@import '/fonts/fonts.css';
-@import '/icons/icons.css';
 
 
 .js-canvas-paint {
