@@ -368,7 +368,6 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
 
     render() {
 
-      //console.log(this.previewImages)
 
       this.html`
         <style>
@@ -406,9 +405,6 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
             u-cursor-zoom-in"
           data-modal-target="${this.slug}"
         >
-          ${
-            console.log(this.previewImages)
-          }
           ${
             this.previewImages.map(item => html`
 
