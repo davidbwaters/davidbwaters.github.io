@@ -460,7 +460,7 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
             <a
               class="c-button"
               href="${this.vsc}"
-              title=${this.title + 'VSC Link'}
+              title=${this.title + ' VSC Link'}
             >
               <i
                 class="
@@ -476,7 +476,7 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
             <a
               class="c-button"
               href="${this.npm}"
-              title=${this.title + 'NPM Module Link'}
+              title=${this.title + ' NPM Module Link'}
             >
               <i
                 class="
@@ -492,7 +492,7 @@ when('uce-lib').then(({ define, render, html, svg, css }) => {
             <a
               class="c-button"
               href="${this.site}"
-              title=${this.title + 'Site Link'}
+              title=${this.title + ' Site Link'}
             >
               <i
                 class="
