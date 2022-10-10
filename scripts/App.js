@@ -819,7 +819,9 @@ when('uce-lib').then(({ define, css }) => {
                   'images/Work/Fitbux-1.jpg',
                   'images/Work/Fitbux-2.jpg',
                   'images/Work/Fitbux-3.jpg',
-                  'images/Work/Fitbux-4.gif'
+                  'images/Work/Fitbux-4.gif',
+                  'images/Work/Fitbux-5.jpg',
+                  'images/Work/Fitbux-6.jpg'
                 ]}
                 shortDescription='Providing gps for your money. Mobile and web app design.'
                 .description=${[`While working for <a href="http://mainux.com">Mainux</a>, I helped create Fitbux's design system, UI, and branding
