@@ -1,0 +1,98 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link
+			href="https://use.typekit.net/brg7xei.css"
+			rel="preload stylesheet"
+			as="style"
+			crossorigin
+		>
+		<script>
+			import '../components/CanvasNoise'
+			import '../components/Cursor'
+		</script>
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+	</head>
+
+	<body data-theme="dark">
+		<slot />
+
+    <c-canvas-noise/>
+
+		<c-loader>
+			<div class="u-bg-noise-heavy">
+				<c-glitch-image data-cursor-target
+					src="images/Loader.svg"
+					active
+					glitch="1"
+					width="100"
+					height="100"
+				>
+				</c-glitch-image>
+			</div>
+		</c-loader>
+
+		<c-cursor/>
+
+		<svg
+			class='u-morphing-animation'
+			style="display: none;"
+			version="1.1"
+			xmlns="http://www.w3.org/2000/svg"
+			xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+			x="0px" y="0px"
+			viewBox="0 0 200 120"
+			overflow="scroll"
+		>
+			<!-- SVG Filter -->
+			<filter id="animate" width="150%" height="150%">
+				<!-- Generate Noise - fractalNoise/turbulent -->
+				<feTurbulence type="fractalNoise" seed="77"
+											numOctaves="1" baseFrequency="0.01" />
+				<!-- Cycle through Hue - Hue wheel allows for seamless loop  -->
+				<feColorMatrix type="hueRotate" values="0">
+					<animate attributeName="values"
+									values="0;360" dur="3s" repeatCount="indefinite" />
+				</feColorMatrix>
+				<!-- Extract alpha / filter colors -->
+				<feColorMatrix type="matrix"
+											values="1 0 0 0 0
+															0 1 0 0 0
+															0 0 1 0 0
+															0 0 0 0 1" />
+				<!-- Optional Filters -->
+				<!-- <feMorphology operator="dilate" radius="1" /> -->
+				<!-- <feMorphology operator="erode" radius="1" /> -->
+				<feGaussianBlur stdDeviation="0.5" />
+				<!-- Apply Displacement Map -->
+				<feDisplacementMap
+					in="SourceGraphic" scale="8"
+					xChannelSelector="R"
+					yChannelSelector="B"
+				/>
+				<!-- Blending with Original -->
+				<!-- <feBlend mode="soft-light" in2="SourceGraphic"/> -->
+				<!-- <feComposite operator="in" in2="SourceGraphic"/> -->
+			</filter>
+			<!-- Object to be filtered -->
+			<circle filter="url(#animate)" fill="#202020"
+							cx="100" cy="60" r="50" />
+			<!-- <rect filter="url(#animate)" fill="#202020"
+			x="50" y="10" width="100" height="100" /> -->
+		</svg>
+	</body>
+</html>
