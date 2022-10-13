@@ -130,15 +130,15 @@ export class CThemeSwitch extends LitElement {
   render() {
 
     return html`
-      <div class="c-theme-switch__wrapper">
+      <label class="c-theme-switch__wrapper">
         <input
           type="checkbox"
           class="c-theme-switch__input"
-          onChange=${this.handleChange}
+          @change=${this.handleChange}
         />
         <span class="c-theme-switch__switch"></span>
         <slot></slot>
-      </div>
+      </label>
     `
 
   }
