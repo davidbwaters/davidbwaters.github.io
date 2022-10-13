@@ -41,6 +41,7 @@ export class CTopBar extends LitElement {
       }
     }
 
+
     .c-top-bar__nav {
       display: grid;
       font-size: 125%;
@@ -58,10 +59,16 @@ export class CTopBar extends LitElement {
     }
 
     @media (min-width: 45em) and (min-height: 30em) {
+
+      :host {
+        align-items: start;
+        place-content: start space-between;
+      }
       .c-top-bar__nav {
         grid-auto-flow: row;
         grid-gap: 0;
       }
+
     }
 
     ::slotted([slot='link']) {
@@ -72,6 +79,7 @@ export class CTopBar extends LitElement {
     }
 
     ::slotted([slot='logo']) {
+      display: grid;
       width: 1.4rem;
     }
 
