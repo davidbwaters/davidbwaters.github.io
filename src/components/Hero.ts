@@ -39,6 +39,7 @@ export class CHero extends LitElement {
       height: var(--doc-height);
       max-height: 100vh;
       min-height: 28rem;
+      overflow: hidden;
       z-index: 2;
     }
 
@@ -69,8 +70,8 @@ export class CHero extends LitElement {
       backface-visibility: hidden;
       background-image: linear-gradient(
           0deg,
-          var(--color-opaque-overlay) 000%,
-          var(--color-opaque-overlay) 050%,
+          var(--color-semi-transparent-overlay) 000%,
+          var(--color-semi-transparent-overlay) 050%,
           rgba(0, 0, 0, 0) 050.01%,
           rgba(0, 0, 0, 0) 100%
         ),
@@ -114,13 +115,19 @@ export class CHero extends LitElement {
       filter: url('#animate');
       font-family: var(--font-display), sans-serif;
       font-weight: var(--font-display-weight);
-      font-size: clamp(1.0rem, 4.05vw, 3.5rem);
+      font-size: clamp(0.6rem, 4.05vw, 3.5rem);
       line-height: 1.2;
       min-height: 0vw;
-      max-width: 90vw;
+      max-width: calc(100vw - 3rem);
       pointer-events: none;
       text-transform: uppercase;
-      width: auto;
+      width: 100%
+    }
+
+    @media (min-width: 35em) {
+      .c-hero__tagline {
+        width: auto;
+      }
     }
 
     @media (min-height: 35em) {
@@ -173,7 +180,7 @@ export class CHero extends LitElement {
       bottom: 0;
       display: block;
       font-family: var(--font-main-regular), sans-serif;
-      font-size: 0.6rem;
+      font-size: 0.5rem;
       font-weight: var(--font-main-regular-weight);
       height: 0.6rem;
       letter-spacing: 0.1em;
@@ -183,17 +190,11 @@ export class CHero extends LitElement {
       text-transform: uppercase;
     }
 
-    .c-hero__name {
-      text-align: right;
-      transform-origin: top left;
-      padding-left: 1.5rem;
-    }
-
-    .c-hero__location {
-      right: 0;
-      text-align: left;
-      transform-origin: top right;
-      padding-right: 1.5rem;
+    @media (min-width: 25em) {
+      .c-hero__name,
+      .c-hero__location {
+        font-size: 0.6rem;
+      }
     }
 
     @media (min-width: 45em) {
@@ -206,7 +207,15 @@ export class CHero extends LitElement {
         padding-right: 1rem;
         width: 40vh;
       }
+    }
 
+    .c-hero__name {
+      text-align: right;
+      transform-origin: top left;
+      padding-left: 1.5rem;
+    }
+
+    @media (min-width: 45em) {
       .c-hero__name {
         left: 1.5rem;
         text-align: right;
@@ -214,7 +223,16 @@ export class CHero extends LitElement {
           translateX(-100%);
         transform-origin: top left;
       }
+    }
 
+    .c-hero__location {
+      right: 0;
+      text-align: left;
+      transform-origin: top right;
+      padding-right: 1.5rem;
+    }
+
+    @media (min-width: 45em) {
       .c-hero__location {
         right: 1.5rem;
         text-align: left;
@@ -292,7 +310,6 @@ export class CHero extends LitElement {
 
     .c-hero__name-stylized {
       border-left: solid 1px var(--color-accent);
-
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
@@ -322,16 +339,16 @@ export class CHero extends LitElement {
 
       background-image: linear-gradient(
         -45deg,
-        var(--color-opaque) 0%,
-        var(--color-opaque) 12.5%,
+        var(--color-semi-transparent) 0%,
+        var(--color-semi-transparent) 12.5%,
         transparent 12.51%,
         transparent 37.49%,
-        var(--color-opaque) 37.5%,
-        var(--color-opaque) 62.5%,
+        var(--color-semi-transparent) 37.5%,
+        var(--color-semi-transparent) 62.5%,
         transparent 62.51%,
         transparent 87.49%,
-        var(--color-opaque) 87.5%,
-        var(--color-opaque) 100%
+        var(--color-semi-transparent) 87.5%,
+        var(--color-semi-transparent) 100%
       );
       background-position: 0 0;
       background-repeat: repeat;
@@ -374,17 +391,18 @@ export class CHero extends LitElement {
       filter: url('#animate');
       font-family: var(--font-heading), sans-serif;
       font-weight: var(--font-heading-weight);
-      font-size: clamp(1.3rem, 2.4vw, 2.4rem);
+      font-size: clamp(.8rem, 2.4vw, 2.4rem);
       grid-column-end: 3;
       grid-column-start: 1;
       justify-content: center;
       line-height: 1;
-      padding: 0 3.2rem;
+      padding: 1.25rem 1.5rem;
     }
 
     @media (min-width: 35em) {
       .c-hero__heading {
-        padding: 0 4rem 0 4rem;
+        padding: 0px calc(9.5vw + 0.5rem);
+        justify-content: stretch;
       }
     }
 
@@ -405,11 +423,12 @@ export class CHero extends LitElement {
       border-top: solid 1px var(--color-accent);
       display: grid;
       grid-template-columns:
-        3.2rem
+        3rem
         auto
         auto
-        3.2rem;
+        3rem;
       grid-template-rows: 1fr 0.5rem;
+      overflow: hidden;
     }
 
     @media (min-width: 35em) {
@@ -449,6 +468,7 @@ export class CHero extends LitElement {
         padding-left: 1rem;
         padding-right: 1rem;
       }
+
     }
 
     @media (min-width: 45em) {
@@ -463,15 +483,28 @@ export class CHero extends LitElement {
 
     ::slotted([slot='footer-content-left']) {
       grid-template-columns: auto 1fr;
+      display: none;
+    }
+
+    @media (min-width: 25em) {
+
+      ::slotted([slot='footer-content-left']) {
+        display: grid;
+      }
+
     }
 
     ::slotted([slot='footer-content-right']) {
-      grid-template-columns: auto 1fr;
+
+      grid-column: span 2;
+      grid-template-columns: auto min-content;
+      place-content: center;
     }
 
-    @media (min-width: 45em) {
+    @media (min-width: 25em) {
       ::slotted([slot='footer-content-right']) {
         grid-template-columns: auto 1fr;
+        grid-column: span 1;
       }
     }
 

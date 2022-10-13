@@ -22,8 +22,7 @@ export class CCursor extends LitElement {
     :host {
       --cursor-size: 2.5rem;
 
-
-      backdrop-filter: brightness(0.9) saturate(0);
+      backdrop-filter: contrast(1.5) brightness(1.25) saturate(0);
       background-color: white;
       border: solid 1px white;
       border-radius: var(--cursor-size);
@@ -167,12 +166,16 @@ export class CCursor extends LitElement {
 
       if (
         this._activeTarget &&
-      (this._activeTarget.dataset.cursorMagnetic === 'true' ||
-      this._activeTarget.parentElement.dataset.cursorMagnetic === 'true')
+        (
+          this._activeTarget.dataset.cursorMagnetic === 'true' ||
+          this._activeTarget.parentElement.dataset.cursorMagnetic === 'true'
+        )
       ) {
 
         const rect = this._activeTarget
           .getBoundingClientRect()
+
+        const magnetMovement = 5
 
         let magneticX =
         (
@@ -186,14 +189,14 @@ export class CCursor extends LitElement {
         if (magneticX > 0) {
 
           magneticX = Math.min(
-            magneticX, 15
+            magneticX, magnetMovement
           )
 
         }
         else {
 
           magneticX = Math.max(
-            magneticX, -15
+            magneticX, -1 * magnetMovement
           )
 
         }
@@ -210,14 +213,14 @@ export class CCursor extends LitElement {
         if (magneticY > 0) {
 
           magneticY = Math.min(
-            magneticY, 15
+            magneticY, magnetMovement
           )
 
         }
         else {
 
           magneticY = Math.max(
-            magneticY, -15
+            magneticY, -1 * magnetMovement
           )
 
         }
@@ -225,7 +228,7 @@ export class CCursor extends LitElement {
           this._activeTarget, {
             x: magneticX,
             y: magneticY,
-            duration: 0.15
+            duration: 0.3
           }
         )
 
@@ -350,138 +353,6 @@ export class CCursor extends LitElement {
       })
 
     }
-
-  }
-
-  _transitionIn() {
-
-    const heroTrigger = this.shadowRoot.querySelector(
-      '.c-hero__upper'
-    )
-
-    let heroTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: heroTrigger,
-        end: '+=220%',
-        scrub: true
-      }
-    })
-
-    heroTl.to(
-      this.shadowRoot.querySelectorAll('.js-hero-me'),
-      {
-        backgroundSize: '150% auto'
-      }
-
-    )
-
-    let tl = gsap.timeline()
-
-    const heroTarget:HTMLElement = this.shadowRoot
-      .querySelector('.c-hero__lower')
-
-    tl.from(
-      heroTarget,
-      {
-        height: 0,
-        opacity: 0,
-        duration: 1,
-        delay: 1.75,
-        onComplete: () => {
-
-          heroTarget.style.height = ''
-
-        }
-      }
-    )
-
-    tl.from(
-      this.shadowRoot.querySelector('.c-hero__tagline'),
-      {
-        opacity: 0,
-        duration: 2,
-        delay: 1.75
-      },
-      0
-    )
-
-    tl.play()
-
-
-  }
-
-  _taglineSetup() {
-
-    const taglineHTML = this.querySelector(
-      '[slot=tagline]'
-    )
-      .innerHTML.replaceAll('  ', '')
-      .replaceAll('\n', '')
-
-    const taglineSplit = taglineHTML.split('<br>')
-
-    const taglineMain = taglineSplit
-      .map((value, index) => {
-
-        const inner =
-          '<span data-scrambler>' + value + '</span>'
-        const isLast = taglineSplit.length - 1 === index
-
-        return isLast ? inner : inner + '<br>'
-
-      })
-      .join('')
-
-    const taglineAccentEls = [
-      this.shadowRoot.querySelector(
-        '.c-hero__tagline-accent-1'
-      ),
-      this.shadowRoot.querySelector(
-        '.c-hero__tagline-accent-2'
-      ),
-      this.shadowRoot.querySelector(
-        '.c-hero__tagline-accent-3'
-      )
-    ]
-
-    this.innerHTML +=
-      '<div slot="tagline-main">' +
-      taglineMain +
-      '</div>'
-
-    taglineAccentEls.map(el => {
-
-      el.innerHTML = taglineHTML
-
-    })
-
-  }
-
-  _nameStylizedSetup() {
-
-    const name = this.querySelector(
-      '[slot="name-stylized"'
-    )
-      .innerHTML.replaceAll(' ', '')
-      .replaceAll('\n', '')
-      .split('')
-
-    const nameEl = this.shadowRoot.querySelector(
-      '.c-hero__name-stylized'
-    )
-
-    nameEl.innerHTML = name
-      .map(value => {
-
-        const nameDiv =
-          '<div class="c-hero__name-stylized-letter">' +
-          value +
-          '</div>'
-
-        return nameDiv
-
-      })
-      .join('')
 
   }
 

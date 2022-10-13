@@ -35,47 +35,44 @@ export class CSectionHeader extends LitElement {
     }
 
     ::slotted([slot='title']) {
+      display: grid;
       filter: url('#animate');
-      font-size: 1.4rem;
-      font-family: var(--section-header-title-font), sans-serif;
-      font-weight: var(--section-header-title-font-weight);
+      font-family: var(--section-header-title-font), sans-serif !important;
+      font-size: 1.8rem;
+      font-size: clamp(
+        1.25rem,
+        1rem + 2vw,
+        2.8rem
+      );
+      font-weight: var(--section-header-title-font-weight) !important;
       line-height: 1.25;
-      padding-bottom: 4rem;
+      margin: 0;
+      overflow: hidden;
+      padding-bottom: 2rem;
       padding-left: .5rem;
       padding-right: .5rem;
-      padding-top: 5rem;
+      padding-top: 2.5rem;
+      place-content: center;
       text-transform: uppercase;
     }
 
     @media (min-width: 16em) {
 
       ::slotted([slot='title']) {
-        font-size: 1.5rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
         -webkit-text-fill-color: transparent;
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: var(--color-fg);
       }
     }
 
+
     @media (min-width: 25em) {
 
       ::slotted([slot='title']) {
-        font-size: 2.0736rem;
-        font-size: clamp(
-          2.0736rem,
-          9vw,
-          2.4rem
-        );
-      }
-
-    }
-
-    @media (min-width: 45em) {
-      ::slotted([slot='title']) {
-        padding-left: 6rem;
-        padding-right: 6rem;
+        padding-bottom: 4rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 5rem;
       }
     }
 

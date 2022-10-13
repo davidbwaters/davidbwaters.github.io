@@ -4,24 +4,14 @@
 
 
 .c-button {
-  --button-color-bg: #5A47B8;
-  --button-color-bg-hover: #5847af;
-  --button-color-fg: #FFFFFF;
-  --button-color-border: #342867;
-  --button-color-border-hover: var(--color-subtle);
-  --button-color-shadow: var(--color-subtle);
-  --button-color-alternate-bg: #5947A5;
-  --button-color-alternate-bg-hover: #54449c;
-  --button-transition-duration: var(--transition-duration);
-
   align-items: center;
-  background-color: var(--button-color-bg);
-  border-color: var(--button-color-border);
+  background-color: var(--color-button-bg);
+  border-color: var(--color-subtle-contrast);
   border-radius: 3px;
   border-style: solid;
   border-width: 1px;
-  box-shadow: 0 2px 0 var(--button-color-shadow);
-  color: var(--button-color-fg);
+  box-shadow: 0 2px 0 var(--color-subtle);
+  color: var(--color-button-fg);
   cursor: pointer;
   display: inline-grid;
   font-family: var(--font-main-regular), sans-serif;
@@ -38,7 +28,9 @@
   padding-top: .7rem;
   text-decoration: none;
   text-transform: uppercase;
-  transition: all var(--button-transition-duration);
+  transition:
+    all var(--transition-duration),
+    transform 0s;
   will-change: box-shadow, opacity;
 }
 
@@ -78,7 +70,7 @@
 }
 
 .c-button:active {
-  box-shadow: 0 0px 0 var(--button-color-shadow);
+  box-shadow: 0 0px 0 var(--color-subtle);
   transform: translateY(2px);
 }
 
@@ -87,16 +79,17 @@
 }
 
 .c-button:hover {
-  background-color: var(--button-color-bg-hover);
+  background-color: var(--color-button-bg-hover);
+  border-color: var(--color-subtle-contrast);
 }
 
 .c-button.is-expanded {
-  background-color: var(--button-color-bg);
+  background-color: var(--color-button-bg);
   box-shadow:
     0 0 0 100vmax
-    var(--button-color-bg);
-  border-color: var(--button-color-bg);
-  color: var(--button-color-bg);
+    var(--color-button-bg);
+  border-color: var(--color-button-bg);
+  color: var(--color-button-bg);
   position: relative;
   z-index: 9;
 }
@@ -124,23 +117,3 @@
 .c-button--block {
   width: 100%;
 }
-
-.c-button--alternate {
-  background-color: var(--button-color-alternate-bg);
-}
-
-.c-button--alternate:hover {
-  background-color: var(--button-color-alternate-bg-hover);
-}
-
-.c-button--github {
-  border-color: #888;
-  box-shadow: 0 2px 0 rgba(220,220,220,.2);
-  background-color: #2c2c2c;
-}
-
-.c-button--github:hover {
-  background-color: #2a2a2a;
-  box-shadow: 0 2px 1px rgba(220,220,220,.4);
-}
-

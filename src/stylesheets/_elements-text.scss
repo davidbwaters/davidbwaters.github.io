@@ -15,6 +15,17 @@ a {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), sans-serif;
   font-weight: var(--font-heading-weight);
+  line-height: 1.1;
+}
+
+h1, h2, h3 {
+  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 1rem + 1.5vw, 2.2rem);
+}
+
+h4, h5, h6 {
+    font-size: 1.5rem;
+    font-size: clamp( 1.2rem, 1rem + 2vw, 1.8rem )
 }
 
 strong {

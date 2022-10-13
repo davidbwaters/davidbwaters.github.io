@@ -21,15 +21,14 @@ export class CTopBar extends LitElement {
   static styles = css`
 
     :host {
-      align-items: flex-start;
       display: grid;
       grid-template-columns: min-content min-content;
-      justify-content: space-between;
       max-height: 72px;
       padding-bottom: 1rem;
       padding-left: 1.5rem;
       padding-right: 1.5rem;
       padding-top: 1rem;
+      place-content: center space-between;
       position: fixed;
       width: 100%;
       z-index: 9;
@@ -46,11 +45,19 @@ export class CTopBar extends LitElement {
       display: grid;
       font-size: 125%;
       grid-auto-flow: column;
-      grid-gap: 0.25rem;
+      grid-gap: 0rem;
       transform: translatex(0);
     }
 
-    @media (min-width: 45em) and (min-height: 35em) {
+    @media (min-width: 25em) {
+
+      .c-top-bar__nav {
+        grid-gap: 0.25rem;
+      }
+
+    }
+
+    @media (min-width: 45em) and (min-height: 30em) {
       .c-top-bar__nav {
         grid-auto-flow: row;
         grid-gap: 0;
@@ -65,7 +72,13 @@ export class CTopBar extends LitElement {
     }
 
     ::slotted([slot='logo']) {
-      width: 1.75rem;
+      width: 1.4rem;
+    }
+
+    @media (min-width: 25em) {
+      ::slotted([slot='logo']) {
+        width: 1.75rem;
+      }
     }
   `
 

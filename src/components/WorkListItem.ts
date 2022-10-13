@@ -97,11 +97,12 @@ export class CWorkListItem extends LitElement {
     }
 
     .c-work-list__item-info-inner {
-      background-color: var(--color-bg-opaque);
+      background-color: var(--color-bg-semi-transparent);
       backdrop-filter: blur(0.75rem);
       box-shadow: 0 0 0 1px var(--color-subtle-alternate);
       display: grid;
       gap: 0.3rem;
+      overflow: hidden;
       padding-bottom: 1.25rem;
       padding-top: 1.25rem;
     }
@@ -117,8 +118,6 @@ export class CWorkListItem extends LitElement {
     }
 
     .c-work-list__item-info-title {
-      font-size: clamp(1.33rem, 3vw, 2rem);
-      line-height: 1.1;
       margin: 0;
       padding-left:  1.5rem;
       padding-right: 1.5rem;
@@ -157,7 +156,6 @@ export class CWorkListItem extends LitElement {
       padding-right: 1.5rem;
     }
 
-
     .c-work-list__item-preview {
       background-color: var(--color-subtle-alternate);
       display: grid;
@@ -166,7 +164,6 @@ export class CWorkListItem extends LitElement {
       justify-items: center;
       overflow: hidden;
     }
-
 
     .c-work-list__item-lower,
     .c-work-list__item-lower-three {
@@ -555,7 +552,7 @@ export class CWorkListItem extends LitElement {
             data-modal-trigger="${this.slug}"
           >
             <c-section-header
-              class="u-bg-noise u-z-index-3"
+              class="u-z-index-3"
             >
               <div slot="title">
                 ${this.title}
