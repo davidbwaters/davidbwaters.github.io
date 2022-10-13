@@ -131,12 +131,30 @@ export class CHero extends LitElement {
     }
 
     @media (min-height: 35em) {
+
       .c-hero__tagline {
         line-height: 1.25;
         margin-top: 1.5rem;
         max-width: 100vw;
         white-space: nowrap;
       }
+
+    }
+
+    ::slotted([slot='tagline']) {
+      font-family: var(--font-display), sans-serif !important;
+      font-weight: var(--font-display-weight) !important;
+      font-size: clamp(0.6rem, 4.05vw, 3.5rem) !important;
+      line-height: 1.2 !important;
+      margin: 0 !important;
+    }
+
+    @media (min-height: 35em) {
+
+      ::slotted([slot='tagline']) {
+        line-height: 1.25 !important;
+      }
+
     }
 
     .c-hero__tagline-main {
@@ -389,9 +407,6 @@ export class CHero extends LitElement {
       border-top: solid 1px var(--color-accent);
       display: grid;
       filter: url('#animate');
-      font-family: var(--font-heading), sans-serif;
-      font-weight: var(--font-heading-weight);
-      font-size: clamp(.8rem, 2.4vw, 2.4rem);
       grid-column-end: 3;
       grid-column-start: 1;
       justify-content: center;
@@ -414,9 +429,13 @@ export class CHero extends LitElement {
         padding: 0 4rem 0 3rem;
       }
 
-      .c-hero__heading > * {
-        line-height: 1.1;
-      }
+    }
+
+    ::slotted([slot='heading']) {
+      font-family: var(--font-heading), sans-serif !important;
+      font-weight: var(--font-heading-weight) !important;
+      font-size: clamp(.8rem, 2.4vw, 2.4rem) !important;
+      margin: 0 !important;;
     }
 
     .c-hero__footer {

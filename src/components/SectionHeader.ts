@@ -22,7 +22,7 @@ export class CSectionHeader extends LitElement {
       --section-header-title-font: var(--font-display);
       --section-header-title-font-weight: var(--font-display-weight);
 
-      box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.05);
+      box-shadow: var(--color-semi-transparent-shadow) 0px 4px 4px 0px;
       display: block;
       text-align: center;
       will-change: transform, opacity;
@@ -38,12 +38,8 @@ export class CSectionHeader extends LitElement {
       display: grid;
       filter: url('#animate');
       font-family: var(--section-header-title-font), sans-serif !important;
-      font-size: 1.8rem;
-      font-size: clamp(
-        1.25rem,
-        1rem + 2vw,
-        2.8rem
-      );
+      font-size: 1.5rem;
+      font-size: clamp(1.2rem, 1rem + 1.5vw, 2.2rem);
       font-weight: var(--section-header-title-font-weight) !important;
       line-height: 1.25;
       margin: 0;
@@ -77,8 +73,6 @@ export class CSectionHeader extends LitElement {
     }
 
     ::slotted([slot='description']) {
-      border-bottom: solid 1px
-        var(--color-subtle-alternate);
       box-shadow: 0 0 0 1px var(--color-subtle-alternate);
       font-size: .8em;
       padding-bottom: 1.5rem;

@@ -4,9 +4,10 @@
 
 import {
   LitElement,
-  html,
-  css
+  html
 } from 'lit'
+
+import { unsafeHTML } from 'lit/directives/unsafe-html.js'
 
 import {
   customElement,
@@ -89,7 +90,6 @@ export class CWorkListItem extends LitElement {
     @media (min-height:35em) and (min-width:45em) {
 
       .c-work-list__item-info {
-        margin-top: -4.5;
         top: 0;
         z-index: 1;
       }
@@ -390,12 +390,14 @@ export class CWorkListItem extends LitElement {
   @property({type: String})
   wide = 'false'
 
-  taglist
+  @property({type: String})
+  taglist = ''
 
   firstUpdated() {
 
     this.taglist = JSON.parse(this.tags).join(', ')
 
+    console.log(this.taglist)
     if (!JSON.parse(this.hideModal)) {
 
       document.body.appendChild(this.querySelector('c-modal'))
@@ -575,9 +577,10 @@ export class CWorkListItem extends LitElement {
                   : 'c-media-grid__text-item'
               }
               >
-                ${JSON.parse(this.description).map(item => {
-                  html`<p> ${item} </p>`
-                })}
+                ${JSON.parse(this.description).map(item => unsafeHTML(`
+                    <p> ${item} </p>`
+                  )
+                )}
               </article>
               ${JSON.parse(this.images).map(item => html`
                 <div class="c-media-grid__image-item">

@@ -108,8 +108,9 @@ window.addEventListener("DOMContentLoaded", () => {
       scroller: document.body,
       trigger: heroTrigger,
       start: "0%",
-      end: "+=250%",
+      end: "+=150%",
       scrub: true,
+      toggleActions: "restart none none reset",
       onComplete: () => {
         ScrollTrigger.refresh();
       },
@@ -120,17 +121,22 @@ window.addEventListener("DOMContentLoaded", () => {
   heroTl.fromTo(
     document.querySelector("c-hero")
       .shadowRoot.querySelectorAll(".js-hero-me"),
-      {
-        backgroundSize: "100% auto"
-      },
-      {
-        backgroundSize: "160% auto",
-      }
+    {
+      backgroundSize: "100% auto"
+    },
+    {
+      backgroundSize: "160% auto",
+    },
+    0
   );
 
-  heroTl.to(document.querySelector("c-canvas-noise"), {
-    "--opacity-noise": 0.6,
-  });
+  heroTl.to(
+    document.querySelector("c-canvas-noise"),
+    {
+      "--opacity-noise": 0.6
+    },
+    0
+  );
 
 
   const revealContainers = document.querySelectorAll(".js-reveal");

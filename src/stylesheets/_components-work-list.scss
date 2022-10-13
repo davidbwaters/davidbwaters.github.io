@@ -40,7 +40,6 @@
       padding-bottom: 0rem;
     }
 
-
     .c-work-list__item-backdrop {
       background-color: var(--color-bg);
       display: block;
@@ -69,7 +68,6 @@
     @media (min-height:35em) and (min-width:45em) {
 
       .c-work-list__item-info {
-        margin-top: -4.5;
         top: 0;
         z-index: 1;
       }
