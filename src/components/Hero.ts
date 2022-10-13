@@ -61,9 +61,20 @@ export class CHero extends LitElement {
       align-content: center;
       border-bottom: solid 1px var(--color-accent);
       display: grid;
+      grid-template-columns: 1fr;
       justify-content: center;
       overflow: hidden;
+      padding: 1.25rem;
       position: relative;
+    }
+
+
+    @media (min-width: 35em) {
+
+      .c-hero__upper {
+        grid-template-columns: auto;
+      }
+
     }
 
     .c-hero__upper::after {
@@ -388,12 +399,18 @@ export class CHero extends LitElement {
 
     .c-hero__name-stylized-letter {
       font-family: var(--font-accent), sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.6rem;
       font-weight: var(--font-accent-weight);
       margin-bottom: auto;
       margin-left: auto;
       margin-right: auto;
       margin-top: auto;
+    }
+
+    @media (min-width: 25em) {
+      .c-hero__name-stylized-letter {
+        font-size: 0.8rem;
+      }
     }
 
     @media (min-width: 35em) {
@@ -409,6 +426,7 @@ export class CHero extends LitElement {
       filter: url('#animate');
       grid-column-end: 3;
       grid-column-start: 1;
+      grid-template-columns: 1fr;
       justify-content: center;
       line-height: 1;
       padding: 1.25rem 1.5rem;
@@ -434,7 +452,8 @@ export class CHero extends LitElement {
     ::slotted([slot='heading']) {
       font-family: var(--font-heading), sans-serif !important;
       font-weight: var(--font-heading-weight) !important;
-      font-size: clamp(.8rem, 2.4vw, 2.4rem) !important;
+      font-size: 1.5rem !important;
+      font-size: clamp(0.8rem, 2vw + 0.4rem, 2.2rem) !important;
       margin: 0 !important;;
     }
 
