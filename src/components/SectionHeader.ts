@@ -22,7 +22,7 @@ export class CSectionHeader extends LitElement {
       --section-header-title-font: var(--font-display);
       --section-header-title-font-weight: var(--font-display-weight);
 
-      box-shadow: var(--color-semi-transparent-shadow) 0px 4px 4px 0px;
+      box-shadow: var(--shadow-md);
       display: block;
       text-align: center;
       will-change: transform, opacity;
@@ -39,7 +39,7 @@ export class CSectionHeader extends LitElement {
       filter: url('#animate');
       font-family: var(--section-header-title-font), sans-serif !important;
       font-size: 1.5rem;
-      font-size: clamp(1.2rem, 1rem + 1.5vw, 2.2rem);
+      font-size: clamp(1.2rem, 1rem + 2vw, 2.8rem);
       font-weight: var(--section-header-title-font-weight) !important;
       line-height: 1.25;
       margin: 0;
@@ -59,16 +59,17 @@ export class CSectionHeader extends LitElement {
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: var(--color-fg);
       }
+
     }
 
 
     @media (min-width: 25em) {
 
       ::slotted([slot='title']) {
-        padding-bottom: 4rem;
+        padding-bottom: calc(4vw + 2rem);
         padding-left: 2rem;
         padding-right: 2rem;
-        padding-top: 5rem;
+        padding-top: calc(4vw + 3rem);
       }
     }
 
@@ -76,8 +77,8 @@ export class CSectionHeader extends LitElement {
       box-shadow: 0 0 0 1px var(--color-subtle-alternate);
       font-size: .8em;
       padding-bottom: 1.5rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
       padding-top: 1.5rem;
     }
 

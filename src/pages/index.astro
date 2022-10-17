@@ -9,6 +9,7 @@ import '../stylesheets/main.scss'
 	<script>
 		import '../scripts/main'
 		import '../components/CanvasMain'
+		import '../components/GalleryImage'
 		import "../components/GlitchImage";
 		import "../components/Hero";
 		import "../components/Loader"
@@ -126,7 +127,7 @@ import '../stylesheets/main.scss'
 
 		<section id="skills">
 			<c-section-header class="js-reveal">
-				<h3 slot="title" class="u-text-display">
+				<h3 slot="title" class="u-text-display u-h2">
 					Skills
 					<c-squiggle></c-squiggle>
 				</h3>
@@ -218,7 +219,7 @@ import '../stylesheets/main.scss'
 
 		<section id="work" class="js-reveal">
 			<c-section-header class="u-z-index-7 u-position-relative js-reveal-inner">
-				<h3 slot="title" class="u-text-display">
+				<h3 slot="title" class="u-text-display u-h2">
 					Selected <br />
 					Works
 					<c-squiggle></c-squiggle>
@@ -260,9 +261,97 @@ import '../stylesheets/main.scss'
 					previewImages='["images/Work/Fitbux-1.jpg","images/Work/Fitbux-2.jpg"]'
 					images='["images/Work/Fitbux-1.jpg","images/Work/Fitbux-2.jpg","images/Work/Fitbux-3.jpg","images/Work/Fitbux-4.gif","images/Work/Fitbux-5.jpg","images/Work/Fitbux-6.jpg"]'
 					shortDescription='Providing gps for your money. Mobile and web app design.'
-					description='["While working for <a href=\\"http://mainux.com\\">Mainux</a>, I helped create  Fitbux&#39;s design system, UI, and branding using Figma.  I was responsible for overhauling their current branding and updating it to modern standards."]'
 					wide="true"
-				></c-work-list-item>
+				>
+					<div slot='case-study'>
+						<article>
+							<p class="u-text-large-2">
+								While working for <a href="http://mainux.com">Mainux</a>,
+								I helped create  Fitbux&#39;s design system, UI, and
+								branding using Figma.  I was responsible for overhauling
+								their current branding and updating it to modern standards.
+							</p>
+							<hr>
+							<div>
+								<h4 class="u-h5">Overview</h4>
+								<p>
+									FitBUX combines innovative technology and free FitBUX Coaches to
+									help you develop and implement your financial plan.
+								</p>
+								<p>
+									They've helped over 11,000 Young Professionals  make good
+									decisions on student loans, retirement, home buying, and so
+									much more.  We can help you do the same.
+								</p>
+							</div>
+
+						</article>
+
+						<div class="c-media-grid__text-item">
+							<div>
+								<h4 class="u-h6">The Problem</h4>
+								<ul>
+									<li>New graduates have trouble managing their finances</li>
+									<li>People don't have a plan for paying off student loan debt</li>
+									<li>People have trouble tracking expenses and budgeting</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="c-media-grid__text-item">
+							<div>
+								<h4 class="u-h6">Target Audience</h4>
+								<ul>
+									<li>Young professionals and recent graduates</li>
+									<li>People with student loan debt</li>
+									<li>People struggling with finances</li>
+								</ul>
+							</div>
+							<div>
+								<h4 class="u-h6">Competitors</h4>
+								<p>Mobills, Walnut, Spendee, YNAB, Mint</p>
+							</div>
+						</div>
+
+
+						<div class="c-media-grid__text-item u-align-content-center">
+							<div>
+								<h4 class="u-h6">The Solution</h4>
+								<ul>
+									<li>
+										User friendly financial platform.
+									</li>
+									<li>
+										Users can link their bank account and build a financial
+										profile.
+									</li>
+									<li>
+										Users can track spending.
+									</li>
+									<li>
+										Users can set a budget & categorize expenses.
+									</li>
+									<li>
+										Users can set saving goals.
+									</li>
+									<li>
+										Users are connected with a Fitbux coach, certified
+										financial advisor to guide them and help make decisions.
+									</li>
+								</ul>
+							</div>
+						</div>
+
+
+						<c-gallery-image
+							class="c-media-grid__image-item"
+							src="images/Work/Fitbux-Style-Guide.jpg"
+							alt="Fitbux Screenshot"
+							gallery="2"
+						/>
+					</div>
+
+				</c-work-list-item>
 
 
 				<c-work-list-item

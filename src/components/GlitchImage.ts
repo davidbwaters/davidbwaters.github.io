@@ -24,6 +24,7 @@ export class CGlitchImage extends LitElement {
 
         align-items: center;
         display: grid;
+        max-width: 100vw;
         min-height: 1px;
         width: 100%;
       }

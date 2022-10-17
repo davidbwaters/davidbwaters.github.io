@@ -11,13 +11,18 @@
 .u-text-large-4,
 .u-text-large-5,
 .u-text-large-6 {
-  line-height: 1.25 !important;
-  margin-bottom: 0 !important;
+  line-height: 1.5 !important;
+}
+
+.u-text-large-2 {
+    font-size: 1.44rem !important;
+    font-size: clamp( .8rem, 12px + 3.5vw, 1.6rem ) !important;
 }
 
 .u-text-title {
   font-family: var(--font-accent) !important;
-  font-size: .66rem !important;
+  font-size: .66rem;
+  font-size: clamp( .55rem, .25rem + .25vw, .66rem );
   font-weight: var(--font-accent-weight) !important;
   line-height: 1.4 !important;
   text-transform: uppercase !important;
@@ -197,6 +202,7 @@
 
 .u-separator,
 .u-separator-alternate {
+  background-color: transparent;
   border: none !important;
   background-repeat: repeat !important;
   background-position: 0 0 !important;
@@ -387,6 +393,16 @@
   ) !important;
 }
 
+
+/* List */
+
+.u-list-inline li {
+  display: inline-block;
+
+  &::before {
+    content: none
+  }
+}
 
 
 /* Animations */

@@ -93,11 +93,25 @@ export class CModal extends LitElement {
       }
 
       [name='back'] {
-        left: calc(var(--modal-spacing) * .75);
+        left: calc(var(--modal-spacing) * .5);
       }
 
       [name='close'] {
-        right: calc(var(--modal-spacing) * .75);
+        right: calc(var(--modal-spacing) * .5);
+      }
+
+      @media (min-width:45em) {
+
+        [name='back'] {
+          left: calc(var(--modal-spacing) * .75);
+          top: calc(var(--modal-spacing) * .75);
+        }
+
+        [name='close'] {
+          right: calc(var(--modal-spacing) * .75);
+          top: calc(var(--modal-spacing) * .75);
+        }
+
       }
   `
 

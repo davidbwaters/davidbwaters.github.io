@@ -24,14 +24,23 @@ export class CTopBar extends LitElement {
       display: grid;
       grid-template-columns: min-content min-content;
       max-height: 72px;
-      padding-bottom: 1rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-      padding-top: 1rem;
+      padding-bottom: .5rem;
+      padding-left: .75rem;
+      padding-right: .75rem;
+      padding-top: .5rem;
       place-content: center space-between;
       position: fixed;
       width: 100%;
       z-index: 9;
+    }
+
+    @media (min-width: 25em) {
+      :host {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-bottom: 1.5rem;
+        padding-top: 1.5rem;
+      }
     }
 
     @media (min-height: 35em) {

@@ -38,15 +38,21 @@ export class CHero extends LitElement {
       height: 100%;
       height: var(--doc-height);
       max-height: 100vh;
-      min-height: 28rem;
+      min-height: 25rem;
       overflow: hidden;
       z-index: 2;
+    }
+
+    @media (min-width: 35em) {
+      :host {
+        grid-template-rows: 4fr auto 4.5rem;
+        min-height: 25rem;
+      }
     }
 
     @media (min-width: 55em) {
       :host {
         grid-template-rows: 2.6fr auto 4.5rem;
-        min-height: 30rem;
       }
     }
 
@@ -63,6 +69,7 @@ export class CHero extends LitElement {
       display: grid;
       grid-template-columns: 1fr;
       justify-content: center;
+      min-height:40vh;
       overflow: hidden;
       padding: 1.25rem;
       position: relative;
@@ -73,6 +80,7 @@ export class CHero extends LitElement {
 
       .c-hero__upper {
         grid-template-columns: auto;
+        min-height:0vh;
       }
 
     }
@@ -226,7 +234,7 @@ export class CHero extends LitElement {
       }
     }
 
-    @media (min-width: 45em) {
+    @media (min-width: 45em) and (min-height: 30em) {
       .c-hero__name,
       .c-hero__location {
         font-size: 0.7rem;
@@ -244,7 +252,7 @@ export class CHero extends LitElement {
       padding-left: 1.5rem;
     }
 
-    @media (min-width: 45em) {
+    @media (min-width: 45em) and (min-height: 30em) {
       .c-hero__name {
         left: 1.5rem;
         text-align: right;
@@ -261,7 +269,7 @@ export class CHero extends LitElement {
       padding-right: 1.5rem;
     }
 
-    @media (min-width: 45em) {
+    @media (min-width: 45em) and (min-height: 30em) {
       .c-hero__location {
         right: 1.5rem;
         text-align: left;
@@ -275,8 +283,15 @@ export class CHero extends LitElement {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 5fr 4fr;
-      min-height: calc(50vh - 2.25rem);
+      min-height: calc(40vh - 2.25rem);
       overflow: hidden;
+    }
+
+
+    @media (min-width: 35em) {
+      .c-hero__lower {
+        min-height: calc(50vh - 2.25rem);
+      }
     }
 
     @media (min-width: 55em) {
@@ -429,7 +444,7 @@ export class CHero extends LitElement {
       grid-template-columns: 1fr;
       justify-content: center;
       line-height: 1;
-      padding: 1.25rem 1.5rem;
+      padding: 1.25rem 2.5rem 1.25rem 1.5rem;
     }
 
     @media (min-width: 35em) {
@@ -453,7 +468,7 @@ export class CHero extends LitElement {
       font-family: var(--font-heading), sans-serif !important;
       font-weight: var(--font-heading-weight) !important;
       font-size: 1.5rem !important;
-      font-size: clamp(0.8rem, 2vw + 0.4rem, 2.2rem) !important;
+      font-size: clamp(0.8rem, 2vw + 0.35rem, 2.2rem) !important;
       margin: 0 !important;;
     }
 
@@ -488,7 +503,7 @@ export class CHero extends LitElement {
     ::slotted([slot='footer-content-left']),
     ::slotted([slot='footer-content-right']) {
       align-items: center;
-      column-gap: 0.5rem;
+      column-gap: 0.75rem;
       display: grid;
       font-family: var(--font-main-regular), sans-serif;
       font-size: 0.6rem;
@@ -535,7 +550,7 @@ export class CHero extends LitElement {
     ::slotted([slot='footer-content-right']) {
 
       grid-column: span 2;
-      grid-template-columns: auto min-content;
+      grid-template-columns: 1fr 1fr;
       place-content: center;
     }
 

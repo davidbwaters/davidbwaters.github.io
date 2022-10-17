@@ -1,4 +1,4 @@
-/*
+d/*
  *  Components - Section Header
  */
 
@@ -25,21 +25,27 @@ export class CWorkListItem extends LitElement {
       display: grid;
       grid-template-rows: auto 1fr;
       grid-template-columns: 100%;
+      max-height: calc(130vh - 3rem);
       margin-left: auto;
       margin-right: auto;
       padding-bottom: 1rem;
     }
 
+    @media (max-width:45em) {
+      c-work-list-item:first-child {
+        margin-top: 0rem;
+      }
+    }
+
     @media (min-height:35em) and (min-width:45em) {
 
       c-work-list-item {
+        max-height: 130vh;
         max-width: calc(100% - 9rem);
         padding-bottom: 1.25rem;
-
       }
 
     }
-
 
     @media (min-height:35em) and (min-width:80em) {
 
@@ -51,21 +57,14 @@ export class CWorkListItem extends LitElement {
 
     }
 
-    @media (max-width:45em) {
-      c-work-list-item:first-child {
-        margin-top: 0rem;
-      }
-    }
-
     c-work-list-item:last-child {
       padding-bottom: 0rem;
     }
 
-
     .c-work-list__item-backdrop {
       background-color: var(--color-bg);
       display: block;
-      height: 4.5rem;
+      height: 3rem;
       position: sticky;
       top: 0;
       width: 100%;
@@ -81,9 +80,9 @@ export class CWorkListItem extends LitElement {
     }
 
     .c-work-list__item-info {
-      margin-top: -4.5rem;
+      margin-top: -3rem;
       position: sticky;
-      top: 4.5rem;
+      top: 3rem;
       z-index: 5;
     }
 
@@ -103,11 +102,11 @@ export class CWorkListItem extends LitElement {
       display: grid;
       gap: 0.3rem;
       overflow: hidden;
-      padding-bottom: 1.25rem;
-      padding-top: 1.25rem;
+      padding-bottom: 1rem;
+      padding-top: 1rem;
     }
 
-    @media (min-width:45em) {
+    @media (min-width:35em) {
 
       .c-work-list__item-info-inner {
         gap: 0.4rem;
@@ -117,22 +116,67 @@ export class CWorkListItem extends LitElement {
 
     }
 
-    .c-work-list__item-info-title {
-      margin: 0;
-      padding-left:  1.5rem;
-      padding-right: 1.5rem;
-    }
-
+    .c-work-list__item-info-title,
+    .c-work-list__item-info-taglist,
     .c-work-list__item-info-description {
-      font-size: .8rem;
-      padding-left:  1.5rem;
-      padding-right: 1.5rem;
+      padding-left:  0.75rem;
+      padding-right: 0.75rem;
     }
 
 
     @media (min-width:35em) {
 
+      .c-work-list__item-info-title,
+      .c-work-list__item-info-taglist,
       .c-work-list__item-info-description {
+        padding-left:  1.5rem;
+        padding-right: 1.5rem;
+      }
+
+    }
+
+    .c-work-list__item-info-title {
+      margin: 0 !important;
+    }
+
+
+
+    .c-work-list__item-info-taglist {
+      display: none;
+    }
+
+
+    @media (min-width:15em) {
+
+      .c-work-list__item-info-taglist {
+        display: block;
+      }
+
+    }
+
+    .c-work-list__item-info-description,
+     .c-work-list__item-info-description  p {
+      font-size: .6rem;
+      line-height: 1.25;
+      margin: 0;
+    }
+
+
+    @media (min-width:25em) {
+
+      .c-work-list__item-info-description,
+       .c-work-list__item-info-description  p {
+        display: block;
+        font-size: .8em;
+      }
+
+    }
+
+
+    @media (min-width:55em) {
+
+      .c-work-list__item-info-description,
+       .c-work-list__item-info-description  p {
         font-size: 1em;
       }
 
@@ -140,28 +184,19 @@ export class CWorkListItem extends LitElement {
 
     @media (min-width:55em) {
 
-      .c-work-list__item-info-description {
+      .c-work-list__item-info-description,
+       .c-work-list__item-info-description  p {
         font-size: 1.1em;
-        max-width: 55rem;
       }
 
     }
 
-    .c-work-list__item-info-description  p {
-      margin: 0;
-    }
-
-    .c-work-list__item-info-taglist {
-      padding-left:  1.5rem;
-      padding-right: 1.5rem;
-    }
 
     .c-work-list__item-preview {
       background-color: var(--color-subtle-alternate);
       display: grid;
       grid-gap: 1px;
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-      justify-items: center;
       overflow: hidden;
     }
 
@@ -201,6 +236,11 @@ export class CWorkListItem extends LitElement {
 
     }
 
+    c-work-list-item:last-child .c-work-list__item-lower,
+    c-work-list-item:last-child .c-work-list__item-lower-three {
+      border-bottom: none;
+    }
+
     @media (min-width:55em) {
 
       .c-work-list__item-lower-three {
@@ -223,7 +263,7 @@ export class CWorkListItem extends LitElement {
       padding-bottom: .5rem;
       padding-left: .5rem;
       padding-right: .5rem;
-      padding-top: 1rem;
+      padding-top: .5rem;
     }
 
     @media (min-width:45em) {
@@ -238,11 +278,9 @@ export class CWorkListItem extends LitElement {
 
     }
 
-
     @media (min-width:75em) {
 
       .c-media-grid {
-        grid-template-columns: 1fr 1fr;
         padding-left: calc((100% - 70em) / 2);
         padding-right: calc((100% - 70em) / 2);
         padding-top: .5rem;
@@ -251,54 +289,92 @@ export class CWorkListItem extends LitElement {
     }
 
     .c-media-grid__text-item,
-    .c-media-grid__text-item-wide {
-      align-content: center;
+    .c-media-grid__text-item-wide,
+    .c-media-grid article {
       display: grid;
       font-family: var(--font-main-regular);
-      font-size: 1.1rem;
-      padding-bottom: 1.5rem;
-      padding-left: 2rem;
-      padding-top: 1.5rem;
       text-align: left;
       overflow-y: auto;
     }
 
     .c-media-grid__text-item {
-      padding-right: 2.5rem;
+      align-content: start;
+      background: var(--color-bg-semi-transparent-contrast);
+      box-shadow: inset 0 0 0 1px var(--color-subtle-alternate);
+      gap: 0rem;
+      padding-bottom: 1rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      padding-top: 1rem;
     }
 
-
-    .c-media-grid__text-item-wide {
-      padding-right: 2rem;
+    .c-media-grid__text-item:has(div) {
+      gap: 1rem;
     }
+
 
     @media (min-width:45em) {
 
-      .c-media-grid__text-item-wide {
+      .c-media-grid__text-item {
+        gap: 1rem;
+        padding-bottom: calc(3rem + 1vw);
+        padding-left: calc(2rem + 1vw);
+        padding-right: calc(2rem + 1vw);
+        padding-top: calc(3rem + 1vw);
+      }
+
+    }
+
+    .c-media-grid__text-item-wide,
+    .c-media-grid article {
+      align-content: center;
+      gap: 0.25rem;
+      padding-bottom: .75rem;
+      padding-left: .5rem;
+      padding-right: .5rem;
+      padding-top: .75rem;
+    }
+
+
+    @media (min-width:45em) {
+
+      .c-media-grid__text-item-wide,
+      .c-media-grid article {
         font-size: 1.3rem;
         grid-column: 1 / span 2;
-        padding-bottom: 3rem;
-        padding-top: 3rem;
+        padding-bottom: calc(4rem + 1vw);
+        padding-left: calc(2rem + 1vw);
+        padding-right: calc(2rem + 1vw);
+        padding-top: calc(3rem + 1vw);
       }
 
     }
 
     @media (min-width:55em) {
 
-      .c-media-grid__text-item-wide {
+      .c-media-grid__text-item-wide,
+      .c-media-grid article {
         padding-left: calc(((100% - 50rem) / 2) + 2rem);
         padding-right: calc(((100% - 50rem) / 2) + 2rem);
       }
 
     }
+    @media (min-width:75em) {
+
+      .c-media-grid__text-item-wide,
+      .c-media-grid article {
+        font-size: 1.3rem;
+        padding-bottom: 4rem;
+        padding-top: 3rem;
+      }
+
+    }
 
     .c-media-grid__image-item {
-      align-content: center;
       background-color: var(--color-muted);
       border: solid 1px var(--color-subtle-alternate);
       box-shadow: 0 0 0 1px rgba(120,120,120,.8);
       display: grid;
-      justify-items: center;
       position: relative;
     }
 
@@ -393,16 +469,18 @@ export class CWorkListItem extends LitElement {
   @property({type: String})
   taglist = ''
 
-  firstUpdated() {
+  @property({type: String})
+  caseStudy = null
 
-    this.taglist = JSON.parse(this.tags).join(', ')
+  constructor() {
 
-    console.log(this.taglist)
-    if (!JSON.parse(this.hideModal)) {
+    super()
 
-      document.body.appendChild(this.querySelector('c-modal'))
-
+    if (this.querySelector('[slot="case-study"]')) {
+      this.caseStudy = this.querySelector('[slot="case-study"]').innerHTML
+      this.querySelector('[slot="case-study"]').innerHTML = ''
     }
+
 
     if (!document.querySelector('.work-list-styles')) {
       document.head.innerHTML += `
@@ -410,6 +488,26 @@ export class CWorkListItem extends LitElement {
           ${this.styles}
         </style>
       `
+    }
+
+
+  }
+
+  connectedCallback() {
+
+    super.connectedCallback()
+
+    this.taglist = JSON.parse(this.tags).join(', ')
+
+  }
+
+  firstUpdated() {
+
+
+    if (!JSON.parse(this.hideModal)) {
+
+      document.body.appendChild(this.querySelector('c-modal'))
+
     }
 
   }
@@ -420,7 +518,7 @@ export class CWorkListItem extends LitElement {
       <div class="c-work-list__item-backdrop"></div>
       <div data-sticky class="c-work-list__item-info">
         <div class="c-work-list__item-info-inner">
-          <h4 class="c-work-list__item-info-title">
+          <h4 class="c-work-list__item-info-title u-h3">
             ${this.title}
           </h4>
           <div
@@ -429,7 +527,7 @@ export class CWorkListItem extends LitElement {
               u-text-title
             "
           >
-            Techologies Used: ${this.taglist}
+            Techologies<span class="u-hidden@small">Used</span>: ${this.taglist}
           </div>
           <div
             class="
@@ -497,7 +595,10 @@ export class CWorkListItem extends LitElement {
                 c-icon--expand
               "
             ></i>
-            Show More
+            ${this.caseStudy ?
+              "Show Case Study" :
+              "Show More"
+            }
           </button>`
         }
 
@@ -571,30 +672,42 @@ export class CWorkListItem extends LitElement {
               u-bg-pattern-diagonal-alternate
             "
             >
-              <article
-                class=${ JSON.parse(this.wide)
-                  ? 'c-media-grid__text-item-wide'
-                  : 'c-media-grid__text-item'
+              ${
+                this.description
+                  ? html`
+                    <article
+                      class=${ JSON.parse(this.wide)
+                        ? 'c-media-grid__text-item-wide'
+                        : 'c-media-grid__text-item'
+                      }
+                    >
+                      <div>
+                      ${
+                        JSON.parse(this.description).map(item => unsafeHTML(`
+                          <p> ${item} </p>
+                        `)
+                        )
+                      }
+                      </div>
+                    </article>
+                  `
+                  : ''
               }
-              >
-                ${JSON.parse(this.description).map(item => unsafeHTML(`
-                    <p> ${item} </p>`
+              ${
+                this.querySelector('[slot="case-study"]')
+                  ? unsafeHTML(
+                    this.caseStudy
                   )
-                )}
-              </article>
+                  : ''
+              }
               ${JSON.parse(this.images).map(item => html`
                 <div class="c-media-grid__image-item">
-                  <a
-                    data-glightbox
-                    data-gallery=${this.gallery}
+                  <c-gallery-image
                     href="${item}"
-                  >
-                    <img
-                      class="c-media-grid__image"
-                      src="${item}"
-                      alt=${this.title + ' Screenshot'}
-                    />
-                  </a>
+                    src="${item}"
+                    alt=${this.title + ' Screenshot'}
+                    gallery=${this.gallery}
+                  ></c-gallery-image>
                 </div>
               `)}
 

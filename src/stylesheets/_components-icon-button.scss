@@ -25,13 +25,14 @@
   );
   border: solid 1px var(--icon-button-color-border);
   border-radius: 100%;
+  box-shadow: var(--shadow-sm);;
   color: inherit;
   cursor: pointer;
   display: grid;
   font-family: var(--icon-button-font);
   font-weight: var(--icon-button-font-weight);
-  grid-template-columns: calc(var(--icon-button-size) * .8);
-  grid-template-rows: calc(var(--icon-button-size) * .8);
+  grid-template-columns: calc(var(--icon-button-size) * .6);
+  grid-template-rows: calc(var(--icon-button-size) * .6);
   letter-spacing: 0.025em;
   outline: none;
   padding-left: calc(var(--icon-button-spacing) / 6);
@@ -43,6 +44,15 @@
     --icon-transition-duration
   );
   z-index: 9;
+}
+
+@media (min-width:25em) {
+
+  .c-icon-button {
+    grid-template-columns: calc(var(--icon-button-size) * .8);
+    grid-template-rows: calc(var(--icon-button-size) * .8);
+  }
+
 }
 
 
@@ -68,13 +78,21 @@
 .c-icon-button i {
   display: grid;
   font-family: 'icons';
-  font-size: calc(var(--icon-button-size) * .66);
+  font-size: calc(var(--icon-button-size) * .5);
   font-style: normal;
   height: 100%;
   place-content: center;
   position: relative;
   text-transform: none;
   width: 100%;
+}
+
+@media (min-width:25em) {
+
+  .c-icon-button i {
+    font-size: calc(var(--icon-button-size) * .66);
+  }
+
 }
 
 @media (min-width:45em) {
@@ -111,6 +129,15 @@
   );
 }
 
+@media (min-width:25em) {
+  .c-icon-button--close i::before,
+  .c-icon-button--close i::after {
+    height: 66%;
+    width: calc(
+      var(--icon-button-thickness) * .85
+    );
+  }
+}
 
 @media (min-width:45em) {
   .c-icon-button--close i::before,

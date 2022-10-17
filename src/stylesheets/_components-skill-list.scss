@@ -25,6 +25,11 @@
   display: grid;
   grid-template-columns: 28% auto;
   grid-gap: 0.25rem;
+  list-style-type: none;
+}
+
+.c-skill-list__skill::before {
+  content: none;
 }
 
 @media (min-width:35em) {
