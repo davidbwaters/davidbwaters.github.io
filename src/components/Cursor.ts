@@ -138,8 +138,13 @@ export class CCursor extends LitElement {
 
     document.addEventListener('mousemove', e => {
 
-      this.position.cursorX = e.x
-      this.position.cursorY = e.y
+      if( e.x !== 0 ) {
+        this.position.cursorX = e.x
+      }
+
+      if( e.y !== 0 ) {
+        this.position.cursorY = e.y
+      }
 
     })
 

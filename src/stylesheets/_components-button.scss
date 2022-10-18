@@ -16,16 +16,16 @@
   display: inline-grid;
   font-family: var(--font-main-regular), sans-serif;
   font-weight: var(--font-main-regular-weight);
-  font-size: .6rem;
+  font-size: .7em;
   grid-auto-flow: column;
   grid-gap: .5rem;
   justify-content: center;
   letter-spacing: .05em;
   line-height: 1.2;
-  padding-bottom: .7rem;
+  padding-bottom: .6rem;
   padding-left: .4rem;
   padding-right: .4rem;
-  padding-top: .7rem;
+  padding-top: .6rem;
   text-decoration: none;
   text-transform: uppercase;
   transition:
@@ -34,26 +34,12 @@
   will-change: box-shadow, opacity;
 }
 
-@media (min-width:25em) {
-
-  .c-button {
-    font-size: .66rem;
-    padding-bottom: .75rem;
-    padding-left: .5rem;
-    padding-right: .5rem;
-    padding-top: .75rem;
-  }
-
-}
-
 @media (min-width:45em) {
 
   .c-button {
-    font-size: .7rem;
-    padding-bottom: .75rem;
+    font-size: .7em;
     padding-left: .5rem;
-    padding-right: .5rem;
-    padding-top: .75rem;
+    padding-right: .5rem
   }
 
 }
@@ -61,7 +47,7 @@
 @media (min-width:55em) {
 
   .c-button {
-    font-size: .75rem;
+    font-size: .75em;
     letter-spacing: .1em;
     padding-left: .9rem;
     padding-right: .9rem;

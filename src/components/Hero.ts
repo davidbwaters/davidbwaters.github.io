@@ -506,7 +506,7 @@ export class CHero extends LitElement {
       column-gap: 0.75rem;
       display: grid;
       font-family: var(--font-main-regular), sans-serif;
-      font-size: 0.6rem;
+      font-size: 0.7em;
       justify-content: center;
       padding-left: 0.5rem;
       padding-right: 0.5rem;
@@ -517,7 +517,7 @@ export class CHero extends LitElement {
       ::slotted([slot='footer-content-right']) {
         column-gap: 0.75rem;
         font-family: var(--font-main-light), sans-serif;
-        font-size: 0.8rem;
+        font-size: 0.8em;
         padding-left: 1rem;
         padding-right: 1rem;
       }
@@ -528,7 +528,7 @@ export class CHero extends LitElement {
       ::slotted([slot='footer-content-left']),
       ::slotted([slot='footer-content-right']) {
         column-gap: 1rem;
-        font-size: 1rem;
+        font-size: 1em;
         padding-left: 1.25rem;
         padding-right: 1.25rem;
       }
@@ -564,13 +564,13 @@ export class CHero extends LitElement {
     ::slotted([slot='footer-box-right']) {
       align-items: center;
       display: grid;
-      font-size: 1.2rem;
+      font-size: 1.2em;
       justify-content: center;
     }
 
     @media (min-width: 35em) {
       ::slotted([slot='footer-box-right']) {
-        font-size: 1.33rem;
+        font-size: 1.33em;
       }
     }
 

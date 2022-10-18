@@ -30,7 +30,7 @@ h1, .u-h1 {
 
 h1, h2, .u-h1, .u-h2 {
   font-size: 1.5rem;
-  font-size: clamp(0.8rem, 2vw + 0.5rem, 2.2rem);
+  font-size: clamp(0.9rem, 2vw + 0.75rem, 2.2rem);
 }
 
 h3, .u-h3 {
@@ -55,9 +55,13 @@ h6, .u-h6 {
 
 
 p {
-  line-height: 1.5;
+  line-height: 1.4;
   margin-top: .2em;
   margin-bottom: .8em;
+}
+
+small {
+  line-height: 1.4;
 }
 
 strong {

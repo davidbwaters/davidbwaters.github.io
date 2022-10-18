@@ -103,7 +103,7 @@ export class CWorkListItem extends LitElement {
       gap: 0.3rem;
       overflow: hidden;
       padding-bottom: 1rem;
-      padding-top: 1rem;
+      padding-top: 1.1rem;
     }
 
     @media (min-width:35em) {
@@ -154,43 +154,26 @@ export class CWorkListItem extends LitElement {
 
     }
 
-    .c-work-list__item-info-description,
-     .c-work-list__item-info-description  p {
-      font-size: .6rem;
-      line-height: 1.25;
+    .c-work-list__item-info-description  p {
       margin: 0;
     }
 
 
-    @media (min-width:25em) {
-
-      .c-work-list__item-info-description,
-       .c-work-list__item-info-description  p {
-        display: block;
-        font-size: .8em;
-      }
-
+    .c-work-list__item-info-description {
+      font-size: .9em;
+      line-height: 1.25;
     }
+
+
 
 
     @media (min-width:55em) {
 
-      .c-work-list__item-info-description,
-       .c-work-list__item-info-description  p {
+      .c-work-list__item-info-description {
         font-size: 1em;
       }
 
     }
-
-    @media (min-width:55em) {
-
-      .c-work-list__item-info-description,
-       .c-work-list__item-info-description  p {
-        font-size: 1.1em;
-      }
-
-    }
-
 
     .c-work-list__item-preview {
       background-color: var(--color-subtle-alternate);
@@ -389,7 +372,6 @@ export class CWorkListItem extends LitElement {
       bottom: 1rem;
       color: white;
       font-family: var(--font-main-regular);
-      font-size: .66rem;
       line-height: 1.1;
       padding-bottom: .3rem;
       padding-left: .3rem;
@@ -527,7 +509,7 @@ export class CWorkListItem extends LitElement {
               u-text-title
             "
           >
-            Techologies<span class="u-hidden@small">Used</span>: ${this.taglist}
+            Techologies<span class="u-hidden@small"> Used</span>: ${this.taglist}
           </div>
           <div
             class="

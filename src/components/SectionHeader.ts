@@ -75,7 +75,7 @@ export class CSectionHeader extends LitElement {
 
     ::slotted([slot='description']) {
       box-shadow: 0 0 0 1px var(--color-subtle-alternate);
-      font-size: .8em;
+      font-size: .9em;
       padding-bottom: 1.5rem;
       padding-left: 1rem;
       padding-right: 1rem;
