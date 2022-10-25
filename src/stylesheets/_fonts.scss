@@ -1,0 +1,11 @@
+/*
+ * Fonts
+ */
+
+@font-face {
+  font-family: "league_monoregular";
+  src: url("/fonts/leaguemono-regular.woff2") format("woff2"),
+       url("/fonts/leaguemono-regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

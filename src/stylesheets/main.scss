@@ -2,9 +2,6 @@
  *  Main
  */
 
-
-@use 'imports';
-
 @use 'node_modules/@substructure/settings';
 @use 'node_modules/@substructure/tools';
 @use 'node_modules/@substructure/generic-initialize';
@@ -20,9 +17,11 @@
 @use 'node_modules/@substructure/utilities-text-sizing';
 @use 'node_modules/@substructure/utilities-z-index';
 
+@use 'fonts';
 @use 'theme';
 @use 'components-awwwards';
 @use 'components-button';
+@use 'components-icons';
 @use 'components-icon-button';
 @use 'components-lightbox';
 @use 'components-page-footer';

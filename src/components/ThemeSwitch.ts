@@ -40,7 +40,7 @@ export class CThemeSwitch extends LitElement {
 
     .c-theme-switch__wrapper {
       align-items: center;
-      column-gap: 0.4rem;
+      column-gap: 0.4em;
       cursor: pointer;
       display: grid;
       grid-auto-flow: column;
@@ -51,7 +51,7 @@ export class CThemeSwitch extends LitElement {
     @media (min-width: 35em) {
 
       .c-theme-switch__wrapper {
-        column-gap: 0.5rem;
+        column-gap: 0.5em;
       }
 
     }
@@ -94,13 +94,13 @@ export class CThemeSwitch extends LitElement {
     }
 
     ::slotted(i) {
-      font-size: 0.66rem;
+      font-size: 0.9em;
     }
 
     @media (min-width: 35em) {
 
       ::slotted(i) {
-        font-size: 0.75rem;
+        font-size: 1em;
       }
 
     }

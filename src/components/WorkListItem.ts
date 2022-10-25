@@ -593,7 +593,7 @@ export class CWorkListItem extends LitElement {
             <i
               class="
                 c-icon
-                c-icon--microsoft
+                c-icon--windows
               "
             ></i>
             View on VSC

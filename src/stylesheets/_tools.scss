@@ -1,0 +1,59 @@
+/*
+ *  Tools
+ */
+
+
+/* Characters to escape from SVGs */
+$fs-escape-chars: (
+    ' ': '%20',
+    '\'': '%22',
+    '"': '%27',
+    '#': '%23',
+    '/': '%2F',
+    ':': '%3A',
+    '(': '%28',
+    ')': '%29',
+    '%': '%25',
+    '<': '%3C',
+    '>': '%3E',
+    '\\': '%5C',
+    '^': '%5E',
+    '{': '%7B',
+    '|': '%7C',
+    '}': '%7D',
+);
+
+/**
+ * Helper to get URL-escaped inline SVG code
+ */
+@function svg($name, $map) {
+    // Check if icon exists
+    @if not map-has-key($map, $name) {
+        @error 'icon “#{$name}” does not exists in $svg-icons map';
+        @return false;
+    }
+
+    // Get icon data
+    $icon-map: map-get($map, $name);
+
+    $escaped-string: '';
+    $unquote-icon: unquote($icon-map);
+    // Loop through each character in string
+    @for $i from 1 through str-length($unquote-icon) {
+        $char: str-slice($unquote-icon, $i, $i);
+
+        // Check if character is in symbol map
+        $char-lookup: map-get($fs-escape-chars, $char);
+
+        // If it is, use escaped version
+        @if $char-lookup != null {
+            $char: $char-lookup;
+        }
+
+        // Append character to escaped string
+        $escaped-string: $escaped-string + $char;
+    }
+
+    // Return inline SVG data
+    @return url('data:image/svg+xml, #{$escaped-string} ');
+}

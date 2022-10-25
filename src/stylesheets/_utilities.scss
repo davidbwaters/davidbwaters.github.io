@@ -15,8 +15,13 @@
 }
 
 .u-text-large-2 {
-    font-size: 1.44rem !important;
-    font-size: clamp( 1.1rem, 16px + 1vw, 1.3rem ) !important;
+  font-size: 1.2rem !important;
+  font-size: clamp( 1.1rem, 16px + 1vw, 1.3rem ) !important;
+}
+
+.u-text-large-3 {
+  font-size: 1.4rem !important;
+  font-size: clamp( 1.2rem, 18px + 1vw, 1.5rem ) !important;
 }
 
 .u-text-title {

@@ -75,7 +75,6 @@ export class CTopBar extends LitElement {
       }
       .c-top-bar__nav {
         grid-auto-flow: row;
-        grid-gap: 0;
       }
 
     }

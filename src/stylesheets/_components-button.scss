@@ -2,6 +2,10 @@
  *  Components - Button
  */
 
+c-button {
+  display: inline-grid;
+  width: var(--button-width);
+}
 
 .c-button {
   align-items: center;
@@ -18,19 +22,18 @@
   font-weight: var(--font-main-regular-weight);
   font-size: .7em;
   grid-auto-flow: column;
-  grid-gap: .5rem;
+  grid-gap: .5em;
   justify-content: center;
   letter-spacing: .05em;
-  line-height: 1.2;
-  padding-bottom: .6rem;
-  padding-left: .4rem;
-  padding-right: .4rem;
-  padding-top: .6rem;
+  line-height: 1;
+  padding-bottom: .75em;
+  padding-left: .8em;
+  padding-right: .8em;
+  padding-top: .9em;
   text-decoration: none;
   text-transform: uppercase;
   transition:
-    all var(--transition-duration),
-    transform 0s;
+    all var(--transition-duration);
   will-change: box-shadow, opacity;
 }
 
@@ -38,8 +41,8 @@
 
   .c-button {
     font-size: .7em;
-    padding-left: .5rem;
-    padding-right: .5rem
+    padding-left: .8em;
+    padding-right: .8em
   }
 
 }
@@ -49,10 +52,15 @@
   .c-button {
     font-size: .75em;
     letter-spacing: .1em;
-    padding-left: .9rem;
-    padding-right: .9rem;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 
+
+  .c-button:has(i) {
+    padding-left: 1.2em;
+    padding-right: 1.2em;
+  }
 }
 
 .c-button:active {
@@ -81,23 +89,19 @@
 }
 
 .c-button i {
-  font-size: 1rem;
-}
+  font-size: 1.5em;
 
-@media (min-width:35em) {
-
-  .c-button i {
-    font-size: 1.2rem;
+  &::before {
+    transform: translatey(-8%);
   }
-
 }
 
 .c-button--large {
-  font-size: .85rem;
-  padding-bottom: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 1rem;
+  font-size: .9rem;
+
+  & i {
+    font-size: 1.4em;
+  }
 }
 
 .c-button--block {

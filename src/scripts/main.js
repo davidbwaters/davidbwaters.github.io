@@ -227,15 +227,17 @@ window.addEventListener("DOMContentLoaded", () => {
 let app = document.querySelector(".c-app");
 
 const setLogo = () => {
+
   let theme = document.body.dataset.theme;
 
-  let logo = document.querySelector(".c-logo");
+  let logos = document.querySelectorAll(".c-logo");
 
-  logo.setAttribute(
-    "data",
-    theme === "dark" ? "images/Logo-Dark.svg" : "images/Logo-Light.svg"
-  );
-  // console.log(this.data.logo)
+  logos.forEach(logo =>  {
+    logo.setAttribute(
+      "data",
+      theme === "dark" ? "images/Logo-Dark.svg" : "images/Logo-Light.svg"
+    );
+  })
 
 };
 
@@ -244,9 +246,6 @@ async function preload() {
 
   //console.log(this.data)
 
-  setLogo();
-
-  app.addEventListener("themeChange", setLogo);
 }
 
 preloader.preload(...preloadingImages).then(function (status) {
