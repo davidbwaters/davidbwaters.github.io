@@ -5,9 +5,11 @@
 
 .c-skill-list {
   display: grid;
+  gap: 1px;
   grid-template-columns: 100%;
   margin-bottom: 0;
   margin-top: 0;
+  padding-top: 1px;
   overflow: hidden;
 }
 
@@ -21,7 +23,8 @@
 
 .c-skill-list__skill {
   align-items: center;
-  box-shadow: 0 1px 0 0 var(--color-subtle-alternate);
+  background-color: var(--color-bg);
+  box-shadow: 0 0 0 1px var(--color-subtle-alternate);
   display: grid;
   grid-template-columns: 28% auto;
   grid-gap: 0.25rem;
@@ -45,7 +48,7 @@
 @media (min-width:45em) {
 
   .c-skill-list__skill:nth-child(odd) {
-    border-right: solid 1px var(--color-subtle-alternate);
+    //border-right: solid 1px var(--color-subtle-alternate);
     grid-template-columns: 3fr 7fr;
   }
 
@@ -96,12 +99,12 @@
 .c-skill-list__gap {
   background-image: linear-gradient(
     0deg,
-    transparent               0.00%,
-    transparent              46.87%,
-    var(--color-fg)  46.88%,
-    var(--color-fg)  53.22%,
-    transparent              53.23%,
-    transparent              100.00%
+    transparent 0%,
+    transparent 8px,
+    var(--color-fg) 8px,
+    var(--color-fg) 9px,
+    transparent 9px,
+    transparent 100%
   );
 }
 

@@ -108,10 +108,15 @@ export class CThemeSwitch extends LitElement {
 
   handleChange() {
 
-    const current = document.body.dataset.theme
+    const currentTheme = document.body.dataset.theme
 
-    document.body.dataset.theme =
-      current === 'dark' ? 'light' : 'dark'
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+
+    document.body.dataset.theme = newTheme
+
+    document.body.classList.remove('theme-' + currentTheme)
+    document.body.classList.add('theme-' + newTheme)
+
 
     this.dispatchEvent(
 

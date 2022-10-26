@@ -8,10 +8,12 @@ import '../stylesheets/main.scss'
 
 	<script>
 		import '../scripts/main'
+		import "../components/Button";
 		import '../components/CanvasMain'
 		import '../components/GalleryImage'
 		import "../components/GlitchImage";
 		import "../components/Hero";
+		import "../components/Icon";
 		import "../components/Loader"
 		import "../components/Modal";
 		import "../components/SectionHeader";
@@ -104,12 +106,11 @@ import '../stylesheets/main.scss'
 				<span> Available Now! </span>
 			</div>
 			<div slot="footer-content-right">
-				<a
-					class="c-button"
+				<c-button
 					href="mailto:mrdavidbwaters@gmail.com"
+					label="Contact"
 				>
-					Contact
-				</a>
+				</c-button>
 				<span>
 					Start
 					<span class="u-hidden@small">Your</span>

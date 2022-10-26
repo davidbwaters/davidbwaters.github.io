@@ -39,7 +39,7 @@ export class CGlitchImage extends LitElement {
         --glitch-image-gap-vertical: 0px;
         --glitch-image-time-anim: 2.25s;
         --glitch-image-blend-mode-1: none;
-        --glitch-image-blend-mode-2: none;
+        --glitch-image-blend-mode-2: luminosity;
         --glitch-image-blend-mode-3: none;
         --glitch-image-blend-mode-4: none;
         --glitch-image-blend-mode-5: none;
@@ -893,7 +893,7 @@ export class CGlitchImage extends LitElement {
     return html`
 
       <div
-        class="c-glitch-image__inner"
+        class="c-glitch-image__inner ${this.active ? 'is-glitching' : ''}"
       >
         <div
           class="c-glitch-image__image ${this.active ? 'is-glitching' : ''}"

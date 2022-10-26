@@ -33,16 +33,18 @@ const { title } = Astro.props;
 
     <c-canvas-noise/>
 
-		<c-loader>
-			<c-glitch-image
-				src="images/Loader.svg"
-				active
-				glitch="1"
-				width="100"
-				height="100"
-			>
-			</c-glitch-image>
-		</c-loader>
+			<c-loader>
+				<div>
+					<svg class="c-logo u-theme-fill u-wrapper-full" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						<title>Artboard</title>
+						<g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<g id="Logo" transform="translate(0.000000, 5.000000)" fill="currentColor" fill-rule="nonzero">
+										<path d="M9.6,0 L9.6,38.4 L0,38.4 L0,0 L9.6,0 Z M48,19.2 L48,28.8 L38.4,38.4 L38.4,19.2 L48,19.2 Z M28.8,0 L28.8,28.8 L19.2,38.4 L19.2,0 L28.8,0 Z M48,0 L48,9.6 L38.4,19.2 L38.4,0 L48,0 Z"></path>
+								</g>
+						</g>
+					</svg>
+				</div>
+			</c-loader>
 
 		<c-cursor/>
 
@@ -63,8 +65,6 @@ const { title } = Astro.props;
 											numOctaves="1" baseFrequency="0.01" />
 				<!-- Cycle through Hue - Hue wheel allows for seamless loop  -->
 				<feColorMatrix type="hueRotate" values="0">
-					<animate attributeName="values"
-									values="0;360" dur="3s" repeatCount="indefinite" />
 				</feColorMatrix>
 				<!-- Extract alpha / filter colors -->
 				<feColorMatrix type="matrix"

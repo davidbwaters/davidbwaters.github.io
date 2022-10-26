@@ -9,8 +9,8 @@
 		<meta name="generator" content="Astro v1.4.7">
 		<title>David B. Waters - Frontend Developer - Oakland</title>
 
-	<link rel="stylesheet" href="/assets/index.4805471b.css" />
-<link rel="stylesheet" href="/assets/index.65f9ad4d.css" /><script type="module" src="/hoisted.c30de961.js"></script>
+	<link rel="stylesheet" href="/assets/index.b8c3fef2.css" />
+<link rel="stylesheet" href="/assets/index.bbef80b6.css" /><script type="module" src="/hoisted.8b1fe8cf.js"></script>
 <script>/** @license Copyright 2020 Google LLC (BSD-3-Clause) */
 /** Bundled JS generated from "@astrojs/lit/client-shim.js" */
 var N = Object.defineProperty;
@@ -105,8 +105,14 @@ var x = new DOMParser()
 
 		<c-top-bar>
 			<a slot="logo" href="/" title="Home">
-				<object type="image/svg+xml" class="c-logo u-theme-fill u-wrapper-full" width="24" height="24">
-				</object>
+				<svg class="c-logo u-theme-fill u-wrapper-full" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						<title>Artboard</title>
+						<g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<g id="Logo" transform="translate(0.000000, 5.000000)" fill="currentColor" fill-rule="nonzero">
+										<path d="M9.6,0 L9.6,38.4 L0,38.4 L0,0 L9.6,0 Z M48,19.2 L48,28.8 L38.4,38.4 L38.4,19.2 L48,19.2 Z M28.8,0 L28.8,28.8 L19.2,38.4 L19.2,0 L28.8,0 Z M48,0 L48,9.6 L38.4,19.2 L38.4,0 L48,0 Z"></path>
+								</g>
+						</g>
+				</svg>
 			</a>
 			<a slot="link" href="mailto:mrdavidbwaters@gmail.com" title="Email">
 				<i class="c-icon c-icon--mail"></i>
@@ -125,31 +131,29 @@ var x = new DOMParser()
 			</a>
 		</c-top-bar>
 
-		<c-hero class="u-bg-noise" data-preload id="hero">
+		<c-hero data-preload id="hero">
 			<div slot="paint">
 				<c-canvas-main></c-canvas-main>
 			</div>
-			<div slot="tagline" class="js-text-plane">
+			<h1 slot="tagline" class="js-text-plane">
 				Multidisciplinary <br>
 				Designer & Frontend <br>
 				Developer
-			</div>
+			</h1>
 			<div slot="name-stylized">DAVIDBWATERS</div>
-			<div slot="heading" class="js-text-plane">
+			<h2 slot="heading" class="js-text-plane">
 				Building digital solutions to promote growth.
 				<c-squiggle></c-squiggle>
-			</div>
+			</h2>
 			<c-theme-switch slot="footer-box-left" data-cursor-target>
-				<i class="c-icon c-icon--switch"></i>
+				<i class="c-icon c-icon--theme"></i>
 			</c-theme-switch>
 			<div slot="footer-content-left">
-				<a class="c-icon c-icon--hand u-animation-wave u-text-large-2 u-margin-bottom-0" href="mailto:mrdavidbwaters@gmail.com" title="Get in Touch!"></a>
+				<a class="c-icon c-icon--wave u-animation-wave u-text-large-3 u-margin-bottom-0" href="mailto:mrdavidbwaters@gmail.com" title="Get in Touch!"></a>
 				<span> Available Now! </span>
 			</div>
 			<div slot="footer-content-right">
-				<a class="c-button" href="mailto:mrdavidbwaters@gmail.com">
-					Contact
-				</a>
+				<c-button href="mailto:mrdavidbwaters@gmail.com" label="Contact"></c-button>
 				<span>
 					Start
 					<span class="u-hidden@small">Your</span>
@@ -166,11 +170,11 @@ var x = new DOMParser()
 		</c-hero>
 
 		<section id="skills">
-			<c-section-header class="u-bg-noise js-reveal">
-				<div slot="title">
+			<c-section-header class="js-reveal">
+				<h3 slot="title" class="u-text-display u-h2">
 					Skills
 					<c-squiggle></c-squiggle>
-				</div>
+				</h3>
 				<div slot="description">
 					Skills, tools of the trade, and technologies I
 					enjoy working with.
@@ -234,12 +238,12 @@ var x = new DOMParser()
 		</section>
 
 		<section id="work" class="js-reveal">
-			<c-section-header class="u-bg-noise u-z-index-7 js-reveal-inner">
-				<div slot="title">
+			<c-section-header class="u-z-index-7 u-position-relative js-reveal-inner">
+				<h3 slot="title" class="u-text-display u-h2">
 					Selected <br>
 					Works
 					<c-squiggle></c-squiggle>
-				</div>
+				</h3>
 				<div slot="description">
 					A curated list of projects worked on and things I
 					built.
@@ -249,17 +253,102 @@ var x = new DOMParser()
 			<div class="
 					c-work-list
 					u-bg-pattern-diagonal
+					u-margin-top-px
 				">
 
 				<c-work-list-item class="js-reveal-fade" title="Matrix" slug="Matrix" gallery="1" tags="[&#34;Figma&#34;, &#34;TypeScript&#34;, &#34;React&#34;, &#34;Frontend Development&#34;]" previewImages="[&#34;images/Work/Matrix-1.jpg&#34;,&#34;images/Work/Matrix-2.jpg&#34;]" images="[&#34;images/Work/Matrix-1.jpg&#34;,&#34;images/Work/Matrix-2.jpg&#34;,&#34;images/Work/Matrix-3.jpg&#34;,&#34;images/Work/Matrix-4.jpg&#34;,&#34;images/Work/Matrix-5.jpg&#34;,&#34;images/Work/Matrix-6.jpg&#34;]" site="http://mtx.gg" shortDescription="Revolutionizing the digital economy, one quest at a time." description="[&#34;While working as Lead Designer at <a href=\&#34;http://mtx.gg\&#34;>Matrix</a> in 2022, I was tasked with developing their branding and design system.&#34;, &#34;Using Figma and a design token based frontend, I also helped develop the designs into a React-based webapp.&#34;]" wide="true"></c-work-list-item>
 
-				<c-work-list-item class="js-reveal-fade" title="Fitbux" slug="Fitbux" gallery="2" tags="[&#34;Figma&#34;]" previewImages="[&#34;images/Work/Fitbux-1.jpg&#34;,&#34;images/Work/Fitbux-2.jpg&#34;]" images="[&#34;images/Work/Fitbux-1.jpg&#34;,&#34;images/Work/Fitbux-2.jpg&#34;,&#34;images/Work/Fitbux-3.jpg&#34;,&#34;images/Work/Fitbux-4.gif&#34;,&#34;images/Work/Fitbux-5.jpg&#34;,&#34;images/Work/Fitbux-6.jpg&#34;]" shortDescription="Providing gps for your money. Mobile and web app design." description="[&#34;While working for <a href=\&#34;http://mainux.com\&#34;>Mainux</a>, I helped create  Fitbux's design system, UI, and branding using Figma.  I was responsible for overhauling their current branding and updating it to modern standards.&#34;]" wide="true"></c-work-list-item>
+				<c-work-list-item class="js-reveal-fade" title="Fitbux" slug="Fitbux" gallery="2" tags="[&#34;Figma&#34;]" previewImages="[&#34;images/Work/Fitbux-1.jpg&#34;,&#34;images/Work/Fitbux-2.jpg&#34;]" images="[&#34;images/Work/Fitbux-1.jpg&#34;,&#34;images/Work/Fitbux-2.jpg&#34;,&#34;images/Work/Fitbux-3.jpg&#34;,&#34;images/Work/Fitbux-4.gif&#34;,&#34;images/Work/Fitbux-5.jpg&#34;,&#34;images/Work/Fitbux-6.jpg&#34;]" shortDescription="Providing gps for your money. Mobile and web app design." wide="true">
+					<div slot="case-study">
+						<article>
+							<p class="u-text-large-2">
+								While working for <a href="http://mainux.com">Mainux</a>,
+								I helped create  Fitbux&#39;s design system, UI, and
+								branding using Figma.  I was responsible for overhauling
+								their current branding and updating it to modern standards.
+							</p>
+							<hr>
+							<div>
+								<h4 class="u-h5">Overview</h4>
+								<p>
+									FitBUX combines innovative technology and free FitBUX Coaches to
+									help you develop and implement your financial plan.
+								</p>
+								<p>
+									They've helped over 11,000 Young Professionals  make good
+									decisions on student loans, retirement, home buying, and so
+									much more.  We can help you do the same.
+								</p>
+							</div>
+
+						</article>
+
+						<div class="c-media-grid__text-item">
+							<div>
+								<h4 class="u-h6">The Problem</h4>
+								<ul>
+									<li>New graduates have trouble managing their finances</li>
+									<li>People don't have a plan for paying off student loan debt</li>
+									<li>People have trouble tracking expenses and budgeting</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="c-media-grid__text-item">
+							<div>
+								<h4 class="u-h6">Target Audience</h4>
+								<ul>
+									<li>Young professionals and recent graduates</li>
+									<li>People with student loan debt</li>
+									<li>People struggling with finances</li>
+								</ul>
+							</div>
+							<div>
+								<h4 class="u-h6">Competitors</h4>
+								<p>Mobills, Walnut, Spendee, YNAB, Mint</p>
+							</div>
+						</div>
+
+
+						<div class="c-media-grid__text-item u-align-content-center">
+							<div>
+								<h4 class="u-h6">The Solution</h4>
+								<ul>
+									<li>
+										User friendly financial platform.
+									</li>
+									<li>
+										Users can link their bank account and build a financial
+										profile.
+									</li>
+									<li>
+										Users can track spending.
+									</li>
+									<li>
+										Users can set a budget & categorize expenses.
+									</li>
+									<li>
+										Users can set saving goals.
+									</li>
+									<li>
+										Users are connected with a Fitbux coach, certified
+										financial advisor to guide them and help make decisions.
+									</li>
+								</ul>
+							</div>
+						</div>
+
+
+						<c-gallery-image class="c-media-grid__image-item" src="images/Work/Fitbux-Style-Guide.jpg" alt="Fitbux Screenshot" gallery="2"></c-gallery-image>
+					</div>
+
+				</c-work-list-item>
 
 
 				<c-work-list-item class="js-reveal-fade" title="macOS Modern" slug="macOSModern" gallery="3" tags="[&#34;Frontend Development&#34;]" previewImages="[&#34;images/Work/macOS-Modern-All.jpg&#34;,&#34;images/Work/macOS-Modern-Dark-1.jpg&#34;]" images="[&#34;images/Work/macOS-Modern-All.jpg&#34;,&#34;images/Work/macOS-Modern-Light-1.jpg&#34;,&#34;images/Work/macOS-Modern-Light-2.jpg&#34;,&#34;images/Work/macOS-Modern-Dark-1.jpg&#34;,&#34;images/Work/macOS-Modern-Dark-2.jpg&#34;,&#34;images/Work/macOS-Modern-Icons.jpg&#34;]" shortDescription="A popular Visual Studio Code theme to match native macOS." description="[&#34;I created the macOS Modern Visual Studio Code theme to enable users to experience the best code editor while maintaining a native-like look and feel.&#34;,&#34;The theme includes multiple icon sets and a matching light and dark app icon.&#34;,&#34;At the time of this writing, it has over 71 thousand installs.&#34;]" wide="true" github="https://github.com/davidbwaters/macos-modern-vscode-theme" vsc="https://marketplace.visualstudio.com/items?itemName=davidbwaters.macos-modern-theme" threeButton="true"></c-work-list-item>
 
 
-				<c-work-list-item class="js-reveal-fade" title="Limber Logic Brand Identity" slug="LimberLogic" gallery="4" tags="[&#34;Adobe Illustrator&#34;]" previewImages="[&#34;images/Work/Limber-Logic-Mockup-1-Dark.jpg&#34;,&#34;images/Work/Limber-Logic-Both.svg&#34;]" images="[&#34;images/Work/Limber-Logic-Dark.jpg&#34;,&#34;images/Work/Limber-Logic-Light.jpg&#34;,&#34;images/Work/Limber-Logic-Mockup-1-Dark.jpg&#34;,&#34;images/Work/Limber-Logic-Mockup-1-Light.jpg&#34;]" shortDescription="I created the brand identity for Limber Logic, a digital product design company in Charleston." description="[&#34;I created the brand identity for Limber Logic, a digital product design company in Charleston. I wanted the branding to have a sleek, techy, aesthetic.&#34;,&#34;Limber Logic was the collaboration of my friend as Lead Developer and me as Lead Designer. We worked on various projects and I learned a lot in my time there.&#34;]" wide="true"></c-work-list-item>
+				<c-work-list-item class="js-reveal-fade" title="Limber Logic Brand Identity" slug="LimberLogic" gallery="4" tags="[&#34;Adobe Illustrator&#34;]" previewImages="[&#34;images/Work/Limber-Logic-Mockup-1-Dark.jpg&#34;,&#34;images/Work/Limber-Logic-Both.svg&#34;]" images="[&#34;images/Work/Limber-Logic-Dark.jpg&#34;,&#34;images/Work/Limber-Logic-Light.jpg&#34;,&#34;images/Work/Limber-Logic-Mockup-1-Dark.jpg&#34;,&#34;images/Work/Limber-Logic-Mockup-1-Light.jpg&#34;]" shortDescription="I created the branding for Limber Logic, a digital design company in Charleston, SC." description="[&#34;I created the brand identity for Limber Logic, a digital product design company in Charleston, SC. I wanted the branding to have a sleek, techy, aesthetic.&#34;,&#34;Limber Logic was the collaboration of my friend as Lead Developer and me as Lead Designer. We worked on various projects and I learned a lot in my time there.&#34;]" wide="true"></c-work-list-item>
 
 
 				<c-work-list-item class="js-reveal-fade" title="Map Dashboard" slug="MapDashboard" gallery="5" tags="[&#34;Figma&#34;, &#34;Javascript&#34;, &#34;React&#34;, &#34;Frontend Development&#34;]" previewImages="[&#34;images/Work/Map-Browser.jpg&#34;,&#34;images/Work/Map-Figma.jpg&#34;]" images="[&#34;images/Work/Map-Browser.jpg&#34;,&#34;images/Work/Map-Components.jpg&#34;,&#34;images/Work/Map-Figma.jpg&#34;,&#34;images/Work/Map-Wireframe.jpg&#34;]" shortDescription="UI created for an in-development web and mobile app for land developers." description="[&#34;These shots were created for an in-development web and mobile app for land developers.&#34;,&#34;I was recruited to improve the overall user experience and help design the map interface. I used Figma to create wireframes, mockups, and a component system.&#34;,&#34;I also helped the team refine the React-based frontend during a sprint before a deadline.&#34;]" wide="true"></c-work-list-item>
@@ -277,7 +366,7 @@ var x = new DOMParser()
 		</section>
 
 
-		<footer class="c-page-footer u-bg-noise js-reveal">
+		<footer class="c-page-footer js-reveal">
 			<div class="c-footer__inner js-reveal-inner">
 				<hr class="u-separator-alternate u-margin-0">
 				<div class="c-page-footer__upper u-text-large-1">
@@ -300,16 +389,20 @@ var x = new DOMParser()
 		<div id="awwwards" class="c-awwwards"><a href="https://www.awwwards.com/sites/david-b-waters-designs" target="_blank"><svg width="53.08" height="171.358"><path class="js-color-bg" fill="white" d="M0 0h53.08v171.358H0z"></path><g class="js-color-text" fill="#342867"><path d="M20.047 153.665v-1.9h3.888v-4.093h-3.888v-1.9h10.231v1.9h-4.59v4.093h4.59v1.9zM29.898 142.236c-.331.565-.784.997-1.359 1.294s-1.222.446-1.944.446c-.721 0-1.369-.149-1.943-.446a3.316 3.316 0 0 1-1.36-1.294c-.331-.564-.497-1.232-.497-2.002s.166-1.438.497-2.002a3.316 3.316 0 0 1 1.36-1.294c.574-.297 1.223-.445 1.943-.445.723 0 1.369.148 1.944.445a3.307 3.307 0 0 1 1.359 1.294c.331.564.497 1.232.497 2.002s-.166 1.438-.497 2.002m-1.703-3.347c-.435-.33-.967-.496-1.601-.496-.633 0-1.166.166-1.601.496-.433.332-.649.78-.649 1.346 0 .564.217 1.013.649 1.345.435.331.968.497 1.601.497.634 0 1.166-.166 1.601-.497.435-.332.649-.78.649-1.345.001-.566-.214-1.014-.649-1.346M22.911 134.852v-1.813h1.186a3.335 3.335 0 0 1-.951-1.009 2.423 2.423 0 0 1-.352-1.271c0-.682.19-1.229.57-1.645.381-.413.932-.621 1.652-.621h5.262v1.812h-4.721c-.419 0-.727.096-.921.285-.195.19-.292.447-.292.769 0 .302.115.58.35.833.234.254.577.458 1.03.613.454.156.993.234 1.616.234h2.938v1.813h-7.367zM29.898 125.136a3.314 3.314 0 0 1-1.359 1.294c-.575.297-1.222.445-1.944.445-.721 0-1.369-.148-1.943-.445a3.322 3.322 0 0 1-1.36-1.294c-.331-.565-.497-1.232-.497-2.002 0-.771.166-1.438.497-2.003a3.313 3.313 0 0 1 1.36-1.293c.574-.297 1.223-.446 1.943-.446.723 0 1.369.149 1.944.446s1.028.728 1.359 1.293.497 1.232.497 2.003c.001.769-.166 1.436-.497 2.002m-1.703-3.347c-.435-.331-.967-.497-1.601-.497-.633 0-1.166.166-1.601.497-.433.331-.649.778-.649 1.345 0 .564.217 1.013.649 1.344.435.332.968.498 1.601.498.634 0 1.166-.166 1.601-.498.435-.331.649-.779.649-1.344.001-.567-.214-1.014-.649-1.345M22.911 117.75v-1.812h1.199c-.419-.265-.742-.586-.972-.966s-.345-.784-.345-1.213c0-.272.05-.569.146-.892l1.682.336a1.429 1.429 0 0 0-.205.76c0 .576.261 1.048.783 1.418.521.37 1.342.557 2.461.557h2.617v1.812h-7.366zM29.812 111.252c-.391.511-.857.851-1.403 1.016l-.776-1.446c.381-.138.68-.329.893-.577.215-.249.321-.544.321-.885a1.2 1.2 0 0 0-.168-.658c-.112-.175-.294-.263-.548-.263-.225 0-.406.105-.548.313-.142.21-.291.534-.446.973-.019.068-.058.17-.117.307-.224.565-.506 1.004-.848 1.315-.34.313-.779.467-1.314.467-.381 0-.727-.102-1.039-.306a2.185 2.185 0 0 1-.744-.84 2.554 2.554 0 0 1-.279-1.207c0-.497.105-.949.314-1.359.211-.408.506-.725.886-.949l.993 1.082c-.43.292-.644.686-.644 1.184a.84.84 0 0 0 .154.504.471.471 0 0 0 .401.212c.176 0 .338-.103.49-.307.15-.205.334-.604.547-1.199.205-.564.474-1.001.805-1.308.332-.308.756-.46 1.271-.46.721 0 1.299.229 1.732.687s.65 1.057.65 1.797c.001.759-.194 1.396-.583 1.907M35.481 17.006l-4.782 14.969h-3.266l-2.584-9.682-2.584 9.682h-3.268l-4.782-14.969h3.713l2.673 10.276 2.525-10.276h3.445l2.524 10.276 2.674-10.276zM37.978 27.163c1.426 0 2.496 1.068 2.496 2.495 0 1.425-1.07 2.495-2.496 2.495-1.425 0-2.494-1.07-2.494-2.495-.001-1.427 1.069-2.495 2.494-2.495"></path></g></svg></a></div>
 	</main>
 
-"
-
-
     <c-canvas-noise></c-canvas-noise>
 
-		<c-loader>
-			<div class="u-bg-noise-heavy">
-				<c-glitch-image data-cursor-target src="images/Loader.svg" active="true" glitch="1" width="100" height="100"></c-glitch-image>
-			</div>
-		</c-loader>
+			<c-loader>
+				<div>
+					<svg class="c-logo u-theme-fill u-wrapper-full" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						<title>Artboard</title>
+						<g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<g id="Logo" transform="translate(0.000000, 5.000000)" fill="currentColor" fill-rule="nonzero">
+										<path d="M9.6,0 L9.6,38.4 L0,38.4 L0,0 L9.6,0 Z M48,19.2 L48,28.8 L38.4,38.4 L38.4,19.2 L48,19.2 Z M28.8,0 L28.8,28.8 L19.2,38.4 L19.2,0 L28.8,0 Z M48,0 L48,9.6 L38.4,19.2 L38.4,0 L48,0 Z"></path>
+								</g>
+						</g>
+					</svg>
+				</div>
+			</c-loader>
 
 		<c-cursor></c-cursor>
 

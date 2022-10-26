@@ -14,93 +14,97 @@ import {
 } from 'lit/decorators.js';
 
 import dialogPolyfill from 'dialog-polyfill'
-
+import { ScrollTrigger } from 'gsap/all';
 
 @customElement('c-modal')
 
 export class CModal extends LitElement {
 
   static styles = css`
-      :host  {
-        --modal-color-fg: var(--color-fg);
-        --modal-color-bg: var(--color-bg);
-        --modal-spacing: 1.5rem;
-        --modal-transition-duration: 0.15s;
-        --modal-trigger-transition-duration: 0.15s;
+    :host  {
+      --modal-color-fg: var(--color-fg);
+      --modal-color-bg: var(--color-bg);
+      --modal-spacing: 1.5rem;
+      --modal-transition-duration: 0.15s;
+      --modal-trigger-transition-duration: 0.15s;
 
-        position: absolute;
-      }
+      position: absolute;
+    }
 
-      .c-modal__body {
-        background-color: var(--modal-color-bg);
-        border: none;
-        box-sizing: border-box;
-        color: var(--modal-color-fg);
-        height: 100%;
-        left: 0;
-        max-height: none;
-        max-width: none;
-        overflow-y: scroll;
-        padding-bottom: 0;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 0;
-        position: fixed;
-        transition: var(--modal-transition-duration);
-        top: 0;
-        width: 100%;
-        z-index: 9;
-      }
+    .c-modal__body {
+      background-color: var(--modal-color-bg);
+      border: none;
+      box-sizing: border-box;
+      color: var(--modal-color-fg);
+      height: 100%;
+      max-height: 100vh;
+      left: 0;
+      max-height: none;
+      max-width: none;
+      overflow-y: scroll;
+      padding-bottom: 0;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 0;
+      position: fixed;
+      transition: var(--modal-transition-duration);
+      top: 0;
+      width: 100%;
+      z-index: 9;
+    }
 
-      .c-modal__body:not([open]) {
-        display: none;
-        opacity: 0;
-        pointer-events: none;
-      }
+    .c-modal__body:not([open]) {
+      display: none;
+      opacity: 0;
+      pointer-events: none;
+    }
 
-      .c-modal__body.is-opening {
-        display: block;
-        opacity: 0;
-        visibility: visible;
-      }
+    .c-modal__body.is-opening {
+      display: block;
+      opacity: 0;
+      visibility: visible;
+    }
 
-      .c-modal__body.is-open {
-        display: block;
-        opacity: 1;
-        pointer-events: initial;
-      }
+    .c-modal__body.is-open {
+      display: block;
+      opacity: 1;
+      pointer-events: initial;
+    }
 
-      .c-modal__body.is-closing {
-        opacity: 0;
-      }
+    .c-modal__body.is-closing {
+      opacity: 0;
+    }
 
-      .c-modal__body.-is-closed {
-        display: none;
-        visibility: hidden;
-      }
+    .c-modal__body.-is-closed {
+      display: none;
+      visibility: hidden;
+    }
 
-      .c-modal__content {
-        position: absolute;
-        width: 100%;
-      }
+    .c-modal__content {
+      position: absolute;
+      width: 100%;
+    }
+
+    [name='close'],
+    [name='back'] {
+      display: block;
+      position: fixed;
+      top: calc(var(--modal-spacing) * .75);
+      z-index: 9;
+    }
+
+    [name='back'] {
+      left: calc(var(--modal-spacing) * .5);
+    }
+
+    [name='close'] {
+      right: calc(var(--modal-spacing) * .5);
+    }
+
+    @media (min-width:45em) {
 
       [name='close'],
       [name='back'] {
-        display: block;
-        position: fixed;
-        top: calc(var(--modal-spacing) * .75);
-        z-index: 9;
-      }
-
-      [name='back'] {
-        left: calc(var(--modal-spacing) * .5);
-      }
-
-      [name='close'] {
-        right: calc(var(--modal-spacing) * .5);
-      }
-
-      @media (min-width:45em) {
 
         [name='back'] {
           left: calc(var(--modal-spacing) * .75);
@@ -113,6 +117,8 @@ export class CModal extends LitElement {
         }
 
       }
+
+    }
   `
 
   @property({type: Boolean})
@@ -127,9 +133,13 @@ export class CModal extends LitElement {
   private _triggerDuration
   private _modalDuration
 
+  private _normalizer
+
   firstUpdated() {
 
     this._setup()
+
+    this._normalizer = ScrollTrigger.normalizeScroll()
 
     dialogPolyfill.registerDialog(this._dialogEl)
 
@@ -243,12 +253,13 @@ export class CModal extends LitElement {
   close() {
 
     this._handleClose()
+    this._normalizer.enable()
 
   }
 
   _open() {
 
-    this._triggerEl.classList.add('is-expanded')
+    this._triggerEl.setAttribute('isExpanded', true)
     this._triggerParent.style.zIndex = '9'
 
     setTimeout(() => {
@@ -261,6 +272,8 @@ export class CModal extends LitElement {
       this._dialogEl.classList.add('is-open')
 
     }, this._triggerDuration)
+
+    this._normalizer.kill()
 
   }
 
@@ -282,7 +295,7 @@ export class CModal extends LitElement {
       this._documentEl.style.overflow = ''
       this._dialogEl.classList.remove('is-closing')
       this._dialogEl.classList.add('is-closed')
-      this._triggerEl.classList.remove('is-expanded')
+      this._triggerEl.setAttribute('isExpanded', '')
 
       setTimeout(() => {
 

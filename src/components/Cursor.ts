@@ -22,14 +22,13 @@ export class CCursor extends LitElement {
     :host {
       --cursor-size: 2.5rem;
 
-      backdrop-filter: contrast(1.5) brightness(1.25) saturate(0);
-      background-color: white;
-      border: solid 1px white;
+      -webkit-backdrop-filter: saturate(0) invert() contrast(3) brightness(.75);
+      backdrop-filter: saturate(0) invert() contrast(3) brightness(.75);
+      border: solid 1px rgba(255,255,255,.5);
       border-radius: var(--cursor-size);
       display: var(--cursor-display);
       height: var(--cursor-size);
       left: calc(var(--cursor-size) / 2 * -1);
-      mix-blend-mode: difference;
       pointer-events: none;
       position: fixed;
       top: calc(var(--cursor-size) / 2 * -1);
@@ -74,13 +73,13 @@ export class CCursor extends LitElement {
 
   private _enterStyles = {
     borderWidth: '1px',
-    duration: 0.4,
+    duration: 0.5,
     scale: 2
   }
 
   private _leaveStyles = {
     borderWidth: '2px',
-    duration: 0.4,
+    duration: 0.5,
     scale: 1
   }
 

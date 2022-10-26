@@ -14,6 +14,7 @@ import {
 } from 'lit/decorators.js';
 
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 @customElement('c-hero')
 
@@ -27,10 +28,7 @@ export class CHero extends LitElement {
     :host {
       --hero-image-me-dark: url('/images/Me-Dark.jpg');
       --hero-image-me-light: url('/images/Me-Light.jpg');
-      --hero-image-paint-1-dark: url('/images/Hero-Paint-1-Dark.jpg');
-      --hero-image-paint-1-light: url('/images/Hero-Paint-1-Light.jpg');
-      --hero-image-paint-2-dark: url('/images/Hero-Paint-2-Dark.jpg');
-      --hero-image-paint-2-light: url('/images/Hero-Paint-2-Light.jpg');
+      --vw: 1vw;
 
       background-color: var(--color-bg);
       display: grid;
@@ -134,7 +132,7 @@ export class CHero extends LitElement {
       filter: url('#animate');
       font-family: var(--font-display), sans-serif;
       font-weight: var(--font-display-weight);
-      font-size: clamp(0.6rem, 4.05vw, 3.5rem);
+      font-size: clamp(0.6rem, 4.05 * var(--vw), 3.5rem);
       line-height: 1.2;
       min-height: 0vw;
       max-width: calc(100vw - 3rem);
@@ -163,7 +161,7 @@ export class CHero extends LitElement {
     ::slotted([slot='tagline']) {
       font-family: var(--font-display), sans-serif !important;
       font-weight: var(--font-display-weight) !important;
-      font-size: clamp(0.6rem, 4.05vw, 3.5rem) !important;
+      font-size: clamp(0.6rem, 4.05 * var(--vw), 3.5rem) !important;
       line-height: 1.2 !important;
       margin: 0 !important;
     }
@@ -401,7 +399,6 @@ export class CHero extends LitElement {
         )
         var(--bg-pattern-diagonal-tight-size);
       display: grid;
-      filter: url('#animate');
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
       height: 100%;
@@ -650,18 +647,56 @@ export class CHero extends LitElement {
     this._nameStylizedSetup()
 
     this._transitionIn()
+    this._scrollSetup()
 
     this.addEventListener('themeChange', this.render)
 
   }
 
+  _scrollSetup() {
+
+    const heroTrigger = this.shadowRoot && this
+      .shadowRoot.querySelector(".c-hero__upper");
+
+    let heroTl = gsap.timeline({
+      scrollTrigger: {
+        scroller: document.body,
+        trigger: heroTrigger,
+        start: "0%",
+        end: "+=150%",
+        scrub: true,
+        //toggleActions: "restart none none reset",
+      },
+      onComplete: () => {
+        //ScrollTrigger && ScrollTrigger.refresh();
+      },
+    });
+
+
+    heroTl.fromTo(
+      this.shadowRoot && this.shadowRoot
+        .querySelectorAll(".js-hero-me"),
+      {
+        backgroundSize: "100% auto"
+      },
+      {
+        backgroundSize: "160% auto",
+      },
+      0
+    );
+
+  }
 
   _transitionIn() {
 
     let tl = gsap.timeline()
 
-    const heroTarget:HTMLElement = this.shadowRoot.querySelector('.c-hero__lower')
-    const heroTagline:HTMLElement = this.shadowRoot.querySelector('.c-hero__tagline')
+    const heroTarget:HTMLElement | null =
+      this.shadowRoot &&
+      this.shadowRoot.querySelector('.c-hero__lower')
+    const heroTagline:HTMLElement | null =
+      this.shadowRoot &&
+      this.shadowRoot.querySelector('.c-hero__tagline')
 
     tl.from(
       heroTarget,
@@ -673,8 +708,8 @@ export class CHero extends LitElement {
         delay: 1.85,
         onComplete: () => {
 
-          heroTarget.style.height = ''
-          heroTarget.style.minHeight = ''
+          heroTarget && (heroTarget.style.height = '')
+          heroTarget && (heroTarget.style.minHeight = '')
 
         }
       }
@@ -692,7 +727,6 @@ export class CHero extends LitElement {
 
     tl.play()
 
-
   }
 
   _taglineSetup() {
@@ -701,78 +735,90 @@ export class CHero extends LitElement {
       '[slot=tagline]'
     )
 
-    const taglineHTML = tagline
-      .innerHTML.replaceAll('  ', '')
-      .replaceAll('\n', '')
+    let taglineHTML: string
 
-    const taglineSplit = taglineHTML.split('<br>')
+    if (tagline) {
+      taglineHTML = tagline
+        .innerHTML.replaceAll('  ', '')
+        .replaceAll('\n', '')
 
-    const taglineMain = taglineSplit
-      .map((value, index) => {
+      const taglineSplit = taglineHTML.split('<br>')
 
-        const inner =
-          '<span data-scrambler>' + value + '</span>'
-        const isLast = taglineSplit.length - 1 === index
+      const taglineMain = taglineSplit
+        .map((value, index) => {
 
-        return isLast ? inner : inner + '<br>'
+          const inner =
+            '<span data-scrambler>' + value + '</span>'
+          const isLast = taglineSplit.length - 1 === index
+
+          return isLast ? inner : inner + '<br>'
+
+        })
+        .join('')
+
+      let taglineAccentEls
+      if (this.shadowRoot) {
+        taglineAccentEls = [
+          this.shadowRoot.querySelector(
+            '.c-hero__tagline-accent-1'
+          ),
+          this.shadowRoot.querySelector(
+            '.c-hero__tagline-accent-2'
+          ),
+          this.shadowRoot.querySelector(
+            '.c-hero__tagline-accent-3'
+          )
+        ]
+      }
+
+      tagline.innerHTML = taglineMain
+
+      taglineAccentEls && taglineAccentEls.map(el => {
+
+        el && (el.innerHTML = taglineHTML)
 
       })
-      .join('')
-
-    const taglineAccentEls = [
-      this.shadowRoot.querySelector(
-        '.c-hero__tagline-accent-1'
-      ),
-      this.shadowRoot.querySelector(
-        '.c-hero__tagline-accent-2'
-      ),
-      this.shadowRoot.querySelector(
-        '.c-hero__tagline-accent-3'
-      )
-    ]
-
-    tagline.innerHTML = taglineMain
-
-    taglineAccentEls.map(el => {
-
-      el.innerHTML = taglineHTML
-
-    })
+    }
 
   }
 
   _nameStylizedSetup() {
 
-    const name = this.querySelector(
+    let nameSrcEl = this.querySelector(
       '[slot="name-stylized"]'
     )
-      .innerHTML.replaceAll(' ', '')
+
+    const name = nameSrcEl && ( nameSrcEl
+      .innerHTML.toString()
+      .replaceAll(' ', '')
       .replaceAll('\n', '')
       .split('')
+    )
 
-    const nameEl = this.shadowRoot.querySelector(
+
+    const nameEl = this.shadowRoot && this.shadowRoot.querySelector(
       '.c-hero__name-stylized-inner'
     )
 
-    nameEl.innerHTML = name
-      .map(value => {
+    name && nameEl && (
+      nameEl.innerHTML = name
+        .map(value => {
 
-        const nameDiv =
-          '<div class="c-hero__name-stylized-letter">' +
-          value +
-          '</div>'
+          const nameDiv =
+            '<div class="c-hero__name-stylized-letter">' +
+            value +
+            '</div>'
 
-        return nameDiv
+          return nameDiv
 
-      })
-      .join('')
+        })
+        .join('')
+      )
 
   }
 
 
   render() {
-
-    this.theme = document.body.dataset.theme
 
     return html`
       <div class="c-hero__upper">
@@ -834,8 +880,6 @@ export class CHero extends LitElement {
                         numOctaves="1" baseFrequency="0.01" />
           <!-- Cycle through Hue - Hue wheel allows for seamless loop  -->
           <feColorMatrix type="hueRotate" values="0">
-            <animate attributeName="values"
-                    values="0;360" dur="3s" repeatCount="indefinite" />
           </feColorMatrix>
           <!-- Extract alpha / filter colors -->
           <feColorMatrix type="matrix"
@@ -870,5 +914,3 @@ declare global {
     "c-hero": CHero;
   }
 }
-
-

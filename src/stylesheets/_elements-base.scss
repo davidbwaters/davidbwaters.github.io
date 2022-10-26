@@ -47,6 +47,7 @@ img {
 }
 
 hr {
+  -webkit-backdrop-filter: blur(20em);
   backdrop-filter: blur(20em);
   background-color:  var(--color-subtle-alternate);
   border-bottom: 0;

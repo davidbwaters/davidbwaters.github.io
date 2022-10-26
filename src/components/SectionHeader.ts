@@ -24,8 +24,10 @@ export class CSectionHeader extends LitElement {
 
       box-shadow: var(--shadow-md);
       display: block;
+      position: relative;
       text-align: center;
       will-change: transform, opacity;
+      z-index: 9;
     }
 
     ::slotted([slot='title']),

@@ -249,7 +249,7 @@ export class CCanvasMain extends LitElement {
       let aspect = 1
       const mouse = new Vec2(-1)
       const velocity = new Vec2()
-      let updateVelocity
+      let updateVelocity: boolean
 
       function resize() {
 
@@ -440,10 +440,10 @@ export class CCanvasMain extends LitElement {
 
       }
 
-      let lastTime
+      let lastTime: number
       const lastMouse = new Vec2()
 
-      function updateMouse(e) {
+      function updateMouse(e:any) {
 
         if (
           e.target.tagName.toLowerCase() === 'canvas' ||
@@ -523,9 +523,15 @@ export class CCanvasMain extends LitElement {
 
       }
 
+      setTimeout(
+
+        themeSwitch, 200
+
+      )
+
       window.addEventListener('themeChange', themeSwitch)
 
-      function update(t) {
+      function update(t: number) {
 
         requestAnimationFrame(update)
         // Reset velocity when mouse not moving
@@ -544,7 +550,7 @@ export class CCanvasMain extends LitElement {
         // Ease velocity input, slower when fading out
         flowmap.velocity.lerp(
           velocity,
-          velocity.len ? 0.15 : 0.1
+          velocity.len() ? 0.15 : 0.1
         )
         flowmap.update()
         program.uniforms.uTime.value = t * 0.01
@@ -574,6 +580,3 @@ declare global {
     "c-canvas-main": CCanvasMain;
   }
 }
-
-
-

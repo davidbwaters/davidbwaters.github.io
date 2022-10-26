@@ -48,11 +48,16 @@ $svg-icons: (
   font-style: normal;
 }
 
+c-icon {
+  display: inline;
+}
+
 .c-icon,
 [data-icon] {
   display: grid;
-  text-decoration: none;
-  vertical-align: middle;
+  grid-template-rows: 100%;
+  height: calc(1em - 0.28em);
+  place-items: start;
 }
 
 .c-icon:before,
@@ -74,6 +79,7 @@ $svg-icons: (
   mask-repeat: no-repeat;
   mask-size: contain;
   text-transform: none !important;
+  transform: translatey(-14%);
   transition: none;
   width: 1em;
 }

@@ -8,7 +8,7 @@ c-button {
 }
 
 .c-button {
-  align-items: center;
+  align-items: start;
   background-color: var(--color-button-bg);
   border-color: var(--color-subtle-contrast);
   border-radius: 3px;
@@ -23,13 +23,14 @@ c-button {
   font-size: .7em;
   grid-auto-flow: column;
   grid-gap: .5em;
+  grid-template-rows: 0.8em;
   justify-content: center;
   letter-spacing: .05em;
   line-height: 1;
-  padding-bottom: .75em;
+  padding-bottom: 1em;
   padding-left: .8em;
   padding-right: .8em;
-  padding-top: .9em;
+  padding-top: 1em;
   text-decoration: none;
   text-transform: uppercase;
   transition:
@@ -41,8 +42,6 @@ c-button {
 
   .c-button {
     font-size: .7em;
-    padding-left: .8em;
-    padding-right: .8em
   }
 
 }
@@ -52,14 +51,16 @@ c-button {
   .c-button {
     font-size: .75em;
     letter-spacing: .1em;
+    padding-bottom: 1.2em;
     padding-left: 1em;
     padding-right: 1em;
+    padding-top: 1.2em;
   }
 
 
   .c-button:has(i) {
-    padding-left: 1.2em;
-    padding-right: 1.2em;
+    padding-left: 1.1em;
+    padding-right: 1.1em;
   }
 }
 
@@ -88,12 +89,13 @@ c-button {
   z-index: 9;
 }
 
+.c-button i,
+.c-button c-icon {
+  align-self: center;
+}
+
 .c-button i {
   font-size: 1.5em;
-
-  &::before {
-    transform: translatey(-8%);
-  }
 }
 
 .c-button--large {

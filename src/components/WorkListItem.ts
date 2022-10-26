@@ -28,7 +28,7 @@ export class CWorkListItem extends LitElement {
       max-height: calc(130vh - 3rem);
       margin-left: auto;
       margin-right: auto;
-      padding-bottom: 1rem;
+      padding-bottom: 1em;
     }
 
     @media (max-width:45em) {
@@ -42,7 +42,7 @@ export class CWorkListItem extends LitElement {
       c-work-list-item {
         max-height: 130vh;
         max-width: calc(100% - 9rem);
-        padding-bottom: 1.25rem;
+        padding-bottom: 1.25em;
       }
 
     }
@@ -50,9 +50,7 @@ export class CWorkListItem extends LitElement {
     @media (min-height:35em) and (min-width:80em) {
 
       c-work-list-item {
-        max-width: 72rem;
-        padding-bottom: 1.25rem;
-
+        max-width: 66rem;
       }
 
     }
@@ -96,6 +94,7 @@ export class CWorkListItem extends LitElement {
     }
 
     .c-work-list__item-info-inner {
+      -webkit-backdrop-filter: blur(0.75rem);
       background-color: var(--color-bg-semi-transparent);
       backdrop-filter: blur(0.75rem);
       box-shadow: 0 0 0 1px var(--color-subtle-alternate);
@@ -104,6 +103,7 @@ export class CWorkListItem extends LitElement {
       overflow: hidden;
       padding-bottom: 1rem;
       padding-top: 1.1rem;
+      transform: translate3d(0,0,0);
     }
 
     @media (min-width:35em) {
@@ -550,86 +550,56 @@ export class CWorkListItem extends LitElement {
         JSON.parse(this.threeButton) ? 'c-work-list__item-lower-three' : 'c-work-list__item-lower'
       }">
         ${this.github ? html`
-          <a
-            class="c-button"
+          <c-button
             href=${this.github}
+            label=" Star on Github"
+            icon="github"
             title=${this.title + ' Github Repo Link'}
           >
-            <i
-              class="
-                c-icon
-                c-icon--github
-              "
-            ></i>
-            Star on Github
-          </a>
+          </c-button>
         ` : ''}
 
         ${JSON.parse(this.hideModal) ? '' : html`
-          <button
-            class="c-button"
+          <c-button
             data-modal-target="${this.slug}"
             data-modal-trigger-primary
-          >
-            <i
-              class="
-                c-icon
-                c-icon--expand
-              "
-            ></i>
-            ${this.caseStudy ?
+            label= ${this.caseStudy ?
               "Show Case Study" :
               "Show More"
             }
-          </button>`
+            icon="expand"
+          >
+          </c-button>`
         }
 
         ${this.vsc ? html`
-          <a
-            class="c-button"
-            href="${this.vsc}"
+          <c-button
+            href=${this.vsc}
+            label=" View on VSC"
+            icon="windows"
             title=${this.title + 'VSC Link'}
           >
-            <i
-              class="
-                c-icon
-                c-icon--windows
-              "
-            ></i>
-            View on VSC
-          </a>
+          </c-button>
         ` : ''}
 
         ${this.npm ? html`
-          <a
-            class="c-button"
-            href="${this.npm}"
+          <c-button
+            href=${this.npm}
+            label="Add on NPM"
+            icon="npm"
             title=${this.title + 'NPM Module Link'}
           >
-            <i
-              class="
-                c-icon
-                c-icon--npm
-              "
-            ></i>
-            Add on NPM
-          </a>
+          </c-button>
         ` : ''}
 
         ${this.site ? html`
-          <a
-            class="c-button"
-            href="${this.site}"
+          <c-button
+            href=${this.site}
+            label="Visit Website"
+            icon="plus"
             title=${this.title + 'Site Link'}
           >
-            <i
-              class="
-                c-icon
-                c-icon--plus
-              "
-            ></i>
-            Visit Website
-          </a>
+          </c-button>
         ` : ''}
 
         ${JSON.parse(this.hideModal) ? '' : html`

@@ -1,16 +1,17 @@
 import { defineConfig } from 'astro/config';
 import lit from '@astrojs/lit';
-import 'sass'
+import 'sass';
 
+// https://astro.build/config
+import compress from "astro-compress";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [lit()],
+  integrations: [lit(), compress()],
   vite: {
     ssr: {
-      noExternal: [ 'ogl' ]
+      noExternal: ['ogl']
     }
   },
-
   outDir: 'build'
 });

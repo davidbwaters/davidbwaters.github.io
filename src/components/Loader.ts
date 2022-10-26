@@ -45,7 +45,7 @@ export class CLoader extends LitElement {
       align-content: center;
       cursor: progress;
       display: grid;
-      grid-template-columns: clamp(5rem, 8vw, 10rem);
+      grid-template-columns: clamp(2rem, 4vw, 8rem);
       grid-template-rows: min-content;
       justify-content: center;
       position: absolute;
