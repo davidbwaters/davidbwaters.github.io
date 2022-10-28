@@ -23,11 +23,13 @@ export class CTopBar extends LitElement {
     :host {
       display: grid;
       grid-template-columns: min-content min-content;
+      height: 80px;
       padding-bottom: .5rem;
       padding-left: .75rem;
       padding-right: .75rem;
       padding-top: .5rem;
       place-content: center space-between;
+      pointer-events: none;
       position: fixed;
       width: 100%;
       z-index: 9;
@@ -77,6 +79,11 @@ export class CTopBar extends LitElement {
         grid-gap: .6em;
       }
 
+    }
+
+    ::slotted([slot='link']),
+    ::slotted([slot='logo']) {
+      pointer-events: all;
     }
 
     ::slotted([slot='link']) {

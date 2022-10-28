@@ -149,7 +149,7 @@ function setReveals() {
       y: 120,
       opacity: 0,
       duration: 0.5,
-      delay: 0,
+      delay: 0.1,
       stagger: 0.1,
       scaleY: 1.4,
       ease: "Power2.out",
@@ -215,16 +215,19 @@ function setFilterAnimation() {
 
   const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-  if (isSafari) {
-    console.log(document.querySelector('.u-morphing-animation'))
-    document.body.removeChild(document
-      .querySelector('.u-morphing-animation'))
-    document.querySelector('c-hero').shadowRoot.removeChild(
-      document.querySelector('c-hero').shadowRoot
-        .querySelector('.u-morphing-animation')
-    )
+  setTimeout(() => {
+    if (isSafari) {
+      console.log(document.querySelector('.u-morphing-animation'))
+      document.body.removeChild(document
+        .querySelector('.u-morphing-animation'))
+      document.querySelector('c-hero').shadowRoot.removeChild(
+        document.querySelector('c-hero').shadowRoot
+          .querySelector('.u-morphing-animation')
+      )
 
-  }
+    }
+  }, 200)
+
 
 }
 

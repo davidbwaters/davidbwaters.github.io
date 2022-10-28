@@ -160,19 +160,7 @@ export class CWorkListItem extends LitElement {
 
 
     .c-work-list__item-info-description {
-      font-size: .9em;
       line-height: 1.25;
-    }
-
-
-
-
-    @media (min-width:55em) {
-
-      .c-work-list__item-info-description {
-        font-size: 1em;
-      }
-
     }
 
     .c-work-list__item-preview {
@@ -323,7 +311,6 @@ export class CWorkListItem extends LitElement {
 
       .c-media-grid__text-item-wide,
       .c-media-grid article {
-        font-size: 1.3rem;
         grid-column: 1 / span 2;
         padding-bottom: calc(4rem + 1vw);
         padding-left: calc(2rem + 1vw);
@@ -346,7 +333,6 @@ export class CWorkListItem extends LitElement {
 
       .c-media-grid__text-item-wide,
       .c-media-grid article {
-        font-size: 1.3rem;
         padding-bottom: 4rem;
         padding-top: 3rem;
       }
@@ -620,17 +606,20 @@ export class CWorkListItem extends LitElement {
 
             <div
               class="
-              c-media-grid
-              u-bg-pattern-diagonal-alternate
-            "
+                c-media-grid
+                u-bg-pattern-diagonal-alternate
+                u-text-large-1
+              "
             >
               ${
                 this.description
                   ? html`
                     <article
-                      class=${ JSON.parse(this.wide)
-                        ? 'c-media-grid__text-item-wide'
-                        : 'c-media-grid__text-item'
+                      class=${
+                        'u-text-large-1 ' +
+                        JSON.parse(this.wide)
+                          ? 'c-media-grid__text-item-wide'
+                          : 'c-media-grid__text-item'
                       }
                     >
                       <div>
@@ -648,6 +637,7 @@ export class CWorkListItem extends LitElement {
               ${
                 this.querySelector('[slot="case-study"]')
                   ? unsafeHTML(
+
                     this.caseStudy
                   )
                   : ''
