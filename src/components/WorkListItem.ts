@@ -126,9 +126,10 @@ export class CWorkListItem extends LitElement {
 
     }
 
-    .c-work-list__item-info-title {
+    .c-work-list__item-info-title,
+    h4.c-work-list__item-info-title {
       line-height: 1 !important;
-      margin: 0 !important;
+      margin-bottom: 0 !important;
     }
 
     .c-work-list__item-info-taglist {
@@ -445,7 +446,7 @@ export class CWorkListItem extends LitElement {
               class="
                 c-media-grid
                 u-bg-pattern-diagonal-alternate
-                u-text-large-fixed-1
+                u-text-large-1
                 u-margin-bottom-0
               "
             >

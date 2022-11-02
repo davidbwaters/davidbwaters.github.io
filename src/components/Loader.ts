@@ -31,12 +31,11 @@ export class CLoader extends LitElement {
     }
 
     ::slotted(*) {
-      align-content: center;
       cursor: progress;
       display: grid;
       grid-template-columns: clamp(3rem, 4vw, 8rem);
       grid-template-rows: min-content;
-      justify-content: center;
+      place-content: center;
       position: absolute;
     }
   `;

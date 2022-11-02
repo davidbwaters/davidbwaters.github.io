@@ -58,7 +58,7 @@ export class CSectionHeader extends LitElement {
 
       ::slotted([slot='title']) {
         -webkit-text-fill-color: transparent;
-        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-width: 1.25px;
         -webkit-text-stroke-color: var(--color-fg);
       }
 

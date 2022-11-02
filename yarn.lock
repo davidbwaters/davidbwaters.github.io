@@ -3640,9 +3640,9 @@
     "@substructure/settings" "^0.3.4"
 
 "@substructure/utilities-text-sizing@^0.3.4":
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/@substructure/utilities-text-sizing/-/utilities-text-sizing-0.3.6.tgz#53861cd256f6bd45f5444eff1a9270ddf04ee218"
-  integrity sha512-ZHHxlTFow2TyKCUK6vQ94RGnpFFuknwGXO2Maq+2PklFvZiav+E3ju8bdbLu8sAz4ohvCP1vFcXpmTzuxvXQzw==
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/@substructure/utilities-text-sizing/-/utilities-text-sizing-0.3.7.tgz#789791aad11c4e9d16d8b2f7070a374c6e6606b1"
+  integrity sha512-w/2Ind/wsLQNQCQl+/bwJPqKEVKGRXr3UMKp+jgd8KRU0VM5wTMpn4qieewjOp6fFdR8rPd4fA2XEmqro32HbA==
   dependencies:
     "@substructure/settings" "^0.3.4"
     "@substructure/tools" "^0.3.4"
