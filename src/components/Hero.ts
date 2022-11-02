@@ -377,14 +377,15 @@ export class CHero extends LitElement {
         )
         var(--bg-pattern-diagonal-tight-size);
       display: grid;
+      font-size: .9em;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
       height: 100%;
       justify-items: center;
-      padding-bottom: var(--spacing-size-responsive-y);
-      padding-left: var(--spacing-size-responsive-x);
-      padding-right: var(--spacing-size-responsive-x);
-      padding-top: var(--spacing-size-responsive-y);
+      padding-bottom: var(--spacing-size-2);
+      padding-left: var(--spacing-size-2);
+      padding-right: var(--spacing-size-2);
+      padding-top: var(--spacing-size-2);
     }
 
     .c-hero__name-stylized-letter {
