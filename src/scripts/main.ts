@@ -3,7 +3,7 @@
  */
 
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
 import GLightbox from "glightbox";
 import ImagePreloader from "image-preloader";
 import Scrambler from "scrambling-letters";
@@ -262,8 +262,23 @@ function setHeroScroll() {
   }
 }
 
-gsap.registerPlugin(ScrollTrigger);
+function setAnchorLinks() {
+  const anchors = document.querySelectorAll("[data-target]")
 
+  if (anchors) {
+    anchors.forEach((anchor:HTMLElement) => {
+      const element = document.querySelector(anchor.dataset.target)
+      const position = element.getBoundingClientRect().top
+
+      anchor.addEventListener('click', () => {
+        gsap.to(window, {duration: .66, scrollTo: anchor.dataset.target});
+      })
+    })
+  }
+}
+
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+const scroller = ScrollTrigger.create({})
 
 window.addEventListener("resize", documentHeight);
 
@@ -275,6 +290,7 @@ window.addEventListener("DOMContentLoaded", () => {
   setReveals()
   setHeroScroll()
   setFilterAnimation()
+  setAnchorLinks()
 
   setTimeout(
 

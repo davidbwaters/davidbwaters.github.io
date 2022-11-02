@@ -465,7 +465,7 @@ export class CHero extends LitElement {
     ::slotted([slot='footer-content-left']),
     ::slotted([slot='footer-content-right']) {
       align-items: center;
-      column-gap: var(--spacing-size-1);
+      column-gap: calc(var(--spacing-size-1) * 1.5);
       display: grid;
       font-family: var(--font-main-regular), sans-serif;
       font-size: var(--text-size-small-1);

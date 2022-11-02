@@ -4,7 +4,7 @@
 
 c-button {
   display: inline-grid;
-  height: 2.5rem;
+  height: 2.66rem;
   grid-template-rows: 100%;
   width: var(--button-width);
 }
@@ -32,7 +32,7 @@ c-button .c-button {
   grid-auto-flow: column;
   grid-gap: var(--spacing-size-1);
   grid-template-rows: 0.8em;
-  height: 2.5rem;
+  height: 2.66rem;
   justify-content: center;
   letter-spacing: .05em;
   line-height: 1;
