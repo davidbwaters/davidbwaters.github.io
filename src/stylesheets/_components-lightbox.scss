@@ -69,10 +69,10 @@
 
 .glightbox-dbw .gclose {
   background-color: transparent;
-  width: 1.5rem;
-  height: 1.5rem;
-  top: 1.25rem;
-  right: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  top: calc(var(--spacing-size-2) + .5rem);
+  right: calc(var(--spacing-size-2) + .5rem);
   position: absolute;
 }
 
@@ -106,4 +106,10 @@
 
 .glightbox-dbw .gclose:hover {
   opacity: 1;
+}
+
+@media (min-width: 769px) {
+  .gslide-image img {
+    max-height: 94vh;
+  }
 }

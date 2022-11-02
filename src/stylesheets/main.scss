@@ -7,6 +7,7 @@
 @use 'node_modules/@substructure/generic-initialize';
 @use 'node_modules/@substructure/generic-shared';
 @use 'node_modules/@substructure/elements-base';
+@use '@substructure/elements-root-properties';
 @use 'node_modules/@substructure/elements-text';
 @use 'node_modules/@substructure/objects-layout';
 @use 'node_modules/@substructure/objects-media';
@@ -24,6 +25,8 @@
 @use 'components-icons';
 @use 'components-icon-button';
 @use 'components-lightbox';
+
+@use 'components-media-grid';
 @use 'components-page-footer';
 @use 'components-skill-list';
 @use 'elements-base' as elements-base-local;

@@ -34,19 +34,11 @@ export class CGalleryImage extends LitElement {
   @property({type: String})
   alt = ''
 
-
-  createRenderRoot() {
-    return this;
-  }
-
   render() {
 
     return html`
-      <style>
-        ${this.styles}
-      </style>
       <a
-        class="c-gallery-image__image"
+        class="c-gallery-image__image-wrapper u-width-fill u-height-fill"
         data-glightbox=""
         data-gallery=${this.gallery}
         href=${this.src}
@@ -58,12 +50,13 @@ export class CGalleryImage extends LitElement {
         >
       </a>
     `
+  }
 
+  protected createRenderRoot() {
+    return this;
   }
 
 }
-
-
 
 declare global {
   interface HTMLElementTagNameMap {

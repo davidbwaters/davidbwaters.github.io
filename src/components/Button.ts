@@ -4,8 +4,6 @@
 
 import { html, LitElement, PropertyValueMap } from 'lit'
 import { customElement, property, query } from 'lit/decorators.js'
-import './Icon'
-import { Icon as IconType } from './Icon'
 
 
 @customElement('c-button')
@@ -67,8 +65,6 @@ export class CButton extends LitElement {
     else {
       this.style.setProperty('--button-width', 'auto')
     }
-
-
 
   }
 

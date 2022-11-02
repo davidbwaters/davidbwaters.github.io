@@ -131,7 +131,7 @@ function setReveals() {
       targets = [container];
     }
 
-    //let image = container.querySelector('img')
+    // let image = container.querySelector('img')
 
     let tl = gsap.timeline({
       scrollTrigger: {
@@ -150,7 +150,7 @@ function setReveals() {
       opacity: 0,
       duration: 0.5,
       delay: 0.1,
-      stagger: 0.1,
+      stagger: 0,
       scaleY: 1.4,
       ease: "Power2.out",
       onComplete: () => {
@@ -182,7 +182,7 @@ function setReveals() {
       scaleY: 1.4,
       duration: 0.5,
       delay: 0.1,
-      stagger: 0.1,
+      stagger: 0,
       ease: "Power2.out",
       onComplete: () => {
       },
@@ -201,7 +201,6 @@ function setFilterAnimation() {
     document.querySelector('c-hero').shadowRoot
       .querySelector('svg feColorMatrix')
   )
-  console.log(filters[0])
 
   gsap.to(
     filters,
@@ -263,11 +262,10 @@ function setHeroScroll() {
   }
 }
 
-window.addEventListener("resize", documentHeight);
-
 gsap.registerPlugin(ScrollTrigger);
 
-ScrollTrigger.normalizeScroll(true);
+
+window.addEventListener("resize", documentHeight);
 
 window.addEventListener("DOMContentLoaded", () => {
 
@@ -284,14 +282,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   )
 
-  window.dispatchEvent(
-    new CustomEvent("appLoaded", {
-      detail: { theme: document.body.dataset.theme },
-      bubbles: true,
-      composed: true,
-    })
-  );
-
   preloader.preload(...preloadingImages).then(function (status) {
     preload().then(() => {
       let loader = document.querySelector("c-loader");
@@ -303,6 +293,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
       consoleLove();
       lightboxSetup();
+
     });
   });
 

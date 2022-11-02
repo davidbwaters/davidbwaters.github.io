@@ -105,7 +105,6 @@ export class CCursor extends LitElement {
 
         setTimeout(() => {
 
-          this.setViewport()
           this.refresh()
 
         }, 4000)
@@ -144,6 +143,8 @@ export class CCursor extends LitElement {
       if( e.y !== 0 ) {
         this.position.cursorY = e.y
       }
+
+      //console.log(this.position)
 
     })
 

@@ -1,5 +1,5 @@
-d/*
- *  Components - Section Header
+/*
+ *  Components - Work List Item
  */
 
 import {
@@ -29,6 +29,7 @@ export class CWorkListItem extends LitElement {
       margin-left: auto;
       margin-right: auto;
       padding-bottom: 1em;
+      position: relative;
     }
 
     @media (max-width:45em) {
@@ -41,7 +42,7 @@ export class CWorkListItem extends LitElement {
 
       c-work-list-item {
         max-height: 130vh;
-        max-width: calc(100% - 9rem);
+        max-width: calc(100% - (((var(--spacing-size-2) * 2) + 1.75rem) * 2));
         padding-bottom: 1.25em;
       }
 
@@ -50,7 +51,7 @@ export class CWorkListItem extends LitElement {
     @media (min-height:35em) and (min-width:80em) {
 
       c-work-list-item {
-        max-width: 66rem;
+        max-width: 70rem;
       }
 
     }
@@ -62,7 +63,7 @@ export class CWorkListItem extends LitElement {
     .c-work-list__item-backdrop {
       background-color: var(--color-bg);
       display: block;
-      height: 3rem;
+      height: 3.5rem;
       position: sticky;
       top: 0;
       width: 100%;
@@ -78,9 +79,9 @@ export class CWorkListItem extends LitElement {
     }
 
     .c-work-list__item-info {
-      margin-top: -3rem;
+      margin-top: -3.5rem;
       position: sticky;
-      top: 3rem;
+      top: 3.5rem;
       z-index: 5;
     }
 
@@ -99,28 +100,18 @@ export class CWorkListItem extends LitElement {
       backdrop-filter: blur(0.75rem);
       box-shadow: 0 0 0 1px var(--color-subtle-alternate);
       display: grid;
-      gap: 0.3rem;
+      gap: var(--spacing-size-1);
       overflow: hidden;
-      padding-bottom: 1rem;
-      padding-top: 1.1rem;
+      padding-bottom:  var(--spacing-size-2);
+      padding-top:  var(--spacing-size-2);
       transform: translate3d(0,0,0);
-    }
-
-    @media (min-width:35em) {
-
-      .c-work-list__item-info-inner {
-        gap: 0.4rem;
-        padding-bottom: 1.5rem;
-        padding-top: 1.5rem;
-      }
-
     }
 
     .c-work-list__item-info-title,
     .c-work-list__item-info-taglist,
     .c-work-list__item-info-description {
-      padding-left:  0.75rem;
-      padding-right: 0.75rem;
+      padding-left:   var(--spacing-size-2);
+      padding-right:  var(--spacing-size-2);
     }
 
 
@@ -136,15 +127,13 @@ export class CWorkListItem extends LitElement {
     }
 
     .c-work-list__item-info-title {
+      line-height: 1 !important;
       margin: 0 !important;
     }
-
-
 
     .c-work-list__item-info-taglist {
       display: none;
     }
-
 
     @media (min-width:15em) {
 
@@ -225,158 +214,6 @@ export class CWorkListItem extends LitElement {
       border-bottom: none;
     }
 
-
-
-    .c-media-grid {
-      display: grid;
-      grid-gap: .5rem;
-      grid-template-columns: 1fr;
-      padding-bottom: .5rem;
-      padding-left: .5rem;
-      padding-right: .5rem;
-      padding-top: .5rem;
-    }
-
-    @media (min-width:45em) {
-
-      .c-media-grid {
-        grid-template-columns: 1fr 1fr;
-        padding-bottom: 1rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-top: .5rem;
-      }
-
-    }
-
-    @media (min-width:75em) {
-
-      .c-media-grid {
-        padding-left: calc((100% - 70em) / 2);
-        padding-right: calc((100% - 70em) / 2);
-        padding-top: .5rem;
-      }
-
-    }
-
-    .c-media-grid__text-item,
-    .c-media-grid__text-item-wide,
-    .c-media-grid article {
-      display: grid;
-      font-family: var(--font-main-regular);
-      text-align: left;
-      overflow-y: auto;
-    }
-
-    .c-media-grid__text-item {
-      align-content: start;
-      background: var(--color-bg-semi-transparent-contrast);
-      box-shadow: inset 0 0 0 1px var(--color-subtle-alternate);
-      gap: 0rem;
-      padding-bottom: 1rem;
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-      padding-top: 1rem;
-    }
-
-    .c-media-grid__text-item:has(div) {
-      gap: 1rem;
-    }
-
-
-    @media (min-width:45em) {
-
-      .c-media-grid__text-item {
-        gap: 1rem;
-        padding-bottom: calc(3rem + 1vw);
-        padding-left: calc(2rem + 1vw);
-        padding-right: calc(2rem + 1vw);
-        padding-top: calc(3rem + 1vw);
-      }
-
-    }
-
-    .c-media-grid__text-item-wide,
-    .c-media-grid article {
-      align-content: center;
-      gap: 0.25rem;
-      padding-bottom: .75rem;
-      padding-left: .5rem;
-      padding-right: .5rem;
-      padding-top: .75rem;
-    }
-
-
-    @media (min-width:45em) {
-
-      .c-media-grid__text-item-wide,
-      .c-media-grid article {
-        grid-column: 1 / span 2;
-        padding-bottom: calc(4rem + 1vw);
-        padding-left: calc(2rem + 1vw);
-        padding-right: calc(2rem + 1vw);
-        padding-top: calc(3rem + 1vw);
-      }
-
-    }
-
-    @media (min-width:55em) {
-
-      .c-media-grid__text-item-wide,
-      .c-media-grid article {
-        padding-left: calc(((100% - 50rem) / 2) + 2rem);
-        padding-right: calc(((100% - 50rem) / 2) + 2rem);
-      }
-
-    }
-    @media (min-width:75em) {
-
-      .c-media-grid__text-item-wide,
-      .c-media-grid article {
-        padding-bottom: 4rem;
-        padding-top: 3rem;
-      }
-
-    }
-
-    .c-media-grid__image-item {
-      background-color: var(--color-muted);
-      border: solid 1px var(--color-subtle-alternate);
-      box-shadow: 0 0 0 1px rgba(120,120,120,.8);
-      display: grid;
-      position: relative;
-    }
-
-    .c-media-grid__image {
-      width: 100%;
-    }
-
-    .c-media-grid__image-caption,
-    .c-media-grid__image-caption-alternate {
-      background-color: rgba(100,100,100,.6);
-      border-radius: 4px;
-      bottom: 1rem;
-      color: white;
-      font-family: var(--font-main-regular);
-      line-height: 1.1;
-      padding-bottom: .3rem;
-      padding-left: .3rem;
-      padding-right: .3rem;
-      padding-top: .3rem;
-      position: absolute;
-    }
-
-    .c-media-grid__image-caption {
-      background-color: rgba(200,200,200,.15);
-      box-shadow: 0 0 0 1px rgba(200,200,200,.225);
-      color: white;
-    }
-
-    .c-media-grid__image-caption-alternate {
-      background-color: rgba(100,100,100,.05);
-      box-shadow: 0 0 0 1px rgba(100,100,100,.15);
-      color: black;
-    }
 
   `
 
@@ -486,7 +323,7 @@ export class CWorkListItem extends LitElement {
       <div class="c-work-list__item-backdrop"></div>
       <div data-sticky class="c-work-list__item-info">
         <div class="c-work-list__item-info-inner">
-          <h4 class="c-work-list__item-info-title u-h3">
+          <h4 class="c-work-list__item-info-title u-text-large-2">
             ${this.title}
           </h4>
           <div
@@ -608,7 +445,8 @@ export class CWorkListItem extends LitElement {
               class="
                 c-media-grid
                 u-bg-pattern-diagonal-alternate
-                u-text-large-1
+                u-text-large-fixed-1
+                u-margin-bottom-0
               "
             >
               ${

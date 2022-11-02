@@ -21,62 +21,50 @@ export class CTopBar extends LitElement {
   static styles = css`
 
     :host {
+      --top-bar-logo-size: 1.4rem;
+
       display: grid;
       grid-template-columns: min-content min-content;
-      height: 80px;
-      padding-bottom: .5rem;
-      padding-left: .75rem;
-      padding-right: .75rem;
-      padding-top: .5rem;
+      height:calc((var(--spacing-size-2) * 2) + var(--top-bar-logo-size));
+      padding-left: var(--spacing-size-2);
+      padding-right: var(--spacing-size-2);
+      padding-bottom: var(--spacing-size-2);
+      padding-top: var(--spacing-size-2);
       place-content: center space-between;
+      place-items: center;
       pointer-events: none;
       position: fixed;
       width: 100%;
       z-index: 9;
     }
 
-    @media (min-width: 25em) {
+    @media (min-width: 30em) {
       :host {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        padding-bottom: 1.5rem;
-        padding-top: 1.5rem;
+        --top-bar-logo-size: 1.75rem;
       }
     }
 
-    @media (min-height: 35em) {
-      :host {
-        padding-bottom: 1.5rem;
-        padding-top: 1.5rem;
-      }
-    }
-
-
-    .c-top-bar__nav {
-      display: grid;
-      font-size: 125%;
-      grid-auto-flow: column;
-      grid-gap: .4em;
-      transform: translatex(0);
-    }
-
-    @media (min-width: 25em) {
-
-      .c-top-bar__nav {
-        grid-gap: 0.5em;
-      }
-
-    }
-
-    @media (min-width: 45em) and (min-height: 30em) {
+    @media (min-width: 48em) and (min-height: 30em) {
 
       :host {
         align-items: start;
         place-content: start space-between;
       }
+
+    }
+
+    .c-top-bar__nav {
+      display: grid;
+      font-size: 125%;
+      grid-auto-flow: column;
+      grid-gap: var(--spacing-size-1);
+      transform: translatex(0);
+    }
+
+    @media (min-width: 48em) and (min-height: 30em) {
+
       .c-top-bar__nav {
         grid-auto-flow: row;
-        grid-gap: .6em;
       }
 
     }
@@ -89,19 +77,27 @@ export class CTopBar extends LitElement {
     ::slotted([slot='link']) {
       display: grid;
       height: 1em;
-      padding: .1em 0 0 0;
+      padding: 0 0 0 0;
       text-align: center;
       text-decoration: none;
     }
 
-    ::slotted([slot='logo']) {
-      display: grid;
-      width: 1.4rem;
+
+    @media (min-width: 48em) {
+
+      ::slotted([slot='link']) {
+        width: var(--top-bar-logo-size);
+      }
     }
 
-    @media (min-width: 25em) {
+    ::slotted([slot='logo']) {
+      display: grid;
+      width: var(--top-bar-logo-size);
+    }
+
+    @media (min-width: 30em) {
       ::slotted([slot='logo']) {
-        width: 1.75rem;
+        width: var(--top-bar-logo-size);
       }
     }
   `

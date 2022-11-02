@@ -24,7 +24,7 @@ export class CModal extends LitElement {
     :host  {
       --modal-color-fg: var(--color-fg);
       --modal-color-bg: var(--color-bg);
-      --modal-spacing: 1.5rem;
+      --modal-spacing: var(--spacing-size-2-base);
       --modal-transition-duration: 0.15s;
       --modal-trigger-transition-duration: 0.15s;
 
@@ -89,33 +89,28 @@ export class CModal extends LitElement {
     [name='back'] {
       display: block;
       position: fixed;
-      top: calc(var(--modal-spacing) * .75);
+      top: var(--modal-spacing);
       z-index: 9;
     }
 
     [name='back'] {
-      left: calc(var(--modal-spacing) * .5);
+      left: var(--modal-spacing);
     }
 
     [name='close'] {
-      right: calc(var(--modal-spacing) * .5);
+      right: var(--modal-spacing);
     }
 
     @media (min-width:45em) {
 
-      [name='close'],
       [name='back'] {
+        left: var(--modal-spacing);
+        top: var(--modal-spacing);
+      }
 
-        [name='back'] {
-          left: calc(var(--modal-spacing) * .75);
-          top: calc(var(--modal-spacing) * .75);
-        }
-
-        [name='close'] {
-          right: calc(var(--modal-spacing) * .75);
-          top: calc(var(--modal-spacing) * .75);
-        }
-
+      [name='close'] {
+        right: var(--modal-spacing);
+        top: var(--modal-spacing);
       }
 
     }
@@ -139,7 +134,7 @@ export class CModal extends LitElement {
 
     this._setup()
 
-    this._normalizer = ScrollTrigger.normalizeScroll()
+    this._normalizer = ScrollTrigger.normalizeScroll(true)
 
     dialogPolyfill.registerDialog(this._dialogEl)
 
@@ -260,6 +255,7 @@ export class CModal extends LitElement {
   _open() {
 
     this._triggerEl.setAttribute('isExpanded', true)
+    this._triggerEl.parentNode.parentNode.classList.add('u-z-index-9')
     this._triggerParent.style.zIndex = '9'
 
     setTimeout(() => {
@@ -295,12 +291,12 @@ export class CModal extends LitElement {
       this._documentEl.style.overflow = ''
       this._dialogEl.classList.remove('is-closing')
       this._dialogEl.classList.add('is-closed')
-      this._triggerEl.setAttribute('isExpanded', '')
+      this._triggerEl.removeAttribute('isExpanded')
 
       setTimeout(() => {
 
         this._triggerParent.style.zIndex = ''
-
+        this._triggerEl.parentNode.parentNode.classList.remove('u-z-index-9')
       }, this._triggerDuration)
 
     }, this._modalDuration)

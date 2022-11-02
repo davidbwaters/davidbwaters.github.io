@@ -16,11 +16,6 @@
 body,
 main {
   max-width: 100vw;
-  font-size: clamp(
-      0.9rem,
-      12px + 0.4vw,
-      1.1rem
-    );
 }
 
 :root {

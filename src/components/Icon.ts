@@ -25,4 +25,5 @@ export class CIcon extends LitElement {
   protected createRenderRoot() {
     return this;
   }
+
 };

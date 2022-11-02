@@ -5,30 +5,6 @@
 
 /* Text */
 
-.u-text-large-1,
-.u-text-large-2,
-.u-text-large-3,
-.u-text-large-4,
-.u-text-large-5,
-.u-text-large-6 {
-  line-height: 1.5 !important;
-}
-
-.u-text-large-1 {
-  font-size: 1.1rem !important;
-  font-size: clamp(1rem, 1rem + 1vw, 1.1rem) !important;
-}
-
-.u-text-large-2 {
-  font-size: 1.2rem !important;
-  font-size: clamp(1.1rem, 1rem + 1vw, 1.35rem) !important
-}
-
-.u-text-large-3 {
-  font-size: 1.3rem !important;
-  font-size: clamp( 1.2rem, 1.1rem + 1vw, 1.5rem ) !important;
-}
-
 .u-text-title {
   font-family: var(--font-accent) !important;
   font-size: .66rem;
@@ -148,16 +124,6 @@
   cursor: zoom-in !important;
 }
 
-
-/* Blend Mode */
-
-.u-blend-mode-screen {
-  mix-blend-mode: screen !important;
-}
-
-.u-blend-mode-luminosity {
-  mix-blend-mode: luminosity !important;
-}
 
 
 /* Visibility */

@@ -4,10 +4,18 @@
 
 c-button {
   display: inline-grid;
+  height: 2.5rem;
+  grid-template-rows: 100%;
   width: var(--button-width);
 }
 
+
+c-button .c-button {
+  height: 100%;
+}
+
 .c-button {
+  align-content: center;
   align-items: start;
   background-color: var(--color-button-bg);
   border-color: var(--color-subtle-contrast);
@@ -20,17 +28,16 @@ c-button {
   display: inline-grid;
   font-family: var(--font-main-regular), sans-serif;
   font-weight: var(--font-main-regular-weight);
-  font-size: .7em;
+  font-size: var(--text-size-small-1);
   grid-auto-flow: column;
-  grid-gap: .5em;
+  grid-gap: var(--spacing-size-1);
   grid-template-rows: 0.8em;
+  height: 2.5rem;
   justify-content: center;
   letter-spacing: .05em;
   line-height: 1;
-  padding-bottom: 1em;
-  padding-left: .8em;
-  padding-right: .8em;
-  padding-top: 1em;
+  padding-left: calc(var(--spacing-size-2) * .8);
+  padding-right: calc(var(--spacing-size-2) * .8);
   text-decoration: none;
   text-transform: uppercase;
   transition:
@@ -38,29 +45,18 @@ c-button {
   will-change: box-shadow, opacity;
 }
 
-@media (min-width:45em) {
-
-  .c-button {
-    font-size: .7em;
-  }
-
-}
-
-@media (min-width:55em) {
+@media (min-width:48em) {
 
   .c-button {
     font-size: .75em;
     letter-spacing: .1em;
-    padding-bottom: 1.2em;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-top: 1.2em;
+    padding-left: var(--spacing-size-2);
+    padding-right: var(--spacing-size-2);
   }
 
-
   .c-button:has(i) {
-    padding-left: 1.1em;
-    padding-right: 1.1em;
+    padding-left: calc(var(--spacing-size-2) * 1.1);
+    padding-right: calc(var(--spacing-size-2) * 1.1);
   }
 }
 
@@ -99,10 +95,10 @@ c-button {
 }
 
 .c-button--large {
-  font-size: .9rem;
+  font-size: var(--text-size-normal);
 
   & i {
-    font-size: 1.4em;
+    font-size: var(--text-size-large-1);
   }
 }
 
