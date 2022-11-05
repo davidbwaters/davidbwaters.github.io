@@ -92,8 +92,34 @@
   position: relative !important;
 }
 
+.u-place-content-center {
+  place-content: center;
+}
 
+<<<<<<< Updated upstream
 /* Max Dimensions */
+=======
+/* Margin */
+
+.u-margin-top-px {
+  margin-top: 1px;
+}
+
+
+/* Dimensions */
+
+.u-width-90vw {
+  width: 90vw !important;
+}
+
+.u-height-90vh {
+  height: 90vh !important;
+}
+
+.u-height-100vh {
+  height: 100vh !important;
+}
+>>>>>>> Stashed changes
 
 .u-max-width-30 {
   max-width: 30rem !important;
@@ -117,6 +143,14 @@
 
 .u-max-height-50 {
   max-height: 50rem !important;
+}
+
+.u-max-width-90vw {
+  max-width: 90vw !important;
+}
+
+.u-max-height-90vh {
+  max-height: 90vh !important;
 }
 
 

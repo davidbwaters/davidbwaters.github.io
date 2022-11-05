@@ -2,6 +2,22 @@
  *  Components - Button
  */
 
+<<<<<<< Updated upstream
+=======
+c-button {
+
+  --button-height: 2.66rem;
+  display: inline-grid;
+  height: var(--button-height);
+  grid-template-rows: 100%;
+  width: var(--button-width);
+}
+
+
+c-button .c-button {
+  height: 100%;
+}
+>>>>>>> Stashed changes
 
 .c-button {
   --button-color-bg: #5A47B8;
@@ -28,7 +44,13 @@
   font-weight: var(--font-main-regular-weight);
   font-size: .6rem;
   grid-auto-flow: column;
+<<<<<<< Updated upstream
   grid-gap: .5rem;
+=======
+  grid-gap: var(--spacing-size-1);
+  grid-template-rows: 0.8em;
+  height: var(--button-height);
+>>>>>>> Stashed changes
   justify-content: center;
   letter-spacing: .05em;
   line-height: 1.2;
@@ -105,7 +127,14 @@
   font-size: 1rem;
 }
 
+<<<<<<< Updated upstream
 @media (min-width:35em) {
+=======
+.c-button--large,
+c-button .c-button--large {
+  font-size: var(--text-size-normal);
+  height: calc(var(--button-height) * 1.1);
+>>>>>>> Stashed changes
 
   .c-button i {
     font-size: 1.2rem;

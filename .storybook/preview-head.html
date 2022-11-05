@@ -1,0 +1,26 @@
+<script type="module">
+  window.global = window;
+
+  import "../src/stylesheets/main.scss"
+  import "../src/scripts/main.ts"
+
+  document.dispatchEvent(
+
+    new CustomEvent('themeChange', {
+
+      detail: { theme: document.body.dataset.theme },
+      bubbles: true,
+      composed: true
+
+    })
+
+  )
+</script>
+
+
+<link
+  href="https://use.typekit.net/brg7xei.css"
+  rel="preload stylesheet"
+  as="style"
+  crossorigin
+>

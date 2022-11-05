@@ -11,8 +11,19 @@
 :root,
 body,
 main {
+<<<<<<< Updated upstream
   height: 100% !important;
   max-height: 100%  !important;
+=======
+  max-width: 100vw;
+}
+
+:root {
+  --doc-height: 100%;
+  height: 100vh !important;
+  height: var(--doc-height) !important;
+  overflow-x: clip;
+>>>>>>> Stashed changes
 }
 
 body {
