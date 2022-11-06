@@ -18,9 +18,6 @@ import {
 export class CGalleryImage extends LitElement {
 
   styles = `
-    .c-gallery-image__image-wrapper {
-      display: grid;
-    }
     .c-gallery-image__image {
       height: 100%;
       object-fit: cover;
@@ -37,26 +34,17 @@ export class CGalleryImage extends LitElement {
   @property({type: String})
   alt = ''
 
-  @property()
-  onClick = (a) => {}
-
   render() {
 
     return html`
       <a
-        class="
-          c-gallery-image__image-wrapper
-          u-height-90vh
-          u-width-90vw
-          u-display-inline-block
-        "
+        class="c-gallery-image__image-wrapper u-width-fill u-height-fill"
         data-glightbox=""
         data-gallery=${this.gallery}
         href=${this.src}
-        @click=${this.onClick}
       >
         <img
-          class="c-gallery-image__image u-object-fit-cover u-height-fill"
+          class="c-gallery-image__image"
           src=${this.src}
           alt=${this.alt}
         >

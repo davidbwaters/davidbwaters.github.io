@@ -31,7 +31,7 @@ const Template: StoryFn<CHero> = ({ ...args }) =>
 			</c-theme-switch>
 			<div slot="footer-content-left">
 				<a
-					class="u-animation-wave u-text-large-2 u-margin-bottom-0"
+					class="u-animation-wave u-text-large-3 u-margin-bottom-0"
 					href="mailto:mrdavidbwaters@gmail.com"
 					title="Get in Touch!"
 				>

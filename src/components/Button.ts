@@ -100,6 +100,8 @@ export class CButton extends LitElement {
     .c-button i,
     .c-button c-icon {
       align-self: center;
+
+      font-size: 1.5em;
     }
 
     .c-button i {

@@ -9,12 +9,57 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--color-fg);
 }
 
 h1, h2, h3, h4, h5, h6 {
+  margin-bottom: .6em;
+  margin-top: 0em;
+}
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), sans-serif;
   font-weight: var(--font-heading-weight);
+  line-height: 1.1;
+}
+
+h1 {
+  line-height: 1.2;
+}
+
+h1, h2 {
+  font-size: 1.5rem;
+  font-size: clamp(0.9rem, 2vw + 0.75rem, 2.2rem);
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-size: clamp( 1.2rem, 2vw + .25rem , 1.8rem )
+}
+
+h4 {
+  font-size: 1.2rem;
+  font-size: clamp( 1.15rem, .25rem + 1.75vw, 1.6rem )
+}
+
+h5 {
+  font-size: 1.2rem;
+  font-size: clamp( 1.1rem, .25rem + 1.5vw, 1.4rem )
+}
+
+h6 {
+  font-size: 1.2rem;
+  font-size: clamp( 1rem, .25rem + 1.2vw, 1.3rem )
+}
+
+
+p {
+  line-height: 1.4;
+  margin-top: .2em;
+  margin-bottom: .8em;
+}
+
+small {
+  line-height: 1.4;
 }
 
 strong {

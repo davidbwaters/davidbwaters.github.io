@@ -1,0 +1,7 @@
+{
+  "moduleResolution": "node",
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false
+  }
+}

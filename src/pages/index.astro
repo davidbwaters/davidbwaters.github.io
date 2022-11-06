@@ -4,8 +4,8 @@ import { CCanvasMain } from '../components/CanvasMain';
 import { CTopBar } from '../components/TopBar';
 import { CThemeSwitch } from '../components/ThemeSwitch';
 import { CHero } from '../components/Hero';
+import { CIcon } from '../components/Icon'
 
-import { CWorkListItem } from '../components/WorkListItem';
 
 ---
 
@@ -210,7 +210,7 @@ import { CWorkListItem } from '../components/WorkListItem';
 		</section>
 
 		<section id="work" class="js-reveal">
-			<c-section-header class="u-z-index-7 u-position-relative js-reveal-inner">
+			<c-section-header class="u-z-index-10 u-position-relative js-reveal-inner">
 				<h3 slot="title" class="u-text-display u-text-large-3">
 					Selected <br />
 					Works
@@ -230,8 +230,7 @@ import { CWorkListItem } from '../components/WorkListItem';
 				"
 			>
 
-				<CWorkListItem
-					client:visible
+				<c-work-list-item
 					class='js-reveal-fade'
 					title='Matrix'
 					slug='Matrix'
@@ -243,10 +242,9 @@ import { CWorkListItem } from '../components/WorkListItem';
 					shortDescription='Revolutionizing the digital economy, one quest at a time.'
 					description='["While working as Lead Designer at <a href=\\"http://mtx.gg\\">Matrix</a> in 2022, I was tasked with developing their branding and design system.", "Using Figma and a design token based frontend, I also helped develop the designs into a React-based webapp."]'
 					wide='true'
-				></CWorkListItem>
+				></c-work-list-item>
 
-				<CWorkListItem
-					client:visible
+				<c-work-list-item
 					class='js-reveal-fade'
 					title='Fitbux'
 					slug='Fitbux'
@@ -378,11 +376,10 @@ import { CWorkListItem } from '../components/WorkListItem';
 
 					</div>
 
-				</CWorkListItem>
+				</c-work-list-item>
 
 
-				<CWorkListItem
-					client:visible
+				<c-work-list-item
 					class='js-reveal-fade'
 					title='macOS Modern'
 					slug='macOSModern'
@@ -396,11 +393,10 @@ import { CWorkListItem } from '../components/WorkListItem';
 					github="https://github.com/davidbwaters/macos-modern-vscode-theme"
 					vsc="https://marketplace.visualstudio.com/items?itemName=davidbwaters.macos-modern-theme"
 					threeButton="true"
-				></CWorkListItem>
+				></c-work-list-item>
 
 
-				<CWorkListItem
-					client:visible
+				<c-work-list-item
 					class='js-reveal-fade'
 					title='Limber Logic Brand Identity'
 					slug='LimberLogic'
@@ -411,11 +407,10 @@ import { CWorkListItem } from '../components/WorkListItem';
 					shortDescription='I created the branding for Limber Logic, a digital design company in Charleston, SC.'
 					description='["I created the brand identity for Limber Logic, a digital product design company in Charleston, SC. I wanted the branding to have a sleek, techy, aesthetic.","Limber Logic was the collaboration of my friend as Lead Developer and me as Lead Designer. We worked on various projects and I learned a lot in my time there."]'
 					wide="true"
-				></CWorkListItem>
+				></c-work-list-item>
 
 
-				<CWorkListItem
-					client:visible
+				<c-work-list-item
 					class='js-reveal-fade'
 					title='Map Dashboard'
 					slug='MapDashboard'
@@ -426,11 +421,10 @@ import { CWorkListItem } from '../components/WorkListItem';
 					shortDescription='UI created for an in-development web and mobile app for land developers.'
 					description='["These shots were created for an in-development web and mobile app for land developers.","I was recruited to improve the overall user experience and help design the map interface. I used Figma to create wireframes, mockups, and a component system.","I also helped the team refine the React-based frontend during a sprint before a deadline."]'
 					wide="true"
-				></CWorkListItem>
+				></c-work-list-item>
 
 
-				<CWorkListItem
-					client:visible
+				<c-work-list-item
 					class='js-reveal-fade'
 					title='Personal Branding'
 					slug='PersonalBranding'
@@ -443,11 +437,10 @@ import { CWorkListItem } from '../components/WorkListItem';
 					shortDescription='Collection of logo variations created as part of a personal branding update.'
 					description='["This is a collection of logo variations created as part of a personal branding update.","This project was a great exercise in using the process of rapid iteration to develop a final product."]'
 					wide="true"
-				></CWorkListItem>
+				></c-work-list-item>
 
 
-				<CWorkListItem
-					client:visible
+				<c-work-list-item
 					class='js-reveal-fade'
 					title='Substructure ITCSS Framework'
 					slug='Substructure'
@@ -461,11 +454,10 @@ import { CWorkListItem } from '../components/WorkListItem';
 					github='https://github.com/davidbwaters/substructure'
 					npm='https://www.npmjs.com/settings/substructure/packages'
 
-				></CWorkListItem>
+				></c-work-list-item>
 
 
-				<CWorkListItem
-					client:visible
+				<c-work-list-item
 					class='js-reveal-fade'
 					title='Yippy Clipboard Manager'
 					slug='Yippy'
@@ -477,7 +469,7 @@ import { CWorkListItem } from '../components/WorkListItem';
 					description='["I contributed icons to an open-source clipboard manager for macOS made by Matt Davidson.","I created a menu bar icon and three revisions of the app icon, included an updated version for macOS Big Sur. This project adheres to Apple&#39;s design guidelines."]'
 					wide="true"
 					github="https://github.com/mattDavo/Yippy"
-				></CWorkListItem>
+				></c-work-list-item>
 
 			</div>
 		</section>
@@ -519,6 +511,6 @@ import { CWorkListItem } from '../components/WorkListItem';
 		import '../components/Modal';
 		import '../components/SectionHeader';
 		import '../components/Squiggle';
-//		import '../components/WorkListItem';
+		import '../components/WorkListItem';
 	</script>
 </Layout>

@@ -10,6 +10,7 @@ export default defineConfig({
   integrations: [lit(), compress()],
   vite: {
     ssr: {
+      noExternal: ['ogl']
     }
   },
   outDir: 'build'

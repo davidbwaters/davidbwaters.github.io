@@ -320,11 +320,11 @@ export class CCursor extends LitElement {
 
 
 
-    const normalTargetEls = Array.from(
-      document.querySelectorAll(
+    const normalTargetEls =
+      querySelectorAllDeep(
         'a, button, [data-cursor-target]'
       )
-    )
+
 
     magneticTargetEls.forEach((el:HTMLElement) => {
 

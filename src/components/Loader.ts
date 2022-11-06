@@ -32,7 +32,7 @@ export class CLoader extends LitElement {
 
     ::slotted(*) {
       cursor: progress;
-      display: grid !important;
+      display: grid;
       grid-template-columns: clamp(3rem, 4vw, 8rem);
       grid-template-rows: min-content;
       place-content: center;

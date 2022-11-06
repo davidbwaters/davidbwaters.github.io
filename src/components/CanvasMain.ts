@@ -11,39 +11,53 @@ import {
   Renderer,
   Texture,
   Vec2,
-  Vec4,
-} from "ogl";
+  Vec4
+} from 'ogl'
 
-import { LitElement, html, css } from "lit";
+import {
+  LitElement,
+  html,
+  css
+} from 'lit'
 
-import { customElement, property } from "lit/decorators.js";
+import {
+  customElement,
+  property
+} from 'lit/decorators.js';
 
-@customElement("c-canvas-main")
+
+@customElement('c-canvas-main')
+
 export class CCanvasMain extends LitElement {
   static styles = css`
     :host {
       display: block;
       position: absolute;
     }
-  `;
+  `
 
-  @property({ type: String })
-  theme = "";
+  @property({type: String})
+  theme = '';
 
-  @property({ type: Array })
+  @property({type: Array})
   darkImages = [
-    "/images/Hero-Paint-1-Dark.jpg",
-    "/images/Hero-Paint-2-Dark.jpg",
-  ];
+    '/images/Hero-Paint-1-Dark.jpg',
+    '/images/Hero-Paint-2-Dark.jpg'
+  ]
 
-  @property({ type: Array })
-  lightImages = [
-    "/images/Hero-Paint-1-Light.jpg",
-    "/images/Hero-Paint-2-Light.jpg",
-  ];
+  @property({type: Array})
+  lightImages =  [
+    '/images/Hero-Paint-1-Light.jpg',
+    '/images/Hero-Paint-2-Light.jpg'
+  ]
 
-  updated() {
-    const vertex = `
+  connectedCallback(): void {
+
+    super.connectedCallback()
+
+    window.addEventListener('appLoaded', () => {
+
+      const vertex = `
         attribute vec2 uv;
         attribute vec2 position;
         varying vec2 vUv;
@@ -51,9 +65,9 @@ export class CCanvasMain extends LitElement {
             vUv = uv;
             gl_Position = vec4(position, 0, 1);
         }
-      `;
+      `
 
-    const fragment = `
+      const fragment = `
         precision highp float;
         precision highp int;
         uniform sampler2D tPaintStart;
@@ -74,9 +88,9 @@ export class CCanvasMain extends LitElement {
             vec3 tex = mix(tex1, tex2, sin(uTime * .1));
             gl_FragColor = vec4(tex.r, tex.g, tex.b, 1.0);
         }
-      `;
+      `
 
-    const fragmentPost = `
+      const fragmentPost = `
         #define DELTA 0.00001
         #define TAU 6.28318530718
         #define NOISE_TEXTURE_SIZE 256.0
@@ -207,281 +221,358 @@ export class CCanvasMain extends LitElement {
 
             gl_FragColor = v_vColour * outColour;
         }
-      `;
+      `
 
-    const bg = {
-      start1: "/images/Hero-Paint-1-Dark.jpg",
-      end1: "/images/Hero-Paint-2-Dark.jpg",
-      start2: "/images/Hero-Paint-1-Light.jpg",
-      end2: "/images/Hero-Paint-2-Light.jpg",
-      width: 1600,
-      height: 1080,
-    };
-
-    const wrapper = this;
-
-    const renderer = new Renderer({
-      dpr: 2,
-    });
-
-    const gl = renderer.gl;
-
-    const post = new Post(gl);
-
-    wrapper.innerHTML = "";
-    wrapper.appendChild(gl.canvas);
-
-    // Variable inputs to control flowmap
-    let aspect = 1;
-    const mouse = new Vec2(-1);
-    const velocity = new Vec2();
-    let updateVelocity: boolean;
-
-    function resize() {
-      let a1, a2;
-
-      const imageAspect = bg.height / bg.width;
-
-      if (window.innerHeight / window.innerWidth < imageAspect) {
-        a1 = 1;
-        a2 = window.innerHeight / window.innerWidth / imageAspect;
-      } else {
-        a1 = (window.innerWidth / window.innerHeight) * imageAspect;
-        a2 = 1;
+      const bg = {
+        start1: '/images/Hero-Paint-1-Dark.jpg',
+        end1: '/images/Hero-Paint-2-Dark.jpg',
+        start2: '/images/Hero-Paint-1-Light.jpg',
+        end2: '/images/Hero-Paint-2-Light.jpg',
+        width: 1600,
+        height: 1080
       }
-      mesh.program.uniforms.res.value = new Vec4(
-        window.innerWidth,
-        window.innerHeight,
-        a1,
-        a2
-      );
 
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      aspect = window.innerWidth / window.innerHeight;
-    }
+      const wrapper = this
 
-    const flowmap = new Flowmap(gl, {
-      size: 8,
-      falloff: 0.25,
-      dissipation: 0.95,
-      alpha: 0.68,
-    });
+      const renderer = new Renderer({
+        dpr: 2
+      })
 
-    // Triangle that includes -1 to 1 range for 'position',
-    // 0 to 1 range for 'uv'.
-    const geometry = new Geometry(gl, {
-      position: {
-        size: 2,
-        data: new Float32Array([-1, -1, 3, -1, -1, 3]),
-      },
-      uv: {
-        size: 2,
-        data: new Float32Array([0, 0, 2, 0, 0, 2]),
-      },
-    });
+      const gl = renderer.gl
 
-    const texture1a = new Texture(gl, {
-      minFilter: gl.LINEAR,
-      magFilter: gl.LINEAR,
-    });
+      const post = new Post(gl)
 
-    const texture1b = new Texture(gl, {
-      minFilter: gl.LINEAR,
-      magFilter: gl.LINEAR,
-    });
+      wrapper.innerHTML = ''
+      wrapper.appendChild(gl.canvas)
 
-    const texture2a = new Texture(gl, {
-      minFilter: gl.LINEAR,
-      magFilter: gl.LINEAR,
-    });
+      // Variable inputs to control flowmap
+      let aspect = 1
+      const mouse = new Vec2(-1)
+      const velocity = new Vec2()
+      let updateVelocity: boolean
 
-    const texture2b = new Texture(gl, {
-      minFilter: gl.LINEAR,
-      magFilter: gl.LINEAR,
-    });
+      function resize() {
 
-    const img1a = new Image();
-    const img1b = new Image();
-    const img2a = new Image();
-    const img2b = new Image();
+        let a1, a2
 
-    img1a.onload = () => (texture1a.image = img1a);
-    img1a.crossOrigin = "Anonymous";
-    img1a.src = bg.start1;
+        const imageAspect = bg.height / bg.width
 
-    img1b.onload = () => (texture1b.image = img1b);
-    img1b.crossOrigin = "Anonymous";
-    img1b.src = bg.end1;
+        if (
+          window.innerHeight / window.innerWidth <
+          imageAspect
+        ) {
 
-    img2a.onload = () => (texture2a.image = img2a);
-    img2a.crossOrigin = "Anonymous";
-    img2a.src = bg.start2;
+          a1 = 1
+          a2 =
+            window.innerHeight / window.innerWidth / imageAspect
 
-    img2b.onload = () => (texture2b.image = img2b);
-    img2b.crossOrigin = "Anonymous";
-    img2b.src = bg.end2;
+        }
+        else {
 
-    let a1, a2;
+          a1 =
+            (window.innerWidth / window.innerHeight) *
+            imageAspect
+          a2 = 1
 
-    const imageAspect = bg.height / bg.width;
+        }
+        mesh.program.uniforms.res.value = new Vec4(
+          window.innerWidth,
+          window.innerHeight,
+          a1,
+          a2
+        )
 
-    if (window.innerHeight / window.innerWidth < imageAspect) {
-      a1 = 1;
-      a2 = window.innerHeight / window.innerWidth / imageAspect;
-    } else {
-      a1 = (window.innerWidth / window.innerHeight) * imageAspect;
-      a2 = 1;
-    }
+        renderer.setSize(window.innerWidth, window.innerHeight)
+        aspect = window.innerWidth / window.innerHeight
 
-    const program = new Program(gl, {
-      vertex,
-      fragment,
-      uniforms: {
-        uTime: {
-          value: 0,
+      }
+
+      const flowmap = new Flowmap(gl, {
+        size: 8,
+        falloff: 0.25,
+        dissipation: 0.95,
+        alpha: 0.68
+      })
+
+      // Triangle that includes -1 to 1 range for 'position',
+      // 0 to 1 range for 'uv'.
+      const geometry = new Geometry(gl, {
+        position: {
+          size: 2,
+          data: new Float32Array([-1, -1, 3, -1, -1, 3])
         },
-        tPaintStart: {
-          value: texture1a,
-        },
-        tPaintEnd: {
-          value: texture1b,
-        },
-        res: {
-          value: new Vec4(window.innerWidth, window.innerHeight, a1, a2),
-        },
-        img: {
-          value: new Vec2(bg.height, bg.width),
-        },
+        uv: {
+          size: 2,
+          data: new Float32Array([0, 0, 2, 0, 0, 2])
+        }
+      })
 
-        // Note that the uniform is applied without using an
-        // object and value property. Because the class
-        // alternates this texture between two render targets
-        // and updates the value property after each render.
-        tFlow: flowmap.uniform,
-      },
-    });
+      const texture1a = new Texture(gl, {
+        minFilter: gl.LINEAR,
+        magFilter: gl.LINEAR
+      })
 
-    const pass = post.addPass({
-      // If not passed in, pass will use the default
-      // vertex/fragment shaders found within the class.
-      textureUniform: fragmentPost,
-      uniforms: {},
-    });
+      const texture1b = new Texture(gl, {
+        minFilter: gl.LINEAR,
+        magFilter: gl.LINEAR
+      })
 
-    const mesh = new Mesh(gl, {
-      geometry,
-      program,
-    });
+      const texture2a = new Texture(gl, {
+        minFilter: gl.LINEAR,
+        magFilter: gl.LINEAR
+      })
 
-    window.addEventListener("resize", resize, false);
+      const texture2b = new Texture(gl, {
+        minFilter: gl.LINEAR,
+        magFilter: gl.LINEAR
+      })
 
-    resize();
+      const img1a = new Image()
+      const img1b = new Image()
+      const img2a = new Image()
+      const img2b = new Image()
 
-    // Create handlers to get mouse position and velocity
-    const isTouchCapable = "ontouchstart" in window;
+      img1a.onload = () => (texture1a.image = img1a)
+      img1a.crossOrigin = 'Anonymous'
+      img1a.src = bg.start1
 
-    if (isTouchCapable) {
-      window.addEventListener("touchstart", updateMouse, false);
-      window.addEventListener("touchmove", updateMouse, {
-        passive: false,
-      });
-    } else {
-      window.addEventListener("mousemove", updateMouse, false);
-    }
+      img1b.onload = () => (texture1b.image = img1b)
+      img1b.crossOrigin = 'Anonymous'
+      img1b.src = bg.end1
 
-    let lastTime: number;
-    const lastMouse = new Vec2();
+      img2a.onload = () => (texture2a.image = img2a)
+      img2a.crossOrigin = 'Anonymous'
+      img2a.src = bg.start2
 
-    function updateMouse(e: any) {
+      img2b.onload = () => (texture2b.image = img2b)
+      img2b.crossOrigin = 'Anonymous'
+      img2b.src = bg.end2
+
+      let a1, a2
+
+      const imageAspect = bg.height / bg.width
+
       if (
-        e.target.tagName.toLowerCase() === "canvas" ||
-        e.target.hasAttribute("data-scrambler")
+        window.innerHeight / window.innerWidth <
+        imageAspect
       ) {
-        e.preventDefault();
 
-        if (e.changedTouches && e.changedTouches.length) {
-          e.x = e.changedTouches[0].pageX;
-          e.y = e.changedTouches[0].pageY;
-        }
-        if (e.x === undefined) {
-          e.x = e.pageX;
-          e.y = e.pageY;
-        }
+        a1 = 1
+        a2 =
+          window.innerHeight / window.innerWidth / imageAspect
 
-        // Get mouse value in 0 to 1 range, with y flipped
-        mouse.set(e.x / gl.renderer.width, 1.0 - e.y / gl.renderer.height);
-
-        // Calculate velocity
-        if (!lastTime) {
-          // First frame
-          lastTime = performance.now();
-          lastMouse.set(e.x, e.y);
-        }
-
-        const deltaX = e.x - lastMouse.x;
-        const deltaY = e.y - lastMouse.y;
-
-        lastMouse.set(e.x, e.y);
-
-        let time = performance.now();
-
-        // Avoid dividing by 0
-        let delta = Math.max(10.4, time - lastTime);
-        lastTime = time;
-        velocity.x = deltaX / delta;
-        velocity.y = deltaY / delta;
-
-        // Flag update to prevent hanging velocity values when
-        // not moving
-
-        updateVelocity = true;
       }
-    }
+      else {
 
-    requestAnimationFrame(update);
+        a1 =
+          (window.innerWidth / window.innerHeight) * imageAspect
+        a2 = 1
 
-    const themeSwitch = () => {
-      const theme = document.body.dataset.theme;
-
-      if (theme === "light") {
-        mesh.program.uniforms.tPaintStart.value = texture2a;
-        mesh.program.uniforms.tPaintEnd.value = texture2b;
-      } else {
-        mesh.program.uniforms.tPaintStart.value = texture1a;
-        mesh.program.uniforms.tPaintEnd.value = texture1b;
       }
-    };
 
-    setTimeout(themeSwitch, 200);
+      const program = new Program(gl, {
+        vertex,
+        fragment,
+        uniforms: {
+          uTime: {
+            value: 0
+          },
+          tPaintStart: {
+            value: texture1a
+          },
+          tPaintEnd: {
+            value: texture1b
+          },
+          res: {
+            value: new Vec4(
+              window.innerWidth,
+              window.innerHeight,
+              a1,
+              a2
+            )
+          },
+          img: {
+            value: new Vec2(bg.height, bg.width)
+          },
 
-    window.addEventListener("themeChange", themeSwitch);
+          // Note that the uniform is applied without using an
+          // object and value property. Because the class
+          // alternates this texture between two render targets
+          // and updates the value property after each render.
+          tFlow: flowmap.uniform
+        }
+      })
 
-    function update(t: number) {
-      requestAnimationFrame(update);
-      // Reset velocity when mouse not moving
-      if (!updateVelocity) {
-        mouse.set(-1);
-        velocity.set(0);
+      const pass = post.addPass({
+        // If not passed in, pass will use the default
+        // vertex/fragment shaders found within the class.
+        textureUniform: fragmentPost,
+        uniforms: {}
+      })
+
+      const mesh = new Mesh(gl, {
+        geometry,
+        program
+      })
+
+      window.addEventListener('resize', resize, false)
+
+      resize()
+
+      // Create handlers to get mouse position and velocity
+      const isTouchCapable = 'ontouchstart' in window
+
+      if (isTouchCapable) {
+
+        window.addEventListener(
+          'touchstart',
+          updateMouse,
+          false
+        )
+        window.addEventListener('touchmove', updateMouse, {
+          passive: false
+        })
+
       }
-      updateVelocity = false;
+      else {
 
-      // Update flowmap inputs
-      flowmap.aspect = aspect;
-      flowmap.mouse.copy(mouse);
+        window.addEventListener('mousemove', updateMouse, false)
 
-      // Ease velocity input, slower when fading out
-      flowmap.velocity.lerp(velocity, velocity.len() ? 0.15 : 0.1);
-      flowmap.update();
-      program.uniforms.uTime.value = t * 0.01;
-      renderer.render({
-        scene: mesh,
-      });
-    }
+      }
+
+      let lastTime: number
+      const lastMouse = new Vec2()
+
+      function updateMouse(e:any) {
+
+        if (
+          e.target.tagName.toLowerCase() === 'canvas' ||
+          e.target.hasAttribute('data-scrambler')
+        ) {
+
+          e.preventDefault()
+
+          if (e.changedTouches && e.changedTouches.length) {
+
+            e.x = e.changedTouches[0].pageX
+            e.y = e.changedTouches[0].pageY
+
+          }
+          if (e.x === undefined) {
+
+            e.x = e.pageX
+            e.y = e.pageY
+
+          }
+
+          // Get mouse value in 0 to 1 range, with y flipped
+          mouse.set(
+            e.x / gl.renderer.width,
+            1.0 - e.y / gl.renderer.height
+          )
+
+          // Calculate velocity
+          if (!lastTime) {
+
+            // First frame
+            lastTime = performance.now()
+            lastMouse.set(e.x, e.y)
+
+          }
+
+          const deltaX = e.x - lastMouse.x
+          const deltaY = e.y - lastMouse.y
+
+          lastMouse.set(e.x, e.y)
+
+          let time = performance.now()
+
+          // Avoid dividing by 0
+          let delta = Math.max(10.4, time - lastTime)
+          lastTime = time
+          velocity.x = deltaX / delta
+          velocity.y = deltaY / delta
+
+          // Flag update to prevent hanging velocity values when
+          // not moving
+
+          updateVelocity = true
+
+        }
+
+      }
+
+      requestAnimationFrame(update)
+
+      const themeSwitch = () => {
+
+        const theme = document.body.dataset.theme
+
+        if (theme === 'light') {
+
+          mesh.program.uniforms.tPaintStart.value = texture2a
+          mesh.program.uniforms.tPaintEnd.value = texture2b
+
+        }
+        else {
+
+          mesh.program.uniforms.tPaintStart.value = texture1a
+          mesh.program.uniforms.tPaintEnd.value = texture1b
+
+        }
+
+      }
+
+      setTimeout(
+
+        themeSwitch, 200
+
+      )
+
+      window.addEventListener('themeChange', themeSwitch)
+
+      function update(t: number) {
+
+        requestAnimationFrame(update)
+        // Reset velocity when mouse not moving
+        if (!updateVelocity) {
+
+          mouse.set(-1)
+          velocity.set(0)
+
+        }
+        updateVelocity = false
+
+        // Update flowmap inputs
+        flowmap.aspect = aspect
+        flowmap.mouse.copy(mouse)
+
+        // Ease velocity input, slower when fading out
+        flowmap.velocity.lerp(
+          velocity,
+          velocity.len() ? 0.15 : 0.1
+        )
+        flowmap.update()
+        program.uniforms.uTime.value = t * 0.01
+        renderer.render({
+          scene: mesh
+        })
+
+      }
+
+    })
+
+
   }
 
   render() {
-    return html` <slot></slot> `;
+
+    return html`
+      <slot></slot>
+    `;
+
   }
+
 }
 
 declare global {

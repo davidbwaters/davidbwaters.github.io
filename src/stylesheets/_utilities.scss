@@ -5,21 +5,12 @@
 
 /* Text */
 
-.u-text-large-1,
-.u-text-large-2,
-.u-text-large-3,
-.u-text-large-4,
-.u-text-large-5,
-.u-text-large-6 {
-  line-height: 1.25 !important;
-  margin-bottom: 0 !important;
-}
-
 .u-text-title {
   font-family: var(--font-accent) !important;
-  font-size: .66rem !important;
+  font-size: .66rem;
+  font-size: clamp( .55rem, .25rem + .25vw, .66rem );
   font-weight: var(--font-accent-weight) !important;
-  line-height: 1.1 !important;
+  line-height: 1.4 !important;
   text-transform: uppercase !important;
 }
 
@@ -92,13 +83,7 @@
   position: relative !important;
 }
 
-.u-place-content-center {
-  place-content: center;
-}
 
-<<<<<<< Updated upstream
-/* Max Dimensions */
-=======
 /* Margin */
 
 .u-margin-top-px {
@@ -106,20 +91,7 @@
 }
 
 
-/* Dimensions */
-
-.u-width-90vw {
-  width: 90vw !important;
-}
-
-.u-height-90vh {
-  height: 90vh !important;
-}
-
-.u-height-100vh {
-  height: 100vh !important;
-}
->>>>>>> Stashed changes
+/* Max Dimensions */
 
 .u-max-width-30 {
   max-width: 30rem !important;
@@ -145,14 +117,6 @@
   max-height: 50rem !important;
 }
 
-.u-max-width-90vw {
-  max-width: 90vw !important;
-}
-
-.u-max-height-90vh {
-  max-height: 90vh !important;
-}
-
 
 /* Cursor */
 
@@ -160,16 +124,6 @@
   cursor: zoom-in !important;
 }
 
-
-/* Blend Mode */
-
-.u-blend-mode-screen {
-  mix-blend-mode: screen !important;
-}
-
-.u-blend-mode-luminosity {
-  mix-blend-mode: luminosity !important;
-}
 
 
 /* Visibility */
@@ -224,6 +178,7 @@
 
 .u-separator,
 .u-separator-alternate {
+  background-color: transparent;
   border: none !important;
   background-repeat: repeat !important;
   background-position: 0 0 !important;
@@ -239,16 +194,16 @@
 .u-separator {
   background-image: linear-gradient(
     -45deg,
-    var(--color-opaque)   0.00%,
-    var(--color-opaque)  12.50%,
+    var(--color-semi-transparent)   0.00%,
+    var(--color-semi-transparent)  12.50%,
     transparent          12.51%,
     transparent          37.49%,
-    var(--color-opaque)  37.50%,
-    var(--color-opaque)  62.50%,
+    var(--color-semi-transparent)  37.50%,
+    var(--color-semi-transparent)  62.50%,
     transparent          62.51%,
     transparent          87.49%,
-    var(--color-opaque)  87.50%,
-    var(--color-opaque) 100.00%
+    var(--color-semi-transparent)  87.50%,
+    var(--color-semi-transparent) 100.00%
   ) !important;
   box-shadow: inset 0 0 0 1px var(--color-subtle) !important;
 }
@@ -256,16 +211,16 @@
 .u-separator-alternate {
   background-image: linear-gradient(
     -45deg,
-    var(--color-opaque-alternate)   0.00%,
-    var(--color-opaque-alternate)  12.50%,
+    var(--color-semi-transparent-alternate)   0.00%,
+    var(--color-semi-transparent-alternate)  12.50%,
     transparent                    12.51%,
     transparent                    37.49%,
-    var(--color-opaque-alternate)  37.50%,
-    var(--color-opaque-alternate)  62.50%,
+    var(--color-semi-transparent-alternate)  37.50%,
+    var(--color-semi-transparent-alternate)  62.50%,
     transparent                    62.51%,
     transparent                    87.49%,
-    var(--color-opaque-alternate)  87.50%,
-    var(--color-opaque-alternate) 100.00%
+    var(--color-semi-transparent-alternate)  87.50%,
+    var(--color-semi-transparent-alternate) 100.00%
   ) !important;
   box-shadow: inset 0 0 0 1px var(--color-subtle-alternate) !important;
 }
@@ -312,12 +267,12 @@
   background-color: var(--color-bg) !important;
 }
 
-.u-bg-color-opaque {
-  background-color: var(--color-opaque) !important;
+.u-bg-color-semi-transparent {
+  background-color: var(--color-semi-transparent) !important;
 }
 
-.u-bg-color-opaque-alternate {
-  background-color: var(--color-opaque-alternate) !important;
+.u-bg-color-semi-transparent-alternate {
+  background-color: var(--color-semi-transparent-alternate) !important;
 }
 
 .u-bg-color-white {
@@ -344,32 +299,32 @@
 .u-bg-pattern-diagonal {
   background-image: linear-gradient(
     -45deg,
-    var(--color-opaque-heavy)   0.00%,
-    var(--color-opaque-heavy)   6.24%,
+    var(--color-semi-transparent-heavy)   0.00%,
+    var(--color-semi-transparent-heavy)   6.24%,
     transparent                 6.25%,
     transparent                43.74%,
-    var(--color-opaque-heavy)  43.75%,
-    var(--color-opaque-heavy)  56.25%,
+    var(--color-semi-transparent-heavy)  43.75%,
+    var(--color-semi-transparent-heavy)  56.25%,
     transparent                56.26%,
     transparent                93.74%,
-    var(--color-opaque-heavy)  93.75%,
-    var(--color-opaque-heavy) 100.00%
+    var(--color-semi-transparent-heavy)  93.75%,
+    var(--color-semi-transparent-heavy) 100.00%
   ) !important;
 }
 
 .u-bg-pattern-diagonal-alternate {
   background-image: linear-gradient(
     -45deg,
-    var(--color-opaque-alternate)   0.00%,
-    var(--color-opaque-alternate)   6.24%,
+    var(--color-semi-transparent-alternate)   0.00%,
+    var(--color-semi-transparent-alternate)   6.24%,
     transparent                     6.25%,
     transparent                    43.74%,
-    var(--color-opaque-alternate)  43.75%,
-    var(--color-opaque-alternate)  56.25%,
+    var(--color-semi-transparent-alternate)  43.75%,
+    var(--color-semi-transparent-alternate)  56.25%,
     transparent                    56.26%,
     transparent                    93.74%,
-    var(--color-opaque-alternate)  93.75%,
-    var(--color-opaque-alternate) 100.00%
+    var(--color-semi-transparent-alternate)  93.75%,
+    var(--color-semi-transparent-alternate) 100.00%
   ) !important;
 }
 
@@ -385,83 +340,44 @@
 .u-bg-pattern-diagonal-tight {
   background-image: linear-gradient(
     -45deg,
-    var(--color-opaque)   0.00%,
-    var(--color-opaque)  12.50%,
+    var(--color-semi-transparent)   0.00%,
+    var(--color-semi-transparent)  12.50%,
     transparent          12.51%,
     transparent          37.49%,
-    var(--color-opaque)  37.50%,
-    var(--color-opaque)  62.50%,
+    var(--color-semi-transparent)  37.50%,
+    var(--color-semi-transparent)  62.50%,
     transparent          62.51%,
     transparent          87.49%,
-    var(--color-opaque)  87.50%,
-    var(--color-opaque) 100.00%
+    var(--color-semi-transparent)  87.50%,
+    var(--color-semi-transparent) 100.00%
   ) !important;
 }
 
 .u-bg-pattern-diagonal-tight-alternate {
   background-image: linear-gradient(
     -45deg,
-    var(--color-opaque-alternate)   0.00%,
-    var(--color-opaque-alternate)  12.50%,
+    var(--color-semi-transparent-alternate)   0.00%,
+    var(--color-semi-transparent-alternate)  12.50%,
     transparent                    12.51%,
     transparent                    37.49%,
-    var(--color-opaque-alternate)  37.50%,
-    var(--color-opaque-alternate)  62.50%,
+    var(--color-semi-transparent-alternate)  37.50%,
+    var(--color-semi-transparent-alternate)  62.50%,
     transparent                    62.51%,
     transparent                    87.49%,
-    var(--color-opaque-alternate)  87.50%,
-    var(--color-opaque-alternate) 100.00%
+    var(--color-semi-transparent-alternate)  87.50%,
+    var(--color-semi-transparent-alternate) 100.00%
   ) !important;
 }
 
-.u-bg-noise,
-.u-bg-noise-heavy,
-.u-overlay-noise {
-  overflow: hidden !important;
-  position: relative !important;
-}
 
-.u-bg-noise::before,
-.u-bg-noise-heavy::before,
-.u-overlay-noise::before {
-  //animation: noise .4s infinite !important;
-  backface-visibility: hidden !important;
-  /*
-  background-image: url(
-    "/images/Noise-Clear.svg"
-  ) !important;
-  */
-  background-size: 400px auto !important;
-  background-repeat: repeat !important;
-  content: '' !important;
-  height: 200% !important;
-  left: -50% !important;
-  position: absolute !important;
-  top: -50% !important;
-  width: 200% !important;
-}
+/* List */
 
-.u-bg-noise::before,
-.u-bg-noise-heavy::before {
-  background-color: var(--color-bg) !important;
-  z-index: -1 !important;
-}
+.u-list-inline li {
+  display: inline-block;
 
-.u-overlay-noise::before {
-  pointer-events: none !important;
-  z-index: 1 !important;
-}
-
-.u-bg-noise::before {
-  opacity: var(--opacity-noise) !important;
-}
-
-.u-bg-noise-heavy::before {
-  opacity: var(--opacity-noise-heavy) !important;
-}
-
-.u-overlay-noise::before {
-  opacity:var(--opacity-noise-overlay) !important;
+  &::before {
+    content: none
+  }
 }
 
 
@@ -472,15 +388,6 @@
   transform-origin: 50% 80% !important;
 }
 
-
-/* Keyframes */
-
-@keyframes noise {
-   0.00% { transform: translate(0, 0) }
-  49.99% { transform: translate(0, 0) }
-  50.00% { transform: translate(-10%, 10%) }
-  99.99% { transform: translate(-10%, 10%) }
-}
 
 @keyframes wave {
     0% { transform: rotate( -35deg) }

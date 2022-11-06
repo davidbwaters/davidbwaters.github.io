@@ -4,10 +4,10 @@
 
 @use 'node_modules/@substructure/settings';
 @use 'node_modules/@substructure/tools';
-<<<<<<< Updated upstream
 @use 'node_modules/@substructure/generic-initialize';
 @use 'node_modules/@substructure/generic-shared';
 @use 'node_modules/@substructure/elements-base';
+@use '@substructure/elements-root-properties';
 @use 'node_modules/@substructure/elements-text';
 @use 'node_modules/@substructure/objects-layout';
 @use 'node_modules/@substructure/objects-media';
@@ -17,35 +17,22 @@
 @use 'node_modules/@substructure/utilities-text-align';
 @use 'node_modules/@substructure/utilities-text-sizing';
 @use 'node_modules/@substructure/utilities-z-index';
-=======
-@use 'node_modules/@substructure/generic-initialize/initialize';
-@use 'node_modules/@substructure/generic-shared/shared';
-@use 'node_modules/@substructure/elements-base/base';
-@use 'node_modules/@substructure/elements-root-properties/root-properties';
-@use 'node_modules/@substructure/elements-text/text';
-@use 'node_modules/@substructure/utilities-layout/index';
-@use 'node_modules/@substructure/utilities-sizing/sizing';
-@use 'node_modules/@substructure/utilities-spacing/spacing';
-@use 'node_modules/@substructure/utilities-text-align/text-align';
-@use 'node_modules/@substructure/utilities-text-sizing/text-sizing';
-@use 'node_modules/@substructure/utilities-z-index/z-index';
->>>>>>> Stashed changes
 
+@use 'fonts';
 @use 'theme';
+@use 'components-awwwards';
 @use 'components-button';
+@use 'components-icons';
+@use 'components-icon-button';
 @use 'components-lightbox';
+
 @use 'components-media-grid';
 @use 'components-page-footer';
 @use 'components-skill-list';
-@use 'components-work-list';
 @use 'elements-base' as elements-base-local;
 @use 'elements-text' as elements-text-local;
 @use 'utilities';
 
-<<<<<<< Updated upstream
-@import '/fonts/fonts.css';
-@import '/icons/icons.css';
-=======
 
 .js-canvas-paint,
 .js-canvas-paint canvas {
@@ -63,6 +50,4 @@
 #skills,
 #work {
   background-color: var(--color-bg);
-  overflow-x: clip;
 }
->>>>>>> Stashed changes

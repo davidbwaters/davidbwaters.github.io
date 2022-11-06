@@ -21,7 +21,7 @@ import {
 export class CWorkListItem extends LitElement {
 
   static styles = css`
-    c-work-list-item  {
+    :host  {
       box-shadow: 0 0 0 1px var(--color-subtle-alternate);
       display: grid;
       grid-template-rows: auto 1fr;
@@ -29,19 +29,20 @@ export class CWorkListItem extends LitElement {
       max-height: calc(130vh - 3rem);
       margin-left: auto;
       margin-right: auto;
+      margin-top: 1px;
       padding-bottom: 1em;
       position: relative;
     }
 
     @media (max-width:45em) {
-      c-work-list-item:first-child {
+      :host:first-child {
         margin-top: 0rem;
       }
     }
 
     @media (min-height:35em) and (min-width:45em) {
 
-      c-work-list-item {
+      :host {
         max-height: 130vh;
         max-width: calc(100% - (((var(--spacing-size-2) * 2) + 1.75rem) * 2));
         padding-bottom: 1.25em;
@@ -51,13 +52,13 @@ export class CWorkListItem extends LitElement {
 
     @media (min-height:35em) and (min-width:80em) {
 
-      c-work-list-item {
+      :host {
         max-width: 70rem;
       }
 
     }
 
-    c-work-list-item:last-child {
+    :host:last-child {
       padding-bottom: 0rem;
     }
 
@@ -129,8 +130,12 @@ export class CWorkListItem extends LitElement {
 
     .c-work-list__item-info-title,
     h4.c-work-list__item-info-title {
+      font-family: var(--font-heading);
+      font-weight: var(--font-weight-heading);
+      font-size: var(--text-size-large-1);
       line-height: 1 !important;
       margin-bottom: 0 !important;
+      margin-top: .25em;
     }
 
     .c-work-list__item-info-taglist {
@@ -198,8 +203,8 @@ export class CWorkListItem extends LitElement {
 
     }
 
-    c-work-list-item:last-child .c-work-list__item-lower,
-    c-work-list-item:last-child .c-work-list__item-lower-three {
+    :host:last-child .c-work-list__item-lower,
+    :host:last-child .c-work-list__item-lower-three {
       border-bottom: none;
     }
 
@@ -214,6 +219,10 @@ export class CWorkListItem extends LitElement {
 
     .c-work-list__item:last-child .c-work-list__item-lower {
       border-bottom: none;
+    }
+
+    .u-cursor-zoom-in {
+      cursor: zoom-in !important;
     }
 
 
@@ -282,16 +291,24 @@ export class CWorkListItem extends LitElement {
   @property({type: Boolean})
   hasCaseStudy = false
 
-
-  firstUpdated() {
-
-    this.taglist = JSON.parse(this.tags).join(', ')
-    console.log(this.slug)
-    if (this.renderRoot.querySelector('[slot="case-study"]')) {
+  constructor() {
+    super()
+    if (this.querySelector('[slot="case-study"]')) {
       this.hasCaseStudy = true
       this.caseStudy = this.querySelector('[slot="case-study"]').innerHTML
       this.querySelector('[slot="case-study"]').innerHTML = ''
     }
+
+  }
+
+  connectedCallback() {
+    super.connectedCallback()
+
+    this.taglist = JSON.parse(this.tags).join(', ')
+  }
+
+  firstUpdated() {
+
     if (!JSON.parse(this.hideModal)) {
 
       const modalEl = this.renderRoot.querySelector('c-modal')
@@ -299,7 +316,7 @@ export class CWorkListItem extends LitElement {
       modalEl.dataset.modalTrigger = this.slug
       document.body.appendChild(modalEl)
 
-      console.log(this.slug)
+      console.log(this.hasCaseStudy)
 
     }
 

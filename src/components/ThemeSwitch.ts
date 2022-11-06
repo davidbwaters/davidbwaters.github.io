@@ -32,6 +32,7 @@ export class CThemeSwitch extends LitElement {
       --theme-switch-switch-border: rgba(0, 0, 0, 0.8);
       --theme-switch-switch: white;
       align-items: center;
+      border-right: solid 1px var(--theme-switch-border);
       display: grid;
       height: 100%;
       width: 100%;
@@ -39,15 +40,20 @@ export class CThemeSwitch extends LitElement {
 
     .c-theme-switch__wrapper {
       align-items: center;
-      column-gap: calc(var(--spacing-size-1) * .5);
+      column-gap: 0.4em;
       cursor: pointer;
       display: grid;
       grid-auto-flow: column;
       justify-content: center;
       position: relative;
     }
-    .c-theme-switch__wrapper:nth-of-type(2) {
-      display: none;
+
+    @media (min-width: 35em) {
+
+      .c-theme-switch__wrapper {
+        column-gap: 0.5em;
+      }
+
     }
 
     .c-theme-switch__input {

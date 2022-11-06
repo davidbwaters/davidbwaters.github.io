@@ -15,9 +15,7 @@
 
 .c-icon,
 [data-icon] {
-  display: inline-block;
-  height: 1em;
-  line-height: 1;
+  display: grid;
   text-decoration: none;
   vertical-align: middle;
 }
@@ -31,9 +29,7 @@
   font-weight: normal !important;
   font-variant: normal !important;
   text-transform: none !important;
-  line-height: 1;
-  margin-top: -.02em;
-  height: 1em;
+  margin-bottom: .125em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
