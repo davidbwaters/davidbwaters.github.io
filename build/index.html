@@ -5,12 +5,11 @@
 		<meta name="viewport" content="width=device-width">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 		<link href="https://use.typekit.net/brg7xei.css" rel="preload stylesheet" as="style" crossorigin>
-		
-		<meta name="generator" content="Astro v1.4.7">
+		<meta name="generator" content="Astro v1.6.3">
 		<title>David B. Waters - Frontend Developer - Oakland</title>
 
-	<link rel="stylesheet" href="/assets/index.b8c3fef2.css" />
-<link rel="stylesheet" href="/assets/index.bbef80b6.css" /><script type="module" src="/hoisted.8b1fe8cf.js"></script>
+	<link rel="stylesheet" href="/assets/index.4805471b.css" />
+<link rel="stylesheet" href="/assets/index.fa5ea9fe.css" /><script type="module" src="/hoisted.d4d56ea2.js"></script>
 <script>/** @license Copyright 2020 Google LLC (BSD-3-Clause) */
 /** Bundled JS generated from "@astrojs/lit/client-shim.js" */
 var N = Object.defineProperty;
@@ -101,10 +100,101 @@ var x = new DOMParser()
 </script></head>
 
 	<body data-theme="dark">
-		<main class="u-transparent c-app">
+		<style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><main class="u-transparent c-app">
 
-		<c-top-bar>
-			<a slot="logo" href="/" title="Home">
+		<astro-island uid="ZEmnHz" component-url="/TopBar.232d95c3.js" ssr="" client="load" before-hydration-url="/chunks/astro_scripts/before-hydration.js.c8e536f0.js" opts="{&quot;name&quot;:&quot;CTopBar&quot;,&quot;value&quot;:true}" await-children=""><c-top-bar><template shadowroot="open"><style>
+
+    :host {
+      --top-bar-logo-size: 1.4rem;
+
+      display: grid;
+      grid-template-columns: min-content min-content;
+      height:calc((var(--spacing-size-2) * 2) + var(--top-bar-logo-size));
+      padding-left: var(--spacing-size-2);
+      padding-right: var(--spacing-size-2);
+      padding-bottom: var(--spacing-size-2);
+      padding-top: var(--spacing-size-2);
+      place-content: center space-between;
+      place-items: center;
+      pointer-events: none;
+      position: fixed;
+      width: 100%;
+      z-index: 9;
+    }
+
+    @media (min-width: 30em) {
+      :host {
+        --top-bar-logo-size: 1.75rem;
+      }
+    }
+
+    @media (min-width: 48em) and (min-height: 30em) {
+
+      :host {
+        align-items: start;
+        place-content: start space-between;
+      }
+
+    }
+
+    .c-top-bar__nav,
+    ::slotted([slot='link']) {
+      display: grid;
+      grid-auto-flow: column;
+      grid-gap: var(--spacing-size-1);
+      transform: translatex(0);
+    }
+
+    @media (min-width: 48em) and (min-height: 30em) {
+
+      .c-top-bar__nav,
+      ::slotted([slot='link']) {
+        grid-auto-flow: row;
+      }
+
+    }
+
+    ::slotted([slot='logo']),
+    ::slotted([slot='link']) {
+      display: grid !important;
+      pointer-events: all;
+    }
+
+    ::slotted([slot='logo']) {
+      grid-template-rows: 100%;
+      width: var(--top-bar-logo-size);
+    }
+
+    @media (min-width: 30em) {
+      ::slotted([slot='logo']) {
+        height: var(--top-bar-logo-size);
+        width: var(--top-bar-logo-size);
+      }
+    }
+
+    ::slotted([slot='link']) {
+      font-size: 125%;
+      grid-gap: calc(var(--spacing-size-1) * 1.5);
+      height: 1em;
+      padding: 0 0 0 0;
+      text-align: center;
+      text-decoration: none;
+    }
+
+
+    @media (min-width: 48em) {
+
+      ::slotted([slot='link']) {
+        width: var(--top-bar-logo-size);
+      }
+    }
+
+  </style><!--lit-part PeCmYSBesAw=-->
+      <slot name="logo"> </slot>
+      <nav class="c-top-bar__nav">
+        <slot name="link"> </slot>
+      </nav>
+    <!--/lit-part--></template><astro-slot slot="logo"><a href="/" title="Home">
 				<svg class="c-logo u-theme-fill u-wrapper-full" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 						<title>Artboard</title>
 						<g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -113,27 +203,47 @@ var x = new DOMParser()
 								</g>
 						</g>
 				</svg>
-			</a>
-			<a slot="link" href="mailto:mrdavidbwaters@gmail.com" title="Email">
-				<i class="c-icon c-icon--mail"></i>
-			</a>
-			<a slot="link" href="https://twitter.com/dbwatersdesigns" title="Twitter">
-				<i class="c-icon c-icon--twitter"></i>
-			</a>
-			<a slot="link" href="https://dribbble.com/dbwatersdesigns" title="Dribbble">
-				<i class="c-icon c-icon--dribbble"></i>
-			</a>
-			<a slot="link" href="https://github.com/davidbwaters" title="Github">
-				<i class="c-icon c-icon--github"></i>
-			</a>
-			<a slot="link" href="https://www.npmjs.com/~davidbwaters" title="NPM">
-				<i class="c-icon c-icon--npm"></i>
-			</a>
-		</c-top-bar>
+			</a></astro-slot><astro-slot slot="link"><a href="mailto:mrdavidbwaters@gmail.com" title="Email">
+				<c-icon icon="mail"></c-icon>
+			</a><a href="https://twitter.com/dbwatersdesigns" title="Twitter">
+				<c-icon icon="twitter"></c-icon>
+			</a><a href="https://dribbble.com/dbwatersdesigns" title="Dribbble">
+				<c-icon icon="dribbble"></c-icon>
+			</a><a href="https://github.com/davidbwaters" title="Github">
+				<c-icon icon="github"></c-icon>
+			</a><a href="https://www.npmjs.com/~davidbwaters" title="NPM">
+				<c-icon icon="npm"></c-icon>
+			</a></astro-slot></c-top-bar><template data-astro-template="logo"><a href="/" title="Home">
+				<svg class="c-logo u-theme-fill u-wrapper-full" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+						<title>Artboard</title>
+						<g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<g id="Logo" transform="translate(0.000000, 5.000000)" fill="currentColor" fill-rule="nonzero">
+										<path d="M9.6,0 L9.6,38.4 L0,38.4 L0,0 L9.6,0 Z M48,19.2 L48,28.8 L38.4,38.4 L38.4,19.2 L48,19.2 Z M28.8,0 L28.8,28.8 L19.2,38.4 L19.2,0 L28.8,0 Z M48,0 L48,9.6 L38.4,19.2 L38.4,0 L48,0 Z"></path>
+								</g>
+						</g>
+				</svg>
+			</a></template><template data-astro-template="link"><a href="mailto:mrdavidbwaters@gmail.com" title="Email">
+				<c-icon icon="mail"></c-icon>
+			</a><a href="https://twitter.com/dbwatersdesigns" title="Twitter">
+				<c-icon icon="twitter"></c-icon>
+			</a><a href="https://dribbble.com/dbwatersdesigns" title="Dribbble">
+				<c-icon icon="dribbble"></c-icon>
+			</a><a href="https://github.com/davidbwaters" title="Github">
+				<c-icon icon="github"></c-icon>
+			</a><a href="https://www.npmjs.com/~davidbwaters" title="NPM">
+				<c-icon icon="npm"></c-icon>
+			</a></template></astro-island>
 
 		<c-hero data-preload id="hero">
 			<div slot="paint">
-				<c-canvas-main></c-canvas-main>
+				<astro-island uid="16rAP6" component-url="/CanvasMain.82bfa70c.js" ssr="" client="load" before-hydration-url="/chunks/astro_scripts/before-hydration.js.c8e536f0.js" opts="{&quot;name&quot;:&quot;CCanvasMain&quot;,&quot;value&quot;:true}" await-children=""><c-canvas-main><template shadowroot="open"><style>
+    :host {
+      display: block;
+      position: absolute;
+    }
+  </style><!--lit-part kHJJur9OVoU=-->
+      <slot></slot>
+    <!--/lit-part--></template></c-canvas-main></astro-island>
 			</div>
 			<h1 slot="tagline" class="js-text-plane">
 				Multidisciplinary <br>
@@ -145,11 +255,108 @@ var x = new DOMParser()
 				Building digital solutions to promote growth.
 				<c-squiggle></c-squiggle>
 			</h2>
-			<c-theme-switch slot="footer-box-left" data-cursor-target>
-				<i class="c-icon c-icon--theme"></i>
-			</c-theme-switch>
+			<div slot="footer-box-left">
+				<astro-island uid="ZEtVhk" component-url="/ThemeSwitch.6bd015c5.js" ssr="" client="load" before-hydration-url="/chunks/astro_scripts/before-hydration.js.c8e536f0.js" opts="{&quot;name&quot;:&quot;CThemeSwitch&quot;,&quot;value&quot;:true}" await-children=""><c-theme-switch data-cursor-target="true"><template shadowroot="open"><style>
+    * {
+      box-sizing: border-box;
+    }
+
+    *::selection {
+      background-color: transparent;
+    }
+
+    :host {
+      --theme-switch-border: var(--color-subtle);
+      --theme-switch-bg: var(--color-subtle);
+      --theme-switch-switch-border: rgba(0, 0, 0, 0.8);
+      --theme-switch-switch: white;
+      align-items: center;
+      border-right: solid 1px var(--theme-switch-border);
+      display: grid;
+      height: 100%;
+      width: 100%;
+    }
+
+    .c-theme-switch__wrapper {
+      align-items: center;
+      column-gap: 0.4em;
+      cursor: pointer;
+      display: grid;
+      grid-auto-flow: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    @media (min-width: 35em) {
+
+      .c-theme-switch__wrapper {
+        column-gap: 0.5em;
+      }
+
+    }
+
+    .c-theme-switch__input {
+      position: absolute;
+      height: 0;
+      opacity: 0;
+      width: 0;
+    }
+
+    .c-theme-switch__switch {
+      background: var(--theme-switch-bg);
+      border: solid var(--theme-switch-switch-border)
+        1px;
+      height: 1.8rem;
+      width: 0.9rem;
+    }
+
+    @media (min-width: 35em) {
+
+      .c-theme-switch__switch {
+        height: 2rem;
+        width: 1rem;
+      }
+
+    }
+
+    .c-theme-switch__switch::before {
+      background: white;
+      content: '';
+      display: block;
+      height: 50%;
+      transition: all 0.25s;
+    }
+
+    .c-theme-switch__input:checked
+      + .c-theme-switch__switch::before {
+      transform: translateY(100%);
+    }
+
+    ::slotted(i) {
+      font-size: 0.9em;
+    }
+
+    @media (min-width: 35em) {
+
+      ::slotted(i) {
+        font-size: 1em;
+      }
+
+    }
+  </style><!--lit-part fK62ZqEi0Ak=-->
+      <label class="c-theme-switch__wrapper">
+        <input
+          type="checkbox"
+          class="c-theme-switch__input"
+          
+        /><!--lit-node 1-->
+        <span class="c-theme-switch__switch"></span>
+        <slot></slot>
+      </label>
+    <!--/lit-part--></template><c-icon icon="theme"></c-icon></c-theme-switch></astro-island>
+			</div>
 			<div slot="footer-content-left">
-				<a class="c-icon c-icon--wave u-animation-wave u-text-large-3 u-margin-bottom-0" href="mailto:mrdavidbwaters@gmail.com" title="Get in Touch!"></a>
+				<a class="c-icon c-icon--wave u-animation-wave u-text-large-1 u-margin-bottom-0" href="mailto:mrdavidbwaters@gmail.com" title="Get in Touch!"></a>
 				<span> Available Now! </span>
 			</div>
 			<div slot="footer-content-right">
@@ -161,17 +368,16 @@ var x = new DOMParser()
 				</span>
 			</div>
 			<div slot="footer-box-right">
-				<a class="
-						c-icon
-						c-icon--arrow-down
-					" href="#skills"></a>
+				<a data-target="#skills">
+					<c-icon icon="arrow-down"></c-icon>
+				</a>
 			</div>
 			<hr slot="bottom" class="u-separator">
 		</c-hero>
 
 		<section id="skills">
 			<c-section-header class="js-reveal">
-				<h3 slot="title" class="u-text-display u-h2">
+				<h3 slot="title" class="u-text-display u-text-large-3">
 					Skills
 					<c-squiggle></c-squiggle>
 				</h3>
@@ -238,8 +444,8 @@ var x = new DOMParser()
 		</section>
 
 		<section id="work" class="js-reveal">
-			<c-section-header class="u-z-index-7 u-position-relative js-reveal-inner">
-				<h3 slot="title" class="u-text-display u-h2">
+			<c-section-header class="u-z-index-10 u-position-relative js-reveal-inner">
+				<h3 slot="title" class="u-text-display u-text-large-3">
 					Selected <br>
 					Works
 					<c-squiggle></c-squiggle>
@@ -269,7 +475,7 @@ var x = new DOMParser()
 							</p>
 							<hr>
 							<div>
-								<h4 class="u-h5">Overview</h4>
+								<h4 class="u-text-large-1">Overview</h4>
 								<p>
 									FitBUX combines innovative technology and free FitBUX Coaches to
 									help you develop and implement your financial plan.
@@ -285,7 +491,7 @@ var x = new DOMParser()
 
 						<div class="c-media-grid__text-item">
 							<div>
-								<h4 class="u-h6">The Problem</h4>
+								<h4 class="u-text-large-1">The Problem</h4>
 								<ul>
 									<li>New graduates have trouble managing their finances</li>
 									<li>People don't have a plan for paying off student loan debt</li>
@@ -296,7 +502,7 @@ var x = new DOMParser()
 
 						<div class="c-media-grid__text-item">
 							<div>
-								<h4 class="u-h6">Target Audience</h4>
+								<h4 class="u-text-large-1">Target Audience</h4>
 								<ul>
 									<li>Young professionals and recent graduates</li>
 									<li>People with student loan debt</li>
@@ -304,15 +510,50 @@ var x = new DOMParser()
 								</ul>
 							</div>
 							<div>
-								<h4 class="u-h6">Competitors</h4>
+								<h4 class="u-text-large-1">Competitors</h4>
 								<p>Mobills, Walnut, Spendee, YNAB, Mint</p>
 							</div>
 						</div>
 
+						<div class="c-media-grid__text-item u-align-content-center">
+							<div>
+								<h4 class="u-text-large-1">The Aesthetic</h4>
+								<p>
+									I took inspiration from Fitbux's cool blue color scheme and existing branding
+									and added some accent hues for the app.  I wanted a clean, modern, neumorphic
+									aesthetic to give it a modern feel.
+								</p>
+								<p>
+									We chose Poppins for the font for it's clean geometric forms.  The design uses
+									lots of gradients, transparency, and background blur to achieve the look.  We started
+									the project with a style guide to nail down the theme elements and integrate the current
+									branding.
+								</p>
+							</div>
+						</div>
+
+						<c-gallery-image class="c-media-grid__image-item" src="images/Work/Fitbux-Style-Guide.jpg" alt="Fitbux Screenshot" gallery="2"></c-gallery-image>
+
 
 						<div class="c-media-grid__text-item u-align-content-center">
 							<div>
-								<h4 class="u-h6">The Solution</h4>
+								<h4 class="u-text-large-1">The Process</h4>
+								<p>
+									The app had complex, lengthy form sections that collected various financial data
+									that we split up into sections.  The client felt strongly about how they wanted
+									certain parts of these to function, so we worked with them when building these out.
+								</p>
+								<p>
+									The main section of the app was a dashboard with a lot of complex data widgets
+									and we had to carefully lay these out to fit across different device sizes.  There
+									was also a contact section to interact with your Fitbux coach.  The design
+									system had well over 50 components.
+								</p>
+							</div>
+						</div>
+						<div class="c-media-grid__text-item u-align-content-center">
+							<div>
+								<h4 class="u-text-large-1">The Solution</h4>
 								<ul>
 									<li>
 										User friendly financial platform.
@@ -338,8 +579,6 @@ var x = new DOMParser()
 							</div>
 						</div>
 
-
-						<c-gallery-image class="c-media-grid__image-item" src="images/Work/Fitbux-Style-Guide.jpg" alt="Fitbux Screenshot" gallery="2"></c-gallery-image>
 					</div>
 
 				</c-work-list-item>
@@ -391,9 +630,38 @@ var x = new DOMParser()
 
     <c-canvas-noise></c-canvas-noise>
 
-			<c-loader>
-				<div>
-					<svg class="c-logo u-theme-fill u-wrapper-full" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<astro-island uid="Z1CAA2x" component-url="/Loader.78dda472.js" ssr="" client="load" before-hydration-url="/chunks/astro_scripts/before-hydration.js.c8e536f0.js" opts="{&quot;name&quot;:&quot;CLoader&quot;,&quot;value&quot;:true}" await-children=""><c-loader><template shadowroot="open"><style>
+    :host {
+      --loader-color-bg: var(--color-bg);
+    }
+
+    :host,
+    ::slotted(*) {
+      height: 100vh;
+      left: 0;
+      top: 0;
+      transition: opacity var(--transition-duration);
+      width: 100%;
+      z-index: 9;
+    }
+
+    :host {
+      background-color: var(--loader-color-bg);
+      position: fixed;
+      height: 100%;
+      width: 100%;
+    }
+
+    ::slotted(*) {
+      cursor: progress;
+      display: grid;
+      grid-template-columns: clamp(3rem, 4vw, 8rem);
+      grid-template-rows: min-content;
+      place-content: center;
+      position: absolute;
+    }
+  </style><!--lit-part 2Rpol3ZLF8M=--> <slot> </slot> <!--/lit-part--></template><astro-slot><div style="display: grid;min-height: 100vh;grid-template-columns: clamp(3rem, 4vw, 8rem);grid-template-rows: min-content;place-content: center;">
+					<svg class="c-logo u-theme-fill" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 						<title>Artboard</title>
 						<g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 								<g id="Logo" transform="translate(0.000000, 5.000000)" fill="currentColor" fill-rule="nonzero">
@@ -401,8 +669,7 @@ var x = new DOMParser()
 								</g>
 						</g>
 					</svg>
-				</div>
-			</c-loader>
+				</div></astro-slot></c-loader></astro-island>
 
 		<c-cursor></c-cursor>
 
@@ -413,7 +680,6 @@ var x = new DOMParser()
 				<feTurbulence type="fractalNoise" seed="77" numOctaves="1" baseFrequency="0.01"></feTurbulence>
 				<!-- Cycle through Hue - Hue wheel allows for seamless loop  -->
 				<feColorMatrix type="hueRotate" values="0">
-					<animate attributeName="values" values="0;360" dur="3s" repeatCount="indefinite"></animate>
 				</feColorMatrix>
 				<!-- Extract alpha / filter colors -->
 				<feColorMatrix type="matrix" values="1 0 0 0 0
@@ -435,4 +701,6 @@ var x = new DOMParser()
 			<!-- <rect filter="url(#animate)" fill="#202020"
 			x="50" y="10" width="100" height="100" /> -->
 		</svg>
-	</body></html>
+		
+	</body>
+</html>

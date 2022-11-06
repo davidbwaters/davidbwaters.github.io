@@ -1,7 +1,8 @@
 
 # build output
-dist/
+build/
 .output/
+storybook-static/
 
 # dependencies
 node_modules/
