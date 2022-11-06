@@ -56,6 +56,10 @@ export class CThemeSwitch extends LitElement {
 
     }
 
+    .c-theme-switch__wrapper:nth-of-type(2) {
+      display: none;
+    }
+
     .c-theme-switch__input {
       position: absolute;
       height: 0;
