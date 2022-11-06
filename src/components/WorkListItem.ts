@@ -40,7 +40,7 @@ export class CWorkListItem extends LitElement {
       }
     }
 
-    @media (min-height:35em) and (min-width:45em) {
+    @media (min-width:45em) {
 
       :host {
         max-height: 130vh;
@@ -50,10 +50,10 @@ export class CWorkListItem extends LitElement {
 
     }
 
-    @media (min-height:35em) and (min-width:80em) {
+    @media (min-width:80em) {
 
       :host {
-        max-width: 70rem;
+        max-width: min(calc(100% - (((var(--spacing-size-2) * 2) + 1.75rem) * 2)), var(--wrapper-max));
       }
 
     }

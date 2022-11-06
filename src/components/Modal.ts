@@ -53,7 +53,7 @@ export class CModal extends LitElement {
       transition: var(--modal-transition-duration);
       top: 0;
       width: 100%;
-      z-index: 9;
+      z-index: 99;
     }
 
     .c-modal__body:not([open]) {

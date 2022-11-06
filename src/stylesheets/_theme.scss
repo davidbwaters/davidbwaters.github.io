@@ -6,9 +6,7 @@
 /* Root */
 
 :root {
-  --spacing-unit: .25rem;
-  --spacing-responsive-x: calc(.25rem + 1vw);
-  --spacing-responsive-y: calc(.25rem + 1vh);
+  --wrapper-max: 80rem;
 
   --font-main: var(--font-main-light);
   --font-main-weight: var(--font-main-light-weight);
