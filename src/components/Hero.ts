@@ -140,6 +140,7 @@ export class CHero extends LitElement {
       overflow-wrap: break-word;
       pointer-events: none;
       text-transform: uppercase;
+      user-select: none;
       width: 100vw;
     }
 
@@ -377,7 +378,7 @@ export class CHero extends LitElement {
         )
         var(--bg-pattern-diagonal-tight-size);
       display: grid;
-      font-size: .9em;
+      font-size: .85em;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
       height: 100%;

@@ -1,3 +1,4 @@
+
 const path = require('path');
 module.exports = {
   "stories": [
@@ -9,8 +10,11 @@ module.exports = {
     "@storybook/addon-essentials",
     "storybook-addon-themes"
   ],
-  "framework": {
-    "name": "@storybook/web-components-vite",
-    "options": {}
-  }
+  "features": {
+    "storyStoreV7": true,
+  },
+  "framework": "@storybook/web-components-vite",
+  core: {
+    builder: '@storybook/builder-vite',
+  },
 }

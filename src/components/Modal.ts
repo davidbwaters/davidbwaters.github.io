@@ -16,6 +16,8 @@ import {
 import dialogPolyfill from 'dialog-polyfill'
 import { ScrollTrigger } from 'gsap/all';
 
+import { querySelectorDeep } from 'query-selector-shadow-dom';
+
 @customElement('c-modal')
 
 export class CModal extends LitElement {
@@ -29,6 +31,7 @@ export class CModal extends LitElement {
       --modal-trigger-transition-duration: 0.15s;
 
       position: absolute;
+      z-index: 10;
     }
 
     .c-modal__body {
@@ -127,8 +130,10 @@ export class CModal extends LitElement {
   private _dialogEl
   private _triggerDuration
   private _modalDuration
+  private _target
 
   private _normalizer
+
 
   firstUpdated() {
 
@@ -138,17 +143,31 @@ export class CModal extends LitElement {
 
     dialogPolyfill.registerDialog(this._dialogEl)
 
+    let target
+
     window.addEventListener(
       'click',
       e => {
 
-        let target
+        if (e.target.tagName === "c-work-list-item".toUpperCase()) {
+          this._target = e.target
+        }
 
-        if (e.target instanceof Element) {
+        target = e.target
 
-          target = e.target.closest(
+        console.log(e.target)
+
+        if (target instanceof Element) {
+
+          target = target.closest(
             '[data-modal-target=' + this._triggerData + ']'
           )
+
+          if (e.target.shadowRoot) {
+            target = e.target.shadowRoot.querySelector(
+              '[data-modal-target=' + this._triggerData + ']'
+            )
+          }
 
         }
 
@@ -198,7 +217,7 @@ export class CModal extends LitElement {
 
     this._triggerData = this.dataset.modalTrigger
 
-    this._triggerEl = document.querySelector(
+    this._triggerEl = querySelectorDeep(
       '[data-modal-target=' +
         this._triggerData +
         ']' +
@@ -255,7 +274,11 @@ export class CModal extends LitElement {
   _open() {
 
     this._triggerEl.setAttribute('isExpanded', true)
-    this._triggerEl.parentNode.parentNode.classList.add('u-z-index-9')
+
+    if (this._target) {
+      this._target.classList.add('u-z-index-9')
+    }
+
     this._triggerParent.style.zIndex = '9'
 
     setTimeout(() => {
@@ -296,7 +319,13 @@ export class CModal extends LitElement {
       setTimeout(() => {
 
         this._triggerParent.style.zIndex = ''
-        this._triggerEl.parentNode.parentNode.classList.remove('u-z-index-9')
+
+        console.log(this._target)
+        if (this._target) {
+          this._target.classList.remove('u-z-index-9')
+        }
+
+
       }, this._triggerDuration)
 
     }, this._modalDuration)

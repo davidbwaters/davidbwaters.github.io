@@ -51,9 +51,9 @@ export class CCanvasMain extends LitElement {
     '/images/Hero-Paint-2-Light.jpg'
   ]
 
-  constructor() {
+  connectedCallback(): void {
 
-    super()
+    super.connectedCallback()
 
     window.addEventListener('appLoaded', () => {
 

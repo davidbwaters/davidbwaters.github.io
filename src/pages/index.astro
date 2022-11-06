@@ -1,12 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { CCanvasMain } from '../components/CanvasMain';
+import { CTopBar } from '../components/TopBar';
+import { CThemeSwitch } from '../components/ThemeSwitch';
+import { CHero } from '../components/Hero';
+import { CIcon } from '../components/Icon'
+
+
 ---
 
 <Layout title="David B. Waters - Frontend Developer - Oakland">
 
 	<main class="u-transparent c-app">
 
-		<c-top-bar>
+		<CTopBar client:load>
 			<a
 				slot="logo"
 				href="/"
@@ -56,14 +63,14 @@ import Layout from '../layouts/Layout.astro';
 			>
 				<c-icon icon="npm"></c-icon>
 			</a>
-		</c-top-bar>
+		</CTopBar>
 
 		<c-hero
 			data-preload
 			id="hero"
 		>
 			<div slot="paint">
-				<c-canvas-main />
+				<CCanvasMain client:load />
 			</div>
 			<h1 slot="tagline" class="js-text-plane">
 				Multidisciplinary <br />
@@ -75,9 +82,11 @@ import Layout from '../layouts/Layout.astro';
 				Building digital solutions to promote growth.
 				<c-squiggle></c-squiggle>
 			</h2>
-			<c-theme-switch slot="footer-box-left" data-cursor-target>
-				<c-icon icon="theme"></c-icon>
-			</c-theme-switch>
+			<div slot="footer-box-left">
+				<CThemeSwitch client:load data-cursor-target >
+					<c-icon icon="theme"></c-icon>
+				</CThemeSwitch>
+			</div>
 			<div slot="footer-content-left">
 				<a
 					class="c-icon c-icon--wave u-animation-wave u-text-large-1 u-margin-bottom-0"
@@ -201,7 +210,7 @@ import Layout from '../layouts/Layout.astro';
 		</section>
 
 		<section id="work" class="js-reveal">
-			<c-section-header class="u-z-index-7 u-position-relative js-reveal-inner">
+			<c-section-header class="u-z-index-10 u-position-relative js-reveal-inner">
 				<h3 slot="title" class="u-text-display u-text-large-3">
 					Selected <br />
 					Works
@@ -495,17 +504,13 @@ import Layout from '../layouts/Layout.astro';
 	<script>
 		import '../scripts/main';
 		import '../components/Button';
-		import '../components/CanvasMain';
 		import '../components/GalleryImage';
 		import '../components/GlitchImage';
 		import '../components/Hero';
 		import '../components/Icon';
-		import '../components/Loader'
 		import '../components/Modal';
 		import '../components/SectionHeader';
 		import '../components/Squiggle';
-		import '../components/ThemeSwitch';
-		import '../components/TopBar';
 		import '../components/WorkListItem';
 	</script>
 </Layout>

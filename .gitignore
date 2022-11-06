@@ -1,9 +1,13 @@
+
 # build output
 dist/
 .output/
 
 # dependencies
 node_modules/
+
+# Mac
+.DS_Store
 
 # logs
 npm-debug.log*

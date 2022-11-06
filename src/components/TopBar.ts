@@ -53,9 +53,9 @@ export class CTopBar extends LitElement {
 
     }
 
-    .c-top-bar__nav {
+    .c-top-bar__nav,
+    ::slotted([slot='link']) {
       display: grid;
-      font-size: 125%;
       grid-auto-flow: column;
       grid-gap: var(--spacing-size-1);
       transform: translatex(0);
@@ -63,19 +63,32 @@ export class CTopBar extends LitElement {
 
     @media (min-width: 48em) and (min-height: 30em) {
 
-      .c-top-bar__nav {
+      .c-top-bar__nav,
+      ::slotted([slot='link']) {
         grid-auto-flow: row;
       }
 
     }
 
-    ::slotted([slot='link']),
-    ::slotted([slot='logo']) {
+    ::slotted([slot='logo']),
+    ::slotted([slot='link']) {
+      display: grid !important;
       pointer-events: all;
     }
 
+    ::slotted([slot='logo']) {
+      width: var(--top-bar-logo-size);
+    }
+
+    @media (min-width: 30em) {
+      ::slotted([slot='logo']) {
+        width: var(--top-bar-logo-size);
+      }
+    }
+
     ::slotted([slot='link']) {
-      display: grid;
+      font-size: 125%;
+      grid-gap: calc(var(--spacing-size-1) * 1.5);
       height: 1em;
       padding: 0 0 0 0;
       text-align: center;
@@ -90,16 +103,6 @@ export class CTopBar extends LitElement {
       }
     }
 
-    ::slotted([slot='logo']) {
-      display: grid;
-      width: var(--top-bar-logo-size);
-    }
-
-    @media (min-width: 30em) {
-      ::slotted([slot='logo']) {
-        width: var(--top-bar-logo-size);
-      }
-    }
   `
 
   render() {

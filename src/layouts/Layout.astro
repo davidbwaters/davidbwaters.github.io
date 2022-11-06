@@ -4,6 +4,8 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+import {CLoader} from '../components/Loader';
+import '../stylesheets/main.scss';
 
 ---
 
@@ -21,57 +23,7 @@ const { title } = Astro.props;
 		>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<style is:global lang='scss'>
 
-			@use 'node_modules/@substructure/settings';
-			@use 'node_modules/@substructure/tools';
-			@use 'node_modules/@substructure/generic-initialize';
-			@use 'node_modules/@substructure/generic-shared';
-			@use 'node_modules/@substructure/elements-base';
-			@use '@substructure/elements-root-properties';
-			@use 'node_modules/@substructure/elements-text';
-			@use 'node_modules/@substructure/objects-layout';
-			@use 'node_modules/@substructure/objects-media';
-			@use 'node_modules/@substructure/objects-wrapper';
-			@use 'node_modules/@substructure/utilities-sizing';
-			@use 'node_modules/@substructure/utilities-spacing';
-			@use 'node_modules/@substructure/utilities-text-align';
-			@use 'node_modules/@substructure/utilities-text-sizing';
-			@use 'node_modules/@substructure/utilities-z-index';
-
-			@use '../stylesheets/fonts';
-			@use '../stylesheets/theme';
-			@use '../stylesheets/components-awwwards';
-			@use '../stylesheets/components-button';
-			@use '../stylesheets/components-icons';
-			@use '../stylesheets/components-icon-button';
-			@use '../stylesheets/components-lightbox';
-			@use '../stylesheets/components-media-grid';
-			@use '../stylesheets/components-page-footer';
-			@use '../stylesheets/components-skill-list';
-			@use '../stylesheets/elements-base' as elements-base-local;
-			@use '../stylesheets/elements-text' as elements-text-local;
-			@use '../stylesheets/utilities';
-
-			.js-canvas-paint,
-			.js-canvas-paint canvas {
-				height: 100vh;
-				position: absolute;
-				top: 0;
-				width: 100%;
-				z-index: 1;
-			}
-
-			#flowmap {
-				height: 100vh;
-			}
-
-			#skills,
-			#work {
-				background-color: var(--color-bg);
-			}
-
-		</style>
 	</head>
 
 	<body data-theme="dark">
@@ -79,8 +31,8 @@ const { title } = Astro.props;
 
     <c-canvas-noise/>
 
-			<c-loader>
-				<div style="display: grid;grid-template-columns: clamp(3rem, 4vw, 8rem);grid-template-rows: min-content;place-content: center;">
+			<CLoader client:load>
+				<div style="display: grid;min-height: 100vh;grid-template-columns: clamp(3rem, 4vw, 8rem);grid-template-rows: min-content;place-content: center;">
 					<svg class="c-logo u-theme-fill" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 						<title>Artboard</title>
 						<g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -90,7 +42,7 @@ const { title } = Astro.props;
 						</g>
 					</svg>
 				</div>
-			</c-loader>
+			</CLoader>
 
 		<c-cursor/>
 
@@ -139,8 +91,8 @@ const { title } = Astro.props;
 			x="50" y="10" width="100" height="100" /> -->
 		</svg>
 		<script>
-			import '../components/CanvasNoise'
-			import '../components/Cursor'
+			import '../components/CanvasNoise';
+			import '../components/Cursor';
 		</script>
 	</body>
 </html>

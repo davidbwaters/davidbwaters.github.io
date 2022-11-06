@@ -9,7 +9,6 @@ import ImagePreloader from "image-preloader";
 import Scrambler from "scrambling-letters";
 
 import "glightbox/dist/css/glightbox.css";
-import "../stylesheets/main.scss"
 
 const preloadingImages = [
   "/images/Loader.svg",
@@ -70,8 +69,10 @@ function consoleLove() {
   console.log("%c Coded with %c ♥️ %c https://davidbwaters.com", cl, clh, cle);
 }
 
+let lightbox
+
 function lightboxSetup() {
-  GLightbox({
+  lightbox = GLightbox({
     selector: "*[data-glightbox]",
     touchNavigation: true,
     loop: true,
@@ -86,7 +87,6 @@ function documentHeight() {
   const doc = document.documentElement;
   doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
 };
-
 
 function setTheme() {
 
@@ -152,6 +152,7 @@ function setReveals() {
       delay: 0.1,
       stagger: 0,
       scaleY: 1.4,
+      scaleX: 1.2,
       ease: "Power2.out",
       onComplete: () => {
         //ScrollTrigger.refresh();
@@ -180,6 +181,7 @@ function setReveals() {
     tl.from(container, {
       opacity: 0,
       scaleY: 1.4,
+      scaleX: 1.2,
       duration: 0.5,
       delay: 0.1,
       stagger: 0,
@@ -197,20 +199,21 @@ function setFilterAnimation() {
   const filters = [
     document.querySelector('svg feColorMatrix')
   ]
-  filters.push(
-    document.querySelector('c-hero').shadowRoot
-      .querySelector('svg feColorMatrix')
-  )
 
-  gsap.to(
-    filters,
-    {
-      attr:{values: 360},
-      repeat: -1,
-      duration: 3
-    }
-
-  )
+  if(filters.length && filters[0]) {
+    filters.push(
+      document.querySelector('c-hero').shadowRoot
+        .querySelector('svg feColorMatrix')
+    )
+    gsap.to(
+      filters,
+      {
+        attr:{values: 360},
+        repeat: -1,
+        duration: 3
+      }
+    )
+  }
 
   const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
@@ -303,7 +306,9 @@ window.addEventListener("DOMContentLoaded", () => {
       let loader = document.querySelector("c-loader");
 
       if (loader) {
-        loader.disable();
+        setTimeout(() => {
+          loader.disable();
+        },400)
         scramble();
       }
 

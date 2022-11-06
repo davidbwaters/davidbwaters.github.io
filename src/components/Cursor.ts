@@ -14,6 +14,7 @@ import {
 
 import { gsap } from 'gsap'
 
+import { querySelectorAllDeep } from 'query-selector-shadow-dom';
 
 @customElement('c-cursor')
 
@@ -311,17 +312,19 @@ export class CCursor extends LitElement {
 
     this._targets = []
 
-    const magneticTargetEls = Array.from(
-      document.querySelectorAll(
-        '.c-button, .c-toggle__label, [data-cursor-magnetic="true"]'
+    const magneticTargetEls =
+      querySelectorAllDeep(
+        'c-button, .c-toggle__label, [data-cursor-magnetic="true"]'
       )
-    )
 
-    const normalTargetEls = Array.from(
-      document.querySelectorAll(
+
+
+
+    const normalTargetEls =
+      querySelectorAllDeep(
         'a, button, [data-cursor-target]'
       )
-    )
+
 
     magneticTargetEls.forEach((el:HTMLElement) => {
 

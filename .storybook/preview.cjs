@@ -11,14 +11,24 @@ export const parameters = {
   },
   backgrounds: { disable: true },
   themes: {
-    default: 'dark',
+    default: 'light',
     list: [
       { name: 'dark', class: 'theme-dark', color: '#222' },
       { name: 'light', class: 'theme-light', color: '#ddd' }
     ],
     onChange: ({name}) => {
       document.getElementById("storybook-preview-iframe").contentDocument.body.dataset.theme = name;
-      console.log(name)
+      document.getElementById("storybook-preview-iframe").contentDocument.dispatchEvent(
+
+        new CustomEvent('themeChange', {
+
+          detail: { theme: document.body.dataset.theme },
+          bubbles: true,
+          composed: true
+
+        })
+
+      );
     }
   },
 
