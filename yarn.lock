@@ -3555,17 +3555,17 @@
     ts-dedent "^2.0.0"
 
 "@substructure/elements-base@^0.3.4":
-  version "0.3.7"
-  resolved "https://registry.yarnpkg.com/@substructure/elements-base/-/elements-base-0.3.7.tgz#52b7259ea21ef229ab3ae51d76d553b9fa9fcc79"
-  integrity sha512-7Gr+5OevJdifr9o+d35vY9tv0pviT7Yfo+lmuLSf547GNhb1Qt3vdudWGEqRVfwdwtwZytB6c72mtX6ZPa9fCQ==
+  version "0.3.8"
+  resolved "https://registry.yarnpkg.com/@substructure/elements-base/-/elements-base-0.3.8.tgz#2beb5faec04b570d430c19097f8ab8e261f67d4b"
+  integrity sha512-Nw7fBNDrgaBVnxMdxLAJ604EOg5bZcDjcB77oYBuS4eh76tDnPtUfVq2ydFa8nF3w4XI5HFMJheRpS8ZQFW89w==
   dependencies:
     "@substructure/settings" "^0.3.4"
     "@substructure/tools" "^0.3.6"
 
 "@substructure/elements-root-properties@^0.3.3":
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/@substructure/elements-root-properties/-/elements-root-properties-0.3.4.tgz#2daf962a548dd49ddb6a4712014667f849b888b1"
-  integrity sha512-OOl+dBdTonb5451PthqUOn8298c/CBuAKfpcMq3qRXNjD41vxQGBSveYugPV7vnZDjB1HFoRXJHa7J5ZCiXCiw==
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/@substructure/elements-root-properties/-/elements-root-properties-0.3.5.tgz#da4bfa51ea9b3ac11464ffec19c1a49e99ef3ba2"
+  integrity sha512-H6DbQ/Cp4i0WXbLcy+3yFjrqzg6KWZJXyXxU5JmizdcGQlMl99bG7FlvZ+tgFJyNqRHIsZd8c4sXWh+0c38d6w==
   dependencies:
     "@substructure/settings" "^0.3.4"
 
@@ -3639,9 +3639,9 @@
     "@substructure/settings" "^0.3.4"
 
 "@substructure/utilities-layout@^0.3.3":
-  version "0.3.8"
-  resolved "https://registry.yarnpkg.com/@substructure/utilities-layout/-/utilities-layout-0.3.8.tgz#b5603a36f83b56da3d4dd198f760d58fd932b904"
-  integrity sha512-Mtm8AHo6TeDhtO4s6pnPPIz3OsDPwF8AyBbrA7m8plTW9JmD1qMbwOHv/lB+Le9UZmTrKlPKwvmhWAe8JrOw0g==
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/@substructure/utilities-layout/-/utilities-layout-0.3.9.tgz#680b437910f86207decd21f1445b2b65a3d0df73"
+  integrity sha512-m0YgJzKAkP+McdoUXqvr5H/spEvk6DzyYPlea+6273CLS9ZpEM4IBmOsFVzqdnwXp2svOGENsXu8vSbimOxuMQ==
   dependencies:
     "@substructure/settings" "^0.3.4"
     "@substructure/tools" "^0.3.6"
@@ -3670,9 +3670,9 @@
     "@substructure/settings" "^0.3.4"
 
 "@substructure/utilities-text-sizing@^0.3.4":
-  version "0.3.9"
-  resolved "https://registry.yarnpkg.com/@substructure/utilities-text-sizing/-/utilities-text-sizing-0.3.9.tgz#debdc0e2e38ccd5325615226f2e2d2783b084ad1"
-  integrity sha512-JskYxwJGi5j7WW9Nw8nBo9qPCvZ0QuZ5EvHt/9fdPSXtGkGYydMvC1KiVqkazwJYcVS+KOBsFm2lnemwnH1c4Q==
+  version "0.3.10"
+  resolved "https://registry.yarnpkg.com/@substructure/utilities-text-sizing/-/utilities-text-sizing-0.3.10.tgz#73a1d663163d80dda37c33a9ac1b95650815df85"
+  integrity sha512-yTs2pVCojfchY/IWp6YhKEohBFRw6fmVy/Cli9huRWdR7049qdPJqJvywvtiBGe8s906NAjlq42VKpmp7TAPyg==
   dependencies:
     "@substructure/settings" "^0.3.4"
     "@substructure/tools" "^0.3.6"
@@ -9982,19 +9982,10 @@ lit-html@^2.0.0, lit-html@^2.2.0, lit-html@^2.3.0, lit-html@^2.4.0:
   dependencies:
     "@types/trusted-types" "^2.0.2"
 
-lit@^2.0.0, lit@^2.3.0:
+lit@^2.0.0, lit@^2.1.3, lit@^2.3.0:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/lit/-/lit-2.4.1.tgz#21251ac14eb1ec8ca7cd15c9ac3564359809f7b5"
   integrity sha512-qohSgLiyN1cFnJG26dIiY03S4F49857A0AHQfnS0zYtnUVnD2MFvx+UT52rtXsIuNFQrnUupX+zyGSATlk1f/A==
-  dependencies:
-    "@lit/reactive-element" "^1.4.0"
-    lit-element "^3.2.0"
-    lit-html "^2.4.0"
-
-lit@^2.1.3:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/lit/-/lit-2.4.0.tgz#e33a0f463e17408f6e7f71464e6a266e60a5bb77"
-  integrity sha512-fdgzxEtLrZFQU/BqTtxFQCLwlZd9bdat+ltzSFjvWkZrs7eBmeX0L5MHUMb3kYIkuS8Xlfnii/iI5klirF8/Xg==
   dependencies:
     "@lit/reactive-element" "^1.4.0"
     lit-element "^3.2.0"

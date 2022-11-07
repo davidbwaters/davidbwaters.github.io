@@ -148,35 +148,35 @@ export class CModal extends LitElement {
     window.addEventListener(
       'click',
       e => {
-
-        if (e.target.tagName === "c-work-list-item".toUpperCase()) {
-          this._target = e.target
-        }
-
-        target = e.target
-
-        console.log(e.target)
-
-        if (target instanceof Element) {
-
-          target = target.closest(
-            '[data-modal-target=' + this._triggerData + ']'
-          )
-
-          if (e.target.shadowRoot) {
-            target = e.target.shadowRoot.querySelector(
-              '[data-modal-target=' + this._triggerData + ']'
-            )
+        if (e.target instanceof Element) {
+          if (e.target.tagName === "c-work-list-item".toUpperCase()) {
+            this._target = e.target
           }
 
+          target = e.target
+
+          //  console.log(e.target)
+
+          if (target instanceof Element) {
+
+            target = target.closest(
+              '[data-modal-target=' + this._triggerData + ']'
+            )
+
+            if (e.target.shadowRoot) {
+              target = e.target.shadowRoot.querySelector(
+                '[data-modal-target=' + this._triggerData + ']'
+              )
+            }
+
+          }
+
+          if (target) {
+
+            this.showModal()
+
+          }
         }
-
-        if (target) {
-
-          this.showModal()
-
-        }
-
       },
       true
     )
@@ -209,8 +209,28 @@ export class CModal extends LitElement {
 
   }
 
+  _hashChange() {
+
+    if ('#' + this._triggerData === window.location.hash) {
+      this._open()
+    }
+    else if (window.location.hash === '') {
+      this.close()
+    }
+    console.log('#' + this._triggerData, window.location.hash)
+  }
+
+  updated() {
+
+    this._triggerData = this.dataset.modalTrigger
+    this._hashChange()
+
+    console.log('#' + this._triggerData === window.location.hash)
+  }
+
   _setup() {
 
+    window.addEventListener('hashchange', this._hashChange.bind(this))
     const styles = window.getComputedStyle(this)
 
     this._documentEl = document.documentElement
@@ -281,6 +301,12 @@ export class CModal extends LitElement {
 
     this._triggerParent.style.zIndex = '9'
 
+
+    if ('#' + this._triggerData !== window.location.hash) {
+      // console.log(this._triggerData)
+      window.location.hash = this._triggerData
+    }
+
     setTimeout(() => {
 
       this.setAttribute('open', '')
@@ -309,6 +335,9 @@ export class CModal extends LitElement {
     this._dialogEl.classList.remove('is-open')
     this._dialogEl.classList.add('is-closing')
 
+    history.pushState('', document.title, window.location.pathname
+    + window.location.search);
+
     setTimeout(() => {
 
       this._documentEl.style.overflow = ''
@@ -320,7 +349,7 @@ export class CModal extends LitElement {
 
         this._triggerParent.style.zIndex = ''
 
-        console.log(this._target)
+        //  console.log(this._target)
         if (this._target) {
           this._target.classList.remove('u-z-index-9')
         }

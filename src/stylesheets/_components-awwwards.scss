@@ -8,7 +8,7 @@
   color: #342867;
   padding: 0 0rem;
   position: fixed;
-  right: .6rem;
+  right: var(--spacing-size-1);
   transform: scale(.5) translateX(0%);
   transform-origin: right bottom;
   z-index: 999;
@@ -28,7 +28,7 @@
   .c-awwwards {
     bottom: 5.2rem;
     padding: 0 ;
-    right: 1.0rem;
+    right: var(--spacing-size-2);
   }
 
 }

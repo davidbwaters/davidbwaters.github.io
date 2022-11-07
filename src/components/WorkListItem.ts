@@ -131,11 +131,11 @@ export class CWorkListItem extends LitElement {
     .c-work-list__item-info-title,
     h4.c-work-list__item-info-title {
       font-family: var(--font-heading);
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-normal);
       font-size: var(--text-size-large-1);
-      line-height: 1 !important;
+      line-height: var(--line-height-large);
       margin-bottom: 0 !important;
-      margin-top: .25em;
+      margin-top: .2em;
     }
 
     .c-work-list__item-info-taglist {
@@ -316,7 +316,7 @@ export class CWorkListItem extends LitElement {
       modalEl.dataset.modalTrigger = this.slug
       document.body.appendChild(modalEl)
 
-      console.log(this.hasCaseStudy)
+      // console.log(this.hasCaseStudy)
 
     }
 
