@@ -209,7 +209,7 @@ export class CModal extends LitElement {
 
   }
 
-  _hashChange() {
+  _popstate() {
 
     if ('#' + this._triggerData === window.location.hash) {
       this._open()
@@ -217,20 +217,20 @@ export class CModal extends LitElement {
     else if (window.location.hash === '') {
       this.close()
     }
-    console.log('#' + this._triggerData, window.location.hash)
+    // console.log('#' + this._triggerData, window.location.hash)
   }
 
   updated() {
 
     this._triggerData = this.dataset.modalTrigger
-    this._hashChange()
+    this._popstate()
 
-    console.log('#' + this._triggerData === window.location.hash)
+    // console.log('#' + this._triggerData === window.location.hash)
   }
 
   _setup() {
 
-    window.addEventListener('hashchange', this._hashChange.bind(this))
+    window.addEventListener('popstate', this._popstate.bind(this))
     const styles = window.getComputedStyle(this)
 
     this._documentEl = document.documentElement
@@ -291,6 +291,45 @@ export class CModal extends LitElement {
 
   }
 
+  _handleClose() {
+
+    this.removeAttribute('open')
+
+    this._dialogEl.classList.remove('is-open')
+    this._dialogEl.classList.add('is-closing')
+
+
+    if ('#' + this._triggerData === window.location.hash) {
+      history.pushState(
+        '',
+        document.title,
+        window.location.pathname +
+        window.location.search
+      );
+    }
+    setTimeout(() => {
+
+      this._documentEl.style.overflow = ''
+      this._dialogEl.classList.remove('is-closing')
+      this._dialogEl.classList.add('is-closed')
+      this._triggerEl.removeAttribute('isExpanded')
+
+      setTimeout(() => {
+
+        this._triggerParent.style.zIndex = ''
+
+        //  console.log(this._target)
+        if (this._target) {
+          this._target.classList.remove('u-z-index-9')
+        }
+
+
+      }, this._triggerDuration)
+
+    }, this._modalDuration)
+
+  }
+
   _open() {
 
     this._triggerEl.setAttribute('isExpanded', true)
@@ -304,7 +343,16 @@ export class CModal extends LitElement {
 
     if ('#' + this._triggerData !== window.location.hash) {
       // console.log(this._triggerData)
-      window.location.hash = this._triggerData
+      // window.location.hash = this._triggerData
+
+      history.pushState(
+        '', document.title,
+        window.location.pathname +
+        window.location.search +
+        '#' +
+        this._triggerData
+      );
+
     }
 
     setTimeout(() => {
@@ -328,38 +376,6 @@ export class CModal extends LitElement {
 
   }
 
-  _handleClose() {
-
-    this.removeAttribute('open')
-
-    this._dialogEl.classList.remove('is-open')
-    this._dialogEl.classList.add('is-closing')
-
-    history.pushState('', document.title, window.location.pathname
-    + window.location.search);
-
-    setTimeout(() => {
-
-      this._documentEl.style.overflow = ''
-      this._dialogEl.classList.remove('is-closing')
-      this._dialogEl.classList.add('is-closed')
-      this._triggerEl.removeAttribute('isExpanded')
-
-      setTimeout(() => {
-
-        this._triggerParent.style.zIndex = ''
-
-        //  console.log(this._target)
-        if (this._target) {
-          this._target.classList.remove('u-z-index-9')
-        }
-
-
-      }, this._triggerDuration)
-
-    }, this._modalDuration)
-
-  }
 
   render() {
 
