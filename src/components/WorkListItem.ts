@@ -139,10 +139,12 @@ export class CWorkListItem extends LitElement {
     }
 
     .c-work-list__item-info-taglist {
+
+      display: none;
       font-family: var(--font-mono);
       font-weight: var(--font-mono-weight);
-      font-size: calc(var(--text-size-small-1) * 0.9);
-      display: none;
+      font-size: var(--text-size-small-2);
+      text-transform: uppercase;;
     }
 
     @media (min-width:15em) {
