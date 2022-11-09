@@ -1,9 +1,10 @@
+/*
+ *  Components - Icon
+ */
+
 import { html, unsafeCSS, LitElement } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
-/**
- * Primary UI component for user interaction
- */
 @customElement('c-icon')
 
 export class CIcon extends LitElement {

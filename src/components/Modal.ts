@@ -15,6 +15,7 @@ import {
 
 import dialogPolyfill from 'dialog-polyfill'
 import { ScrollTrigger } from 'gsap/all';
+import GLightbox from 'glightbox'
 
 import { querySelectorDeep } from 'query-selector-shadow-dom';
 
@@ -123,23 +124,27 @@ export class CModal extends LitElement {
 
   open = false
 
-  private _documentEl
-  private _triggerData
-  private _triggerEl
-  private _triggerParent
-  private _dialogEl
-  private _triggerDuration
-  private _modalDuration
-  private _target
+  private _documentEl: HTMLElement;
+  private _triggerData: string | undefined;
+  private _triggerEl: HTMLElement;
+  private _triggerParent: HTMLElement;
+  private _dialogEl: HTMLDialogElement;
+  private _triggerDuration: number | undefined;
+  private _modalDuration: number | undefined;
+  private _target!: Element;
+  private _normalizer: Observer | undefined;
 
-  private _normalizer
+  constructor() {
+    super()
+    window.addEventListener('AppLoaded', (() => {
+      this._normalizer = ScrollTrigger.normalizeScroll(true)
+    }).bind(this))
 
+  }
 
   firstUpdated() {
 
     this._setup()
-
-    this._normalizer = ScrollTrigger.normalizeScroll(true)
 
     dialogPolyfill.registerDialog(this._dialogEl)
 
@@ -181,7 +186,7 @@ export class CModal extends LitElement {
       true
     )
 
-    this.shadowRoot.addEventListener('click', e => {
+    this.shadowRoot && this.shadowRoot.addEventListener('click', e => {
 
       if (
         e.target instanceof Element && e.target.closest('[slot="back"]')
@@ -233,6 +238,16 @@ export class CModal extends LitElement {
     window.addEventListener('popstate', this._popstate.bind(this))
     const styles = window.getComputedStyle(this)
 
+    const lightbox = GLightbox({
+      selector: "*[data-glightbox]",
+      touchNavigation: true,
+      loop: true,
+      autoplayVideos: true,
+      openEffect: "fade",
+      closeEffect: "fade",
+      skin: "dbw",
+    });
+
     this._documentEl = document.documentElement
 
     this._triggerData = this.dataset.modalTrigger
@@ -263,7 +278,7 @@ export class CModal extends LitElement {
       ) * 1000
 
 
-    this._dialogEl.addEventListener('close', (event) => {
+    this._dialogEl.addEventListener('close', (event: any) => {
 
       this._handleClose()
 
@@ -287,7 +302,11 @@ export class CModal extends LitElement {
   close() {
 
     this._handleClose()
-    this._normalizer.enable()
+
+
+    window.addEventListener('AppLoaded', (() => {
+      this._normalizer.enable()
+    }).bind(this))
 
   }
 
@@ -366,7 +385,7 @@ export class CModal extends LitElement {
 
     }, this._triggerDuration)
 
-    this._normalizer.kill()
+    this._normalizer && this._normalizer.kill()
 
   }
 
@@ -381,7 +400,7 @@ export class CModal extends LitElement {
 
     return html`
       <dialog class="c-modal__body">
-        <button class="c-icon-button c-icon-button--back js-back">
+        <button class="c-icon-button c-icon-button--arrow-left js-back">
           <i></i>
         </button>
         <button class="c-icon-button c-icon-button--close js-close">

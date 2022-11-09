@@ -13,22 +13,31 @@ export class CButton extends LitElement {
   static styles = css`
 
     :host {
-
       --button-height: 2.66rem;
       display: inline-grid;
       height: var(--button-height);
       grid-template-rows: 100%;
+      transition:
+        all var(--transition-duration);
       width: var(--button-width);
     }
 
 
-    c-button .c-button {
+    :host .c-button {
       height: 100%;
     }
 
+    :host(:active) {
+      transform: translateY(2px);
+    }
+
+
+    .c-button:active {
+      box-shadow: 0 0px 0 var(--color-subtle);
+    }
+
     .c-button {
-      align-content: center;
-      align-items: start;
+      align-items: center;
       background-color: var(--color-button-bg);
       border-color: var(--color-subtle-contrast);
       border-radius: 3px;
@@ -45,13 +54,15 @@ export class CButton extends LitElement {
       grid-gap: var(--spacing-size-1);
       grid-template-rows: 0.8em;
       height: var(--button-height);
-      justify-content: center;
       letter-spacing: .05em;
       line-height: 1;
       padding-left: calc(var(--spacing-size-2) * .8);
       padding-right: calc(var(--spacing-size-2) * .8);
+      place-content: center;
+      position: relative;
       text-decoration: none;
       text-transform: uppercase;
+      top: -1px;
       transition:
         all var(--transition-duration);
       will-change: box-shadow, opacity;
@@ -72,10 +83,6 @@ export class CButton extends LitElement {
       }
     }
 
-    .c-button:active {
-      box-shadow: 0 0px 0 var(--color-subtle);
-      transform: translateY(2px);
-    }
 
     .c-button:focus {
       outline: none;
@@ -100,12 +107,16 @@ export class CButton extends LitElement {
     .c-button i,
     .c-button c-icon {
       align-self: center;
-
       font-size: 1.5em;
     }
 
     .c-button i {
       font-size: 1.5em;
+    }
+
+    .c-buttom span {
+      position: relative;
+      top: 2px;
     }
 
     .c-button--large,

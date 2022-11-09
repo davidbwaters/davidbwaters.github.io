@@ -2,7 +2,7 @@
  *  Components - Media Grid
  */
 
-
+/* purgecss start ignore */
 .c-media-grid {
   display: grid;
   grid-gap: var(--spacing-size-1);
@@ -78,7 +78,7 @@
 
 .c-media-grid__text-item {
   align-content: start;
-  background: var(--color-bg-semi-transparent-contrast);
+  background: var(--color-bg-semi-transparent-subtle);
   box-shadow: inset 0 0 0 1px var(--color-subtle-alternate);
   font-size: var(--text-size-normal-base);
   font-size: var(--text-size-normal);
@@ -127,3 +127,4 @@
   box-shadow: 0 0 0 1px rgba(100,100,100,.15);
   color: black;
 }
+/* purgecss end ignore */

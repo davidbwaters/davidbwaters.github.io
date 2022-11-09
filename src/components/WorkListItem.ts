@@ -133,12 +133,15 @@ export class CWorkListItem extends LitElement {
       font-family: var(--font-heading);
       font-weight: var(--font-weight-normal);
       font-size: var(--text-size-large-1);
-      line-height: var(--line-height-large);
+      line-height: 1;
       margin-bottom: 0 !important;
       margin-top: .2em;
     }
 
     .c-work-list__item-info-taglist {
+      font-family: var(--font-mono);
+      font-weight: var(--font-mono-weight);
+      font-size: calc(var(--text-size-small-1) * 0.9);
       display: none;
     }
 
@@ -184,16 +187,19 @@ export class CWorkListItem extends LitElement {
       z-index: 0;
     }
 
-    @media (min-width:25em) {
+    @media (min-width:35em) {
 
       .c-work-list__item-lower,
       .c-work-list__item-lower-three {
+
+        grid-auto-columns: 1fr;
+        grid-gap: 1rem;
         grid-auto-flow: column;
       }
 
     }
 
-    @media (min-width:35em) {
+    @media (min-width:30em) {
 
       .c-work-list__item-lower,
       .c-work-list__item-lower-three {
@@ -208,7 +214,7 @@ export class CWorkListItem extends LitElement {
       border-bottom: none;
     }
 
-    @media (min-width:55em) {
+    @media (min-width:48em) {
 
       .c-work-list__item-lower-three {
         grid-template-columns: 3fr 4fr 3fr;

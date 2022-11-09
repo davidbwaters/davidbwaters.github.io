@@ -2,21 +2,21 @@
  *  Main
  */
 
-@use 'node_modules/@substructure/settings';
-@use 'node_modules/@substructure/tools';
-@use 'node_modules/@substructure/generic-initialize';
-@use 'node_modules/@substructure/generic-shared';
-@use 'node_modules/@substructure/elements-base';
+@use '@substructure/settings';
+@use '@substructure/tools';
+@use '@substructure/generic-initialize';
+@use '@substructure/generic-shared';
+@use '@substructure/elements-base';
 @use '@substructure/elements-root-properties';
-@use 'node_modules/@substructure/elements-text';
-@use 'node_modules/@substructure/objects-layout';
-@use 'node_modules/@substructure/objects-media';
-@use 'node_modules/@substructure/objects-wrapper';
-@use 'node_modules/@substructure/utilities-sizing';
-@use 'node_modules/@substructure/utilities-spacing';
-@use 'node_modules/@substructure/utilities-text-align';
-@use 'node_modules/@substructure/utilities-text-sizing';
-@use 'node_modules/@substructure/utilities-z-index';
+@use '@substructure/elements-text';
+@use '@substructure/objects-layout';
+@use '@substructure/objects-media';
+@use '@substructure/objects-wrapper';
+@use '@substructure/utilities-sizing';
+@use '@substructure/utilities-spacing';
+@use '@substructure/utilities-text-align';
+@use '@substructure/utilities-text-sizing';
+@use '@substructure/utilities-z-index';
 
 @use 'fonts';
 @use 'theme';

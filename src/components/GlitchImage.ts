@@ -26,6 +26,7 @@ export class CGlitchImage extends LitElement {
         display: grid;
         max-width: 100vw;
         min-height: 1px;
+        overflow: hidden;
         width: 100%;
       }
 

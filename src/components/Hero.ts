@@ -13,9 +13,6 @@ import {
   property
 } from 'lit/decorators.js';
 
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-
 @customElement('c-hero')
 
 export class CHero extends LitElement {
@@ -72,7 +69,6 @@ export class CHero extends LitElement {
       padding: 1.25rem;
       position: relative;
     }
-
 
     @media (min-width: 30em) {
 
@@ -468,7 +464,7 @@ export class CHero extends LitElement {
     ::slotted([slot='footer-content-right']) {
       align-items: center;
       column-gap: calc(var(--spacing-size-1) * 1.5);
-      display: grid;
+      display: grid !important;
       font-family: var(--font-main-regular), sans-serif;
       font-size: var(--text-size-small-1);
       justify-content: center;
@@ -494,13 +490,13 @@ export class CHero extends LitElement {
 
     ::slotted([slot='footer-content-left']) {
       grid-template-columns: auto 1fr;
-      display: none;
+      display: none !important;
     }
 
     @media (min-width: 30em) {
 
       ::slotted([slot='footer-content-left']) {
-        display: grid;
+        display: grid !important;
       }
 
     }
@@ -599,10 +595,18 @@ export class CHero extends LitElement {
   `
 
   @property({type: String})
-  theme =  document.body.dataset.theme
+  theme
 
-  firstUpdated() {
+  gsap
+  scrollTrigger
 
+  async firstUpdated() {
+
+    const {gsap, ScrollTrigger} = await import('gsap/all')
+    this.gsap = gsap
+    this.scrollTrigger = ScrollTrigger
+
+    this.theme = document.body.dataset.theme
     this._taglineSetup()
     this._nameStylizedSetup()
 
@@ -617,10 +621,12 @@ export class CHero extends LitElement {
 
   _scrollSetup() {
 
+
+    this.gsap.registerPlugin(this.scrollTrigger);
     const heroTrigger = this.shadowRoot && this
       .shadowRoot.querySelector(".c-hero__upper");
 
-    let heroTl = gsap.timeline({
+    let heroTl = this.gsap.timeline({
       scrollTrigger: {
         scroller: document.body,
         trigger: heroTrigger,
@@ -651,7 +657,7 @@ export class CHero extends LitElement {
 
   _transitionIn() {
 
-    let tl = gsap.timeline()
+    let tl = this.gsap.timeline()
 
     const heroTarget:HTMLElement | null =
       this.shadowRoot &&
@@ -708,9 +714,13 @@ export class CHero extends LitElement {
 
   _taglineSetup() {
 
-    const tagline = this.querySelector(
+    let tagline = this.querySelector(
       '[slot=tagline]'
     )
+
+    if (this.querySelector('[slot="tagline"] h1')) {
+      tagline = this.querySelector('[slot="tagline"] h1')
+    }
 
     let taglineHTML: string
 
@@ -765,6 +775,7 @@ export class CHero extends LitElement {
       '[slot="name-stylized"]'
     )
 
+
     const name = nameSrcEl && ( nameSrcEl
       .innerHTML.toString()
       .replaceAll(' ', '')
@@ -773,6 +784,7 @@ export class CHero extends LitElement {
     )
 
 
+    // console.log(name)
     const nameEl = this.shadowRoot && this.shadowRoot.querySelector(
       '.c-hero__name-stylized-inner'
     )

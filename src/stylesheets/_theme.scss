@@ -28,8 +28,6 @@
   --font-mono: 'league_monoregular';
   --font-mono-weight: 'normal';
 
-  --line-height-large: 1.1;
-
   --transition-duration: .5s;
 
   --theme-dark-opacity:  0;
@@ -55,10 +53,11 @@
 
 }
 
-[data-theme=dark] {
+/* purgecss ignore */
+[data-theme="dark"] {
   --color-bg: #6f4fcf;
-  --color-bg-semi-transparent: rgba(111, 79, 207, 90%);
-  --color-bg-semi-transparent-contrast: rgba(96, 64, 191, 50%);
+  --color-bg-semi-transparent: rgba(111, 79, 207, 85%);
+  --color-bg-semi-transparent-subtle: rgba(96, 64, 191, 50%);
   --color-fg: #F1EDFF;
   --color-accent: #95D6EB;
   --color-subtle: #46378f;
@@ -69,10 +68,11 @@
   --theme-dark-opacity: 1;
 }
 
-[data-theme=light] {
+/* purgecss ignore */
+[data-theme="light"] {
   --color-bg: #B3B3E7;
-  --color-bg-semi-transparent: rgba(179, 179, 231, 90%);
-  --color-bg-semi-transparent-contrast: rgba(179, 179, 231, .6);
+  --color-bg-semi-transparent: rgba(179, 179, 231, 85%);
+  --color-bg-semi-transparent-subtle: rgba(179, 179, 231, .6);
   --color-fg: #342469;
   --color-accent: #6D43E8;
   --color-subtle: #46378F;

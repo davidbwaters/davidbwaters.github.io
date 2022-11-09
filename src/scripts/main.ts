@@ -8,7 +8,6 @@ import GLightbox from "glightbox";
 import ImagePreloader from "image-preloader";
 import Scrambler from "scrambling-letters";
 
-import "glightbox/dist/css/glightbox.css";
 
 const preloadingImages = [
   "/images/Loader.svg",
@@ -288,17 +287,19 @@ window.addEventListener("resize", documentHeight);
 window.addEventListener("DOMContentLoaded", () => {
 
   documentHeight();
-  ScrollTrigger.refresh()
 
   setReveals()
   setHeroScroll()
-  setFilterAnimation()
   setAnchorLinks()
 
   setTimeout(
-
-    setTheme, 200
-
+    ScrollTrigger.refresh, 500
+  )
+  setTimeout(
+    setFilterAnimation, 750
+  )
+  setTimeout(
+    setTheme, 250
   )
 
   preloader.preload(...preloadingImages).then(function (status) {

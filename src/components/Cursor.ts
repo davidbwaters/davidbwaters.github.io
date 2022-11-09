@@ -314,7 +314,7 @@ export class CCursor extends LitElement {
 
     const magneticTargetEls =
       querySelectorAllDeep(
-        'c-button, .c-toggle__label, [data-cursor-magnetic="true"]'
+        '.c-button, .c-toggle__label, [data-cursor-magnetic="true"]'
       )
 
 

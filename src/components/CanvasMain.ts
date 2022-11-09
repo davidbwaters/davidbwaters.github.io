@@ -57,6 +57,7 @@ export class CCanvasMain extends LitElement {
 
     window.addEventListener('appLoaded', () => {
 
+      // console.log('paint')
       const vertex = `
         attribute vec2 uv;
         attribute vec2 position;

@@ -1,0 +1,19 @@
+---
+layout: default
+stylesheets:
+  - /css/post.css
+---
+
+<main class="post">
+  <c-layout>
+    {% if headerImage %}
+      <c-layout-item type="full">
+        <img src="{{ headerImage }}" alt="{{ imageAlt }}" {{ imageSize | imageDimensions }}/>
+      </c-layout-item>
+    {% endif %}
+    <c-layout-item type="popout" class="breadcrumbs">
+      <a href="/">Home</a>
+    </c-layout-item>
+    {{ content }}
+  </c-layout>
+</main>

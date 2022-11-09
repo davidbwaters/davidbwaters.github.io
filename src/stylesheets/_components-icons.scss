@@ -22,6 +22,7 @@ $svg-icons: (
   windows: '<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.86975 4.0491H21.1156V21.2948H3.86975V4.0491ZM5.43755 5.6169V11.8881H11.7087V5.6169H5.43755ZM13.2765 5.6169V11.8881H19.5478V5.6169H13.2765ZM5.43755 13.4559V19.727H11.7087V13.4559H5.43755ZM13.2765 13.4559V19.727H19.5478V13.4559H13.2765Z" fill="white"/></svg>'
 );
 
+/* purgecss ignore */
 :root {
   @each $name, $code in $svg-icons {
     --svg-#{$name}: #{tools.svg($name, $svg-icons)};
@@ -30,6 +31,7 @@ $svg-icons: (
 
 @each $name, $code in $svg-icons {
 
+  /* purgecss ignore */
   .c-icon--#{$name}:before,
   [data-icon=#{$name}]:before {
     content: var(--svg-#{$name});
@@ -37,15 +39,6 @@ $svg-icons: (
     -webkit-mask: var(--svg-#{$name});
   }
 
-}
-
-@font-face {
-  font-family: 'icons';
-  src: url('/icons/icons.eot');
-  src: url('/icons/icons.eot?#iefix') format('embedded-opentype'),
-    url('/icons/icons.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
 }
 
 c-icon {
