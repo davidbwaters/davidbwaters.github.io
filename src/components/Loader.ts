@@ -51,18 +51,21 @@ export class CLoader extends LitElement {
       mainEl.classList.remove("u-transparent");
     }
 
-    window.dispatchEvent(
-      new CustomEvent("appLoaded", {
-        detail: { theme: document.body.dataset.theme },
-        bubbles: true,
-        composed: true,
-      })
-    );
+    setTimeout(() => {
+      window.dispatchEvent(
+        new CustomEvent("appLoaded", {
+          detail: { theme: document.body.dataset.theme },
+          bubbles: true,
+          composed: true,
+        })
+      );
+    }, 500)
+
     setTimeout(() => {
       this.style.opacity = "0";
       this.style.pointerEvents = "none";
 
-    }, 2000);
+    }, 3000);
 
     setTimeout(() => {
       this.style.display = "none";
