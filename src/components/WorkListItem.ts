@@ -147,7 +147,7 @@ export class CWorkListItem extends LitElement {
       text-transform: uppercase;;
     }
 
-    @media (min-width:15em) {
+    @media (min-width:35em) {
 
       .c-work-list__item-info-taglist {
         display: block;
