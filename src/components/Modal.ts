@@ -168,7 +168,7 @@ export class CModal extends LitElement {
               '[data-modal-target=' + this._triggerData + ']'
             )
 
-            if (e.target.shadowRoot) {
+            if (e.target.tagName === 'c-work-list-item'.toUpperCase()) {
               target = e.target.shadowRoot.querySelector(
                 '[data-modal-target=' + this._triggerData + ']'
               )

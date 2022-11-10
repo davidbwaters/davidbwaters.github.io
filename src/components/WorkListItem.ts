@@ -164,7 +164,8 @@ export class CWorkListItem extends LitElement {
       line-height: 1.25;
     }
 
-    .c-work-list__item-preview {
+    .c-work-list__item-preview,
+    ::slotted([slot="preview"]) {
       background-color: var(--color-subtle-alternate);
       display: grid;
       grid-gap: 1px;
@@ -328,6 +329,13 @@ export class CWorkListItem extends LitElement {
 
     }
 
+    const previews = this.renderRoot.querySelector('[slot="preview"]')
+
+    if (previews) {
+      this.appendChild(previews)
+
+    }
+
   }
 
   render() {
@@ -359,28 +367,11 @@ export class CWorkListItem extends LitElement {
         </div>
       </div>
 
-      <div
-        class="
-          c-work-list__item-preview
-          ${JSON.parse(this.hideModal) ? '' : 'u-cursor-zoom-in'}"
-        data-modal-target="${this.slug}"
+      <slot name="preview" class="
+        c-work-list__item-preview
+        ${JSON.parse(this.hideModal) ? '' : 'u-cursor-zoom-in'}"
       >
-        ${
-          JSON.parse(this.previewImages).map((item, index) => html`
-
-            <c-glitch-image data-cursor-target
-              src="${item}"
-              alt=${this.title + ' Screenshot'}
-              glitch=${(this.glitch && JSON.parse(this.glitch)[index]) || '2'}
-              width=${this.previewWidth}
-              height=${this.previewHeight}
-            >
-            </c-glitch-image>
-          `
-
-          )
-        }
-      </div>
+      </slot>
       <div class="${
 
         JSON.parse(this.threeButton) ? 'c-work-list__item-lower-three' : 'c-work-list__item-lower'
@@ -508,6 +499,23 @@ export class CWorkListItem extends LitElement {
           </c-modal>
         `}
 
+        <div slot="preview" data-modal-target="${this.slug}">
+          ${
+            JSON.parse(this.previewImages).map((item, index) => html`
+
+              <c-glitch-image data-cursor-target
+                src="${item}"
+                alt=${this.title + ' Screenshot'}
+                glitch=${(this.glitch && JSON.parse(this.glitch)[index]) || '2'}
+                width=${this.previewWidth}
+                height=${this.previewHeight}
+              >
+              </c-glitch-image>
+            `
+
+            )
+          }
+        </div>
       </div>
     `
 
