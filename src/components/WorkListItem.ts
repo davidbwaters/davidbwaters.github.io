@@ -132,7 +132,7 @@ export class CWorkListItem extends LitElement {
     h4.c-work-list__item-info-title {
       font-family: var(--font-heading);
       font-weight: var(--font-weight-normal);
-      font-size: var(--text-size-large-1);
+      font-size: calc(var(--text-size-large-1) * 1.2);
       line-height: 1;
       margin-bottom: 0 !important;
       margin-top: .2em;
