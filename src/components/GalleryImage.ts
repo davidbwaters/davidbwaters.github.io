@@ -23,6 +23,10 @@ export class CGalleryImage extends LitElement {
       object-fit: cover;
       width: 100%;
     }
+
+    .c-gallery-image__image-wrapper:nth-of-type(2) {
+      display: none;
+    }
   `
 
   @property({type: String})
