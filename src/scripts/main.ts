@@ -292,6 +292,7 @@ window.addEventListener("DOMContentLoaded", () => {
   setHeroScroll()
   setAnchorLinks()
 
+  lightboxSetup();
   setTimeout(
     ScrollTrigger.refresh, 500
   )
@@ -314,7 +315,6 @@ window.addEventListener("DOMContentLoaded", () => {
       }
 
       consoleLove();
-      lightboxSetup();
 
     });
   });
