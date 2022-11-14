@@ -89,12 +89,20 @@
   gap: var(--spacing-size-2);
 }
 
-.c-media-grid__image-item {
+.c-media-grid__image-item  {
   background-color: var(--color-muted);
   border: solid 1px var(--color-subtle-alternate);
   box-shadow: 0 0 0 1px rgba(120,120,120,.8);
   display: grid;
   position: relative;
+}
+
+.c-media-grid__image-item a:first-of-type {
+  display: none;
+}
+
+.c-media-grid__image-item a:last-of-type {
+  display: block;
 }
 
 .c-media-grid__image {

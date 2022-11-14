@@ -9,7 +9,7 @@
 
 .c-icon-button {
 
-  --icon-button-size: 1.5rem;
+  --icon-button-size: 1.8rem;
   --icon-button-spacing:  0.5rem;
   --icon-button-color-fg: var(--color-fg);
   --icon-button-color-bg: var(--color-bg);
@@ -48,17 +48,6 @@
     --icon-transition-duration
   );
   z-index: 9;
-}
-
-
-@media(min-width: 30rem) {
-
-  .c-icon-button {
-
-    --icon-button-size: 1.75rem;
-
-  }
-
 }
 
 @media(min-width: 48rem) {
