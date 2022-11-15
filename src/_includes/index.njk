@@ -1,8 +1,12 @@
 ---
+templateEngineOverride: njk
 layout: default
 title: "David B. Waters - Frontend Developer - Oakland"
 stylesheets:
   - /stylesheets/main.scss
+eleventyComputed:
+  date:"{{new Date().getFullYear()}}"
+
 
 ---
 
@@ -488,7 +492,7 @@ stylesheets:
 			<div class="c-footer__inner js-reveal-inner">
 				<hr class="u-separator-alternate u-margin-0" />
 				<div class="c-page-footer__upper u-text-large-1">
-					Made with &lt;3 by David B Waters in {{eleventyComputed.date}}.
+					Made with &lt;3 by David B Waters in {{ date }}.
 				</div>
 				<div class="c-page-footer__lower">
 					<small class="u-text-bolder">

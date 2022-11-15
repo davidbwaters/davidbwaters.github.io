@@ -89,7 +89,7 @@ module.exports = function (eleventyConfig) {
     'node_modules/@11ty/is-land'
   );
 
-  console.log(syncGlob('public/*'))
+
 
   syncGlob('public/*').forEach(file => {
   })
@@ -108,5 +108,6 @@ module.exports = function (eleventyConfig) {
       input: 'src',
       output: 'build',
     },
+    htmlTemplateEngine: 'njk',
   };
 };
