@@ -1,13 +1,12 @@
----
-templateEngineOverride: njk
-layout: default
-title: "David B. Waters - Frontend Developer - Oakland"
-stylesheets:
-  - /stylesheets/main.scss
-eleventyComputed:
-  date:"{{new Date().getFullYear()}}"
-
-
+---js
+{
+	layout: "default",
+	title: "David B. Waters - Frontend Developer - Oakland",
+	date: function() {
+		new Date().getFullYear()
+	},
+	stylesheets: [ 'stylesheets/main.scss' ]
+}
 ---
 
 	<main class="u-transparent c-app">
