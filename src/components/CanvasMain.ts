@@ -31,6 +31,9 @@ import {
 export class CCanvasMain extends LitElement {
   static styles = css`
     :host {
+      background-image: var(--theme-image);
+      background-size: cover;
+      background-position: center;;
       display: block;
       position: absolute;
     }
@@ -51,12 +54,26 @@ export class CCanvasMain extends LitElement {
     '/images/Hero-Paint-2-Light.jpg'
   ]
 
+  setThemeImage() {
+
+    const themeImage = document.body.dataset.theme === 'light'
+      ? 'url(/images/Hero-Paint-1-Light.jpg)'
+      : 'url(/images/Hero-Paint-1-Dark.jpg)';
+
+    this.style.setProperty('--theme-image', themeImage)
+
+  }
   connectedCallback(): void {
 
     super.connectedCallback()
 
+    this.setThemeImage()
+    window.addEventListener('themeChange', this.setThemeImage.bind(this))
+
+
     window.addEventListener('appLoaded', () => {
 
+      // console.log('paint')
       const vertex = `
         attribute vec2 uv;
         attribute vec2 position;
@@ -244,6 +261,8 @@ export class CCanvasMain extends LitElement {
 
       wrapper.innerHTML = ''
       wrapper.appendChild(gl.canvas)
+
+      gl.canvas.style.opacity = '0'
 
       // Variable inputs to control flowmap
       let aspect = 1
@@ -533,6 +552,7 @@ export class CCanvasMain extends LitElement {
 
       function update(t: number) {
 
+        gl.canvas.style.opacity = '1'
         requestAnimationFrame(update)
         // Reset velocity when mouse not moving
         if (!updateVelocity) {
@@ -561,7 +581,6 @@ export class CCanvasMain extends LitElement {
       }
 
     })
-
 
   }
 

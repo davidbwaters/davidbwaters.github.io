@@ -95,14 +95,24 @@ function setTheme() {
 
   document.body.dataset.theme = isDark ? 'dark' : 'light'
 
+  window.dispatchEvent(
+
+    new CustomEvent('themeChange', {
+
+      detail: { theme: document.body.dataset.theme },
+      bubbles: true,
+      composed: true
+
+    })
+
+  )
+
   window.matchMedia('(prefers-color-scheme: dark)')
     .addEventListener('change', function(e) {
       document.body.dataset.theme =
         document.body.dataset.theme === 'light'
         ? 'dark'
         : 'light'
-
-
       window.dispatchEvent(
 
         new CustomEvent('themeChange', {
@@ -292,7 +302,8 @@ window.addEventListener("DOMContentLoaded", () => {
   setHeroScroll()
   setAnchorLinks()
 
-  lightboxSetup();
+  lightboxSetup()
+
   setTimeout(
     ScrollTrigger.refresh, 500
   )
@@ -310,7 +321,7 @@ window.addEventListener("DOMContentLoaded", () => {
       if (loader) {
         setTimeout(() => {
           loader.disable();
-        },400)
+        }, 400)
         scramble();
       }
 
