@@ -23,7 +23,7 @@ export class CSectionHeader extends LitElement {
       --section-header-title-font-weight: var(--font-display-weight);
 
       background: var(--color-bg);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-subtle);
       display: block;
       position: relative;
       text-align: center;

@@ -2,6 +2,7 @@
  *  Theme
  */
 
+@use 'tokens' as *;
 
 /* Root */
 
@@ -33,52 +34,73 @@
   --theme-dark-opacity:  0;
   --theme-light-opacity: 0;
 
-  --bg-pattern-diagonal-size: 5px;
-  --bg-pattern-diagonal-tight-size: 4px;
+  --bg-pattern-diagonal-size: 0.3125rem;
+  --bg-pattern-diagonal-tight-size: .25rem;
 
-  --color-button-bg: #5A47B8;
-  --color-button-bg-hover: #503fa5;
-  --color-button-fg: #fff;
-  --color-semi-transparent: rgba(0,0,0,.15);
-  --color-semi-transparent-heavy: rgba(0,0,0,.2);
-  --color-semi-transparent-shadow: rgba(0,0,0,.05);
-  --color-muted: #9E9ECA;
+  --color-button-bg: #{$colors-button-primary-bg};
+  --color-button-bg-hover: #{$colors-button-primary-bg-hover};
+  --color-button-fg: #{$colors-button-primary-f0};
+  --color-semi-transparent: #{$colors-semi-transparent};
+  --color-semi-transparent-heavy: #{$colors-semi-transparent-heavy};
+  --color-semi-transparent-shadow: #{$colors-semi-transparent-shadow};
+  --color-muted: #{$colors-muted};
+  --color-subtle: #{$colors-medium-dark};
+  --color-subtle-contrast: #{$colors-dark};
 
-  --shadow-sm:
-    var(--color-semi-transparent-shadow) 0px 2px 4px 0px,
-    var(--color-semi-transparent-shadow) 0px 6px 4px 0px;
-  --shadow-md:
-    var(--color-semi-transparent-shadow) 0px 4px 4px 0px,
-    var(--color-semi-transparent-shadow) 0px 8px 4px 0px;
-
+  --shadow-subtle-small:
+    var(--color-semi-transparent-shadow)
+    #{
+      ($box-shadow-subtle-small-0-x * 1px)
+      ($box-shadow-subtle-small-0-y * 1px)
+      ($box-shadow-subtle-small-0-blur * 1px)
+      ($box-shadow-subtle-small-0-spread * 1px)
+    },
+    var(--color-semi-transparent-shadow)
+    #{
+      ($box-shadow-subtle-small-1-x * 1px)
+      ($box-shadow-subtle-small-1-y * 1px)
+      ($box-shadow-subtle-small-1-blur * 1px)
+      ($box-shadow-subtle-small-1-spread * 1px)
+    };
+  --shadow-subtle:
+    var(--color-semi-transparent-shadow)
+    #{
+      ($box-shadow-subtle-0-x * 1px)
+      ($box-shadow-subtle-0-y * 1px)
+      ($box-shadow-subtle-0-blur * 1px)
+      ($box-shadow-subtle-0-spread * 1px)
+    },
+    var(--color-semi-transparent-shadow)
+    #{
+      ($box-shadow-subtle-1-x * 1px)
+      ($box-shadow-subtle-1-y * 1px)
+      ($box-shadow-subtle-1-blur * 1px)
+      ($box-shadow-subtle-1-spread * 1px)
+    };
 }
 
 /* purgecss ignore */
 [data-theme="dark"] {
-  --color-bg: #6f4fcf;
-  --color-bg-semi-transparent: rgba(111, 79, 207, 85%);
-  --color-bg-semi-transparent-subtle: rgba(96, 64, 191, 50%);
-  --color-fg: #F1EDFF;
-  --color-accent: #95D6EB;
-  --color-subtle: #46378f;
-  --color-subtle-contrast: #342867;
-  --color-subtle-alternate: #897DD1;
-  --color-semi-transparent-alternate: rgba(255,255,255,.15);
-  --color-semi-transparent-overlay: rgba(0,0,0,0.025);
+  --color-bg: #{$colors-td-bg};
+  --color-bg-semi-transparent: #{rgba($colors-td-bg, 0.85)};
+  --color-bg-semi-transparent-subtle: #{rgba($colors-td-bg, 0.5)};
+  --color-fg: #{$colors-td-f0};
+  --color-accent: #{$colors-td-accent};
+  --color-subtle-alternate: #{$colors-td-f1};
+  --color-semi-transparent-alternate: #{$colors-td-semi-transparent-alternate};
+  --color-semi-transparent-overlay: #{$colors-td-semi-transparent-overlay};
   --theme-dark-opacity: 1;
 }
 
 /* purgecss ignore */
 [data-theme="light"] {
-  --color-bg: #B3B3E7;
-  --color-bg-semi-transparent: rgba(179, 179, 231, 85%);
-  --color-bg-semi-transparent-subtle: rgba(179, 179, 231, .6);
-  --color-fg: #342469;
-  --color-accent: #6D43E8;
-  --color-subtle: #46378F;
-  --color-subtle-contrast: #342867;
-  --color-subtle-alternate: #46378F;
-  --color-semi-transparent-alternate: rgba(0,0,0,.1);
-  --color-semi-transparent-overlay: rgba(255,255,255,.025);
+  --color-bg: #{$colors-tl-bg};
+  --color-bg-semi-transparent: #{rgba($colors-tl-bg, 0.85)};
+  --color-bg-semi-transparent-subtle: #{rgba($colors-tl-bg, 0.5)};
+  --color-fg: #{$colors-tl-f0};
+  --color-accent: #{$colors-tl-accent};
+  --color-subtle-alternate: #{$colors-tl-f1};
+  --color-semi-transparent-alternate: #{$colors-tl-semi-transparent-alternate};
+  --color-semi-transparent-overlay: #{$colors-tl-semi-transparent-overlay};
   --theme-light-opacity: 1;
 }

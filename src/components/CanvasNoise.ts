@@ -46,11 +46,13 @@ export class CCanvasNoise extends LitElement {
 
     super()
 
+    this.style.setProperty('--opacity-noise', '0.8')
+
   }
 
   firstUpdated(): void {
 
-    this.style.setProperty('--opacity-noise', '0.8')
+
     if (this.renderRoot) {
       const canvas = this.renderRoot
         .querySelector('.c-canvas-noise__canvas')
