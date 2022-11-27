@@ -13,7 +13,7 @@ export class CButton extends LitElement {
   static styles = css`
 
     :host {
-      --button-height: 3rem;
+      --button-height: 2.66rem;
       display: inline-grid;
       grid-template-rows: 100%;
       transition:
@@ -50,10 +50,10 @@ export class CButton extends LitElement {
       min-height: var(--button-height);
       letter-spacing: .05em;
       line-height: 1.2;
-      padding-bottom: calc(var(--spacing-size-2) * .8);
+      padding-bottom: calc(var(--spacing-size-2) * .5);
       padding-left: calc(var(--spacing-size-2) * .8);
       padding-right: calc(var(--spacing-size-2) * .8);
-      padding-top: calc(var(--spacing-size-2) * .8 + .2em);
+      padding-top: calc(var(--spacing-size-2) * .5 + .2em);
       place-content: center;
       position: relative;
       text-decoration: none;
@@ -69,8 +69,6 @@ export class CButton extends LitElement {
       .c-button {
         font-size: .75em;
         letter-spacing: .1em;
-        padding-left: var(--spacing-size-2);
-        padding-right: var(--spacing-size-2);
       }
 
       .c-button:has(i) {
