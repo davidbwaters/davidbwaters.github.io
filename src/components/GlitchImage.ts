@@ -849,8 +849,8 @@ export class CGlitchImage extends LitElement {
   @property({type: Boolean})
   active = false;
 
-  @property({type: Number})
-  aspectRatio = 1;
+  @property({type: String})
+  aspectRatio = '1';
 
   @property({type: Object})
   wrapper = {};
@@ -861,9 +861,26 @@ export class CGlitchImage extends LitElement {
   connectedCallback() {
 
     super.connectedCallback()
+
+    this.setImages()
+
+  }
+
+  attributeChangedCallback(name: string, _old: string, value: string): void {
+      if (name === 'src' || name === 'width' || name === 'height' || name === 'glitch') {
+        this[name] = value;
+
+        this.setImages()
+      }
+  }
+
+  setImages() {
+
     const hasWidth = this.hasAttribute('width')
     const hasHeight = this.hasAttribute('height')
     const hasDimensions = hasWidth && hasHeight
+
+    this.classList.forEach(value => this.classList.remove(value))
 
     this.classList.add(
       'c-glitch-image--style-' + this.glitch
@@ -873,7 +890,7 @@ export class CGlitchImage extends LitElement {
 
       const imgWidth = parseInt(this.width)
       const imgHeight = parseInt(this.height)
-      this.aspectRatio = imgWidth / imgHeight
+      this.aspectRatio = (imgWidth / imgHeight).toString()
 
     }
 
@@ -886,7 +903,6 @@ export class CGlitchImage extends LitElement {
       '--glitch-image',
       'url("' + this.src + '")'
     )
-
   }
 
   render() {

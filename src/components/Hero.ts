@@ -600,27 +600,45 @@ export class CHero extends LitElement {
   gsap
   scrollTrigger
 
+
   async firstUpdated() {
 
     const {gsap, ScrollTrigger} = await import('gsap/all')
     this.gsap = gsap
     this.scrollTrigger = ScrollTrigger
 
+    let transitioned = false
+    window.addEventListener('appLoaded', () => {
+
+      console.log('transitioned')
+
+      if (!transitioned) {
+        this._transitionIn()
+      }
+      transitioned = true
+
+    })
+
+    setTimeout(() => {
+      if (!transitioned) {
+        console.log('not transitioned')
+          this._transitionIn()
+
+        transitioned = true
+      }
+    },3000)
+
     this.theme = document.body.dataset.theme
     this._taglineSetup()
     this._nameStylizedSetup()
 
     this._scrollSetup()
-    window.addEventListener('appLoaded', () => {
-      this._transitionIn()
-    })
 
     this.addEventListener('themeChange', this.render)
 
   }
 
   _scrollSetup() {
-
 
     this.gsap.registerPlugin(this.scrollTrigger);
     const heroTrigger = this.shadowRoot && this

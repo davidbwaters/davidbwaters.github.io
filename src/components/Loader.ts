@@ -43,7 +43,7 @@ export class CLoader extends LitElement {
   disable() {
     const mainEl = document.querySelector("main");
 
-    const mainIsTransparent = mainEl.classList.contains("u-transparent");
+    const mainIsTransparent = mainEl && mainEl.classList.contains("u-transparent");
 
     document.documentElement.style.position = "";
 
@@ -51,18 +51,18 @@ export class CLoader extends LitElement {
       mainEl.classList.remove("u-transparent");
     }
 
-    window.dispatchEvent(
-      new CustomEvent("appLoaded", {
-        detail: { theme: document.body.dataset.theme },
-        bubbles: true,
-        composed: true,
-      })
-    );
 
     setTimeout(() => {
       this.style.opacity = "0";
       this.style.pointerEvents = "none";
 
+      window.dispatchEvent(
+        new CustomEvent("appLoaded", {
+          detail: { theme: document.body.dataset.theme },
+          bubbles: true,
+          composed: true,
+        })
+      );
     }, 3000);
 
     setTimeout(() => {

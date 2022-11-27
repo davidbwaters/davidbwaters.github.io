@@ -71,7 +71,7 @@ export class CCanvasMain extends LitElement {
     window.addEventListener('themeChange', this.setThemeImage.bind(this))
 
 
-    window.addEventListener('appLoaded', () => {
+    window.addEventListener('DOMContentLoaded', () => {
 
       // console.log('paint')
       const vertex = `

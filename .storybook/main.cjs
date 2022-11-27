@@ -1,20 +1,8 @@
-
-const path = require('path');
 module.exports = {
-  "stories": [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)",
-  ],
-  "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "storybook-addon-themes"
-  ],
-  "features": {
-    "storyStoreV7": true,
-  },
-  "framework": "@storybook/web-components-vite",
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  framework: "@storybook/web-components",
   core: {
-    builder: '@storybook/builder-vite',
+    builder: "@storybook/builder-vite", // 👈 The builder enabled here.
   },
-}
+};

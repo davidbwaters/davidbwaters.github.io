@@ -246,8 +246,12 @@ export class CWorkListItem extends LitElement {
   @property({type: String})
   glitch = '["6", "6"]'
 
-  @property({type: String})
-  tags = '[]'
+  @property({
+    type: String,
+    converter: (value) => JSON.parse(value).join(', '),
+    reflect: true
+  })
+  tags = ''
 
   @property({type: String})
   previewWidth = '800'
@@ -292,9 +296,6 @@ export class CWorkListItem extends LitElement {
   wide = 'false'
 
   @property({type: String})
-  taglist = ''
-
-  @property({type: String})
   caseStudy = null
 
   @property({type: Boolean})
@@ -312,8 +313,6 @@ export class CWorkListItem extends LitElement {
 
   connectedCallback() {
     super.connectedCallback()
-
-    this.taglist = JSON.parse(this.tags).join(', ')
   }
 
   firstUpdated() {
@@ -353,7 +352,7 @@ export class CWorkListItem extends LitElement {
               u-text-title
             "
           >
-            Techologies<span class="u-hidden@small"> Used</span>: ${this.taglist}
+            Techologies<span class="u-hidden@small"> Used</span>: ${this.tags}
           </div>
           <div
             class="
@@ -441,7 +440,7 @@ export class CWorkListItem extends LitElement {
                 <c-squiggle></c-squiggle>
               </div>
               <div slot="description" class="u-text-title">
-                  Techologies Used: ${this.taglist}
+                  Techologies Used: ${this.tags}
               </div>
             </c-section-header>
 

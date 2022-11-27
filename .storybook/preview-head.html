@@ -2,10 +2,6 @@
   window.global = window;
 
   import "../src/scripts/main.ts"
-</script>
-
-  import "../src/stylesheets/main.scss"
-  import "../src/scripts/main.ts"
 
   document.dispatchEvent(
 
@@ -20,6 +16,12 @@
   )
 </script>
 
+<link
+  href="../src/stylesheets/main.scss"
+  rel="preload stylesheet"
+  as="style"
+  crossorigin
+>
 
 <link
   href="https://use.typekit.net/brg7xei.css"

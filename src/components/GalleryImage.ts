@@ -48,7 +48,7 @@ export class CGalleryImage extends LitElement {
         href=${this.src}
       >
         <img
-          class="c-gallery-image__image"
+          class="c-gallery-image__image u-object-fit-cover u-width-fill u-height-fill"
           src=${this.src}
           alt=${this.alt}
         >

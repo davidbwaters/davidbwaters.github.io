@@ -3,6 +3,7 @@ import { html } from 'lit';
 
 import { CHero } from'./Hero';
 import './Hero';
+import './Loader';
 import './CanvasMain'
 import './Icon'
 import './ThemeSwitch'
@@ -13,6 +14,19 @@ export default {
 
 const Template: StoryFn<CHero> = ({ ...args }) =>
   html`
+		<c-loader>
+
+			<div style="display: grid;min-height: 100vh;grid-template-columns: clamp(3rem, 4vw, 8rem);grid-template-rows: min-content;place-content: center;">
+        <svg class="c-logo u-theme-fill" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <title>Artboard</title>
+          <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="Logo" transform="translate(0.000000, 5.000000)" fill="currentColor" fill-rule="nonzero">
+                  <path d="M9.6,0 L9.6,38.4 L0,38.4 L0,0 L9.6,0 Z M48,19.2 L48,28.8 L38.4,38.4 L38.4,19.2 L48,19.2 Z M28.8,0 L28.8,28.8 L19.2,38.4 L19.2,0 L28.8,0 Z M48,0 L48,9.6 L38.4,19.2 L38.4,0 L48,0 Z"></path>
+              </g>
+          </g>
+        </svg>
+      </div>
+		</c-loader>
     <c-hero style="--vw: .85vw">
       <c-canvas-main slot="paint"></c-canvas-main>
 
@@ -31,7 +45,7 @@ const Template: StoryFn<CHero> = ({ ...args }) =>
 			</c-theme-switch>
 			<div slot="footer-content-left">
 				<a
-					class="u-animation-wave u-text-large-3 u-margin-bottom-0"
+					class="u-animation-wave u-text-large-1 u-margin-bottom-0"
 					href="mailto:mrdavidbwaters@gmail.com"
 					title="Get in Touch!"
 				>

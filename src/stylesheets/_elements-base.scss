@@ -30,9 +30,10 @@ body {
   height: 100%;
 }
 
-main {
+main,
+#root,
+#root-inner {
   height: 100%;
-
 }
 
 img {

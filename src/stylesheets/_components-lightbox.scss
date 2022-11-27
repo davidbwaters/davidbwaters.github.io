@@ -59,7 +59,7 @@
 }
 
 .glightbox-container .gslide {
-  width: 100%;
+  width: calc(100% - var(--spacing-size-2-base) * 2.5);
   position: absolute;
   -webkit-user-select: none;
   -moz-user-select: none;

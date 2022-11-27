@@ -13,18 +13,12 @@ export class CButton extends LitElement {
   static styles = css`
 
     :host {
-      --button-height: 2.66rem;
+      --button-height: 3rem;
       display: inline-grid;
-      height: var(--button-height);
       grid-template-rows: 100%;
       transition:
         all var(--transition-duration);
       width: var(--button-width);
-    }
-
-
-    :host .c-button {
-      height: 100%;
     }
 
     :host(:active) {
@@ -43,6 +37,7 @@ export class CButton extends LitElement {
       border-radius: 3px;
       border-style: solid;
       border-width: 1px;
+      box-sizing: border-box;
       box-shadow: 0 2px 0 var(--color-subtle);
       color: var(--color-button-fg);
       cursor: pointer;
@@ -52,12 +47,13 @@ export class CButton extends LitElement {
       font-size: var(--text-size-small-1);
       grid-auto-flow: column;
       grid-gap: var(--spacing-size-1);
-      grid-template-rows: 0.8em;
-      height: var(--button-height);
+      min-height: var(--button-height);
       letter-spacing: .05em;
-      line-height: 1;
+      line-height: 1.2;
+      padding-bottom: calc(var(--spacing-size-2) * .8);
       padding-left: calc(var(--spacing-size-2) * .8);
       padding-right: calc(var(--spacing-size-2) * .8);
+      padding-top: calc(var(--spacing-size-2) * .8 + .2em);
       place-content: center;
       position: relative;
       text-decoration: none;
@@ -106,7 +102,8 @@ export class CButton extends LitElement {
 
     .c-button i,
     .c-button c-icon {
-      align-self: center;
+      display: inline-block;
+      margin-top: -.2em;
       font-size: 1.5em;
     }
 
