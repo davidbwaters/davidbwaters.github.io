@@ -1,3 +1,5 @@
+import '../scripts/main'
+import '../stylesheets/main.scss'
 import type { Meta, StoryFn } from '@storybook/web-components';
 import {html} from 'lit'
 import { CIcon as IconType}  from './Icon';

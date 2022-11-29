@@ -10,7 +10,8 @@
     "build": "NODE_OPTIONS=--experimental-vm-modules eleventy --config=.eleventy.cjs",
     "tokens": "token-transformer --expandTypography=true --expandShadow=true tokens/tokens-in.json tokens/tokens.json && style-dictionary build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=b2f657b8f0c0"
   },
   "keywords": [],
   "type": "module",
@@ -51,6 +52,7 @@
     "babel-loader": "^8.3.0",
     "browserslist": "^4.16.0",
     "chalk": "^4.1.0",
+    "chromatic": "^6.11.4",
     "critical": "^4.0.0",
     "cssnano": "^5.0.0",
     "eleventy-plugin-styles": "^1.4.4",
@@ -82,5 +84,7 @@
     "ogl": "^0.0.102",
     "query-selector-shadow-dom": "^1.0.0",
     "scrambling-letters": "^1.6.2"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "ideas.willsonsmith.com@1.0.0"
 }
