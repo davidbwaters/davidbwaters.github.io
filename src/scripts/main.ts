@@ -280,7 +280,6 @@ function setAnchorLinks() {
   if (anchors) {
     anchors.forEach((anchor:HTMLElement) => {
       const element = document.querySelector(anchor.dataset.target)
-      const position = element.getBoundingClientRect().top
 
       anchor.addEventListener('click', () => {
         gsap.to(window, {duration: .66, scrollTo: anchor.dataset.target});

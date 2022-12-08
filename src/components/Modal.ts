@@ -14,7 +14,7 @@ import {
 } from 'lit/decorators.js';
 
 import dialogPolyfill from 'dialog-polyfill'
-import { ScrollTrigger } from 'gsap/all';
+import { gsap, ScrollTrigger, ScrollToPlugin } from 'gsap/all';
 import GLightbox from 'glightbox'
 
 import { querySelectorDeep } from 'query-selector-shadow-dom';
@@ -136,9 +136,10 @@ export class CModal extends LitElement {
 
   constructor() {
     super()
-    window.addEventListener('AppLoaded', (() => {
-      this._normalizer = ScrollTrigger.normalizeScroll(true)
+    window.addEventListener('appLoaded', (() => {
+      //this._normalizer = ScrollTrigger.normalizeScroll(true)
     }).bind(this))
+    //ScrollTrigger.refresh();
 
   }
 
@@ -216,7 +217,15 @@ export class CModal extends LitElement {
 
   _popstate() {
 
-    if ('#' + this._triggerData === window.location.hash) {
+    if ('#' + this._triggerData.toLowerCase() === window.location.hash.toLowerCase()) {
+      setTimeout(() => {
+        // console.log(document.querySelector('[slug=' + this._triggerData + ']').getBoundingClientRect().top)
+
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+        gsap.to(window, {duration: .66, scrollTo: document.querySelector('[slug=' + this._triggerData + ']')})
+
+      }, 2000);
+
       this._open()
     }
     else if (window.location.hash === '') {
@@ -228,7 +237,6 @@ export class CModal extends LitElement {
   updated() {
 
     this._triggerData = this.dataset.modalTrigger
-    this._popstate()
 
     // console.log('#' + this._triggerData === window.location.hash)
   }
@@ -297,15 +305,19 @@ export class CModal extends LitElement {
       backButton
     )
 
+    this._popstate()
   }
 
   close() {
 
     this._handleClose()
 
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    gsap.to(window, {duration: 0.1, scrollTo: document.querySelector('[slug=' + this._triggerData + ']')})
 
-    window.addEventListener('AppLoaded', (() => {
-      this._normalizer.enable()
+
+    window.addEventListener('appLoaded', (() => {
+      //this._normalizer.enable()
     }).bind(this))
 
   }
@@ -318,7 +330,7 @@ export class CModal extends LitElement {
     this._dialogEl.classList.add('is-closing')
 
 
-    if ('#' + this._triggerData === window.location.hash) {
+    if ('#' + this._triggerData.toLowerCase() === window.location.hash.toLowerCase()) {
       history.pushState(
         '',
         document.title,
@@ -351,7 +363,7 @@ export class CModal extends LitElement {
 
   _open() {
 
-    this._triggerEl.setAttribute('isExpanded', true)
+    this._triggerEl.setAttribute('isExpanded', 'true')
 
     if (this._target) {
       this._target.classList.add('u-z-index-9')
@@ -359,8 +371,7 @@ export class CModal extends LitElement {
 
     this._triggerParent.style.zIndex = '9'
 
-
-    if ('#' + this._triggerData !== window.location.hash) {
+    if ('#' + this._triggerData.toLowerCase() !== window.location.hash.toLowerCase()) {
       // console.log(this._triggerData)
       // window.location.hash = this._triggerData
 

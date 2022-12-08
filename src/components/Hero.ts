@@ -610,7 +610,7 @@ export class CHero extends LitElement {
     let transitioned = false
     window.addEventListener('appLoaded', () => {
 
-      console.log('transitioned')
+      //console.log('transitioned')
 
       if (!transitioned) {
         this._transitionIn()
@@ -621,8 +621,8 @@ export class CHero extends LitElement {
 
     setTimeout(() => {
       if (!transitioned) {
-        console.log('not transitioned')
-          this._transitionIn()
+        //console.log('not transitioned')
+        this._transitionIn()
 
         transitioned = true
       }
@@ -801,8 +801,6 @@ export class CHero extends LitElement {
       .split('')
     )
 
-
-    // console.log(name)
     const nameEl = this.shadowRoot && this.shadowRoot.querySelector(
       '.c-hero__name-stylized-inner'
     )

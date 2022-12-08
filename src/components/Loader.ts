@@ -63,6 +63,8 @@ export class CLoader extends LitElement {
           composed: true,
         })
       );
+
+      //window.scrollTo(0, 0)
     }, 3000);
 
     setTimeout(() => {
