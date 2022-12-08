@@ -137,6 +137,7 @@ export class CModal extends LitElement {
   constructor() {
     super()
     window.addEventListener('appLoaded', (() => {
+      this._normalizer
       //this._normalizer = ScrollTrigger.normalizeScroll(true)
     }).bind(this))
     //ScrollTrigger.refresh();
@@ -315,9 +316,9 @@ export class CModal extends LitElement {
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     gsap.to(window, {duration: 0.1, scrollTo: document.querySelector('[slug=' + this._triggerData + ']')})
 
-
+    //this._normalizer.enable()
     window.addEventListener('appLoaded', (() => {
-      //this._normalizer.enable()
+      //
     }).bind(this))
 
   }
