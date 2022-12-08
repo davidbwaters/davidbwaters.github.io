@@ -64,7 +64,7 @@ export class CLoader extends LitElement {
         })
       );
 
-      //window.scrollTo(0, 0)
+      window.scrollTo(0, 0)
     }, 3000);
 
     setTimeout(() => {
