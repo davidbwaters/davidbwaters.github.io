@@ -53,8 +53,6 @@ export class CLoader extends LitElement {
 
 
     setTimeout(() => {
-      this.style.opacity = "0";
-      this.style.pointerEvents = "none";
 
       window.dispatchEvent(
         new CustomEvent("appLoaded", {
@@ -63,8 +61,17 @@ export class CLoader extends LitElement {
           composed: true,
         })
       );
+      if (window.location.hash === '') {
+        window.scrollTo(0, 0)
+      }
 
-      window.scrollTo(0, 0)
+    }, 2800);
+
+    setTimeout(() => {
+
+      this.style.opacity = "0";
+      this.style.pointerEvents = "none";
+
     }, 3000);
 
     setTimeout(() => {

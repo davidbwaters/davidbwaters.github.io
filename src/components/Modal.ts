@@ -218,19 +218,20 @@ export class CModal extends LitElement {
 
   _popstate() {
 
-    if ('#' + this._triggerData.toLowerCase() === window.location.hash.toLowerCase()) {
+    if (
+      '#' + this._triggerData.toLowerCase() === window.location.hash.toLowerCase()
+    ) {
       setTimeout(() => {
-        // console.log(document.querySelector('[slug=' + this._triggerData + ']').getBoundingClientRect().top)
+        //console.log(this._triggerData)
 
         gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
         gsap.to(window, {duration: .66, scrollTo: document.querySelector('[slug=' + this._triggerData + ']')})
 
       }, 2000);
-
       this._open()
     }
     else if (window.location.hash === '') {
-      this.close()
+      // this.close()
     }
     // console.log('#' + this._triggerData, window.location.hash)
   }
@@ -315,6 +316,7 @@ export class CModal extends LitElement {
 
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     gsap.to(window, {duration: 0.1, scrollTo: document.querySelector('[slug=' + this._triggerData + ']')})
+    // console.log(document.querySelector('[slug=' + this._triggerData + ']').getBoundingClientRect().top)
 
     //this._normalizer.enable()
     window.addEventListener('appLoaded', (() => {
