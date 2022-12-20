@@ -255,7 +255,7 @@ function setHeroScroll() {
         scroller: document.body,
         trigger: heroTrigger,
         start: "0%",
-        end: "+=150%",
+        end: "+=100%",
         scrub: true,
         toggleActions: "restart none none reset",
       },
