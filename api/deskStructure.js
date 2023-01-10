@@ -1,8 +1,9 @@
 // deskStructure.js
-import {  DashboardIcon } from '@sanity/icons'
-import { HomeIcon } from '@sanity/icons'
+import { HomeIcon, TagIcon, DashboardIcon, CaseIcon } from '@sanity/icons'
 
-export default (S) =>
+import { orderableDocumentListDeskItem, orderRankField } from '@sanity/orderable-document-list'
+
+export default (S, context) =>
 
 S.list()
 .title('Base')
@@ -30,10 +31,15 @@ S.list()
           .documentId('hero')
           .id('hero')
       ),
+    orderableDocumentListDeskItem({type: 'Skills', icon: TagIcon, title: 'Skills', S, context}),
+    orderableDocumentListDeskItem({type: 'Work', icon: CaseIcon, title: 'Work', S, context}),
+
     ...S.documentTypeListItems().filter( listItem => {
       return ![
         'hero',
         'home',
+        'Skills',
+        'Work',
         'media.tag'
       ].includes(listItem.getId())
     })

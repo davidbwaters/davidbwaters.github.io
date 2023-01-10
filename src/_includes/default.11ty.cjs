@@ -1,6 +1,6 @@
 const { asyncGlob } = require('../../util/async-glob.cjs');
 
-module.exports = async function ({ content, stylesheets, title = 'Eleventy', date = new Date().getFullYear() }) {
+module.exports = async function ({ content, stylesheets, title = 'Eleventy', date = new Date().getFullYear(), favicon="/favicon.svg" },) {
   const componentsJs = await asyncGlob('./src/components/**/*.js');
   const componentUrlsJs = componentsJs.map((component) => {
     return `/components/${component.split(`./src/components/`)[1]}`;
@@ -48,7 +48,7 @@ module.exports = async function ({ content, stylesheets, title = 'Eleventy', dat
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="${favicon}" />
 
     <title>${title}</title>
 
@@ -196,15 +196,10 @@ ${preloads}
     >
 
 		<c-loader>
-      <div style="display: grid;min-height: 100vh;grid-template-columns: clamp(3rem, 4vw, 8rem);grid-template-rows: min-content;place-content: center;">
-        <svg class="c-logo u-theme-fill" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <title>Artboard</title>
-          <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <g id="Logo" transform="translate(0.000000, 5.000000)" fill="currentColor" fill-rule="nonzero">
-                  <path d="M9.6,0 L9.6,38.4 L0,38.4 L0,0 L9.6,0 Z M48,19.2 L48,28.8 L38.4,38.4 L38.4,19.2 L48,19.2 Z M28.8,0 L28.8,28.8 L19.2,38.4 L19.2,0 L28.8,0 Z M48,0 L48,9.6 L38.4,19.2 L38.4,0 L48,0 Z"></path>
-              </g>
-          </g>
-        </svg>
+      <div style="display: grid;min-height: 100vh;grid-template-columns: clamp(3rem, 4vw, 8rem);grid-template-rows: clamp(3rem, 3vw, 8rem);place-content: center;">
+
+        <div class="u-theme-fill u-theme-fill-logo">
+        </div>
       </div>
     </c-loader>
 

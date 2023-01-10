@@ -1,17 +1,18 @@
 // hero.jsSkills
-import { CaseIcon } from '@sanity/icons'
+import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list'
 
 export const work = {
   name: 'Work',
   title: 'Work',
   type: 'document',
-  icon: CaseIcon,
+  orderings: [orderRankOrdering],
 
   fields: [
     {
       name: 'Title',
       type: 'string',
     },
+    orderRankField({type: 'Work', hidden: false}),
     {
       name: 'Tags',
       title: 'Tags',
@@ -31,6 +32,23 @@ export const work = {
     {
       name: 'Case_Study',
       type: 'boolean',
+      initialValue: false,
+      options: {
+        layout: 'checkbox',
+      }
+    },
+    {
+      name: 'Hide_Modal',
+      type: 'boolean',
+      initialValue: false,
+      options: {
+        layout: 'checkbox',
+      }
+    },
+    {
+      name: 'Wide',
+      type: 'boolean',
+      initialValue: true,
       options: {
         layout: 'checkbox',
       }
@@ -47,6 +65,29 @@ export const work = {
       type: 'array',
       of: [{type: 'image'}]
     },
+    {
+      name: 'Links',
+      type: 'object',
+      fields: [
+        {
+          name: 'Site',
+          type: 'string',
+        },
+        {
+          name: 'Microsoft',
+          type: 'string',
+        },
+        {
+          name: 'GitHub',
+          title: 'GitHub',
+          type: 'string',
+        },
+        {
+          name: 'NPM',
+          type: 'string',
+        },
+      ]
+    }
 
   ]
 }

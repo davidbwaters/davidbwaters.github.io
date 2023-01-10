@@ -2,19 +2,28 @@
  *  Components - Icon
  */
 
-import { html, unsafeCSS, LitElement } from 'lit'
+import { html, css, LitElement } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
 @customElement('c-icon')
 
 export class CIcon extends LitElement {
 
-  static styles = unsafeCSS`
+  static styles = css`
+    :host {
+      --icon-size: 1em;
+      display: inline-grid !important;
+      height: var(--icon-size);
+      place-content: center;
+      width: var(--icon-size);
+    }
+
     .c-icon {
       display: grid;
       grid-template-rows: 100%;
-      height: calc(1em - 0.28em);
+      height: calc(var(--icon-size) * 0.72);
       place-items: start;
+      width: var(--icon-size);
     }
 
     .c-icon::before {
@@ -31,24 +40,33 @@ export class CIcon extends LitElement {
       font-style: normal !important;
       font-variant: normal !important;
       font-weight: normal !important;
-      height: 1em;
+      height: var(--icon-size);
       mask-position: 50% 50%;
       mask-repeat: no-repeat;
       mask-size: contain;
       text-transform: none !important;
-      transform: translatey(-14%);
+      transform: translatey(-16%);
       transition: none;
-      width: 1em;
+      width: var(--icon-size);
       mask: var(--svg-icon);
     }
 
   `
 
-  @property()
+  @property({reflect: true})
   icon:
-    'arrow-down' | 'expand' | 'github' |'plus' |'wave' | 'arrow-left' | 'mail' |
-    'theme' | 'windows' | 'dribbble' |'npm' | 'twitter' | 'expand' | 'wave-alt'
+    'arrow-down' | 'arrow-left' | 'dribbble' | 'expand' | 'folio' | 'github' |
+    'location' | 'mail' | 'npm' | 'plus' |  'phone' | 'theme' | 'twitter' |
+    'windows' | 'wave' | 'wave-alt'
     = 'expand'
+
+  @property({reflect: true})
+  size = '1em'
+
+  firstUpdated(): void {
+    this.style.setProperty('--svg-icon', 'var(--svg-${this.icon})')
+    this.style.setProperty('--icon-size', this.size)
+  }
 
   render() {
 

@@ -72,7 +72,7 @@ export class CLoader extends LitElement {
       this.style.opacity = "0";
       this.style.pointerEvents = "none";
 
-    }, 3000);
+    }, 3200);
 
     setTimeout(() => {
       this.style.display = "none";

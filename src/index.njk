@@ -1,9 +1,12 @@
 ---js
 {
 	layout: "default",
-	title: "David B. Waters - Frontend Developer - Oakland",
 	date: new Date().getFullYear().toString().toLowerCase(),
-	stylesheets: [ 'stylesheets/main.scss' ]
+	stylesheets: [ 'stylesheets/main.scss' ],
+	eleventyComputed: {
+		title: data => data.data.home.Page_Title,
+		favicon: data => data.data.home.Favicon
+	}
 }
 ---
 
@@ -16,68 +19,38 @@
 					href="/"
 					title="Home"
 				>
-					<svg class="c-logo u-theme-fill u-wrapper-full" width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-							<title>Artboard</title>
-							<g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-									<g id="Logo" transform="translate(0.000000, 5.000000)" fill="currentColor" fill-rule="nonzero">
-											<path d="M9.6,0 L9.6,38.4 L0,38.4 L0,0 L9.6,0 Z M48,19.2 L48,28.8 L38.4,38.4 L38.4,19.2 L48,19.2 Z M28.8,0 L28.8,28.8 L19.2,38.4 L19.2,0 L28.8,0 Z M48,0 L48,9.6 L38.4,19.2 L38.4,0 L48,0 Z"></path>
-									</g>
-							</g>
-					</svg>
+					<div class="u-theme-fill u-theme-fill-logo">
+					</div>
 				</a>
-				<a
-					slot="link"
-					href="mailto:mrdavidbwaters@gmail.com"
-					title="Email"
-				>
-					<c-icon icon="mail"></c-icon>
-				</a>
-				<a
-					slot="link"
-					href="https://twitter.com/dbwatersdesigns"
-					title="Twitter"
-				>
-					<c-icon icon="twitter"></c-icon>
-				</a>
-				<a
-					slot="link"
-					href="https://dribbble.com/dbwatersdesigns"
-					title="Dribbble"
-				>
-					<c-icon icon="dribbble"></c-icon>
-				</a>
-				<a
-					slot="link"
-					href="https://github.com/davidbwaters"
-					title="Github"
-				>
-					<c-icon icon="github"></c-icon>
-				</a>
-				<a
-					slot="link"
-					href="https://www.npmjs.com/~davidbwaters"
-					title="NPM"
-				>
-					<c-icon icon="npm"></c-icon>
-				</a>
+
+				{% for link in data.home.contact_links %}
+
+					<a
+						slot="link"
+						href="{{ link.Link }}"
+						title="{{ link.Icon }}"
+					>
+						<c-icon icon="{{ link.Icon }}"></c-icon>
+					</a>
+				{% endfor %}
 			</c-top-bar>
 		</is-land>
 
 		<c-hero
 			data-preload
 			id="hero"
+			melight="{{ data.hero.portrait.light }}"
+			medark="{{ data.hero.portrait.dark }}"
 		>
-			<c-canvas-main slot="paint"></c-canvas-main>
+			<c-canvas-main slot="paint" lightImages='{{ data.hero.bglight | dump }}' darkImages='{{ data.hero.bgdark | dump }}'></c-canvas-main>
 			<div >
 			</div>
 			<h1 slot="tagline" class="js-text-plane" style="font: inherit;">
-				Multidisciplinary <br />
-				Designer & Frontend <br />
-				Developer
+				{{ data.hero.CTA|safe }}
 			</h1>
-			<div slot="name-stylized">DAVIDBWATERS</div>
+			<div slot="name-stylized">{{ data.hero.Name_Stylized }}</div>
 			<h2 slot="heading" class="js-text-plane">
-				Building digital solutions to promote growth.
+				{{ data.hero.Heading|safe }}
 				<c-squiggle></c-squiggle>
 			</h2>
 				<c-theme-switch data-cursor-target slot="footer-box-left">
@@ -89,7 +62,9 @@
 					href="mailto:mrdavidbwaters@gmail.com"
 					title="Get in Touch!"
 				></a>
-				<span> Available Now! </span>
+				<span>
+					{{ data.hero.Availability }}
+				</span>
 			</div>
 			<div slot="footer-content-right" class="u-inherit-display">
 				<c-button
@@ -97,10 +72,15 @@
 					label="Contact"
 				>
 				</c-button>
+
+				<c-button
+					href="/resume"
+					label="Resume"
+					variant="ghost"
+				>
+				</c-button>
 				<span>
-					Start
-					<span class="u-hidden@mobile">Your</span>
-					Project!
+					{{ data.hero.Contact|safe }}
 				</span>
 			</div>
 			<div slot="footer-box-right">
@@ -119,87 +99,31 @@
 					<c-squiggle></c-squiggle>
 				</h3>
 				<div slot="description">
-					Skills, tools of the trade, and technologies I
-					enjoy working with.
+					{{ data.home.Skills_Heading }}
 				</div>
 			</c-section-header>
 			<ul class="c-skill-list">
-				<li class="c-skill-list__skill js-reveal">
-					<img
-						class="c-skill-list__image"
-						src="images/Elephant.png"
-						alt="Elephant"
-					/>
-					<div class="c-skill-list__text">
-						<h4 class="c-skill-list__title u-text-title">
-							Web Platform
-						</h4>
-						<span class="c-skill-list__gap"></span>
-						<span class="c-skill-list__number u-text-title"
-							>01</span
-						>
-						<span class="c-skill-list__description">
-							Web Components, Applications, #UseThePlatform
-						</span>
-					</div>
-				</li>
-				<li class="c-skill-list__skill js-reveal">
-					<img
-						class="c-skill-list__image"
-						src="images/Lion.png"
-						alt="Lion"
-					/>
-					<div class="c-skill-list__text">
-						<h4 class="c-skill-list__title u-text-title">
-							Design
-						</h4>
-						<span class="c-skill-list__gap"></span>
-						<span class="c-skill-list__number u-text-title"
-							>02</span
-						>
-						<span class="c-skill-list__description">
-							Figma, Sketch, Adobe CS**
-						</span>
-					</div>
-				</li>
-				<li class="c-skill-list__skill js-reveal">
-					<img
-						class="c-skill-list__image"
-						src="images/Squirrel.png"
-						alt="Squirrel"
-					/>
-					<div class="c-skill-list__text">
-						<h4 class="c-skill-list__title u-text-title">
-							Development
-						</h4>
-						<span class="c-skill-list__gap"></span>
-						<span class="c-skill-list__number u-text-title"
-							>03</span
-						>
-						<span class="c-skill-list__description">
-							JS/ES*, Node.js, Jamstack
-						</span>
-					</div>
-				</li>
-				<li class="c-skill-list__skill js-reveal">
-					<img
-						class="c-skill-list__image"
-						src="images/Camel.png"
-						alt="Camel"
-					/>
-					<div class="c-skill-list__text">
-						<h4 class="c-skill-list__title u-text-title">
-							Consultation
-						</h4>
-						<span class="c-skill-list__gap"></span>
-						<span class="c-skill-list__number u-text-title"
-							>04</span
-						>
-						<span class="c-skill-list__description">
-							Not sure where to start? I can help!
-						</span>
-					</div>
-				</li>
+				{% for skill in data.Skills %}
+					<li class="c-skill-list__skill js-reveal">
+						<img
+							class="c-skill-list__image"
+							src="{{ skill.Image }}"
+							alt="Animal"
+						/>
+						<div class="c-skill-list__text">
+							<h4 class="c-skill-list__title u-text-title">
+								{{ skill.Name }}
+							</h4>
+							<span class="c-skill-list__gap"></span>
+							<span class="c-skill-list__number u-text-title"
+								>0{{ loop.index }}</span
+							>
+							<span class="c-skill-list__description">
+								{{ skill.Description }}
+							</span>
+						</div>
+					</li>
+				{% endfor %}
 			</ul>
 			<hr class="u-separator-alternate" />
 		</section>
@@ -214,8 +138,7 @@
 						<c-squiggle></c-squiggle>
 					</h3>
 					<div slot="description">
-						A curated list of projects worked on and things I
-						built.
+						{{ data.home.Work_Heading }}
 					</div>
 				</c-section-header>
 			</is-land>
@@ -228,6 +151,53 @@
 				"
 			>
 
+				{% for work in data.Work %}
+					{% if work.Case_Study %}
+						<is-land on:load>
+							<c-work-list-item
+								class='js-reveal-fade'
+								title='{{work.Title}}'
+								github='{{work.Links.GitHub}}'
+								site='{{work.Links.Site}}'
+								npm='{{work.Links.NPM}}'
+								vsc='{{work.Links.Microsoft}}'
+								gallery='{{loop.index}}'
+								tags='{{ work.Tags|dump}}'
+								previewImages='{{ work.Preview_Images|dump  }}'
+								images='{{ work.Images|dump  }}'
+								shortDescription='Providing gps for your money. Mobile and web app design.'
+								wide="true"
+							>
+								<div slot='case-study'>
+									{{work.Description|safe}}
+								</div>
+
+							</c-work-list-item>
+						</is-land>
+					{% else %}
+
+						<is-land on:load>
+							<c-work-list-item
+								class='js-reveal-fade'
+								title='{{work.Title}}'
+								github='{{work.Links.GitHub}}'
+								site='{{work.Links.Site}}'
+								npm='{{work.Links.NPM}}'
+								vsc='{{work.Links.Microsoft}}'
+								gallery='{{loop.index}}'
+								tags='{{ work.Tags|dump}}'
+								previewImages='{{ work.Preview_Images|dump  }}'
+								images='{{ work.Images|dump  }}'
+								description='{{work.Description|safe}}'
+								shortDescription='Providing gps for your money. Mobile and web app design.'
+								wide="true"
+								hideModal='{{work.Hide_Modal|safe}}'
+							>
+							</c-work-list-item>
+						</is-land>
+					{% endif %}
+				{% endfor %}
+				<!--
 				<is-land on:load>
 					<c-work-list-item
 						class='js-reveal-fade'
@@ -239,147 +209,11 @@
 						images='["images/Work/Matrix-1.jpg","images/Work/Matrix-2.jpg","images/Work/Matrix-3.jpg","images/Work/Matrix-4.jpg","images/Work/Matrix-5.jpg","images/Work/Matrix-6.jpg"]'
 						site='http://mtx.gg'
 						shortDescription='Revolutionizing the digital economy, one quest at a time.'
-						description='["While working as Lead Designer at <a href=http://mtx.gg>Matrix</a> in 2022, I was tasked with developing their branding and design system."]'
+						description='<p>While working as Lead Designer at <a href=http://mtx.gg>Matrix</a> in 2022, I was tasked with developing their branding and design system.</p>'
 						wide='true'
 					></c-work-list-item>
 				</is-land>
 
-				<is-land on:load>
-					<c-work-list-item
-						class='js-reveal-fade'
-						title='Fitbux'
-						slug='Fitbux'
-						gallery="2"
-						tags='["Figma"]'
-						previewImages='["images/Work/Fitbux-1.jpg","images/Work/Fitbux-2.jpg"]'
-						images='["images/Work/Fitbux-1.jpg","images/Work/Fitbux-2.jpg","images/Work/Fitbux-3.jpg","images/Work/Fitbux-1.gif","images/Work/Fitbux-4.jpg","images/Work/Fitbux-5.jpg"]'
-						shortDescription='Providing gps for your money. Mobile and web app design.'
-						wide="true"
-					>
-						<div slot='case-study'>
-
-							<article>
-								<p class="u-text-large-2">
-									While working for <a href="http://mainux.com">Mainux</a>,
-									I helped create  Fitbux&#39;s design system, UI, and
-									branding using Figma.  I was responsible for overhauling
-									their current branding and updating it to modern standards.
-								</p>
-								<hr>
-								<div>
-									<h4 class="u-text-large-1">Overview</h4>
-									<p>
-										FitBUX combines innovative technology and free FitBUX Coaches to
-										help you develop and implement your financial plan.
-									</p>
-									<p>
-										They've helped over 11,000 Young Professionals  make good
-										decisions on student loans, retirement, home buying, and so
-										much more.  We can help you do the same.
-									</p>
-								</div>
-
-							</article>
-
-							<div class="c-media-grid__text-item">
-								<div>
-									<h4 class="u-text-large-1">The Problem</h4>
-									<ul>
-										<li>New graduates have trouble managing their finances</li>
-										<li>People don't have a plan for paying off student loan debt</li>
-										<li>People have trouble tracking expenses and budgeting</li>
-									</ul>
-								</div>
-							</div>
-
-							<div class="c-media-grid__text-item">
-								<div>
-									<h4 class="u-text-large-1">Target Audience</h4>
-									<ul>
-										<li>Young professionals and recent graduates</li>
-										<li>People with student loan debt</li>
-										<li>People struggling with finances</li>
-									</ul>
-								</div>
-								<div>
-									<h4 class="u-text-large-1">Competitors</h4>
-									<p>Mobills, Walnut, Spendee, YNAB, Mint</p>
-								</div>
-							</div>
-
-							<div class="c-media-grid__text-item u-align-content-center">
-								<div>
-									<h4 class="u-text-large-1">The Aesthetic</h4>
-									<p>
-										I took inspiration from Fitbux's cool blue color scheme and existing branding
-										and added some accent hues for the app.  I wanted a clean, modern, neumorphic
-										aesthetic to give it a modern feel.
-									</p>
-									<p>
-										We chose Poppins for the font for it's clean geometric forms.  The design uses
-										lots of gradients, transparency, and background blur to achieve the look.  We started
-										the project with a style guide to nail down the theme elements and integrate the current
-										branding.
-									</p>
-								</div>
-							</div>
-
-							<c-gallery-image
-								class="c-media-grid__image-item"
-								src="images/Work/Fitbux-Style-Guide.jpg"
-								alt="Fitbux Screenshot"
-								gallery="2"
-							></c-gallery-image>
-
-							<div class="c-media-grid__text-item u-align-content-center">
-								<div>
-									<h4 class="u-text-large-1">The Process</h4>
-									<p>
-										The app had complex, lengthy form sections that collected various financial data
-										that we split up into sections.  The client felt strongly about how they wanted
-										certain parts of these to function, so we worked with them when building these out.
-									</p>
-									<p>
-										The main section of the app was a dashboard with a lot of complex data widgets
-										and we had to carefully lay these out to fit across different device sizes.  There
-										was also a contact section to interact with your Fitbux coach.  The design
-										system had well over 50 components.
-									</p>
-								</div>
-							</div>
-
-							<div class="c-media-grid__text-item u-align-content-center">
-								<div>
-									<h4 class="u-text-large-1">The Solution</h4>
-									<ul>
-										<li>
-											User friendly financial platform.
-										</li>
-										<li>
-											Users can link their bank account and build a financial
-											profile.
-										</li>
-										<li>
-											Users can track spending.
-										</li>
-										<li>
-											Users can set a budget & categorize expenses.
-										</li>
-										<li>
-											Users can set saving goals.
-										</li>
-										<li>
-											Users are connected with a Fitbux coach, certified
-											financial advisor to guide them and help make decisions.
-										</li>
-									</ul>
-								</div>
-							</div>
-
-						</div>
-
-					</c-work-list-item>
-				</is-land>
 
 				<is-land on:load>
 					<c-work-list-item
@@ -483,6 +317,7 @@
 					>
 					</c-work-list-item>
 				</is-land>
+				-->
 			</div>
 		</section>
 
@@ -491,19 +326,11 @@
 			<div class="c-footer__inner js-reveal-inner">
 				<hr class="u-separator-alternate u-margin-0" />
 				<div class="c-page-footer__upper u-text-large-1">
-					Made with &lt;3 by David B Waters in {{ date }}.
+					{{data.home.Footer_Upper_Text}}{{ date }}.
 				</div>
 				<div class="c-page-footer__lower">
 					<small class="u-text-bolder">
-						This site's source code is freely available under
-						the MIT license
-						<a
-							href="https://github.com/davidbwaters/davidbwaters.github.io"
-							title="This Site's Github Repo Link"
-						>here</a>.
-						<br>
-						Stay tuned! It's still very much a
-						work in progress.
+						{{data.home.Footer_Lower_Text|safe}}
 					</small>
 				</div>
 			</div>

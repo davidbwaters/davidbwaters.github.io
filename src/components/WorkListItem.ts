@@ -15,6 +15,7 @@ import {
   property
 } from 'lit/decorators.js';
 
+import slugify from 'slugify'
 
 @customElement('c-work-list-item')
 
@@ -248,7 +249,10 @@ export class CWorkListItem extends LitElement {
 
   @property({
     type: String,
-    converter: (value) => JSON.parse(value).join(', '),
+    converter: (value) => {
+      // console.log(value)
+      return JSON.parse(value).join(', ')
+    },
     reflect: true
   })
   tags = ''
@@ -262,7 +266,7 @@ export class CWorkListItem extends LitElement {
   @property({type: String})
   title = ''
 
-  @property({type: String})
+  @property({type: String, reflect: true})
   slug = ''
 
   @property({type: String})
@@ -303,16 +307,24 @@ export class CWorkListItem extends LitElement {
 
   constructor() {
     super()
+
     if (this.querySelector('[slot="case-study"]')) {
       this.hasCaseStudy = true
       this.caseStudy = this.querySelector('[slot="case-study"]').innerHTML
       this.querySelector('[slot="case-study"]').innerHTML = ''
     }
 
+
   }
 
   connectedCallback() {
     super.connectedCallback()
+
+    this.slug = slugify(this.title)
+
+    if (!this.images) {
+      this.images = '[]'
+    }
   }
 
   firstUpdated() {
@@ -464,12 +476,7 @@ export class CWorkListItem extends LitElement {
                       }
                     >
                       <div>
-                      ${
-                        JSON.parse(this.description).map(item => unsafeHTML(`
-                          <p> ${item} </p>
-                        `)
-                        )
-                      }
+                      ${unsafeHTML(this.description)}
                       </div>
                     </article>
                   `

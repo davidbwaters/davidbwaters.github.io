@@ -26,11 +26,11 @@
     },
     "Colors": {
       "Button-Primary-BG": {
-        "value": "#5a47b8",
+        "value": "#512cc9",
         "type": "color"
       },
       "Button-Primary-BG-Hover": {
-        "value": "#503fa5",
+        "value": "#412f9d",
         "type": "color"
       },
       "Button-Primary-F0": {
@@ -74,11 +74,11 @@
         "type": "color"
       },
       "Dark": {
-        "value": "#342867",
+        "value": "#251d49",
         "type": "color"
       },
       "Medium-Dark": {
-        "value": "#46378f",
+        "value": "#3a2d76",
         "type": "color"
       },
       "Muted": {
@@ -120,18 +120,18 @@
           {
             "color": "#0000000d",
             "type": "dropShadow",
-            "x": "0",
-            "y": "8",
-            "blur": "4",
-            "spread": "0"
+            "x": 0,
+            "y": 8,
+            "blur": 4,
+            "spread": 0
           },
           {
             "color": "#0000000d",
             "type": "dropShadow",
-            "x": "0",
-            "y": "4",
-            "blur": "4",
-            "spread": "0"
+            "x": 0,
+            "y": 4,
+            "blur": 4,
+            "spread": 0
           }
         ],
         "type": "boxShadow"
@@ -161,10 +161,10 @@
         "value": {
           "color": "#46378f",
           "type": "dropShadow",
-          "x": "0",
-          "y": "2",
-          "blur": "0",
-          "spread": "0"
+          "x": 0,
+          "y": 2,
+          "blur": 0,
+          "spread": 0
         },
         "type": "boxShadow"
       }
@@ -470,6 +470,27 @@
         "value": "underline",
         "type": "textDecoration"
       }
+    },
+    "Subtle-Small": {
+      "value": [
+        {
+          "color": "#0000000d",
+          "type": "dropShadow",
+          "x": 0,
+          "y": 6,
+          "blur": 4,
+          "spread": 0
+        },
+        {
+          "color": "#0000000d",
+          "type": "dropShadow",
+          "x": 0,
+          "y": 2,
+          "blur": 4,
+          "spread": 0
+        }
+      ],
+      "type": "boxShadow"
     }
   }
 }

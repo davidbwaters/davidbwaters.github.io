@@ -7,10 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_OPTIONS=--experimental-vm-modules eleventy --serve --config=.eleventy.cjs",
     "start": "NODE_OPTIONS=--experimental-vm-modules eleventy --serve --config=.eleventy.cjs",
+    "data": "NODE_OPTIONS=--experimental-vm-modules yarn tokens && node getData.js",
     "build": "yarn build:site && yarn build:storybook",
-    "build:site": "NODE_OPTIONS=--experimental-vm-modules eleventy --config=.eleventy.cjs",
+    "build:site": "NODE_OPTIONS=--experimental-vm-modules yarn data && eleventy --config=.eleventy.cjs",
     "build:storybook": "build-storybook -o build/storybook",
-    "tokens": "token-transformer --expandTypography=true --expandShadow=true tokens/tokens-in.json tokens/tokens.json && style-dictionary build",
+    "tokens": "token-transformer --expandTypography=true --expandShadow=true src/tokens/tokens-in.json src/tokens/tokens.json && style-dictionary build",
     "storybook": "start-storybook -p 6006",
     "chromatic": "npx chromatic --project-token=b2f657b8f0c0"
   },

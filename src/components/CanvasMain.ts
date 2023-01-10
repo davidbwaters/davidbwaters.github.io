@@ -57,8 +57,8 @@ export class CCanvasMain extends LitElement {
   setThemeImage() {
 
     const themeImage = document.body.dataset.theme === 'light'
-      ? 'url(/images/Hero-Paint-1-Light.jpg)'
-      : 'url(/images/Hero-Paint-1-Dark.jpg)';
+      ? 'url("' + this.lightImages[0] + '")'
+      : 'url("' + this.darkImages[0] + '")'
 
     this.style.setProperty('--theme-image', themeImage)
 
@@ -241,10 +241,10 @@ export class CCanvasMain extends LitElement {
       `
 
       const bg = {
-        start1: '/images/Hero-Paint-1-Dark.jpg',
-        end1: '/images/Hero-Paint-2-Dark.jpg',
-        start2: '/images/Hero-Paint-1-Light.jpg',
-        end2: '/images/Hero-Paint-2-Light.jpg',
+        start1: this.darkImages[0],
+        end1: this.darkImages[1],
+        start2: this.lightImages[0],
+        end2: this.lightImages[1],
         width: 1600,
         height: 1080
       }

@@ -1,12 +1,11 @@
 // hero.js
-import { TagIcon } from '@sanity/icons'
+import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list'
 
 export const skills = {
   name: 'Skills',
   title: 'Skills',
   type: 'document',
-  icon: TagIcon,
-
+  orderings: [orderRankOrdering],
   fields: [
     {
       name: 'Name',
@@ -19,7 +18,8 @@ export const skills = {
     {
       name: 'Image',
       type: 'image',
-    }
+    },
+    orderRankField({type:'Skills'})
 
   ]
 }

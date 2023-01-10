@@ -1,0 +1,364 @@
+{
+  "home": {
+    "Favicon": "https://cdn.sanity.io/images/09aarrl2/production/3e1f77c579662b42c550ed1cb554391a2f95b4e5-36x36.svg",
+    "Footer_Lower_Text": "This site's source code is freely available under the MIT license <a href=\"https://github.com/davidbwaters/davidbwaters.github.io\" title=\"This Site's Github Repo Link\">here</a>. <br> Stay tuned! It's still very much a work in progress.",
+    "Footer_Upper_Text": "Made with <3 by David B Waters in ",
+    "Logo": "https://cdn.sanity.io/images/09aarrl2/production/079441df8599d40bb936ec17802569f65728b1af-48x48.svg",
+    "Page_Title": "David B. Waters - Designer & Frontend Developer - Oakland",
+    "Skills_Heading": "Skills, tools of the trade, and technologies I enjoy working with.",
+    "Work_Heading": "A curated list of projects worked on and things I built.",
+    "_createdAt": "2022-12-02T17:13:41Z",
+    "_id": "home",
+    "_rev": "Nn9AOmnyulG6fnmGcqCsZu",
+    "_type": "home",
+    "_updatedAt": "2022-12-30T02:21:50Z",
+    "contact_links": [
+      {
+        "Icon": "mail",
+        "Link": "mailto:mrdavidbwaters@gmail.com",
+        "_key": "d6b067bf8033",
+        "_type": "contact_link"
+      },
+      {
+        "Icon": "twitter",
+        "Link": "https://twitter.com/dbwatersdesigns",
+        "_key": "4255572f3e2a",
+        "_type": "contact_link"
+      },
+      {
+        "Icon": "dribbble",
+        "Link": "https://dribbble.com/dbwatersdesigns",
+        "_key": "cbfe1c429942",
+        "_type": "contact_link"
+      },
+      {
+        "Icon": "github",
+        "Link": "https://github.com/davidbwaters",
+        "_key": "a01e5f0c4282",
+        "_type": "contact_link"
+      },
+      {
+        "Icon": "npm",
+        "Link": "https://www.npmjs.com/~davidbwaters",
+        "_key": "32ed5e99a8d2",
+        "_type": "contact_link"
+      }
+    ]
+  },
+  "Skills": [
+    {
+      "Description": "Figma, Sketch, Adobe CS**",
+      "Image": "https://cdn.sanity.io/images/09aarrl2/production/2164d6b53a10c691d2207e2a65adb5ccfe1e6609-700x560.png",
+      "Name": "Design",
+      "_createdAt": "2022-12-02T17:41:22Z",
+      "_id": "82c27d5d-cf44-4d0d-862e-ab00fb2d7c9b",
+      "_rev": "Nn9AOmnyulG6fnmGcJjx3K",
+      "_type": "Skills",
+      "_updatedAt": "2022-12-26T23:03:30Z",
+      "orderRank": "0|100008:"
+    },
+    {
+      "Description": "JS/ES*, Node.js, Jamstack",
+      "Image": "https://cdn.sanity.io/images/09aarrl2/production/ed22c2048e6a9355a009407e6506f5bd236198c6-692x560.png",
+      "Name": "Development",
+      "_createdAt": "2022-12-02T17:43:28Z",
+      "_id": "894d31b2-86a7-4904-a800-d859c477e38f",
+      "_rev": "Nn9AOmnyulG6fnmGcJjx3K",
+      "_type": "Skills",
+      "_updatedAt": "2022-12-26T23:03:30Z",
+      "orderRank": "0|10000o:"
+    },
+    {
+      "Description": "Web Components, Applications, #UseThePlatform",
+      "Image": "https://cdn.sanity.io/images/09aarrl2/production/347ea7890057ff397201a6d2db3e821a3883da2d-684x560.png",
+      "Name": "Web Platform",
+      "_createdAt": "2022-12-02T17:40:47Z",
+      "_id": "94ee89da-1f17-4eec-8352-aba83e97a6d2",
+      "_rev": "Nn9AOmnyulG6fnmGcJq1bW",
+      "_type": "Skills",
+      "_updatedAt": "2022-12-26T23:11:28Z",
+      "orderRank": "0|9r000h:"
+    },
+    {
+      "Description": "Not sure where to start? I can help!",
+      "Image": "https://cdn.sanity.io/images/09aarrl2/production/3c7023e77e1f5d080359b4d2cecbd7a25d7ec41a-700x560.png",
+      "Name": "Consultation",
+      "_createdAt": "2022-12-02T17:43:56Z",
+      "_id": "a5b57abd-ea68-41c2-a020-bf93b670989d",
+      "_rev": "cCwhodvSzH2SHIVJDPuw4j",
+      "_type": "Skills",
+      "_updatedAt": "2022-12-26T23:10:30Z",
+      "orderRank": "0|ii000b:"
+    }
+  ],
+  "hero": {
+    "Availability": "Available Now!",
+    "CTA": "Multidisciplinary  <br />Designer & Frontend  <br /> Developer",
+    "Contact": "Start <span class=\"u-hidden@mobile\">Your</span> Project!",
+    "Heading": "Building digital solutions to promote growth.",
+    "Location": "Oakland, CA",
+    "Name": "David B. Waters",
+    "Name_Stylized": "davidbwaters",
+    "_createdAt": "2022-12-01T01:40:57Z",
+    "_id": "hero",
+    "_rev": "U8xBlHhtvk0NV9Y2EcLAKb",
+    "_type": "hero",
+    "_updatedAt": "2022-12-26T22:37:02Z",
+    "bgdark": [
+      "https://cdn.sanity.io/images/09aarrl2/production/a7c1a6097a9a8c3a7a1e0ecbf9653518411d36f8-1600x1080.jpg",
+      "https://cdn.sanity.io/images/09aarrl2/production/f0bea4839939b24a9251b5aad9802e014f436ae1-1600x1080.jpg"
+    ],
+    "bglight": [
+      "https://cdn.sanity.io/images/09aarrl2/production/0fb85eaecf744c7461695df28f774a7b5229bcd0-1600x1080.jpg",
+      "https://cdn.sanity.io/images/09aarrl2/production/7143e3d6fceb408b80022fe095b4cd7130358206-1600x1080.jpg"
+    ],
+    "portrait": {
+      "dark": "https://cdn.sanity.io/images/09aarrl2/production/92a2a6559fb45fcb5005bd7b72a349c8fd735e71-400x400.jpg",
+      "light": "https://cdn.sanity.io/images/09aarrl2/production/ddcbf24c83045ed766b8f6a5b28f7eb3681bb125-400x400.jpg"
+    }
+  },
+  "Work": [
+    {
+      "Case_Study": false,
+      "Description": "While working as Lead Designer at <a href=\"http://mtx.gg\">Matrix</a> in 2022, I was tasked with developing their branding and design system. ",
+      "Hide_Modal": false,
+      "Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/28a613779f7f8bd4b134f2ed02e734acf5575d60-1601x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/b04c9db05107d726c5242ae5b3e87da114cb83ac-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/bb6f716b349efef5ce1c831ad68e3664f0992aa6-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/072e14316382687f289ea22af37e1917b2040d8d-1601x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/a3eff09ba0f27fe761418e0dd6b7ec822b668732-1601x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/5561bfa0726c399645b306fef64771ed357b29ad-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/8595cb23a972b03d6ee88c4e327ff309f9c199cd-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/78e1f3b552c1bfdd5fae5a5b82cd601a05f9a8a4-1600x1200.jpg"
+      ],
+      "Links": {
+        "Site": "mtx.gg"
+      },
+      "Preview_Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/28a613779f7f8bd4b134f2ed02e734acf5575d60-1601x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/b04c9db05107d726c5242ae5b3e87da114cb83ac-1600x1200.jpg"
+      ],
+      "Short_Description": "Revolutionizing the digital economy, one quest at a time.",
+      "Tags": [
+        "Figma",
+        "Typescript",
+        "React",
+        "Frontend Development"
+      ],
+      "Title": "Matrix",
+      "Wide": true,
+      "_createdAt": "2022-12-02T17:56:04Z",
+      "_id": "f485ac50-71b2-46e3-91b6-e1eebb23d7e4",
+      "_rev": "cCwhodvSzH2SHIVJDQOgQW",
+      "_type": "Work",
+      "_updatedAt": "2022-12-27T00:47:38Z",
+      "orderRank": "0|04i003:"
+    },
+    {
+      "Case_Study": true,
+      "Description": "<article>\n\t<p class=\"u-text-large-2\">\n\t\tWhile working for <a href=\"http://mainux.com\">Mainux</a>,\n\t\tI helped create  Fitbux&#39;s design system, UI, and\n\t\tbranding using Figma.  I was responsible for overhauling\n\t\ttheir current branding and updating it to modern standards.\n\t</p>\n\t<hr>\n\t<div>\n\t\t<h4 class=\"u-text-large-1\">Overview</h4>\n\t\t<p>\n\t\t\tFitBUX combines innovative technology and free FitBUX Coaches to \n\t\t\thelp you develop and implement your financial plan.\n\t\t</p>\n\t\t<p>\n\t\t\tThey've helped over 11,000 Young Professionals  make good\n\t\t\tdecisions on student loans, retirement, home buying, and so\n\t\t\tmuch more.  We can help you do the same.\n\t\t</p>\n\t</div>\n\n</article>\n\n<div class=\"c-media-grid__text-item\">\n\t<div>\n\t\t<h4 class=\"u-text-large-1\">The Problem</h4>\n\t\t<ul>\n\t\t\t<li>New graduates have trouble managing their finances</li>\n\t\t\t<li>People don't have a plan for paying off student loan debt</li>\n\t\t\t<li>People have trouble tracking expenses and budgeting</li>\n\t\t</ul>\n\t</div>\n</div>\n\n<div class=\"c-media-grid__text-item\">\n\t<div>\n\t\t<h4 class=\"u-text-large-1\">Target Audience</h4>\n\t\t<ul>\n\t\t\t<li>Young professionals and recent graduates</li>\n\t\t\t<li>People with student loan debt</li>\n\t\t\t<li>People struggling with finances</li>\n\t\t</ul>\n\t</div>\n\t<div>\n\t\t<h4 class=\"u-text-large-1\">Competitors</h4>\n\t\t<p>Mobills, Walnut, Spendee, YNAB, Mint</p>\n\t</div>\n</div>\n\n<div class=\"c-media-grid__text-item u-align-content-center\">\n\t<div>\n\t\t<h4 class=\"u-text-large-1\">The Aesthetic</h4>\n\t\t<p>\n\t\t\tI took inspiration from Fitbux's cool blue color scheme and existing branding\n\t\t\tand added some accent hues for the app.  I wanted a clean, modern, neumorphic\n\t\t\taesthetic to give it a modern feel.\n\t\t</p>\n\t\t<p>\n\t\t\tWe chose Poppins for the font for it's clean geometric forms.  The design uses\n\t\t\tlots of gradients, transparency, and background blur to achieve the look.  We started\n\t\t\tthe project with a style guide to nail down the theme elements and integrate the current\n\t\t\tbranding.\n\t\t</p>\n\t</div>\n</div>\n\n<c-gallery-image\n\tclass=\"c-media-grid__image-item\" src=\"https://cdn.sanity.io/images/09aarrl2/production/f66c72ead6139c4441dcef3b7ea06821e576bca6-1600x1400.jpg\"\n\talt=\"Fitbux Screenshot\"\n\tgallery=\"2\"\n></c-gallery-image>\n\n<div class=\"c-media-grid__text-item u-align-content-center\">\n\t<div>\n\t\t<h4 class=\"u-text-large-1\">The Process</h4>\n\t\t<p>\n\t\t\tThe app had complex, lengthy form sections that collected various financial data\n\t\t\tthat we split up into sections.  The client felt strongly about how they wanted\n\t\t\tcertain parts of these to function, so we worked with them when building these out.\n\t\t</p>\n\t\t<p>\n\t\t\tThe main section of the app was a dashboard with a lot of complex data widgets\n\t\t\tand we had to carefully lay these out to fit across different device sizes.  There\n\t\t\twas also a contact section to interact with your Fitbux coach.  The design\n\t\t\tsystem had well over 50 components.\n\t\t</p>\n\t</div>\n</div>\n\n<div class=\"c-media-grid__text-item u-align-content-center\">\n\t<div>\n\t\t<h4 class=\"u-text-large-1\">The Solution</h4>\n\t\t<ul>\n\t\t\t<li>\n\t\t\t\tUser friendly financial platform.\n\t\t\t</li>\n\t\t\t<li>\n\t\t\t\tUsers can link their bank account and build a financial\n\t\t\t\tprofile.\n\t\t\t</li>\n\t\t\t<li>\n\t\t\t\tUsers can track spending.\n\t\t\t</li>\n\t\t\t<li>\n\t\t\t\tUsers can set a budget & categorize expenses.\n\t\t\t</li>\n\t\t\t<li>\n\t\t\t\tUsers can set saving goals.\n\t\t\t</li>\n\t\t\t<li>\n\t\t\t\tUsers are connected with a Fitbux coach, certified\n\t\t\t\tfinancial advisor to guide them and help make decisions.\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n</div>\n",
+      "Hide_Modal": false,
+      "Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/dd75ec483f053499a8bc4a5ccde14bc647929d65-1200x900.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/42ab08db899605933e5b81da65178d7b2dcb0b29-1725x1294.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/8a2a492b47f5063d9623e1f324c108b45f0cd061-1200x900.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/a555e7a17a69555ca1aed7fbe835265b902fa9fb-1440x1080.gif",
+        "https://cdn.sanity.io/images/09aarrl2/production/c3f9ffdb8c7cca1876b48edff8810f380a068cbb-3432x2580.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/b101e0497c25ec7a86e63bc0034243459d7dcb8e-3432x2580.jpg"
+      ],
+      "Preview_Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/dd75ec483f053499a8bc4a5ccde14bc647929d65-1200x900.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/42ab08db899605933e5b81da65178d7b2dcb0b29-1725x1294.jpg"
+      ],
+      "Short_Description": "Providing gps for your money. Mobile and web app design.",
+      "Tags": [
+        "Figma"
+      ],
+      "Title": "Fitbux",
+      "Wide": true,
+      "_createdAt": "2022-12-07T19:59:44Z",
+      "_id": "a68a9729-f093-4879-8100-cf2918a6120e",
+      "_rev": "Nn9AOmnyulG6fnmGcKJRuc",
+      "_type": "Work",
+      "_updatedAt": "2022-12-27T00:47:37Z",
+      "orderRank": "0|090006:"
+    },
+    {
+      "Case_Study": false,
+      "Description": "<p> I created the macOS Modern Visual Studio Code theme to enable users to experience the best code editor while maintaining a native-like look and feel. </p>\n<p> The theme includes multiple icon sets and a matching light and dark app icon. </p>\n<p> At the time of this writing, it has over 71 thousand installs. </p>",
+      "Hide_Modal": false,
+      "Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/b28fa6f49616368e8a149c4c5f2871b2c79b9687-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/6658cbf9bef725bfe752d15f7287c7fb8958e521-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/0e8f5ce47d8df66b7bee5cf06151259533b27228-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/2573719ee81f0ff9791663db8f4fc885b6b3916b-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/e445ac7f1caa78e80c8792da68cd21eea6417cbc-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/9d83965bbb62057323c83f02b888a5cd07dc2ea4-1600x1200.jpg"
+      ],
+      "Links": {
+        "GitHub": "https://github.com/davidbwaters/macos-modern-vscode-theme",
+        "Microsoft": "https://marketplace.visualstudio.com/items?itemName=davidbwaters.macos-modern-theme"
+      },
+      "Preview_Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/b28fa6f49616368e8a149c4c5f2871b2c79b9687-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/6658cbf9bef725bfe752d15f7287c7fb8958e521-1600x1200.jpg"
+      ],
+      "Short_Description": "A popular Visual Studio Code theme to match native macOS.",
+      "Tags": [
+        "Frontend Development"
+      ],
+      "Title": "macOS Modern",
+      "Wide": true,
+      "_createdAt": "2022-12-26T23:14:09Z",
+      "_id": "34fb434d-5fd2-41b6-8392-a02d5ae4ab57",
+      "_rev": "cCwhodvSzH2SHIVJDQL8mY",
+      "_type": "Work",
+      "_updatedAt": "2022-12-27T00:43:13Z",
+      "orderRank": "0|100016:"
+    },
+    {
+      "Case_Study": false,
+      "Description": "<p> This is a collection of logo variations created as part of a personal branding update. </p>\n<p> This project was a great exercise in using the process of rapid iteration to develop a final product.  The logo is intended to show my initials, DBW. </p>",
+      "Hide_Modal": false,
+      "Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/6bf442437516b306608d6f2f4a1cac22c365ef17-2660x1994.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/5cc959d62c192fa742853502ae3842931f587ecd-2400x1800.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/f6de48fec98c3a6b4c129286fb7d5cdd55673bee-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/94a2ec54f8b59a4e36e620e3cb4bb17dc90e781b-1600x1200.jpg"
+      ],
+      "Preview_Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/6bf442437516b306608d6f2f4a1cac22c365ef17-2660x1994.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/f6de48fec98c3a6b4c129286fb7d5cdd55673bee-1600x1200.jpg"
+      ],
+      "Short_Description": " Collection of logo variations created as part of a personal branding update.",
+      "Tags": [
+        "Adobe Illustrator"
+      ],
+      "Title": "Personal Branding",
+      "Wide": true,
+      "_createdAt": "2022-12-26T23:56:52Z",
+      "_id": "b75d5fda-34d7-4aed-ba7d-493a3f544ef3",
+      "_rev": "U8xBlHhtvk0NV9Y2EcaWNX",
+      "_type": "Work",
+      "_updatedAt": "2022-12-27T00:43:01Z",
+      "orderRank": "0|10001o:"
+    },
+    {
+      "Case_Study": false,
+      "Description": "<p> I created the brand identity for Limber Logic, a digital product design company in Charleston, SC. I wanted the branding to have a sleek, techy, aesthetic. </p>\n<p> Limber Logic was the collaboration of my friend as Lead Developer and me as Lead Designer. We worked on various projects and I learned a lot in my time there. </p>",
+      "Hide_Modal": false,
+      "Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/e3afe6126ac57df61ad2e22e031e18e9f95a92e6-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/bc621424777e8c89cc551c3ca76db61f76eccb70-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/d618032f18faf41dbeff47b1242aea85731a8305-1280x960.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/578ace0689e4e88d0aaa9a7ff0c72504cfd4e1ab-1280x960.jpg"
+      ],
+      "Preview_Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/d618032f18faf41dbeff47b1242aea85731a8305-1280x960.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/ad51fd9b2190d79892f0efe0ccea326307848477-800x600.svg"
+      ],
+      "Short_Description": "I created the branding for Limber Logic, a digital design company in Charleston, SC.",
+      "Tags": [
+        "Adobe Illustrator"
+      ],
+      "Title": "Limber Logic Brand Identity",
+      "Wide": true,
+      "_createdAt": "2022-12-26T23:39:32Z",
+      "_id": "808d9077-04f1-4848-bdf1-a0b02ed68458",
+      "_rev": "U8xBlHhtvk0NV9Y2EcaWj1",
+      "_type": "Work",
+      "_updatedAt": "2022-12-27T00:43:08Z",
+      "orderRank": "0|10002a:"
+    },
+    {
+      "Case_Study": false,
+      "Description": "<p> These shots were created for an in-development web and mobile app for land developers. </p>\n<p> I was recruited to improve the overall user experience and help design the map interface. I used Figma to create wireframes, mockups, and a component system. </p>\n<p> I also helped the team refine the React-based frontend during a sprint before a deadline. </p>",
+      "Hide_Modal": false,
+      "Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/a917d6ed212717e76455b234aaed0134b117e1be-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/47c2161d689e4ed37a2169eebdc91fd3e519f031-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/f1a8fb740d2b9d05ce57b84d55b967a98ff89d37-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/338387305cff2b206ecbf18480bd5c6c9555aa0f-1600x1200.jpg"
+      ],
+      "Preview_Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/a917d6ed212717e76455b234aaed0134b117e1be-1600x1200.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/47c2161d689e4ed37a2169eebdc91fd3e519f031-1600x1200.jpg"
+      ],
+      "Short_Description": " UI created for an in-development web and mobile app for land developers.",
+      "Tags": [
+        "React",
+        "Javascript",
+        "Frontend Development",
+        "Figma"
+      ],
+      "Title": "Map Dashboard",
+      "Wide": true,
+      "_createdAt": "2022-12-26T23:51:51Z",
+      "_id": "6d30a0c0-d325-4525-8863-7ec671316308",
+      "_rev": "Nn9AOmnyulG6fnmGcKFP8M",
+      "_type": "Work",
+      "_updatedAt": "2022-12-27T00:41:09Z",
+      "orderRank": "0|10002w:"
+    },
+    {
+      "Case_Study": false,
+      "Description": "<p>I contributed icons to an open-source clipboard manager for macOS made by Matt Davidson.</p>\n\n<p>I created a menu bar icon and three revisions of the app icon, included an updated version for macOS Big Sur. This project adheres to Apple&#8217;s design guidelines.</p>",
+      "Hide_Modal": false,
+      "Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/3b9e260d0447b064b2d00e51a61bb28929a2c56f-1021x766.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/60582355cd21a33439d4434ac988e2d5bf74b1a6-1021x766.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/ccd654dad911383233b9d1b5c62204ba2c035e70-1021x766.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/4f84ee9939eeb83ffa1819eb6ffc93844866f2a9-1021x766.jpg"
+      ],
+      "Links": {
+        "GitHub": "https://github.com/mattDavo/Yippy"
+      },
+      "Preview_Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/3b9e260d0447b064b2d00e51a61bb28929a2c56f-1021x766.jpg",
+        "https://cdn.sanity.io/images/09aarrl2/production/60582355cd21a33439d4434ac988e2d5bf74b1a6-1021x766.jpg"
+      ],
+      "Short_Description": " I contributed app and UI icons to an open-source clipboard manager for macOS made by Matt Davidson.",
+      "Tags": [
+        "Adobe Illustrator",
+        "Figma"
+      ],
+      "Title": "Yippy Clipboard Manager",
+      "Wide": true,
+      "_createdAt": "2022-12-27T00:07:41Z",
+      "_id": "61b4004b-e217-4f3e-8457-d622100411fc",
+      "_rev": "cCwhodvSzH2SHIVJDR0kNC",
+      "_type": "Work",
+      "_updatedAt": "2022-12-27T02:40:01Z",
+      "orderRank": "0|10003c:"
+    },
+    {
+      "Case_Study": false,
+      "Hide_Modal": true,
+      "Links": {
+        "GitHub": "https://github.com/davidbwaters/substructure",
+        "NPM": "https://www.npmjs.com/settings/substructure/packages"
+      },
+      "Preview_Images": [
+        "https://cdn.sanity.io/images/09aarrl2/production/6989a9f014eec214424ccde68767d01c8170d497-800x600.svg",
+        "https://cdn.sanity.io/images/09aarrl2/production/e146fa7f63e94e0a2c1aaf4df6d29f3cf6c560ec-1600x1200.jpg"
+      ],
+      "Short_Description": " My modular CSS boilerplate inspired by the work of Harry Roberts and others with modern features sprinkled in.",
+      "Tags": [
+        "CSS/SASS",
+        "BEM",
+        "ITCSS",
+        "Lerna",
+        "Frontend Development"
+      ],
+      "Title": "Substructure ITCSS Framework",
+      "Wide": true,
+      "_createdAt": "2022-12-27T00:05:17Z",
+      "_id": "c1435f7f-21e9-469d-9495-1d32aae1708a",
+      "_rev": "Nn9AOmnyulG6fnmGcKFbak",
+      "_type": "Work",
+      "_updatedAt": "2022-12-27T00:42:37Z",
+      "orderRank": "0|ii001n:"
+    }
+  ]
+}

@@ -77,6 +77,7 @@ export class CTopBar extends LitElement {
     }
 
     ::slotted([slot='logo']) {
+      grid-template-columns: 100%;
       grid-template-rows: 100%;
       width: var(--top-bar-logo-size);
     }

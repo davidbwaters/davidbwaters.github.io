@@ -83,6 +83,11 @@
   position: relative !important;
 }
 
+.u-position-sticky {
+  position: sticky;
+  top: 0;
+}
+
 
 /* Margin */
 
@@ -91,7 +96,11 @@
 }
 
 
-/* Max Dimensions */
+/* Dimensions */
+
+.u-min-height-2px {
+  min-height: 2px;
+}
 
 .u-max-width-30 {
   max-width: 30rem !important;
@@ -137,7 +146,8 @@
   visibility: hidden !important;
 }
 
-@media (max-width:25em) {
+/* purgecss ignore */
+@media (max-width:30em) {
 
   .u-hidden\@small {
     display: none !important;
@@ -146,7 +156,8 @@
 
 }
 
-@media (max-width:35em) {
+/* purgecss ignore */
+@media (max-width:45em) {
 
   .u-hidden\@mobile {
     display: none !important;
@@ -155,8 +166,9 @@
 
 }
 
-@media (max-width:45em) {
+@media (max-width:75em) {
 
+  /* purgecss ignore */
   .u-hidden\@tablet {
     display: none !important;
     visibility: hidden !important;
@@ -167,12 +179,32 @@
 
 /* Theme Fill */
 
-.u-theme-fill,
-.u-theme-fill svg {
+.u-theme-fill {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-mask-position: 50% 50%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  content: '';
   fill: var(--color-fg) !important;
+  mask-position: 50% 50%;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  object-fit: contain;
 }
 
+.u-theme-fill-logo {
+  background: currentColor;
+  mask-image: url(https://cdn.sanity.io/images/09aarrl2/production/079441df8599d40bb936ec17802569f65728b1af-48x48.svg);
+  height: 100%;
+  width: 100%;
+  -webkit-mask-image: url(https://cdn.sanity.io/images/09aarrl2/production/079441df8599d40bb936ec17802569f65728b1af-48x48.svg);
+}
 
+.u-size-1 {
+  height: 2.25rem;
+  width: 2.25rem;
+}
 
 /* Separators */
 
@@ -374,6 +406,7 @@
 
 .u-list-inline li {
   display: inline-block;
+  list-style-type: none;
 
   &::before {
     content: none

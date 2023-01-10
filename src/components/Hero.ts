@@ -23,8 +23,6 @@ export class CHero extends LitElement {
     }
 
     :host {
-      --hero-image-me-dark: url('/images/Me-Dark.jpg');
-      --hero-image-me-light: url('/images/Me-Light.jpg');
       --vw: 1vw;
 
       background-color: var(--color-bg);
@@ -301,7 +299,7 @@ export class CHero extends LitElement {
 
 
     .c-hero__me-dark {
-      background-image: url('/images/Me-Dark.jpg');
+      background-image: var(--hero-image-me-dark);
       background-size: cover;
       filter: hue-rotate(-2deg) url('#animate');;
       grid-column: 1;
@@ -314,8 +312,8 @@ export class CHero extends LitElement {
 
     .c-hero__me-light {
       background-blend-mode: luminosity;
-      background-color: var(--color-bg-primary);
-      background-image: url('/images/Me-Light.jpg');
+      background-color: var(var(--me-dark));
+      background-image: var(--hero-image-me-light);
       filter: url('#animate');
       grid-column: 1;
       grid-row: 1;
@@ -333,6 +331,7 @@ export class CHero extends LitElement {
       height: 100%;
       position: relative;
       text-align: center;
+      text-transform: uppercase;
       width: 100%;
     }
 
@@ -509,8 +508,10 @@ export class CHero extends LitElement {
 
     @media (min-width: 30em) {
       ::slotted([slot='footer-content-right']) {
-        grid-template-columns: auto 1fr;
+        grid-auto-flow: column;
         grid-column: span 1;
+        grid-template-columns: auto;
+        justify-content: start;
       }
     }
 
@@ -597,6 +598,14 @@ export class CHero extends LitElement {
   @property({type: String})
   theme
 
+  @property({type: String})
+  medark = '/images/Me-Dark.jpg'
+
+  @property({type: String})
+  melight = '/images/Me-Light.jpg'
+
+
+
   gsap
   scrollTrigger
 
@@ -606,6 +615,10 @@ export class CHero extends LitElement {
     const {gsap, ScrollTrigger} = await import('gsap/all')
     this.gsap = gsap
     this.scrollTrigger = ScrollTrigger
+
+    this.style.setProperty('--hero-image-me-light', 'url("' + this.melight +'")')
+
+    this.style.setProperty('--hero-image-me-dark', 'url("' + this.medark + '")')
 
     let transitioned = false
     window.addEventListener('appLoaded', () => {

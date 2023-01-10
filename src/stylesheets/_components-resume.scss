@@ -1,0 +1,218 @@
+/*
+ *  Components - Skill List
+ */
+
+
+.c-resume {
+  display: grid;
+  gap: 0 var(--spacing-size-5);
+  grid-auto-rows: auto;
+  grid-template-columns: 100%;
+  grid-template-rows: auto 2px;
+  margin-bottom: 0;
+  margin-top: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 75em) {
+
+  .c-resume {
+    grid-template-rows: min-content 0;
+  }
+
+}
+
+
+.c-resume__content,
+.c-resume__header  {
+  align-content: start;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 2px auto;
+  justify-content: start;
+  overflow: auto;
+}
+
+@media (min-width: 75em) {
+  .c-resume__content,
+  .c-resume__header {
+    gap: 0 0;
+    grid-auto-flow: row;
+    grid-template-columns: 20rem 2px 1fr;
+  }
+}
+
+.c-resume__header {
+  grid-template-rows: auto 2px;
+}
+
+.c-resume__logo,
+.c-resume__heading,
+.c-resume__subheading,
+.c-resume__title,
+.c-resume__title-light  {
+  font-family: var(--font-main-medium);
+  font-weight: var(--font-main-medium-weight);
+  line-height: var(--line-height-large);
+}
+
+
+.c-resume__logo,
+.c-resume__heading {
+  font-size: var(--text-size-normal);
+  letter-spacing: .075em;
+  margin: 0;
+  padding: var(--spacing-size-4) var(--spacing-size-4) var(--spacing-size-3)var(--spacing-size-4);
+  text-transform: uppercase;
+}
+
+.c-resume__logo {
+  align-items: center;
+  display: grid;
+  gap: var(--spacing-size-2);
+  grid-auto-flow: column;
+  justify-content: start;
+  padding: var(--spacing-size-4);
+
+  & span {
+    margin-top: .15em;
+  }
+}
+
+.c-resume__info {
+  align-items: center;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr auto;
+  padding: var(--spacing-size-4) var(--spacing-size-5) var(--spacing-size-4) var(--spacing-size-4);
+}
+
+.c-resume__info-grid {
+  display: grid;
+  gap: var(--spacing-size-3) var(--spacing-size-4);
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-content: start;
+  margin-bottom: 0;
+  padding: 0;
+
+  li {
+    &::before {
+      display: none;
+    }
+
+    align-items: center;
+    display: grid;
+    font-family: var(--font-main-medium);
+    font-size: var(--text-size-small-1);
+    font-weight: var(--font-main-medium-weight);
+    gap: var(--spacing-size-1);
+    grid-auto-flow: column;
+    grid-template-columns: min-content;
+    list-style-type: none;
+  }
+}
+
+@media (min-width: 35em) {
+
+  .c-resume__info-grid {
+    gap: var(--spacing-size-2) var(--spacing-size-4);
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+  }
+
+}
+
+@media (min-width: 75em) {
+
+  .c-resume__info-grid {
+    font-size: var(--text-size-normal-base);
+    grid-template-columns: auto auto;
+    padding: var(--spacing-size-1) 0;
+  }
+
+}
+
+.c-resume__divider-bottom {
+  grid-column: span 1;
+}
+
+@media (min-width: 75em) {
+
+  .c-resume__divider-bottom {
+    top: -2px !important;
+    grid-column: span 3;
+  }
+
+}
+
+.c-resume__content {
+  grid-template-rows: auto auto 2px;
+}
+
+
+@media (min-width: 75em) {
+
+  .c-resume__content {
+    grid-template-rows: auto 2px;;
+  }
+
+}
+
+.c-resume__main-content {
+  display: grid;
+  grid-template-rows: auto;
+}
+
+.c-resume__main-content-inner {
+  padding: var(--spacing-size-4);
+}
+
+.c-resume__heading-wrapper {
+  -webkit-backdrop-filter: blur(0.75rem);
+  background-color: var(--color-bg-semi-transparent);
+  backdrop-filter: blur(0.75rem);
+  display: grid;
+  grid-template-rows: 1fr 2px;
+  max-height: 6.5rem;
+  z-index: 9;
+}
+
+
+@media (min-width: 75em) {
+
+  .c-resume__heading-wrapper {
+    grid-template-rows: 1fr;
+  }
+
+}
+
+.c-resume__subheading {
+  font-size: var(--text-size-large-1);
+  letter-spacing: .05em;
+  margin-bottom: var(--spacing-size-1);
+}
+
+.c-resume__title,
+.c-resume__title-light {
+  font-size: var(--text-size-normal);
+  letter-spacing: .05em;
+}
+
+.c-resume__title {
+  margin-bottom: var(--spacing-size-1);
+  opacity: 0.85;
+}
+
+.c-resume__title-light {
+  margin-bottom: var(--spacing-size-2);
+  opacity: 0.7;
+}
+
+.c-resume__skill-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 8rem;
+  margin-top: var(--spacing-size-3);
+}

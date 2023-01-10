@@ -34,6 +34,10 @@ export const home = {
       name: 'Logo',
     },
     {
+      type: 'image',
+      name: 'Favicon',
+    },
+    {
       name: 'Page_Title',
       title: 'Page Title',
       type: 'string'

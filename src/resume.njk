@@ -1,0 +1,140 @@
+---js
+{
+	layout: "default",
+	date: new Date().getFullYear().toString().toLowerCase(),
+	stylesheets: [ 'stylesheets/main.scss' ],
+	eleventyComputed: {
+		title: data => data.data.home.Page_Title + ' Resume'
+	}
+}
+---
+
+	<main class="c-app c-resume u-transparent">
+
+    <header class="c-resume__header u-position-sticky">
+      <div class="c-resume__logo u-position-sticky">
+        <div class="u-size-1 u-theme-fill u-theme-fill-logo"></div>
+        <span>
+          David B. Waters
+        </span>
+      </div>
+
+      <div class="u-bg-pattern-diagonal-tight u-position-sticky"></div>
+
+      <div class="c-resume__info">
+        <ul class="c-resume__info-grid">
+          <li>
+            <c-icon icon='folio' size='1.5em'></c-icon>
+            <a href="https://davidbwaters.com">https://davidbwaters.com</a>
+          </li>
+
+          <li>
+            <c-icon icon='location' size='1.5em'></c-icon>
+            <span>Oakland, CA</span>
+          </li>
+
+          <li>
+            <c-icon icon='mail' size='1.5em'></c-icon>
+            <a href="mailto:mrdavidbwaters@gmail.com">mrdavidbwaters@gmail.com</a>
+          </li>
+
+          <li>
+            <c-icon icon='phone' size='1.5em'></c-icon>
+            <span>843.303.3807</span>
+          </li>
+        </ul>
+
+        <c-button icon='arrow-down' label='PDF' href='/resume.pdf'></c-button>
+      </div>
+
+      <div class="u-bg-pattern-diagonal-tight c-resume__divider-bottom"></div>
+    </header>
+    <div class="u-bg-pattern-diagonal-tight"></div>
+    <section class="c-resume__content">
+
+      <div class="u-position-sticky c-resume__heading-wrapper">
+        <h2 class="c-resume__heading">Overview</h2>
+        <div class="u-bg-pattern-diagonal-tight"></div>
+      </div>
+      <div class="u-bg-pattern-diagonal-tight u-hidden@tablet"></div>
+      <div class="c-resume__main-content">
+        <div class="c-resume__main-content-inner">
+          <h3 class="c-resume__subheading">Multidisciplinary Designer + Frontend Developer</h3>
+          <p>Multidisciplinary designer and frontend developer with a passion for effective design. Specializing in producing clean, functional designs with a minimalist aesthetic. My services include UI design, branding/identity, illustration, and general graphic design.</p>
+          <p>Intimate knowledge of frontend code architecture. Working knowledge of various popular modern frontend web technologies. Active in open-source repositories on Github (davidbwaters) and NPM (@davidbwaters) as a writer, maintainer, and contributor. Strong advocate of the web platform and open-source community.</p>
+          <p>Strong work ethic, recognizes importance of feedback, comfortable working under deadlines, and works well as part of a team. Past clients include startups, small-businesses, corporations, and e-commerce stores.</p>
+        </div>
+      </div>
+
+      <div class="u-position-sticky u-bg-pattern-diagonal-tight u-min-height-2px  c-resume__divider-bottom"></div>
+
+      <div class="u-position-sticky c-resume__heading-wrapper">
+        <h2 class="c-resume__heading">Experience</h2>
+        <div class="u-bg-pattern-diagonal-tight"></div>
+      </div>
+
+      <div class="u-bg-pattern-diagonal-tight"></div>
+      <div class="c-resume__main-content">
+        <div class="c-resume__main-content-inner">
+          <h3 class="c-resume__subheading">Lead Visual Designer</h3>
+          <h4 class="c-resume__title">Matrix</h4>
+          <h4 class="c-resume__title-light">Oakland, CA | 11/2021 - 09/2022</h4>
+          <p>Worked with the product owner and team to develop a new product design language, UX, interaction design, and design system using Figma. Worked directly with developers on the front-end implementation in React. Spanning frontend frontend development, product design, branding, interaction design, UI/UX, and design system architecture.</p>
+        </div>
+        <div class="u-bg-pattern-diagonal-tight u-min-height-2px"></div>
+
+        <div class="c-resume__main-content-inner">
+          <h3 class="c-resume__subheading">Lead UI/UX Designer</h3>
+          <h4 class="c-resume__title">Mainux</h4>
+          <h4 class="c-resume__title-light">Charleston, SC | 01/2021 - 08/2021</h4>
+          <p>Worked directly with owner on client projects. Spanning web design, Figma, UI/UX, UX research, product design, graphic design, branding / identity, interaction design, Android and iOS design, and motion design. Past clients include startups, small-businesses, corporations, and e-commerce/consumer shopping stores.</p>
+        </div>
+        <div class="u-bg-pattern-diagonal-tight u-min-height-2px"></div>
+
+        <div class="c-resume__main-content-inner">
+          <h3 class="c-resume__subheading">Freelance</h3>
+          <h4 class="c-resume__title">Self-Employed</h4>
+          <h4 class="c-resume__title-light">Charleston, SC | 01/2017 - 09/2021</h4>
+          <p>Worked directly with owner on client projects. Spanning web design, Figma, UI/UX, UX research, product design, graphic design, branding / identity, interaction design, Android and iOS design, and motion design. Past clients include startups, small-businesses, corporations, and e-commerce/consumer shopping stores.</p>
+        </div>
+        <div class="u-bg-pattern-diagonal-tight u-min-height-2px"></div>
+
+        <div class="c-resume__main-content-inner">
+          <h3 class="c-resume__subheading">Lead Designer</h3>
+          <h4 class="c-resume__title">Limber Logic</h4>
+          <h4 class="c-resume__title-light">Charleston, SC | 01/2017 - 09/2021</h4>
+          <p>Worked directly with Lead Developer on a diverse range of development projects. Tasked with all frontend duties, designing in Sketch and coding UIs, interaction design, product design, developing brand identities, performing various graphic design tasks, and creating content.</p>
+        </div>
+
+      </div>
+
+
+      <div class="u-position-sticky u-bg-pattern-diagonal-tight u-min-height-2px c-resume__divider-bottom"></div>
+
+      <div class="u-position-sticky c-resume__heading-wrapper">
+        <h2 class="c-resume__heading">Skills</h2>
+        <div class="u-bg-pattern-diagonal-tight"></div>
+      </div>
+      <div class="u-bg-pattern-diagonal-tight u-hidden@tablet"></div>
+      <div class="c-resume__main-content">
+        <div class="c-resume__main-content-inner">
+          <p>Strong work ethic, recognizes importance of feedback, comfortable working under deadlines, and works well as part of a team. Mastery of design principles (typography, iconography, composition, color, layout).</p>
+
+          <ul class="c-resume__skill-list">
+            <li>UI + UX Design</li>
+            <li>Figma / Sketch</li>
+            <li>Adobe Suite</li>
+            <li>Branding / Identity</li>
+            <li>Illustration</li>
+            <li>Content Creation</li>
+            <li>Frontend Architecture</li>
+            <li>Web Design</li>
+            <li>JS / React.js / ES* / Node.js</li>
+            <li>CSS + SASS</li>
+            <li>CMS / Wordpress / Jamstack</li>
+            <li>UI + UX Consulting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>

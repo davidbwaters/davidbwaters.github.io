@@ -105,6 +105,15 @@ export class CButton extends LitElement {
       font-size: 1.5em;
     }
 
+    .c-button--ghost {
+      background: transparent;
+      color: var(--color-fg);
+    }
+
+    .c-button--ghost:hover {
+      background: var(--color-semi-transparent)
+    }
+
     .c-button i {
       font-size: 1.5em;
     }
@@ -134,7 +143,7 @@ export class CButton extends LitElement {
       return 'c-button--' + value
     }
   })
-  variant = 'c-button--primary'
+  variant = 'primary'
 
   @property({
     converter: (value) => {

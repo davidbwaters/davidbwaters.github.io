@@ -7,17 +7,15 @@ import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
 import GLightbox from "glightbox";
 import ImagePreloader from "image-preloader";
 import Scrambler from "scrambling-letters";
-
+import * as data from '../_data/data.json'
 
 const preloadingImages = [
-  "/images/Loader.svg",
-  "/images/Me-Dark.jpg",
-  "/images/Me-Light.jpg",
-  "/images/Hero-Paint-1-Dark.jpg",
-  "/images/Hero-Paint-1-Light.jpg",
-  "/images/Hero-Paint-2-Dark.jpg",
-  "/images/Hero-Paint-2-Light.jpg",
-  "/images/Noise-Clear.svg",
+  data.hero.portrait.dark,
+  data.hero.portrait.light,
+  data.hero.bgdark[0],
+  data.hero.bglight[0],
+  data.hero.bgdark[1],
+  data.hero.bglight[1],
 ];
 
 const preloader = new ImagePreloader();
@@ -209,8 +207,10 @@ function setFilterAnimation() {
     document.querySelector('svg feColorMatrix')
   ]
 
+  const hero = document.querySelector("c-hero")
+
   if(filters.length && filters[0]) {
-    filters.push(
+    hero && filters.push(
       document.querySelector('c-hero').shadowRoot
         .querySelector('svg feColorMatrix')
     )
