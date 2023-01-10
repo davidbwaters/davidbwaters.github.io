@@ -31,7 +31,7 @@ export class CWorkListItem extends LitElement {
       margin-left: auto;
       margin-right: auto;
       margin-top: 1px;
-      padding-bottom: 1em;
+      padding-bottom: .75rem;
       position: relative;
     }
 
@@ -46,7 +46,6 @@ export class CWorkListItem extends LitElement {
       :host {
         max-height: 130vh;
         max-width: calc(100% - (((var(--spacing-size-2) * 2) + 1.75rem) * 2));
-        padding-bottom: 1.25em;
       }
 
     }

@@ -263,8 +263,11 @@ function setHeroScroll() {
         ScrollTrigger.refresh();
       },
     });
-    heroTl.to(
+    heroTl.fromTo(
       noise,
+      {
+        "--opacity-noise": 0.8
+      },
       {
         "--opacity-noise": 0.6
       },
