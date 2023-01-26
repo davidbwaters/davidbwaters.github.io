@@ -56,6 +56,12 @@ export class CHero extends LitElement {
       }
     }
 
+    *::selection {
+      background-color: var(--color-selection-bg);
+      color: var(--color-selection-fg);
+      -webkit-text-stroke-color: var(--color-selection-fg);
+    }
+
     .c-hero__upper {
       align-content: center;
       border-bottom: solid 1px var(--color-accent);
@@ -132,9 +138,7 @@ export class CHero extends LitElement {
       margin: 0 !important;
       max-width: calc(100vw - 4em);
       overflow-wrap: break-word;
-      pointer-events: none;
       text-transform: uppercase;
-      user-select: none;
       width: 100vw;
     }
 

@@ -22,6 +22,8 @@ export class CCanvasNoise extends LitElement {
 
   static styles = css`
     :host {
+      --opacity-noise: 0.8;
+
       display: block;
       height: 100%;
       mix-blend-mode: hard-light;

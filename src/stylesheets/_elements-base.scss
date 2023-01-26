@@ -3,9 +3,9 @@
  */
 
 *::selection {
-  background-color: var(--color-fg);
-  color: var(--color-bg);
-  -webkit-text-stroke-color: var(--color-bg);
+  background-color: var(--color-selection-bg);
+  color: var(--color-selection-fg);
+  -webkit-text-stroke-color: var(--color-selection-fg);
 }
 
 :root {

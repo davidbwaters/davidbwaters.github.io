@@ -89,6 +89,8 @@
   --color-subtle-alternate: #{$colors-td-f1};
   --color-semi-transparent-alternate: #{$colors-td-semi-transparent-alternate};
   --color-semi-transparent-overlay: #{$colors-td-semi-transparent-overlay};
+  --color-selection-fg: var(--color-fg);
+  --color-selection-bg: #{$colors-button-primary-bg-hover};
   --theme-dark-opacity: 1;
 }
 
@@ -102,5 +104,7 @@
   --color-subtle-alternate: #{$colors-tl-f1};
   --color-semi-transparent-alternate: #{$colors-tl-semi-transparent-alternate};
   --color-semi-transparent-overlay: #{$colors-tl-semi-transparent-overlay};
+  --color-selection-fg: var(--color-fg);
+  --color-selection-bg: var(--color-muted);
   --theme-light-opacity: 1;
 }
