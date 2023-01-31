@@ -97,6 +97,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({'public/fonts':'fonts'})
   eleventyConfig.addPassthroughCopy({'public/images':'images'})
   eleventyConfig.addPassthroughCopy({'public/favicon.svg':'favicon.svg'})
+  eleventyConfig.addPassthroughCopy({'public/resume.pdf':'resume.pdf'})
 
 	eleventyConfig.addPlugin(styles, {
     criticalOptions:'off',
