@@ -520,10 +520,10 @@ export class CHero extends LitElement {
     }
 
     ::slotted([slot='footer-box-right']) {
-      align-items: center;
       display: grid;
       font-size: 1.2em;
-      justify-content: center;
+      grid-template-rows: 1em;
+      place-content: center;
     }
 
     @media (min-width: 30em) {
