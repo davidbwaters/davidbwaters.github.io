@@ -165,7 +165,7 @@
 								tags='{{ work.Tags|dump}}'
 								previewImages='{{ work.Preview_Images|dump  }}'
 								images='{{ work.Images|dump  }}'
-								shortDescription='Providing gps for your money. Mobile and web app design.'
+								shortDescription='{{ work.Short_Description }}'
 								wide="true"
 							>
 								<div slot='case-study'>
@@ -189,7 +189,7 @@
 								previewImages='{{ work.Preview_Images|dump  }}'
 								images='{{ work.Images|dump  }}'
 								description='{{work.Description|safe}}'
-								shortDescription='Providing gps for your money. Mobile and web app design.'
+								shortDescription='{{ work.Short_Description }}'
 								wide="true"
 								hideModal='{{work.Hide_Modal|safe}}'
 							>

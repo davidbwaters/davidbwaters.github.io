@@ -94,6 +94,9 @@ module.exports = function (eleventyConfig) {
   syncGlob('public/*').forEach(file => {
   })
 
+
+  // eleventyConfig.addPassthroughCopy({'public/images': 'images'})
+  eleventyConfig.addPassthroughCopy({'public/fonts': 'fonts'})
   eleventyConfig.addPassthroughCopy({'public/*': '/'})
 
 	eleventyConfig.addPlugin(styles, {
