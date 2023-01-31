@@ -46,14 +46,14 @@ export class CButton extends LitElement {
       font-weight: var(--font-main-regular-weight);
       font-size: var(--text-size-small-1);
       grid-auto-flow: column;
-      grid-gap: var(--spacing-size-1);
+      grid-gap: calc(var(--spacing-size-2) * .6);
       min-height: var(--button-height);
       letter-spacing: .05em;
       line-height: 1.2;
-      padding-bottom: calc(var(--spacing-size-2) * .5);
+      padding-bottom: calc(var(--spacing-size-2) * .6);
       padding-left: calc(var(--spacing-size-2) * .8);
       padding-right: calc(var(--spacing-size-2) * .8);
-      padding-top: calc(var(--spacing-size-2) * .5 + .2em);
+      padding-top: calc(var(--spacing-size-2) * .6);
       place-content: center;
       position: relative;
       text-decoration: none;
@@ -71,7 +71,7 @@ export class CButton extends LitElement {
         letter-spacing: .1em;
       }
 
-      .c-button:has(i) {
+      .c-button:has(c-icon) {
         padding-left: calc(var(--spacing-size-2) * 1.1);
         padding-right: calc(var(--spacing-size-2) * 1.1);
       }
@@ -98,11 +98,13 @@ export class CButton extends LitElement {
       z-index: 9;
     }
 
-    .c-button i,
     .c-button c-icon {
       display: inline-block;
-      margin-top: -.2em;
       font-size: 1.5em;
+    }
+
+    .c-button span {
+      transform: translateY(6.6%);
     }
 
     .c-button--ghost {
@@ -114,14 +116,6 @@ export class CButton extends LitElement {
       background: var(--color-semi-transparent)
     }
 
-    .c-button i {
-      font-size: 1.5em;
-    }
-
-    .c-buttom span {
-      position: relative;
-      top: 2px;
-    }
 
     .c-button--large,
     c-button .c-button--large {

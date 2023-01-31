@@ -12,6 +12,8 @@ export class CIcon extends LitElement {
   static styles = css`
     :host {
       --icon-size: 1em;
+      --icon-offset: 0%;
+
       display: inline-grid !important;
       height: var(--icon-size);
       place-content: center;
@@ -21,7 +23,7 @@ export class CIcon extends LitElement {
     .c-icon {
       display: grid;
       grid-template-rows: 100%;
-      height: calc(var(--icon-size) * 0.72);
+      height: calc(var(--icon-size) * 1);
       place-items: start;
       width: var(--icon-size);
     }
@@ -45,7 +47,7 @@ export class CIcon extends LitElement {
       mask-repeat: no-repeat;
       mask-size: contain;
       text-transform: none !important;
-      transform: translatey(-16%);
+      transform: translatey(var(--icon-offset));
       transition: none;
       width: var(--icon-size);
       mask: var(--svg-icon);
