@@ -94,10 +94,7 @@ module.exports = function (eleventyConfig) {
   syncGlob('public/*').forEach(file => {
   })
 
-  eleventyConfig.addPassthroughCopy({'public/fonts':'fonts'})
-  eleventyConfig.addPassthroughCopy({'public/images':'images'})
-  eleventyConfig.addPassthroughCopy({'public/favicon.svg':'favicon.svg'})
-  eleventyConfig.addPassthroughCopy({'public/resume.pdf':'resume.pdf'})
+  eleventyConfig.addPassthroughCopy({'public/*': '/'})
 
 	eleventyConfig.addPlugin(styles, {
     criticalOptions:'off',
