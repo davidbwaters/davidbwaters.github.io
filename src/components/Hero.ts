@@ -27,19 +27,17 @@ export class CHero extends LitElement {
 
       background-color: var(--color-bg);
       display: grid;
-      grid-template-rows: 4fr auto 4.5rem;
+      grid-template-rows: 1fr 1fr 4.5rem;
       height: 100%;
       height: var(--doc-height);
       max-height: 100vh;
-      min-height: 25rem;
+      min-height: 35rem;
       overflow: hidden;
       z-index: 2;
     }
 
     @media (min-width: 30em) {
       :host {
-        grid-template-rows: 4fr auto 4.5rem;
-        min-height: 25rem;
       }
     }
 
@@ -70,7 +68,6 @@ export class CHero extends LitElement {
       justify-content: center;
       min-height:40vh;
       overflow: hidden;
-      padding: 1.25rem;
       position: relative;
     }
 
@@ -133,19 +130,27 @@ export class CHero extends LitElement {
       filter: url('#animate');
       font-family: var(--font-display), sans-serif !important;
       font-weight: var(--font-display-weight) !important;
-      font-size: 4.25vw !important;
+      font-size: 4vw !important;
       line-height: var(--line-height-large) !important;
-      margin: 0 !important;
-      max-width: calc(100vw - 4em);
+      margin: auto !important;
+      max-width: calc(100vw - 2em);
       overflow-wrap: break-word;
       text-transform: uppercase;
       width: 100vw;
     }
+    @media (min-width: 30em) and (min-height: 30em) {
+      ::slotted([slot='tagline']),
+      .c-hero__tagline {
+        font-size: 4.9vw !important;
+      }
+    }
+
 
     @media (min-width: 30em) and (min-height: 30em) {
-      .c-hero__tagline,
-      ::slotted([slot='tagline']) {
+      ::slotted([slot='tagline']),
+      .c-hero__tagline {
         line-height: var(--line-height-normal) !important;
+        font-size: 4.25vw !important;
         max-width: calc(100vw - 8rem);
       }
     }
@@ -447,7 +452,7 @@ export class CHero extends LitElement {
       overflow: hidden;
     }
 
-    @media (min-width: 30em) {
+    @media (min-width: 40em) {
       .c-hero__footer {
         grid-template-columns:
           4rem
@@ -496,7 +501,7 @@ export class CHero extends LitElement {
       display: none !important;
     }
 
-    @media (min-width: 30em) {
+    @media (min-width: 40em) {
 
       ::slotted([slot='footer-content-left']) {
         display: grid !important;
@@ -510,7 +515,7 @@ export class CHero extends LitElement {
       grid-template-columns: 1fr 1fr;
     }
 
-    @media (min-width: 30em) {
+    @media (min-width: 40em) {
       ::slotted([slot='footer-content-right']) {
         grid-auto-flow: column;
         grid-column: span 1;
