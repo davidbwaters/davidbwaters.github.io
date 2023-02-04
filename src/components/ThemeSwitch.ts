@@ -39,12 +39,18 @@ export class CThemeSwitch extends LitElement {
 
     .c-theme-switch__wrapper {
       align-items: center;
-      column-gap: var(--spacing-size-1);
+      column-gap: calc(var(--spacing-size-1) * .5);
       cursor: pointer;
       display: grid;
       grid-auto-flow: column;
       justify-content: center;
       position: relative;
+    }
+
+    @media (min-width: 40em) {
+      .c-theme-switch__wrapper {
+        column-gap: var(--spacing-size-1);
+      }
     }
 
     .c-theme-switch__wrapper:nth-of-type(2) {

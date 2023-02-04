@@ -27,7 +27,7 @@ export class CHero extends LitElement {
 
       background-color: var(--color-bg);
       display: grid;
-      grid-template-rows: 1fr 1fr 4.5rem;
+      grid-template-rows: 1fr auto 4.5rem;
       height: 100%;
       height: var(--doc-height);
       max-height: 100vh;
@@ -138,10 +138,11 @@ export class CHero extends LitElement {
       text-transform: uppercase;
       width: 100vw;
     }
-    @media (min-width: 30em) and (min-height: 30em) {
+
+    @media (min-height: 30em) {
       ::slotted([slot='tagline']),
       .c-hero__tagline {
-        font-size: 4.9vw !important;
+        font-size: 5.25vw !important;
       }
     }
 
@@ -150,8 +151,8 @@ export class CHero extends LitElement {
       ::slotted([slot='tagline']),
       .c-hero__tagline {
         line-height: var(--line-height-normal) !important;
-        font-size: 4.25vw !important;
-        max-width: calc(100vw - 8rem);
+        font-size: 4vw !important;
+        max-width: calc(100vw - 6rem);
       }
     }
 
@@ -263,14 +264,14 @@ export class CHero extends LitElement {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 5fr 4fr;
-      min-height: calc(40vh - 2.25rem);
+      min-height: max(calc(40vh - 2.25rem), 15rem);
       overflow: hidden;
     }
 
 
     @media (min-width: 30em) {
       .c-hero__lower {
-        min-height: calc(50vh - 2.25rem);
+        min-height: max(calc(50vh - 2.25rem), 15rem);
       }
     }
 
@@ -278,7 +279,7 @@ export class CHero extends LitElement {
       .c-hero__lower {
         grid-template-columns: 1fr 1fr 2fr;
         grid-template-rows: auto;
-        min-height: 28vh;
+        min-height: max(calc(28vh - 2.25rem), 10rem);
       }
     }
 
@@ -417,7 +418,7 @@ export class CHero extends LitElement {
 
     @media (min-width: 30em) {
       .c-hero__heading {
-        padding: 0px calc(9.5vw + 0.5rem);
+        padding: 0px 3rem;
         justify-content: stretch;
       }
     }
@@ -427,7 +428,6 @@ export class CHero extends LitElement {
         border-top: none;
         grid-column-end: 4;
         grid-column-start: 3;
-        padding: 0 4rem 0 3rem;
       }
 
     }
