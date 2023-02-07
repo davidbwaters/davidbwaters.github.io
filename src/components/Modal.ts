@@ -14,7 +14,6 @@ import {
 } from 'lit/decorators.js';
 
 import dialogPolyfill from 'dialog-polyfill'
-import { gsap, ScrollTrigger, ScrollToPlugin } from 'gsap/all';
 import GLightbox from 'glightbox'
 
 import { querySelectorDeep } from 'query-selector-shadow-dom';
@@ -224,9 +223,10 @@ export class CModal extends LitElement {
       setTimeout(() => {
         //console.log(this._triggerData)
 
-        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-        gsap.to(window, {duration: .66, scrollTo: document.querySelector('[slug=' + this._triggerData + ']')})
-
+        window.scrollTo({
+          top: window.scrollY + document.querySelector('[slug=' + this._triggerData + ']').getBoundingClientRect().y,
+          behavior: 'smooth'
+        })
       }, 2000);
       this._open()
     }
@@ -244,6 +244,7 @@ export class CModal extends LitElement {
   }
 
   _setup() {
+
 
     window.addEventListener('popstate', this._popstate.bind(this))
     const styles = window.getComputedStyle(this)
@@ -314,9 +315,15 @@ export class CModal extends LitElement {
 
     this._handleClose()
 
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-    gsap.to(window, {duration: 0.1, scrollTo: document.querySelector('[slug=' + this._triggerData + ']')})
-    // console.log(document.querySelector('[slug=' + this._triggerData + ']').getBoundingClientRect().top)
+    //gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    //gsap.to(window, {duration: 0.1, scrollTo: document.querySelector('[slug=' + this._triggerData + ']')})
+
+    console.log(document.querySelector('[slug=' + this._triggerData + ']').getBoundingClientRect().top)
+
+    window.scrollTo({
+      top: window.scrollY + document.querySelector('[slug=' + this._triggerData + ']').getBoundingClientRect().y,
+      behavior: 'smooth'
+    })
 
     //this._normalizer.enable()
     window.addEventListener('appLoaded', (() => {

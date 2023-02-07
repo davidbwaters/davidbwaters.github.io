@@ -12,7 +12,8 @@ import {
   customElement
 } from 'lit/decorators.js';
 
-import { gsap } from 'gsap'
+//import { gsap } from 'gsap'
+import { animate } from 'motion'
 
 import { querySelectorAllDeep } from 'query-selector-shadow-dom';
 
@@ -33,6 +34,7 @@ export class CCursor extends LitElement {
       pointer-events: none;
       position: fixed;
       top: calc(var(--cursor-size) / 2 * -1);
+      transition: all 0s;
       width: var(--cursor-size);
       will-change: transform, opacity;
       z-index: 999;
@@ -70,24 +72,120 @@ export class CCursor extends LitElement {
 
   private _speed = 0.2;
 
-  private _set = gsap.quickSetter(this, 'css')
+  //private _set = gsap.quickSetter(this, 'css')
 
   private _enterStyles = {
     borderWidth: '1px',
-    duration: 0.5,
     scale: 2
   }
 
   private _leaveStyles = {
     borderWidth: '2px',
-    duration: 0.5,
     scale: 1
   }
 
-  private _delta = 1.0 - Math.pow(
-    1.0 - this._speed,
-    gsap.ticker.deltaRatio()
-  )
+  private _delta
+
+  private move = () => {
+
+    this._delta = .5
+
+    this.position.currentX +=
+      (this.position.cursorX - this.position.currentX) *
+      this._delta
+
+    this.position.currentY +=
+      (this.position.cursorY - this.position.currentY) *
+      this._delta
+
+    animate(this,
+      {
+        x: this.position.currentX,
+        y: this.position.currentY
+      },
+      {
+        duration: 0
+      }
+    )
+
+    if (
+      this._activeTarget &&
+      (
+        this._activeTarget.dataset.cursorMagnetic === 'true' ||
+        this._activeTarget.parentElement.dataset.cursorMagnetic === 'true'
+      )
+    ) {
+
+      const rect = this._activeTarget
+        .getBoundingClientRect()
+
+      const magnetMovement = 5
+
+      let magneticX =
+      (
+        (
+          rect.x +
+          (rect.width / 2) -
+          this.position.cursorX
+        )
+      ) / -2
+
+      if (magneticX > 0) {
+
+        magneticX = Math.min(
+          magneticX, magnetMovement
+        )
+
+      }
+      else {
+
+        magneticX = Math.max(
+          magneticX, -1 * magnetMovement
+        )
+
+      }
+
+      let magneticY =
+      (
+        (
+          rect.y +
+          (rect.height / 2) -
+          this.position.cursorY
+        )
+      ) / -2
+
+      if (magneticY > 0) {
+
+        magneticY = Math.min(
+          magneticY, magnetMovement
+        )
+
+      }
+      else {
+
+        magneticY = Math.max(
+          magneticY, -1 * magnetMovement
+        )
+
+      }
+      animate(
+        this._activeTarget, {
+          x: magneticX,
+          y: magneticY
+        },
+        {
+          duration: 0
+        }
+      )
+
+    }
+
+  }
+
+  //private _delta = 1.0 - Math.pow(
+  //  1.0 - this._speed,
+  //  gsap.ticker.deltaRatio()
+  //)
 
   constructor() {
 
@@ -115,7 +213,7 @@ export class CCursor extends LitElement {
 
     this.render()
 
-    this._set = gsap.quickSetter(this, 'css')
+    //this._set = gsap.quickSetter(this, 'css')
 
     const isTouch =
     'ontouchstart' in document.documentElement
@@ -145,105 +243,14 @@ export class CCursor extends LitElement {
         this.position.cursorY = e.y
       }
 
+      this.move()
       //console.log(this.position)
 
     })
 
-    gsap.ticker.add(() => {
-
-      this._delta = 1.0 - Math.pow(
-        1.0 - this._speed,
-        gsap.ticker.deltaRatio()
-      )
-
-      this.position.currentX +=
-      (this.position.cursorX - this.position.currentX) *
-      this._delta
-
-      this.position.currentY +=
-      (this.position.cursorY - this.position.currentY) *
-      this._delta
 
 
-      this._set({
-        x: this.position.currentX,
-        y: this.position.currentY
-      })
-
-      if (
-        this._activeTarget &&
-        (
-          this._activeTarget.dataset.cursorMagnetic === 'true' ||
-          this._activeTarget.parentElement.dataset.cursorMagnetic === 'true'
-        )
-      ) {
-
-        const rect = this._activeTarget
-          .getBoundingClientRect()
-
-        const magnetMovement = 5
-
-        let magneticX =
-        (
-          (
-            rect.x +
-            (rect.width / 2) -
-            this.position.cursorX
-          )
-        ) / -2
-
-        if (magneticX > 0) {
-
-          magneticX = Math.min(
-            magneticX, magnetMovement
-          )
-
-        }
-        else {
-
-          magneticX = Math.max(
-            magneticX, -1 * magnetMovement
-          )
-
-        }
-
-        let magneticY =
-        (
-          (
-            rect.y +
-            (rect.height / 2) -
-            this.position.cursorY
-          )
-        ) / -2
-
-        if (magneticY > 0) {
-
-          magneticY = Math.min(
-            magneticY, magnetMovement
-          )
-
-        }
-        else {
-
-          magneticY = Math.max(
-            magneticY, -1 * magnetMovement
-          )
-
-        }
-        gsap.to(
-          this._activeTarget, {
-            x: magneticX,
-            y: magneticY,
-            duration: 0.3
-          }
-        )
-
-      }
-
-    })
-
-
-    gsap.to(
+    animate(
       this,
       this._leaveStyles
     )
@@ -265,9 +272,12 @@ export class CCursor extends LitElement {
 
   handleEnter(e) {
 
-    gsap.to(
+    animate(
       this,
-      this._enterStyles
+      this._enterStyles,
+      {
+        duration: 0.5
+      }
     )
 
     this._activeTarget = e.target
@@ -276,12 +286,15 @@ export class CCursor extends LitElement {
 
   handleLeave(e) {
 
-    gsap.to(
+    animate(
       this,
-      this._leaveStyles
+      this._leaveStyles,
+      {
+        duration: 0.5
+      }
     )
 
-    gsap.to(
+    animate(
       e.target, {
         x: 0,
         y: 0
@@ -327,9 +340,7 @@ export class CCursor extends LitElement {
 
 
     magneticTargetEls.forEach((el:HTMLElement) => {
-
       el.dataset.cursorMagnetic = 'true'
-
     })
 
     const targetEls = [

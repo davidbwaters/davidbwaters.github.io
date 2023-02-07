@@ -293,11 +293,15 @@ export class CHero extends LitElement {
     .c-hero__me,
     .c-hero__me-dark,
     .c-hero__me-light {
+      width: 100%;
+    }
+
+    .c-hero__me-dark,
+    .c-hero__me-light {
       background-color: rgba(0,0,0,0.10);
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      width: 100%;
     }
 
     .c-hero__me {
@@ -307,11 +311,9 @@ export class CHero extends LitElement {
       position: relative;
     }
 
-
     .c-hero__me-dark {
       background-image: var(--hero-image-me-dark);
-      background-size: cover;
-      filter: hue-rotate(-2deg) url('#animate');;
+      filter: hue-rotate(-2deg) url('#animate');
       grid-column: 1;
       grid-row: 1;
       height: 100%;
@@ -362,7 +364,6 @@ export class CHero extends LitElement {
     }
 
     .c-hero__name-stylized-inner {
-
       background-image: linear-gradient(
         -45deg,
         var(--color-semi-transparent) 0%,
@@ -615,15 +616,24 @@ export class CHero extends LitElement {
 
 
 
-  gsap
-  scrollTrigger
+  //gsap
+  //scrollTrigger
 
+  animate
+  scroll
+  ScrollOffset
 
   async firstUpdated() {
 
-    const {gsap, ScrollTrigger} = await import('gsap/all')
-    this.gsap = gsap
-    this.scrollTrigger = ScrollTrigger
+    //const {gsap, ScrollTrigger} = await import('gsap/all')
+    const { animate, scroll, ScrollOffset } = await import('motion')
+
+    //this.gsap = gsap
+    //this.scrollTrigger = ScrollTrigger
+
+    this.animate = animate
+    this.scroll = scroll
+    this.ScrollOffset = ScrollOffset
 
     this.style.setProperty('--hero-image-me-light', 'url("' + this.melight +'")')
 
@@ -662,42 +672,63 @@ export class CHero extends LitElement {
 
   _scrollSetup() {
 
-    this.gsap.registerPlugin(this.scrollTrigger);
-    const heroTrigger = this.shadowRoot && this
-      .shadowRoot.querySelector(".c-hero__upper");
+    // this.gsap.registerPlugin(this.scrollTrigger);
+    const heroTrigger = this;
 
-    let heroTl = this.gsap.timeline({
-      scrollTrigger: {
-        scroller: document.body,
-        trigger: heroTrigger,
-        start: "0%",
-        end: "+=150%",
-        scrub: true,
-        //toggleActions: "restart none none reset",
-      },
-      onComplete: () => {
-        //ScrollTrigger && ScrollTrigger.refresh();
-      },
+    //let heroTl = this.gsap.timeline({
+    //  scrollTrigger: {
+    //    scroller: document.body,
+    //    trigger: heroTrigger,
+    //    start: "0%",
+    //    end: "+=150%",
+    //    scrub: true,
+    //    //toggleActions: "restart none none reset",
+    //  },
+    //  onComplete: () => {
+    //    //ScrollTrigger && ScrollTrigger.refresh();
+    //  },
+    //});
+
+    window.CSS.registerProperty({
+      name: '--hero-me-background-size',
+      inherits: true,
+      initialValue: '0',
+      syntax: "<length>"
     });
 
 
-    heroTl.fromTo(
-      this.shadowRoot && this.shadowRoot
-        .querySelectorAll(".js-hero-me"),
-      {
-        backgroundSize: "100% auto"
+    this.scroll(
+      progress => {
+        this.shadowRoot && this.shadowRoot
+        .querySelectorAll(".js-hero-me").forEach(
+          (i:HTMLElement) => {
+            i.style.setProperty('background-size', `${100 + progress.y.progress * 60}%`, 'important')
+          }
+        )
       },
       {
-        backgroundSize: "160% auto",
-      },
-      0
-    );
+        target: heroTrigger,
+        offset: this.ScrollOffset.Exit,
+      }
+    )
+
+    //heroTl.fromTo(
+    //  this.shadowRoot && this.shadowRoot
+    //    .querySelectorAll(".js-hero-me"),
+    //  {
+    //    backgroundSize: "100% auto"
+    //  },
+    //  {
+    //    backgroundSize: "160% auto",
+    //  },
+    //  0
+    //);
 
   }
 
   _transitionIn() {
 
-    let tl = this.gsap.timeline()
+    //let tl = this.gsap.timeline()
 
     const heroTarget:HTMLElement | null =
       this.shadowRoot &&
@@ -711,44 +742,41 @@ export class CHero extends LitElement {
       this.shadowRoot &&
       this.shadowRoot.querySelector('.c-hero__tagline-accents')
 
-    tl.from(
+    this.animate(
       heroTarget,
       {
-        height: 0,
-        minHeight: 0,
-        opacity: 0,
+        height: [0, 'auto'],
+        minHeight: [0, ''],
+        opacity: [0, '1'],
+      },
+      {
         duration: 1,
-        delay: 2,
-        onComplete: () => {
-
-          heroTarget && (heroTarget.style.height = '')
-          heroTarget && (heroTarget.style.minHeight = '')
-
-        }
+        delay: 2
       }
     )
 
-    tl.from(
+    this.animate(
       heroTagline,
       {
-        opacity: 0,
+        opacity: [0, 1],
+      },
+      {
         duration: 3,
         delay: 2
-      },
-      0
+      }
     )
 
-    tl.from(
+    this.animate(
       heroTaglineAccents,
       {
-        opacity: 0,
+        opacity: [0, 1]
+      },
+      {
         duration: 3,
         delay: 3
-      },
-      0
+      }
     )
 
-    tl.play()
 
   }
 
@@ -866,7 +894,7 @@ export class CHero extends LitElement {
       </div>
       <div class="c-hero__lower">
         <div class="
-          c-hero__me js-hero-me
+          c-hero__me
         ">
           <div class="c-hero__me-dark js-hero-me">
           </div>

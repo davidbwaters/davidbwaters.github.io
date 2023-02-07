@@ -4,6 +4,9 @@
 
 import gsap from "gsap";
 import { ScrollTrigger, ScrollToPlugin } from "gsap/all";
+
+import { animate, scroll, ScrollOffset } from 'motion'
+
 import GLightbox from "glightbox";
 import ImagePreloader from "image-preloader";
 import Scrambler from "scrambling-letters";
@@ -140,35 +143,28 @@ function setReveals() {
 
     // let image = container.querySelector('img')
 
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        scroller: document.body,
-        trigger: container,
-        toggleActions: "restart none none reset",
-        start: "top bottom",
-        end: "+=10",
-      },
-    });
-
-    // tl.set(targets, { autoAlpha: 1 })
-
-    tl.from(targets, {
-      y: 120,
-      opacity: 0,
-      duration: 0.5,
-      delay: 0.1,
-      stagger: 0,
-      scaleY: 1.4,
-      scaleX: 1.2,
-      ease: "Power2.out",
-      onComplete: () => {
-        //ScrollTrigger.refresh();
-      },
-    });
+    targets.forEach((target) => {
+      scroll(
+        animate(target,
+        {
+          opacity: [0, 1],
+          scaleY: [1.4, 1],
+          scaleX: [1.2, 1],
+        }, {
+          duration: 0.5,
+          delay: 0.1,
+          easing: 'ease-out'
+        }),
+        {
+          target: target,
+          offset: ["0 100vh", "20vh 100vh"]
+        }
+      );
+    })
   });
 
   const revealFadeContainers = document.querySelectorAll(".js-reveal-fade");
-
+/*
   revealFadeContainers.forEach((container:HTMLElement) => {
 
     gsap.set(container, {
@@ -199,7 +195,7 @@ function setReveals() {
 
 
   });
-
+*/
 }
 
 function setFilterAnimation() {
@@ -285,13 +281,16 @@ function setAnchorLinks() {
       const element = document.querySelector(anchor.dataset.target)
 
       anchor.addEventListener('click', () => {
-        gsap.to(window, {duration: .66, scrollTo: anchor.dataset.target});
+
+        window.scrollTo({
+          top: window.scrollY + document.querySelector(anchor.dataset.target).getBoundingClientRect().y,
+          behavior: 'smooth'
+        })
       })
     })
   }
 }
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 const scroller = ScrollTrigger.create({})
 
 window.addEventListener("resize", documentHeight);

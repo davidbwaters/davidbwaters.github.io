@@ -84,6 +84,7 @@
     "gsap": "^3.11.3",
     "image-preloader": "^1.1.1",
     "lit": "^2.4.0",
+    "motion": "^10.15.5",
     "ogl": "^0.0.102",
     "query-selector-shadow-dom": "^1.0.0",
     "scrambling-letters": "^1.6.2"
